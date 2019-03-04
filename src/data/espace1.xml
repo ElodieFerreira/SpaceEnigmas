@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE espace SYSTEM "espace.dtd" >
+<espace>
+<!-- La sortie Index 0 correspond au vaisseau -->
+  <planete>
+    <nom>Perlimpinpin</nom>
+    <description>Perlimpinpin est une planète isolée dans la galaxie. Ses habitants ne sont pas très importants.</description>
+    <cartePlanete>
+    	<zone index="1">
+				<nom>Spatioport</nom>
+				<description> Un spatioport peu fréquenté. Le seul moyen de sortir de la planète et de rejoindre le reste de la civilisation.</description>
+				<image>vaisseau.png</image>
+				<sortie index="0">SUD</sortie>
+				<sortie index="2">NORD</sortie>
+		</zone>
+		<zone index="2">
+				<nom>Perlimpinpin : Marché</nom>
+				<description> Un petit marché local où les habitants se réunissent pour acheter aux marchands voyageurs des produits de toute la galaxie. </description>
+				<image>marcheSiGifOk.gif</image>
+				<sortie index="1">SUD</sortie>
+				<sortie index="3">OUEST</sortie>
+		</zone>
+		<zone index="3">
+				<nom>Maison de joueur</nom>
+				<description> Une chambre typique, d'une maison ordinaire, sur une plan�te sans histoire...</description>
+				<image>Maisonjoueur.gif</image>
+				<sortie index="2">EST</sortie>
+		</zone>
+    </cartePlanete>
+  </planete>
+</espace>

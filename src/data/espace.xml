@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<espace>
+	<planete id="1">
+		<nom>Perlimpinpin</nom>
+		<description> Perlimpinpin est une planète isolée dans la galaxie. Ses habitants ne sont pas très importants.</description>
+		<cartePlanete>
+			<zone index="1">
+				<nom>Perlimpinpin :  Maison de Joueur</nom>
+				<description> Une chambre typique, d'une maison ordinaire, sur une plan�te sans histoire... </description>
+				<image/>
+				<sortie index="2">SUD</sortie>
+			</zone>
+			<zone index="3">
+				<nom>Perlimpinpin : Marché</nom>
+				<description>  Un petit marché local où les habitants se réunissent pour acheter aux marchands voyageurs des produits de toute la galaxie. </description>
+				<image/>
+				<sortie index="1">NORD</sortie>
+				<sortie index="3">SUD</sortie>
+			</zone>
+            <zone index="4">
+				<nom>Perlimpimpin : Spatioport</nom>
+				<description> Un spatioport peu fréquenté. Le seul moyen de sortir de la planète et de rejoindre le reste de la civilisation.</description>
+				<image/>
+				<sortie index="2">NORD</sortie>
+				<sortie index="0">OUEST</sortie>
+			</zone>
+		</cartePlanete>
+	</planete> 
+	<planete id="2">
+		<nom>Samaria</nom>
+		<description>Samaria est une planète agricole nourissant la majorité de la galaxie. Ses habitants ne semblent pas savoir qu'ils disposent de technologies ultra-avancées et préfèrent vivre une vie simple, comme dans les anciens temps.
+		</description>
+		<cartePlanete>
+			<zone index="5"> 
+				<nom>Prairie isolée</nom>
+				<description>Une petite prairie à l'écart de la planète. Les bergers y emmènent parfois leur troupeau.
+				</description>
+				<image/>
+				<sortie index=""/>
+			</zone>
+			<zone index="6">
+				<nom>Samaria : Champs Agricoles</nom>
+				<description> Des champs qui s'étendent à perte de vue. C'est ici que les paysans produisent les denrées vendues dans la galaxie entière.</description>
+				<image/>
+				<sortie zoneSortie=""/>
+			</zone>
+			<zone index="7">
+				<nom>Samaria : Spatioport</nom>
+				<description>Un spatioport très fréquenté par les marchands voyageurs qui y acheminent des denrées vers les plus grandes planètes. Les habitants de Samaria ne le visitent pas du tout.
+				</description>
+				<image/>
+				<sortie index="5"/>
+			</zone>
+		</cartePlanete>
+	</planete>
+	<planete id="3">
+		<nom> Lorniala </nom>
+		<description> Ancnciennement la planète la plus riche de la galaxie , Lorniala ne connait que le crime et la pauvreté depuis que la Mafia galactique a décidé de s'y installer.
+		</description>
+		<cartePlanete>
+			<zone index="8">
+				<nom> Lorniala : Spatioport</nom>
+				<description>Un spatioport délabré surtout utilisé pour la contrebade.
+				</description>
+				<image/>
+				<sortie index=""/>
+			</zone>
+
+			<zone index="9">
+				<nom>Lorniala : Marché</nom>
+				<description> On trouve ce que l'on veut au marché de Lorniala. Pour le bon prix, on peut y acquérir les produits les plus illégaux.
+				</description>
+				<image/>
+				<sortie index="0">NORD</sortie>
+			</zone>
+			<zone index="10">
+				<nom>Lorniala : Rue abandonnée</nom>
+				<description> Cette rue déserte est bien pratique pour les criminels qui y exécutent leurs basses oeuvres.
+				</description>
+				<image/>
+				<sortie index="0">NORD</sortie>
+			</zone>
+		</cartePlanete>
+	</planete>
+	<planete id="4">
+		<nom> Xénémos </nom>
+		<description> Xénémos est une planète quittée par toute forme de vie à cause de son environnement volcanique instable. 
+		</description>
+		<cartePlanete>
+			<zone index="11">
+				<nom> Xénémos : Champ de bataille </nom>
+				<description>Le lieu ou se déroule le combat final.</description>
+				<image/>
+				<sortie index=""/>
+			</zone>
+		</cartePlanete>
+	</planete>
+	<planete id="5">
+		<nom> Kishu </nom>
+		<description> Les moines de Kishu sont les gardiens d'une sagesse ancienne.
+		</description>
+		<cartePlanete>
+			<zone index="12">
+				<nom> Kishu : Spatioport </nom>
+				<description> Le spatioport acceuille les pélerins de la galaxie entière venus y chercher l'apaisement de leur âme et la réponse à leurs questions spirituelles.
+				</description>
+				<image/>
+				<sortie index=""/>
+			</zone>
+			<zone index="13">
+				<nom> Kishu : Jardins </nom>
+				<description> Pélerins et moines viennent méditer dans ce magnifique jardin unique dans la galaxie.
+				</description>
+				<image/>
+				<sortie index=""/>
+			</zone>
+			<zone index="14">
+				<nom> Kishu : Temple</nom>
+				<description> Construit il y a des millénaires, ce temple isolé regorge de mystères.
+				</description>
+				<image/>
+				<sortie index=""/>
+			</zone>
+		</cartePlanete>
+	</planete> 
+</espace>

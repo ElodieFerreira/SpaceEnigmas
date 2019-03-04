@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT espace (planete+)>
+<!ELEMENT planete (nom,description,cartePlanete)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT cartePlanete (zone+)>
+<!ELEMENT zone (nom,description,image,sortie+)>
+<!ATTLIST zone index ID #REQUIRED>
+<!ELEMENT image (#PCDATA)>
+<!ELEMENT sortie (#PCDATA)>
+<!ATTLIST sortie index ID #REQUIRED>
