@@ -1,5 +1,6 @@
 package jeu;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -20,8 +21,10 @@ public class GUI implements ActionListener
     private JFrame fenetre;
     private JPanel panel;
     private JPanel panelImage;
+    private JLabel personnage;
     private JPanel panelTexte;
     private JPanel panelDialogue;
+    private JPanel panelCarte;
     private JTextField entree;
     private JButton boutonNord;
     private JButton boutonSud;
@@ -44,11 +47,13 @@ public class GUI implements ActionListener
         afficher("\n");
     }
 
-   public void afficheImage( String nomImage) {
+    public void afficheImage(String nomImage) {
 	   	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
+	   	URL mouton = this.getClass().getClassLoader().getResource("images/MoutonTest.png");
 	   	System.out.println(imageURL);
 	   	if( imageURL != null ) {
         	image.setIcon( new ImageIcon( imageURL ));
+        	personnage.setIcon(new ImageIcon(mouton));
             fenetre.pack();   
         }
    }
@@ -59,7 +64,7 @@ public class GUI implements ActionListener
             entree.getCaret().setBlinkRate(0);
     }
 
-    private void creerGUI() {
+    private void creerGUIVersionInitial() {
         fenetre = new JFrame("Jeu");
         
         entree = new JTextField(34);
@@ -88,14 +93,16 @@ public class GUI implements ActionListener
         fenetre.setVisible(true);
         entree.requestFocus();
     }
-    private void creerGUIVersionTest() {
+    private void creerGUI() {
         fenetre = new JFrame("Jeu");
         panel = new JPanel();
         panel.setLayout(new GridLayout(2,1));
         panelTexte = new JPanel();
         panelTexte.setLayout(new BorderLayout());
+        panelCarte = new JPanel();
+        panelCarte.setLayout(new BorderLayout());
         panelImage = new JPanel();
-        panelImage.setLayout(new BorderLayout());
+        panelImage.setLayout(new CardLayout());
         panelDialogue = new JPanel();
         panelDialogue.setLayout(new BorderLayout());
         entree = new JTextField(34);
@@ -105,17 +112,19 @@ public class GUI implements ActionListener
         boutonSud = new JButton("Sud");
         boutonEst = new JButton("Est");
         boutonOuest = new JButton("Ouest");
+        personnage = new JLabel();
         texte.setEditable(false);
         JScrollPane listScroller = new JScrollPane(texte);
         listScroller.setPreferredSize(new Dimension(200, 200));
         listScroller.setMinimumSize(new Dimension(100,100));
-        panelImage.add(bouton,BorderLayout.NORTH);
-        panelImage.add(image,BorderLayout.SOUTH);
-        panelImage.setSize(150,150);
+        panelImage.add(image);
+        panelImage.add(personnage);
+        panelCarte.add(boutonNord,BorderLayout.NORTH);
+        panelCarte.add(panelImage);
         panelTexte.add(panelDialogue,BorderLayout.NORTH);
         panelTexte.add(listScroller,BorderLayout.CENTER);
         panelTexte.add(entree,BorderLayout.SOUTH);
-        panel.add(panelImage);
+        panel.add(panelCarte);
         panel.add(panelTexte);	
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
         

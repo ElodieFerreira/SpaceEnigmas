@@ -1,16 +1,19 @@
 package jeu;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class Zone 
+public class Zone implements Serializable
 {
     private String nom;
     private String description;
     private String nomImage;
     private HashMap<String,Zone> sorties;   
+//    private ArrayList<Mouton> animauxDansLazone;
+//    private ArrayList<Personnage> personnageDansLaZone;
 
     public Zone(String nomZone, String image, String descriptionZone) {
         this.nom = nomZone;
