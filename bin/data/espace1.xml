@@ -9,7 +9,7 @@
     	<zone index="1">
 				<nom>Spatioport</nom>
 				<description> Un spatioport peu fréquenté. Le seul moyen de sortir de la planète et de rejoindre le reste de la civilisation.</description>
-				<image>vaisseau.png</image>
+				<image>spatioport.png</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="2">NORD</sortie>
 		</zone>
@@ -61,7 +61,7 @@
     	<zone index="7">
 				<nom>Spatioport</nom>
 				<description>  Un spatioport délabré surtout utilisé pour la contrebade.</description>
-				<image>vaisseau.png</image>
+				<image>spatioport.jpg</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="8">NORD</sortie>
 		</zone>

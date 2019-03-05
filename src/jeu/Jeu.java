@@ -37,7 +37,7 @@ public class Jeu {
 //        zones[2].ajouteSortie(Sortie.OUEST, zones[1]);
 //        zones[3].ajouteSortie(Sortie.NORD, zones[1]);
 //        zones[1].ajouteSortie(Sortie.SUD, zones[3]);
-        	zoneCourante = zones.get(1);
+        	zoneCourante = zones.get(2);
     }
 
     private void afficherLocalisation() {

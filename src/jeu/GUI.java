@@ -1,11 +1,12 @@
 package jeu;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
-
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,7 +19,14 @@ public class GUI implements ActionListener
     private Jeu jeu;
     private JFrame fenetre;
     private JPanel panel;
+    private JPanel panelImage;
+    private JPanel panelTexte;
+    private JPanel panelDialogue;
     private JTextField entree;
+    private JButton boutonNord;
+    private JButton boutonSud;
+    private JButton boutonEst;
+    private JButton boutonOuest;
     private JTextArea texte;
     private JLabel image;
 
@@ -41,8 +49,7 @@ public class GUI implements ActionListener
 	   	System.out.println(imageURL);
 	   	if( imageURL != null ) {
         	image.setIcon( new ImageIcon( imageURL ));
-            fenetre.pack();
-            
+            fenetre.pack();   
         }
    }
 
@@ -71,6 +78,45 @@ public class GUI implements ActionListener
         panel.add(listScroller, BorderLayout.CENTER);
         panel.add(entree, BorderLayout.SOUTH);
 
+        fenetre.getContentPane().add(panel, BorderLayout.CENTER);
+        
+        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        entree.addActionListener(this);
+
+        fenetre.pack();
+        fenetre.setVisible(true);
+        entree.requestFocus();
+    }
+    private void creerGUIVersionTest() {
+        fenetre = new JFrame("Jeu");
+        panel = new JPanel();
+        panel.setLayout(new GridLayout(2,1));
+        panelTexte = new JPanel();
+        panelTexte.setLayout(new BorderLayout());
+        panelImage = new JPanel();
+        panelImage.setLayout(new BorderLayout());
+        panelDialogue = new JPanel();
+        panelDialogue.setLayout(new BorderLayout());
+        entree = new JTextField(34);
+        image = new JLabel();
+        texte = new JTextArea();
+        boutonNord = new JButton("Nord");
+        boutonSud = new JButton("Sud");
+        boutonEst = new JButton("Est");
+        boutonOuest = new JButton("Ouest");
+        texte.setEditable(false);
+        JScrollPane listScroller = new JScrollPane(texte);
+        listScroller.setPreferredSize(new Dimension(200, 200));
+        listScroller.setMinimumSize(new Dimension(100,100));
+        panelImage.add(bouton,BorderLayout.NORTH);
+        panelImage.add(image,BorderLayout.SOUTH);
+        panelImage.setSize(150,150);
+        panelTexte.add(panelDialogue,BorderLayout.NORTH);
+        panelTexte.add(listScroller,BorderLayout.CENTER);
+        panelTexte.add(entree,BorderLayout.SOUTH);
+        panel.add(panelImage);
+        panel.add(panelTexte);	
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
         
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
