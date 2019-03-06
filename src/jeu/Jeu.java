@@ -9,25 +9,45 @@ public class Jeu implements Serializable {
 	
     private GUI gui; 
 	private Zone zoneCourante;
+    private Partie partie;
     
     public Jeu() {
         creerCarte();
         gui = null;
     }
-
+    public Partie getPartie() {
+    	return partie;
+    }
     public void setGUI( GUI g) { gui = g; afficherMessageDeBienvenue(); }
-    
+    public void lancerDebutJeu() {
+    	if(false) {
+    		
+    	} else {
+    		partie = new Partie();
+    		gui.afficher("Bienvenue ! Rentrez votre prénom \n");
+    	}
+    }
+    public void creationJoueur(String nomJoueur) {
+    	partie.setJoueur(new Joueur(nomJoueur));
+    	gui.afficher("Ton nom est donc"+nomJoueur);
+    	gui.addNameFrame(nomJoueur);
+    }
     private void creerCarte() {
     	ArrayList<Zone> zones = new ArrayList<Zone>();
     	zones.add(new Zone("Vaisseau","vaisseau.png","Un petit vaisseau"));
     	zones = Zone.creerToutesLesZones(zones);
     	zones.addAll(Zone.ajouterToutesLesSorties(zones));
     	ArrayList<Planete> cartes = Planete.creerLesPlanetes(zones);
-        	zoneCourante = zones.get(1);
+    	zones.get(0).ajouteSortie(Sortie.valueOf("SUD"), cartes.get(0).getZones().get(0));
+    	zones.get(0).ajouteSortie(Sortie.valueOf("NORD"), cartes.get(1).getZones().get(0));
+    	zones.get(0).ajouteSortie(Sortie.valueOf("EST"), cartes.get(2).getZones().get(0));
+    	zones.get(0).ajouteSortie(Sortie.valueOf("OUEST"), cartes.get(3).getZones().get(0));
+    	zoneCourante = zones.get(1);
     }
 
     private void afficherLocalisation() {
             gui.afficher( zoneCourante.descriptionLongue());
+            gui.afficherBoutonSortie(zoneCourante.getSorties());
             gui.afficher();
     }
 
@@ -87,6 +107,7 @@ public class Jeu implements Serializable {
         	gui.afficher(zoneCourante.descriptionLongue());
         	gui.afficher();
             gui.afficheImage(zoneCourante.nomImage());	
+            gui.afficherBoutonSortie(zoneCourante.getSorties());
         }
     }
     

@@ -14,7 +14,6 @@ public class Zone implements Serializable
     private HashMap<String,Zone> sorties;   
 //    private ArrayList<Mouton> animauxDansLazone;
 //    private ArrayList<Personnage> personnageDansLaZone;
-
     public Zone(String nomZone, String image, String descriptionZone) {
         this.nom = nomZone;
         description = descriptionZone;
@@ -53,6 +52,9 @@ public class Zone implements Serializable
     }
     public void ajouteSortie(Sortie sortie, Zone zoneVoisine) {
         sorties.put(sortie.name(), zoneVoisine);
+    }
+    public HashMap<String,Zone> getSorties() {
+    	return sorties;
     }
 
     public String nomImage() {

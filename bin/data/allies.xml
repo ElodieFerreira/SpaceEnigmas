@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE listeAlliesPossible SYSTEM "allies.dtd" >
+<listeAlliesPossible>
+  <allie index="idvalue0">
+  	<nom />
+  	<image />
+  	<dialogue />
+  	<PP />
+  	<PV />
+  </allie>
+  <allie index="idvalue0">
+  	<nom />
+  	<image />
+  	<dialogue />
+  	<PP />
+  	<PV />
+  </allie>
+  <allie index="idvalue0">
+  	<nom />
+  	<image />
+  	<dialogue />
+  	<PP />
+  	<PV />
+  </allie>
+  <allie index="idvalue0">
+  	<nom />
+  	<image />
+  	<dialogue />
+  	<PP />
+  	<PV />
+  </allie>
+  <allie index="idvalue0">
+  	<nom />
+  	<image />
+  	<dialogue />
+  	<PP />
+  	<PV />
+  </allie>
+  <allie index="idvalue0">
+  	<nom />
+  	<image />
+  	<dialogue />
+  	<PP />
+  	<PV />
+  </allie>
+  <allie index="idvalue0">
+  	<nom />
+  	<image />
+  	<dialogue />
+  	<PP />
+  	<PV />
+  </allie>
+</listeAlliesPossible>

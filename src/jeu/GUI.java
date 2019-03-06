@@ -6,6 +6,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.HashMap;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,6 +21,7 @@ import java.awt.Color;
 import java.awt.Panel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class GUI implements ActionListener
 {
@@ -28,21 +31,22 @@ public class GUI implements ActionListener
     private JPanel panelImage;
     private JLabel personnage;
     private JPanel panelTexte;
-    private JPanel panelDialogue;
     private JPanel panelCarte;
     private JTextField entree;
     private JButton boutonNord;
-    private JButton boutonSud;
-    private JButton boutonEst;
-    private JButton boutonOuest;
     private JTextArea texte;
     private JLabel image;
+    private JButton boutonSud;
+    private JButton boutonOuest;
+    private JButton boutonEst;
 
     public GUI(Jeu j) {
         jeu = j;
         creerGUI();
     }
-
+    public void addNameFrame(String nom) {
+    	fenetre.setTitle("SpaceEnigmas "+nom);
+    }
     public void afficher(String s) {
     	texte.append(s);
         texte.setCaretPosition(texte.getDocument().getLength());
@@ -59,10 +63,30 @@ public class GUI implements ActionListener
 	   	System.out.println(imageURL);
 	   	if( imageURL != null ) {
         	image.setIcon( new ImageIcon( imageURL ));
-        	personnage.setIcon(new ImageIcon(mouton));
         }
    }
-
+    public void afficherBoutonSortie(HashMap<String,Zone> sorties) {
+    	if(sorties.get("NORD")!=null) {
+    		boutonNord.setVisible(true);
+    	} else {
+    		boutonNord.setVisible(false);
+    	}
+    	if(sorties.get("SUD")!=null) {
+    		boutonSud.setVisible(true);
+    	} else {
+    		boutonSud.setVisible(false);
+    	}
+    	if(sorties.get("EST")!=null) {
+    		boutonEst.setVisible(true);
+    	} else {
+    		boutonEst.setVisible(false);
+    	}
+    	if(sorties.get("OUEST")!=null) {
+    		boutonOuest.setVisible(true);
+    	} else {
+    		boutonOuest.setVisible(false);
+    	}
+    }
     public void enable(boolean ok) {
         entree.setEditable(ok);
         if ( ! ok )
@@ -99,62 +123,88 @@ public class GUI implements ActionListener
         entree.requestFocus();
     }
     private void creerGUI() {
-        fenetre = new JFrame("Jeu");
+        fenetre = new JFrame("SpaceEnigmas");
 //        personnage.setBounds(350, 150, 150, 150);
         panel = new JPanel();
         panelTexte = new JPanel();
-        panelTexte.setBounds(0, 426, 782, 426);
+        panelTexte.setBounds(0, 500, 880, 153);
         panelTexte.setLayout(new BorderLayout());
         panelCarte = new JPanel();
-        panelCarte.setBounds(0, 0, 782, 426);
+        panelCarte.setBounds(0, 0, 880, 500);
         panelImage = new JPanel();
-        panelImage.setBounds(0, 25, 782, 401);
-        panelDialogue = new JPanel();
-        panelDialogue.setLayout(new BorderLayout());
+        panelImage.setSize(500,20);
         entree = new JTextField(34);
         image = new JLabel();
-        image.setBounds(0, 0, 782, 401);
+        image.setBounds(0, 0, 782, 475);
         image.setBackground(new Color(153, 0, 204));
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
         texte = new JTextArea();
-        boutonNord = new JButton("Nord");
-        boutonNord.setBounds(0, 0, 782, 25);
-        boutonNord.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		jeu.allerEn("NORD");
-        	}
-        });
-        boutonSud = new JButton("Sud");
-        boutonEst = new JButton("Est");
-        boutonOuest = new JButton("Ouest");
+        new JButton("Est");
+        new JButton("Ouest");
         texte.setEditable(false);
         JScrollPane listScroller = new JScrollPane(texte);
         listScroller.setPreferredSize(new Dimension(200, 200));
         listScroller.setMinimumSize(new Dimension(100,100));
         panelImage.setLayout(null);
         personnage = new JLabel();
+        personnage.addMouseMotionListener(new MouseMotionAdapter() {
+        	@Override
+        	public void mouseDragged(MouseEvent arg0) {
+        		mouseDragged(arg0);
+        	}
+        });
         personnage.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
         		jeu.allerEn("NORD");
         	}
         });
-        personnage.setBounds(0, 0, 50, 180);
+        personnage.setBounds(40, 200, 180, 180);
         personnage.setBackground(new Color(204, 204, 0));
         panelImage.add(personnage);
         panelImage.add(image);
-        panelCarte.setLayout(null);
-        panelCarte.add(boutonNord);
-        panelCarte.add(panelImage);
-        panelTexte.add(panelDialogue,BorderLayout.NORTH);
+        panelCarte.setLayout(new BorderLayout(0, 0));
+        boutonNord = new JButton("Nord");
+        boutonNord.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		jeu.allerEn("NORD");
+        	}
+        });
+        panelCarte.add(boutonNord, BorderLayout.NORTH);
+        panelCarte.add(panelImage, BorderLayout.CENTER);
         panelTexte.add(listScroller,BorderLayout.CENTER);
         panelTexte.add(entree,BorderLayout.SOUTH);
         panel.setLayout(null);
         panel.add(panelCarte);
         
-        Panel panel_1 = new Panel();
-        panel_1.setBounds(0, 0, 56, 150);
-        panelCarte.add(panel_1);
+        boutonSud = new JButton("Sud");
+        boutonSud.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		jeu.allerEn("SUD");
+        	}
+        });
+        panelCarte.add(boutonSud, BorderLayout.SOUTH);
+        
+        boutonOuest = new JButton("Ouest");
+        boutonOuest.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		jeu.allerEn("OUEST");
+        	}
+        });
+        
+        panelCarte.add(boutonOuest, BorderLayout.WEST);
+        
+        boutonEst = new JButton("EST");
+        boutonEst.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		jeu.allerEn("EST");
+        	}
+        });
+        panelCarte.add(boutonEst, BorderLayout.EAST);
+        
         panel.add(panelTexte);	
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
         
@@ -162,7 +212,7 @@ public class GUI implements ActionListener
 
         entree.addActionListener(this);
 
-        fenetre.setBounds(500,10,800,900);
+        fenetre.setBounds(500,10,900,700);
         fenetre.setVisible(true);
         entree.requestFocus();
     }
@@ -174,6 +224,11 @@ public class GUI implements ActionListener
     private void executerCommande() {
         String commandeLue = entree.getText();
         entree.setText("");
-        jeu.traiterCommande( commandeLue);
+        if(jeu.getPartie().getJoueur()==null) {
+        	 jeu.creationJoueur(commandeLue);
+        } else {
+        	jeu.traiterCommande( commandeLue);
+        }
+        
     }
 }

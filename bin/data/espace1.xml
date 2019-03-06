@@ -9,7 +9,7 @@
     	<zone index="1">
 				<nom>Spatioport</nom>
 				<description> Un spatioport peu fréquenté. Le seul moyen de sortir de la planète et de rejoindre le reste de la civilisation.</description>
-				<image>spatioport.png</image>
+				<image>zone1.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="2">NORD</sortie>
 		</zone>
@@ -35,7 +35,7 @@
     	<zone index="4">
 				<nom>Spatioport</nom>
 				<description> Un spatioport très fréquenté par les marchands voyageurs qui y acheminent des denrées vers les plus grandes planètes. Les habitants de Samaria ne le visitent pas du tout.</description>
-				<image>vaisseau.png</image>
+				<image>spatioport.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="5">NORD</sortie>
 		</zone>
@@ -61,7 +61,7 @@
     	<zone index="7">
 				<nom>Spatioport</nom>
 				<description>  Un spatioport délabré surtout utilisé pour la contrebade.</description>
-				<image>spatioport.jpg</image>
+				<image>spatioport.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="8">NORD</sortie>
 		</zone>
@@ -79,7 +79,7 @@
 				<sortie index="8">EST</sortie>
 		</zone>
     </cartePlanete>
-  </planete>*
+  </planete>
   <planete>
     <nom>Kishu </nom>
     <description> Les moines de Kishu sont les gardiens d'une sagesse ancienne.</description>
@@ -87,7 +87,7 @@
     	<zone index="10">
 				<nom>Spatioport</nom>
 				<description> Le spatioport acceuille les pélerins de la galaxie entière venus y chercher l'apaisement de leur âme et la réponse à leurs questions spirituelles.</description>
-				<image>vaisseau.png</image>
+				<image>spatioport.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="11">NORD</sortie>
 		</zone>

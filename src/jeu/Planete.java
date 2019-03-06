@@ -19,6 +19,9 @@ public class Planete {
 	public void ajouterZone(Zone zoneAjoutee) {
 		this.cartePlanete.add(zoneAjoutee);
 	}
+	public ArrayList<Zone> getZones() {
+		return cartePlanete;
+	}
 	public static ArrayList<Planete> creerLesPlanetes(ArrayList<Zone> toutesLesZones) {
 		// le HashMap sera renvoyé et garder dans le jeu pour pouvoir avoir rapidement accès au planète
 		// et qu'elles ne soient pas supprimer par le gc.
@@ -36,7 +39,7 @@ public class Planete {
         		Integer indexZoneToAdd = Integer.valueOf(zone.getAttribute("index"));
         		planete.ajouterZone(toutesLesZones.get(indexZoneToAdd));
         	}
-        	planetesRetour.add(new Planete(nomPlanete, description));
+        	planetesRetour.add(planete);
         }
 //        for(Planete planete : planetesRetour) {
 //        	 System.out.println(planete.nom);
