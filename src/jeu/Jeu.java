@@ -34,7 +34,7 @@ public class Jeu implements Serializable {
     }
     private void creerCarte() {
     	ArrayList<Zone> zones = new ArrayList<Zone>();
-    	zones.add(new Zone("Vaisseau","vaisseau.png","Un petit vaisseau"));
+    	zones.add(new Zone("Vaisseau","vaisseau.png","test.gif"));
     	zones = Zone.creerToutesLesZones(zones);
     	zones.addAll(Zone.ajouterToutesLesSorties(zones));
     	ArrayList<Planete> cartes = Planete.creerLesPlanetes(zones);

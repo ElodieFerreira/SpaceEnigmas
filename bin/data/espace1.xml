@@ -35,21 +35,21 @@
     	<zone index="4">
 				<nom>Spatioport</nom>
 				<description> Un spatioport très fréquenté par les marchands voyageurs qui y acheminent des denrées vers les plus grandes planètes. Les habitants de Samaria ne le visitent pas du tout.</description>
-				<image>spatioport.gif</image>
+				<image>zone1.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="5">NORD</sortie>
 		</zone>
 		<zone index="5">
 				<nom>Prairie isolée</nom>
 				<description>Une petite prairie à l'écart de la planète. Les bergers y emmènent parfois leur troupeau. </description>
-				<image>marcheSiGifOk.gif</image>
+				<image>zone5.gif</image>
 				<sortie index="4">SUD</sortie>
 				<sortie index="6">OUEST</sortie>
 		</zone>
 		<zone index="6">
 				<nom>Champs Agricoles</nom>
 				<description> Des champs qui s'étendent à perte de vue. C'est ici que les paysans produisent les denrées vendues dans la galaxie entière.</description>
-				<image>Maisonjoueur.gif</image>
+				<image>zone6.JPG</image>
 				<sortie index="5">EST</sortie>
 		</zone>
     </cartePlanete>
@@ -61,21 +61,21 @@
     	<zone index="7">
 				<nom>Spatioport</nom>
 				<description>  Un spatioport délabré surtout utilisé pour la contrebade.</description>
-				<image>spatioport.gif</image>
+				<image>zone1.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="8">NORD</sortie>
 		</zone>
 		<zone index="8">
 				<nom>Marché</nom>
 				<description>On trouve ce que l'on veut au marché de Lorniala. Pour le bon prix, on peut y acquérir les produits les plus illégaux. </description>
-				<image>marcheSiGifOk.gif</image>
+				<image>zone8.gif</image>
 				<sortie index="7">SUD</sortie>
 				<sortie index="9">OUEST</sortie>
 		</zone>
 		<zone index="9">
 				<nom>Rue abandonnée</nom>
 				<description>Cette rue déserte est bien pratique pour les criminels qui y exécutent leurs basses oeuvres.</description>
-				<image>Maisonjoueur.gif</image>
+				<image>zone9.gif</image>
 				<sortie index="8">EST</sortie>
 		</zone>
     </cartePlanete>
@@ -87,21 +87,21 @@
     	<zone index="10">
 				<nom>Spatioport</nom>
 				<description> Le spatioport acceuille les pélerins de la galaxie entière venus y chercher l'apaisement de leur âme et la réponse à leurs questions spirituelles.</description>
-				<image>spatioport.gif</image>
+				<image>zone1.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="11">NORD</sortie>
 		</zone>
 		<zone index="11">
 				<nom>Jardins</nom>
 				<description>Pélerins et moines viennent méditer dans ce magnifique jardin unique dans la galaxie.</description>
-				<image>marcheSiGifOk.gif</image>
+				<image>zone11.gif</image>
 				<sortie index="10">SUD</sortie>
 				<sortie index="12">OUEST</sortie>
 		</zone>
 		<zone index="12">
 				<nom>Temple</nom>
 				<description>Construit il y a des millénaires, ce temple isolé regorge de mystères.</description>
-				<image>Maisonjoueur.gif</image>
+				<image>zone12.JPG</image>
 				<sortie index="11">EST</sortie>
 		</zone>
     </cartePlanete>
