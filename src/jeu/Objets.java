@@ -1,4 +1,4 @@
-package object;
+package jeu;
 
 public class Objets {
 	
@@ -8,5 +8,4 @@ public class Objets {
 	
 	
 
-}
 }

@@ -1,5 +1,4 @@
-package object;
-
+package jeu;
 import java.util.ArrayList;
 import java.util.Random;
 public class Mouton extends Objets {

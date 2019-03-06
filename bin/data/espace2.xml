@@ -15,4 +15,22 @@
       </zone>
     </cartePlanete>
   </planete>
+  <planete>
+  	<nom>nom</nom>
+  	<description>description</description>
+  	<cartePlanete>
+  		<zone index="idvalue0">
+  			<nom>nom</nom>
+  			<description>description</description>
+  			<image>image</image>
+  			<sortie index="idvalue1">sortie</sortie>
+  		</zone>
+  		<zone index="idvalue0">
+  			<nom>nom</nom>
+  			<description>description</description>
+  			<image>image</image>
+  			<sortie index="idvalue1">sortie</sortie>
+  		</zone>
+  	</cartePlanete>
+  </planete>
 </espace>
