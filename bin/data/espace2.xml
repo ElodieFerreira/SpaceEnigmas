@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE espace SYSTEM "espace.dtd" >
+<espace>
+  <planete>
+    <nom>nom
+    	nom
+    </nom>
+    <description>description</description>
+    <cartePlanete>
+      <zone index="idvalue0">
+        <nom>nom</nom>
+        <description>description</description>
+        <image>image</image>
+        <sortie index="idvalue1">sortie</sortie>
+      </zone>
+    </cartePlanete>
+  </planete>
+</espace>

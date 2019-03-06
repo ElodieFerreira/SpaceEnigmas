@@ -14,9 +14,9 @@
 				<sortie index="2">NORD</sortie>
 		</zone>
 		<zone index="2">
-				<nom>Perlimpinpin : Marché</nom>
+				<nom>Marché</nom>
 				<description> Un petit marché local où les habitants se réunissent pour acheter aux marchands voyageurs des produits de toute la galaxie. </description>
-				<image>marcheSiGifOk.gif</image>
+				<image>zone2.gif</image>
 				<sortie index="1">SUD</sortie>
 				<sortie index="3">OUEST</sortie>
 		</zone>

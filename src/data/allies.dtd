@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT listeAlliesPossible (allie+)>
+<!ELEMENT allie (nom,image,dialogue,PP,PV)>
+<!ATTLIST allie index ID #REQUIRED>
+<!ELEMENT nom #PCDATA>
+<!ELEMENT image #PCDATA>
+<!ELEMENT dialogue #PCDATA>
+<!ELEMENT PA #PCDATA>
+<!ELEMENT PR #PCDATA>
+<!ELEMENT PV #PCDATA>

@@ -11,7 +11,6 @@ public class Planete {
 	private String nom;
 	private String description;
 	private ArrayList<Zone> cartePlanete;
-	
 	public Planete(String nomPlanete, String descriptionPlanete) {
 		this.description = descriptionPlanete;
 		this.nom = nomPlanete;

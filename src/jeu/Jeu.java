@@ -1,10 +1,11 @@
 package jeu;
 
 import java.util.ArrayList;
+import java.io.*;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-public class Jeu {
+public class Jeu implements Serializable {
 	
     private GUI gui; 
 	private Zone zoneCourante;
@@ -18,26 +19,11 @@ public class Jeu {
     
     private void creerCarte() {
     	ArrayList<Zone> zones = new ArrayList<Zone>();
-    	zones.add(new Zone("Vaisseau","Un petit vaisseau","vaisseau.png"));
+    	zones.add(new Zone("Vaisseau","vaisseau.png","Un petit vaisseau"));
     	zones = Zone.creerToutesLesZones(zones);
     	zones.addAll(Zone.ajouterToutesLesSorties(zones));
     	ArrayList<Planete> cartes = Planete.creerLesPlanetes(zones);
-//        Zone[] zones = new Zone[4];
-        //zones.add(new Zone("Xpéria","vaisseau.png","a"));
-        //zones.add(new Zone("Lorniala Spatioport, c'est un peu mélancolique comme nom je trouve","p1.PNG","C'est un peu mélancolique comme nom je trouve"));
-        //zones.get(0).ajouteSortie(Sortie.NORD,zones.get(1));
-        //zones.get(1).ajouteSortie(Sortie.SUD, zones.get(0));
-//        zones[0] = new Zone("le couloir", "test.gif","a");
-//        zones[1] = new Zone("l'escalier", "test.gif","a" );
-//        zones[2] = new Zone("la grande salle", "champ.gif","a" );
-//        zones[3] = new Zone("la salle Ã  manger", "ZoneCombat.gif","a" );
-//        zones[0].ajouteSortie(Sortie.EST, zones[1]);
-//        zones[1].ajouteSortie(Sortie.OUEST, zones[0]);
-//        zones[1].ajouteSortie(Sortie.EST, zones[2]);
-//        zones[2].ajouteSortie(Sortie.OUEST, zones[1]);
-//        zones[3].ajouteSortie(Sortie.NORD, zones[1]);
-//        zones[1].ajouteSortie(Sortie.SUD, zones[3]);
-        	zoneCourante = zones.get(2);
+        	zoneCourante = zones.get(1);
     }
 
     private void afficherLocalisation() {
@@ -89,8 +75,8 @@ public class Jeu {
         gui.afficher(Commande.toutesLesDescriptions().toString());
         gui.afficher();
     }
-
-    private void allerEn(String direction) {
+    
+    public void allerEn(String direction) {
     	Zone nouvelle = zoneCourante.obtientSortie( direction);
     	if ( nouvelle == null ) {
         	gui.afficher( "Pas de sortie " + direction);
@@ -107,5 +93,8 @@ public class Jeu {
     private void terminer() {
     	gui.afficher( "Au revoir...");
     	gui.enable( false);
+    }
+    public Zone getZoneCourante() {
+    	return this.getZoneCourante();
     }
 }
