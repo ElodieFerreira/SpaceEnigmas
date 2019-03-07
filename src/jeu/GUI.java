@@ -65,7 +65,7 @@ public class GUI implements ActionListener
         afficher("\n");
     }
 
-    public void afficheImageVersionInitial(String nomImage) {
+    public void afficheImage(String nomImage) {
     	System.out.println(nomImage);
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	ImageIcon img = new ImageIcon(imageURL);
@@ -79,7 +79,7 @@ public class GUI implements ActionListener
         	panelImage.repaint();
         }
    }
-    public void afficheImage(String nomImage) {
+    public void afficheImagePauseTest(String nomImage) {
     	System.out.println(nomImage);
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	BufferedImage img = null;
@@ -126,36 +126,6 @@ public class GUI implements ActionListener
             entree.getCaret().setBlinkRate(0);
     }
 
-    private void creerGUIVersion() {
-        fenetre = new JFrame("Jeu");
-       
-        
-        entree = new JTextField(34);
-
-        texte = new JTextArea();
-        texte.setEditable(false);
-        JScrollPane listScroller = new JScrollPane(texte);
-        listScroller.setPreferredSize(new Dimension(200, 200));
-        listScroller.setMinimumSize(new Dimension(100,100));
-
-        panel = new JPanel();
-        image = new JLabel();
-
-        panel.setLayout(new BorderLayout());
-        panel.add(image, BorderLayout.NORTH);
-        panel.add(listScroller, BorderLayout.CENTER);
-        panel.add(entree, BorderLayout.SOUTH);
-
-        fenetre.getContentPane().add(panel, BorderLayout.CENTER);
-        
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        entree.addActionListener(this);
-
-        fenetre.pack();
-        fenetre.setVisible(true);
-        entree.requestFocus();
-    }
     private void creerGUI() {
         fenetre = new JFrame("SpaceEnigmas");
 //        personnage.setBounds(350, 150, 150, 150);
