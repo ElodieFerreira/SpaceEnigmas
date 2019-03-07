@@ -37,6 +37,7 @@ public class Jeu implements Serializable {
     	zones.add(new Zone("Vaisseau","vaisseau.png","test.gif"));
     	zones = Zone.creerToutesLesZones(zones);
     	zones.addAll(Zone.ajouterToutesLesSorties(zones));
+    	zones = Mouton.PositionMouton(zones, 3);
     	ArrayList<Planete> cartes = Planete.creerLesPlanetes(zones);
     	zones.get(0).ajouteSortie(Sortie.valueOf("SUD"), cartes.get(0).getZones().get(0));
     	zones.get(0).ajouteSortie(Sortie.valueOf("NORD"), cartes.get(1).getZones().get(0));
@@ -108,6 +109,7 @@ public class Jeu implements Serializable {
         	gui.afficher();
             gui.afficheImage(zoneCourante.nomImage());	
             gui.afficherBoutonSortie(zoneCourante.getSorties());
+            gui.afficherElementZone(zoneCourante.getAnimauxDansLazone());
         }
     }
     

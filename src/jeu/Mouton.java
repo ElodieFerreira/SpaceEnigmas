@@ -8,7 +8,8 @@ public class Mouton extends Objets {
 		for(int i=0;i<3;i++)
 		{
 			Random rand = new Random();
-			int nbaleat = rand.nextInt((zone.size()-1));
+			int nbaleat = rand.nextInt((zone.size()-2));
+			System.out.println(zone.get(nbaleat).getNom());
 			zone.get(nbaleat).getAnimauxDansLazone().add(new Mouton());
 			
 		}
@@ -16,7 +17,7 @@ public class Mouton extends Objets {
 	}
 
 	public Mouton() {
-		super("Mouton", "Mouton du berger", "test.png");
+		super("Mouton", "Mouton du berger", "MoutonpourGif.gif");
 	}
 	
 }

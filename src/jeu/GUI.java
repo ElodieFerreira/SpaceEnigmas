@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.ImageIcon;
@@ -132,7 +133,6 @@ public class GUI implements ActionListener
         panelCarte = new JPanel();
         panelCarte.setBounds(0, 0, 880, 500);
         panelImage = new JPanel();
-        panelImage.setSize(500,20);
         entree = new JTextField(34);
         image = new JLabel();
         image.setBounds(0, 0, 782, 475);
@@ -163,15 +163,15 @@ public class GUI implements ActionListener
         personnage.setBackground(new Color(204, 204, 0));
         panelImage.add(personnage);
         panelImage.add(image);
-        panelCarte.setLayout(new BorderLayout(0, 0));
         boutonNord = new JButton("Nord");
         boutonNord.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		jeu.allerEn("NORD");
         	}
         });
-        panelCarte.add(boutonNord, BorderLayout.NORTH);
-        panelCarte.add(panelImage, BorderLayout.CENTER);
+        panelCarte.setLayout(new BorderLayout(0, 0));
+        panelCarte.add(boutonNord);
+        panelCarte.add(panelImage);
         panelTexte.add(listScroller,BorderLayout.CENTER);
         panelTexte.add(entree,BorderLayout.SOUTH);
         panel.setLayout(null);
@@ -184,7 +184,7 @@ public class GUI implements ActionListener
         		jeu.allerEn("SUD");
         	}
         });
-        panelCarte.add(boutonSud, BorderLayout.SOUTH);
+        panelCarte.add(boutonSud);
         
         boutonOuest = new JButton("Ouest");
         boutonOuest.addMouseListener(new MouseAdapter() {
@@ -194,7 +194,7 @@ public class GUI implements ActionListener
         	}
         });
         
-        panelCarte.add(boutonOuest, BorderLayout.WEST);
+        panelCarte.add(boutonOuest);
         
         boutonEst = new JButton("EST");
         boutonEst.addMouseListener(new MouseAdapter() {
@@ -203,7 +203,7 @@ public class GUI implements ActionListener
         		jeu.allerEn("EST");
         	}
         });
-        panelCarte.add(boutonEst, BorderLayout.EAST);
+        panelCarte.add(boutonEst);
         
         panel.add(panelTexte);	
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
@@ -231,4 +231,14 @@ public class GUI implements ActionListener
         }
         
     }
+	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<animauxDansLazone.size();i++) {
+		   	URL mouton = this.getClass().getClassLoader().getResource("images/test.png");
+		   	System.out.println(mouton);
+		   	if( mouton != null ) {
+	        	personnage.setIcon( new ImageIcon(mouton));
+	        }
+		}
+	}
 }

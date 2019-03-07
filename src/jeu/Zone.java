@@ -19,8 +19,14 @@ public class Zone implements Serializable
         description = descriptionZone;
         nomImage = image;
         sorties = new HashMap<>();
+        animauxDansLazone = new ArrayList<Mouton>();
     }
-    public static ArrayList<Zone> creerToutesLesZones(ArrayList<Zone> toutesLesZones) {
+    
+    public String getNom() {
+		return nom;
+	}
+
+	public static ArrayList<Zone> creerToutesLesZones(ArrayList<Zone> toutesLesZones) {
     	ReaderXML spaceReader = new ReaderXML("espace1.xml");
         NodeList zones = spaceReader.getDocument().getElementsByTagName("zone");
         for(int i=0;i<zones.getLength();i++) {

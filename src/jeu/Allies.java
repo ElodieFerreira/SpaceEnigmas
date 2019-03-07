@@ -11,6 +11,5 @@ public class Allies extends Personnage {
 		pointDePouvoir = pointPouvoir;
 	}
 	public void lancerAttaque() {
-		if()
 	}
 }
