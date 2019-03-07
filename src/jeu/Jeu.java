@@ -57,8 +57,8 @@ public class Jeu implements Serializable {
     	gui.afficher();
         gui.afficher("Tapez '?' pour obtenir de l'aide.");
         gui.afficher();
-        afficherLocalisation();
         gui.afficheImage(zoneCourante.nomImage());	
+        afficherLocalisation();
     }
     
     public void traiterCommande(String commandeLue) {
