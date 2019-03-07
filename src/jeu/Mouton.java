@@ -2,15 +2,16 @@ package jeu;
 import java.util.ArrayList;
 import java.util.Random;
 public class Mouton extends Objets {
-	
-	public int DeterminationPositionMouton(zone)
+
+	public ArrayList<Zone> PositionMouton(ArrayList<Zone> zone)
 	{
-		for(int i=0;i<)
+		for(int i=0;i<3;i++)
 		{
-	Random z = new Random();
-	int zone = 3 + z.nextInt(zone.size()-4);
+			Random rand = new Random();
+			int nbaleat = rand.nextInt((zone.size()-1));
+			zone.get(nbaleat);
+			
 		}
-	
-	int mouton = (int)(1+java.lang.Math.random()*2);
+		return ;
 	}
 }
