@@ -3,15 +3,20 @@ import java.util.ArrayList;
 import java.util.Random;
 public class Mouton extends Objets {
 
-	public ArrayList<Zone> PositionMouton(ArrayList<Zone> zone)
+	public static ArrayList<Zone> PositionMouton(ArrayList<Zone> zone, int nbMouton)
 	{
 		for(int i=0;i<3;i++)
 		{
 			Random rand = new Random();
 			int nbaleat = rand.nextInt((zone.size()-1));
-			zone.get(nbaleat);
+			zone.get(nbaleat).getAnimauxDansLazone().add(new Mouton());
 			
 		}
-		return ;
+		return zone ;
 	}
+
+	public Mouton() {
+		super("Mouton", "Mouton du berger", "test.png");
+	}
+	
 }
