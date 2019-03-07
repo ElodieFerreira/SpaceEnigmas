@@ -17,7 +17,10 @@ public class Mouton extends Objets {
 	}
 
 	public Mouton() {
-		super("Mouton", "Mouton du berger", "MoutonpourGif.gif");
+		super("Mouton", "Mouton du berger", "mouton.gif");
+	}
+	public String getImage() {
+		return super.getNomImage();
 	}
 	
 }

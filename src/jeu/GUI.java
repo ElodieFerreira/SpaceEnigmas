@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -59,11 +60,16 @@ public class GUI implements ActionListener
 
     public void afficheImage(String nomImage) {
     	System.out.println(nomImage);
-	   	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
-	   	URL mouton = this.getClass().getClassLoader().getResource("images/test.png");
-	   	System.out.println(imageURL);
+    	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
+    	ImageIcon img = new ImageIcon(imageURL);
+    	Image imageFormatImage = img.getImage();
+    	imageFormatImage.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
+    	ImageIcon newIcon = new ImageIcon(imageFormatImage);
+    	System.out.println(imageURL);
 	   	if( imageURL != null ) {
-        	image.setIcon( new ImageIcon( imageURL ));
+        	image.setIcon(newIcon);
+        	panelImage.add(image);
+        	panelImage.repaint();
         }
    }
     public void afficherBoutonSortie(HashMap<String,Zone> sorties) {
@@ -170,8 +176,8 @@ public class GUI implements ActionListener
         	}
         });
         panelCarte.setLayout(new BorderLayout(0, 0));
-        panelCarte.add(boutonNord);
-        panelCarte.add(panelImage);
+        panelCarte.add(boutonNord, BorderLayout.NORTH);
+        panelCarte.add(panelImage, BorderLayout.CENTER);
         panelTexte.add(listScroller,BorderLayout.CENTER);
         panelTexte.add(entree,BorderLayout.SOUTH);
         panel.setLayout(null);
@@ -184,7 +190,7 @@ public class GUI implements ActionListener
         		jeu.allerEn("SUD");
         	}
         });
-        panelCarte.add(boutonSud);
+        panelCarte.add(boutonSud, BorderLayout.SOUTH);
         
         boutonOuest = new JButton("Ouest");
         boutonOuest.addMouseListener(new MouseAdapter() {
@@ -194,7 +200,7 @@ public class GUI implements ActionListener
         	}
         });
         
-        panelCarte.add(boutonOuest);
+        panelCarte.add(boutonOuest, BorderLayout.WEST);
         
         boutonEst = new JButton("EST");
         boutonEst.addMouseListener(new MouseAdapter() {
@@ -203,7 +209,7 @@ public class GUI implements ActionListener
         		jeu.allerEn("EST");
         	}
         });
-        panelCarte.add(boutonEst);
+        panelCarte.add(boutonEst, BorderLayout.EAST);
         
         panel.add(panelTexte);	
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
@@ -233,11 +239,13 @@ public class GUI implements ActionListener
     }
 	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone) {
 		// TODO Auto-generated method stub
+		personnage.setVisible(false);
 		for(int i=0;i<animauxDansLazone.size();i++) {
-		   	URL mouton = this.getClass().getClassLoader().getResource("images/test.png");
+		   	URL mouton = this.getClass().getClassLoader().getResource("images/"+animauxDansLazone.get(i).getImage());
 		   	System.out.println(mouton);
 		   	if( mouton != null ) {
 	        	personnage.setIcon( new ImageIcon(mouton));
+	        	personnage.setVisible(true);
 	        }
 		}
 	}

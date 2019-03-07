@@ -5,6 +5,10 @@ public class Objets {
 	private String Description;
 	private String NomImage;
 	
+	public String getNomImage() {
+		return NomImage;
+	}
+
 	public Objets(String nom, String description, String nomImage) {
 		super();
 		this.Nom = nom;
