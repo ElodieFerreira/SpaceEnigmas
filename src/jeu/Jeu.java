@@ -24,7 +24,7 @@ public class Jeu implements Serializable {
     		
     	} else {
     		partie = new Partie();
-    		gui.afficher("Bienvenue ! Rentrez votre prénom \n");
+    		gui.afficher("Bienvenue ! Rentrez votre prï¿½nom \n");
     	}
     }
     public void creationJoueur(String nomJoueur) {
