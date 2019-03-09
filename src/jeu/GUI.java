@@ -31,6 +31,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class GUI implements ActionListener
 {
@@ -76,7 +78,6 @@ public class GUI implements ActionListener
 	   	if( imageURL != null ) {
         	image.setIcon(newIcon);
         	panelImage.add(image);
-        	panelImage.repaint();
         }
    }
     public void afficheImagePauseTest(String nomImage) {
@@ -143,54 +144,38 @@ public class GUI implements ActionListener
         JScrollPane listScroller = new JScrollPane(texte);
         listScroller.setPreferredSize(new Dimension(200, 200));
         listScroller.setMinimumSize(new Dimension(100,100));
-        panelCarte.setLayout(null);
-        
-        boutonEst = new JButton("EST");
-        boutonEst.setBounds(838, 25, 42, 450);
-        boutonEst.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		jeu.allerEn("EST");
-        	}
-        });
-        
-        boutonSud = new JButton("Sud");
-        boutonSud.setBounds(0, 475, 880, 25);
-        boutonSud.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		jeu.allerEn("SUD");
-        	}
-        });
-        panelCarte.add(boutonSud);
+        panelTexte.add(listScroller,BorderLayout.CENTER);
+        panelTexte.add(entree,BorderLayout.SOUTH);
+        panel.setLayout(null);
+        panel.add(panelCarte);
         
         boutonOuest = new JButton("Ouest");
-        boutonOuest.setBounds(0, 25, 42, 450);
         boutonOuest.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
         		jeu.allerEn("OUEST");
         	}
         });
-        
-        panelCarte.add(boutonOuest);
         boutonNord = new JButton("Nord");
-        boutonNord.setBounds(0, 0, 880, 25);
         boutonNord.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		jeu.allerEn("NORD");
         	}
         });
-        panelCarte.add(boutonNord);
-        panelCarte.add(boutonEst);
-        panelTexte.add(listScroller,BorderLayout.CENTER);
-        panelTexte.add(entree,BorderLayout.SOUTH);
-        panel.setLayout(null);
-        panel.add(panelCarte);
+        panelCarte.setLayout(new BorderLayout(0, 0));
+        panelCarte.add(boutonNord, BorderLayout.NORTH);
+        panelCarte.add(boutonOuest, BorderLayout.WEST);
+        
+        boutonSud = new JButton("Sud");
+        boutonSud.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		jeu.allerEn("SUD");
+        	}
+        });
         panelImage = new JPanel();
-        panelImage.setBounds(0, 0, 880, 500);
         image = new JLabel();
-        image.setBounds(0, 0, 880, 500);
+        image.setBounds(-17, 0, 897, 500);
         image.setBackground(new Color(153, 0, 204));
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelImage.setLayout(null);
@@ -212,6 +197,16 @@ public class GUI implements ActionListener
         panelImage.add(personnage);
         panelImage.add(image);
         panelCarte.add(panelImage);
+        
+        boutonEst = new JButton("EST");
+        boutonEst.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		jeu.allerEn("EST");
+        	}
+        });
+        panelCarte.add(boutonEst, BorderLayout.EAST);
+        panelCarte.add(boutonSud, BorderLayout.SOUTH);
         
         panel.add(panelTexte);	
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
