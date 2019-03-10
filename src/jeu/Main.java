@@ -6,5 +6,6 @@ public class Main {
 		GUI gui = new GUI( jeu);
 		jeu.setGUI( gui);
 		jeu.lancerDebutJeu();
+		
 	}
 }

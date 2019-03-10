@@ -2,6 +2,7 @@ package jeu;
 
 import java.util.ArrayList;
 import java.io.*;
+import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -9,6 +10,7 @@ public class Jeu implements Serializable {
 	
     private GUI gui; 
 	private Zone zoneCourante;
+	private Zone vaisseau;
     private Partie partie;
     
     public Jeu() {
@@ -33,17 +35,13 @@ public class Jeu implements Serializable {
     	gui.addNameFrame(nomJoueur);
     }
     private void creerCarte() {
-    	ArrayList<Zone> zones = new ArrayList<Zone>();
-    	zones.add(new Zone("Vaisseau","vaisseau.png","test.gif"));
-    	zones = Zone.creerToutesLesZones(zones);
-    	zones.addAll(Zone.ajouterToutesLesSorties(zones));
-    	zones = Mouton.PositionMouton(zones, 3);
-    	ArrayList<Planete> cartes = Planete.creerLesPlanetes(zones);
-    	zones.get(0).ajouteSortie(Sortie.valueOf("SUD"), cartes.get(0).getZones().get(0));
-    	zones.get(0).ajouteSortie(Sortie.valueOf("NORD"), cartes.get(1).getZones().get(0));
-    	zones.get(0).ajouteSortie(Sortie.valueOf("EST"), cartes.get(2).getZones().get(0));
-    	zones.get(0).ajouteSortie(Sortie.valueOf("OUEST"), cartes.get(3).getZones().get(0));
-    	zoneCourante = zones.get(1);
+    	ObjectBuilder constructorOfMap = new ObjectBuilder();
+    	ArrayList<Zone> zones = constructorOfMap.creerToutesLesZones();
+    	zones = constructorOfMap.ajouterToutesLesSorties(zones);
+    	ArrayList<Planete> espace = constructorOfMap.creerLesPlanetes(zones);
+    	vaisseau = zones.get(0);
+    	vaisseau = constructorOfMap.ajouterLesSortiesAuVaisseau(vaisseau, espace);
+    	zoneCourante = espace.get(0).getZones().get(0);
     }
 
     private void afficherLocalisation() {
