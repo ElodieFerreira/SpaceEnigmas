@@ -14,12 +14,14 @@ public class Zone implements Serializable
     private HashMap<String,Zone> sorties;   
     private ArrayList<Mouton> animauxDansLazone;
     private ArrayList<Personnage> personnageDansLaZone;
-    public Zone(String nomZone, String image, String descriptionZone) {
+   
+	public Zone(String nomZone, String image, String descriptionZone) {
         this.nom = nomZone;
         description = descriptionZone;
         nomImage = image;
         sorties = new HashMap<>();
         animauxDansLazone = new ArrayList<Mouton>();
+        personnageDansLaZone = new ArrayList<Personnage>();
     }
     
     public String getNom() {
@@ -56,6 +58,10 @@ public class Zone implements Serializable
 	public ArrayList<Mouton> getAnimauxDansLazone() {
 		return animauxDansLazone;
 	}
+	public ArrayList<Personnage> getPersonnageDansLaZone() {
+		return personnageDansLaZone;
+	}
+
 	
 }
 

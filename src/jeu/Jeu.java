@@ -41,6 +41,8 @@ public class Jeu implements Serializable {
     	ArrayList<Planete> espace = constructorOfMap.creerLesPlanetes(zones);
     	vaisseau = zones.get(0);
     	vaisseau = constructorOfMap.ajouterLesSortiesAuVaisseau(vaisseau, espace);
+    	zones = constructorOfMap.positionMouton(zones, 3);
+    	zones.get(4).getPersonnageDansLaZone().add(new Personnage("Le bebs","Mon copain","berger.png"));
     	zoneCourante = espace.get(0).getZones().get(0);
     }
 
@@ -56,6 +58,7 @@ public class Jeu implements Serializable {
         gui.afficher("Tapez '?' pour obtenir de l'aide.");
         gui.afficher();
         gui.afficheImage(zoneCourante.nomImage());	
+        gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
         afficherLocalisation();
     }
     
@@ -107,7 +110,7 @@ public class Jeu implements Serializable {
         	gui.afficher();
             gui.afficheImage(zoneCourante.nomImage());	
             gui.afficherBoutonSortie(zoneCourante.getSorties());
-            gui.afficherElementZone(zoneCourante.getAnimauxDansLazone());
+            gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
         }
     }
     

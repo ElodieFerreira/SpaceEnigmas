@@ -40,7 +40,10 @@ public class GUI implements ActionListener
     private JFrame fenetre;
     private JPanel panel;
     private JPanel panelImage;
-    private JLabel personnage;
+    private ArrayList<JLabel> placementObjetCarte;
+    private JLabel label1;
+    private JLabel label3;
+    private JLabel label2;
     private JPanel panelTexte;
     private JPanel panelCarte;
     private JTextField entree;
@@ -50,6 +53,7 @@ public class GUI implements ActionListener
     private JButton boutonSud;
     private JButton boutonOuest;
     private JButton boutonEst;
+    
 
     public GUI(Jeu j) {
         jeu = j;
@@ -179,24 +183,40 @@ public class GUI implements ActionListener
         image.setBackground(new Color(153, 0, 204));
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelImage.setLayout(null);
-        personnage = new JLabel();
-        personnage.addMouseMotionListener(new MouseMotionAdapter() {
+        label1 = new JLabel();
+        label1.addMouseMotionListener(new MouseMotionAdapter() {
         	@Override
         	public void mouseDragged(MouseEvent arg0) {
         		mouseDragged(arg0);
         	}
         });
-        personnage.addMouseListener(new MouseAdapter() {
+        label1.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
         		jeu.allerEn("NORD");
         	}
         });
-        personnage.setBounds(137, 241, 180, 180);
-        personnage.setBackground(new Color(204, 204, 0));
-        panelImage.add(personnage);
+        
+        label1.setBounds(50, 241, 180, 180);
+        label1.setBackground(new Color(204, 204, 0));
+        panelImage.add(label1);
         panelImage.add(image);
         panelCarte.add(panelImage);
+        
+        label2 = new JLabel();
+        label2.setBackground(new Color(204, 204, 0));
+        label2.setBounds(316, 241, 180, 180);
+        panelImage.add(label2);
+        
+        label3 = new JLabel();
+        label3.setBackground(new Color(204, 204, 0));
+        label3.setBounds(568, 241, 180, 180);
+        panelImage.add(label3);
+        
+        placementObjetCarte = new ArrayList<JLabel>();
+        placementObjetCarte.add(label1);
+        placementObjetCarte.add(label2);
+        placementObjetCarte.add(label3);
         
         boutonEst = new JButton("EST");
         boutonEst.addMouseListener(new MouseAdapter() {
@@ -234,16 +254,37 @@ public class GUI implements ActionListener
         }
         
     }
-	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone) {
+	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone,ArrayList<Personnage> personnageDansLaZone) {
 		// TODO Auto-generated method stub
-		personnage.setVisible(false);
-		for(int i=0;i<animauxDansLazone.size();i++) {
-		   	URL mouton = this.getClass().getClassLoader().getResource("images/"+animauxDansLazone.get(i).getImage());
+		for(JLabel label : placementObjetCarte) {
+			label.setVisible(false);
+		}
+		int cpt = 0;
+		for(Mouton mouton : animauxDansLazone) {
+			URL moutonURL = this.getClass().getClassLoader().getResource("images/"+mouton.getImage());
 		   	System.out.println(mouton);
 		   	if( mouton != null ) {
-	        	personnage.setIcon( new ImageIcon(mouton));
-	        	personnage.setVisible(true);
+	        	placementObjetCarte.get(cpt).setIcon( new ImageIcon(moutonURL));
+	        	placementObjetCarte.get(cpt).setVisible(true);
 	        }
+		   	cpt++;
 		}
+		for(Personnage personnage : personnageDansLaZone) {
+		   	URL personnageURL = this.getClass().getClassLoader().getResource("images/"+personnage.getImage());
+			System.out.println(personnageURL);
+		   	if( personnageURL != null ) {
+	        	placementObjetCarte.get(cpt).setIcon( new ImageIcon(personnageURL));
+	        	placementObjetCarte.get(cpt).setVisible(true);
+	        }
+		   	cpt++;
+		}
+//		for(int i=0;i<animauxDansLazone.size();i++) {
+//		   	URL mouton = this.getClass().getClassLoader().getResource("images/"+animauxDansLazone.get(i).getImage());
+//		   	System.out.println(mouton);
+//		   	if( mouton != null ) {
+//	        	label1.setIcon( new ImageIcon(mouton));
+//	        	label1.setVisible(true);
+//	        }
+//		}
 	}
 }

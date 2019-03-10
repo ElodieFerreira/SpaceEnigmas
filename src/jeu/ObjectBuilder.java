@@ -1,6 +1,10 @@
 package jeu;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+import java.util.Iterator;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -68,5 +72,31 @@ public class ObjectBuilder {
 			vaisseau.ajouteSortie(Sortie.values()[i], espace.get(i).getZones().get(0));
 		}
 		return vaisseau;
+	}
+	public ArrayList<Zone> positionMouton(ArrayList<Zone> zone, int nbMouton)
+	{
+		HashSet hs=new HashSet();
+
+		while(hs.size()<nbMouton){
+			Random rand = new Random();
+			int nbaleat = rand.nextInt((zone.size()-2));
+			hs.add(nbaleat);
+		}
+		Iterator it=hs.iterator();
+
+		while(it.hasNext()){
+			zone.get((int)it.next()).getAnimauxDansLazone().add(new Mouton());
+		}
+		
+		
+//		for(int i=0;i<3;i++)
+//		{
+//			Random rand = new Random();
+//			int nbaleat = rand.nextInt((zone.size()-2));
+//			System.out.println(zone.get(nbaleat).getNom());
+//			zone.get(nbaleat).getAnimauxDansLazone().add(new Mouton());
+//			
+//		}
+		return zone ;
 	}
 }

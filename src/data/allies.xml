@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE listeAlliesPossible SYSTEM "allies.dtd" >
+<!DOCTYPE listeAlliesPossible SYSTEM "allies.dtd">
 <listeAlliesPossible>
 	<!--Attention, les index commencent à 1 -->
 	<allie index="1">
@@ -14,6 +14,7 @@
 		</dialogue>
 		<PP>3</PP>
 		<PV>6</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="2">
 		<nom>Tasbien</nom>
@@ -27,6 +28,7 @@
 		</dialogue>
 		<PP>4</PP>
 		<PV>5</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="3">
 		<nom>Dayfa</nom>
@@ -38,6 +40,7 @@
 		</dialogue>
 		<PP>2</PP>
 		<PV>1</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="4">
 		<nom>Dr. Noyah</nom>
@@ -51,6 +54,7 @@
 		</dialogue>
 		<PP>7</PP>
 		<PV>3</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="5">
 		<nom>Nifa</nom>
@@ -63,6 +67,7 @@
 		</dialogue>
 		<PP>4</PP>
 		<PV>8</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="6">
 		<nom>Oteh</nom>
@@ -75,6 +80,7 @@
 		</dialogue>
 		<PP>10</PP>
 		<PV>10</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="7">
 		<nom>Tymmo</nom>
@@ -86,6 +92,7 @@
 		</dialogue>
 		<PP>4</PP>
 		<PV>10</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="8">
 		<nom>Sysou</nom>
@@ -98,6 +105,7 @@
 		</dialogue>
 		<PP>6</PP>
 		<PV>6</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="9">
 		<nom>Annela</nom>
@@ -109,6 +117,7 @@
 		</dialogue>
 		<PP>7</PP>
 		<PV>1</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="10">
 		<nom>Lhadek</nom>
@@ -121,6 +130,7 @@
 		</dialogue>
 		<PP>0</PP>
 		<PV>9</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="11">
 		<nom>Bay Harbor</nom>
@@ -133,6 +143,7 @@
 		</dialogue>
 		<PP>10</PP>
 		<PV>4</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="12">
 		<nom>Gronmon</nom>
@@ -146,13 +157,14 @@
 		</dialogue>
 		<PP>2</PP>
 		<PV>4</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="13">
 		<nom>Marsah</nom>
 		<image>marsah.jpg</image>
 		<dialogue>
 			Vous... Vous allez vraiment prendre votre courage à deux
-			mains et anéantirecet affreux Dy... Dyspros ??
+			mains et anéantire cet affreux Dy... Dyspros ??
 			Ce n'est pas pour vous
 			inquiéter mais j'ai entendu dire qu'il était
 			une réelle menace et
@@ -161,6 +173,7 @@
 		</dialogue>
 		<PP>1</PP>
 		<PV>1</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="14">
 		<nom>Elyr</nom>
@@ -168,9 +181,10 @@
 		<dialogue>
 			Eh vous ! Vous pensez vraiment faire le poids contre Dyspros sans moi?
 			Haha laissez moi rire. Je me joins à vous, je n'ai pas envie d'avoir
-			sur la conscience la mort d'un pauvre enfant fétiche.</dialogue>
+			sur la conscience la mort d'un pauvre enfant chétif.</dialogue>
 		<PP>4</PP>
 		<PV>4</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="15">
 		<nom>Boubou</nom>
@@ -182,6 +196,7 @@
 		</dialogue>
 		<PP>7</PP>
 		<PV>1</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="16">
 		<nom>Miliora</nom>
@@ -195,6 +210,7 @@
 		</dialogue>
 		<PP>9</PP>
 		<PV>6</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="17">
 		<nom>Illen</nom>
@@ -206,6 +222,7 @@
 		</dialogue>
 		<PP>4</PP>
 		<PV>1</PV>
+		<ROLE >HEALER</ROLE>
 	</allie>
 	<allie index="18">
 		<nom>Stafigan</nom>
@@ -217,6 +234,7 @@
 		</dialogue>
 		<PP>3</PP>
 		<PV>7</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="19">
 		<nom>PX-0</nom>
@@ -230,6 +248,7 @@
 		</dialogue>
 		<PP>10</PP>
 		<PV>1</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="20">
 		<nom>Nelvania</nom>
@@ -241,6 +260,7 @@
 		</dialogue>
 		<PP>9</PP>
 		<PV>5</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="21">
 		<nom>Death</nom>
@@ -251,6 +271,7 @@
 		</dialogue>
 		<PP>2</PP>
 		<PV>10</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="22">
 		<nom>Azagal</nom>
@@ -263,6 +284,7 @@
 		</dialogue>
 		<PP>2</PP>
 		<PV>4</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="23">
 		<nom>Ogrod</nom>
@@ -275,6 +297,7 @@
 		</dialogue>
 		<PP>7</PP>
 		<PV>5</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="24">
 		<nom>Jake</nom>
@@ -286,6 +309,7 @@
 		</dialogue>
 		<PP>2</PP>
 		<PV>5</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="25">
 		<nom>Arctos</nom>
@@ -298,6 +322,7 @@
 		</dialogue>
 		<PP>3</PP>
 		<PV>6</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="26">
 		<nom>Ahtina</nom>
@@ -308,6 +333,7 @@
 			choses à régler avec cette enflure! IL EST OU ?</dialogue>
 		<PP>10</PP>
 		<PV>7</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="27">
 		<nom>Liams</nom>
@@ -319,6 +345,7 @@
 		</dialogue>
 		<PP>3</PP>
 		<PV>10</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="28">
 		<nom>Loki</nom>
@@ -333,6 +360,7 @@
 			</dialogue>
 		<PP>8</PP>
 		<PV>9</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="29">
 		<nom>Menrald</nom>
@@ -348,6 +376,7 @@
 		</dialogue>
 		<PP>1</PP>
 		<PV>7</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 	<allie index="30">
 		<nom>Rossiliak</nom>
@@ -360,5 +389,6 @@
 		</dialogue>
 		<PP>5</PP>
 		<PV>6</PV>
+		<ROLE >FIGHTER</ROLE>
 	</allie>
 </listeAlliesPossible>
