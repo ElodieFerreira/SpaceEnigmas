@@ -10,4 +10,8 @@ public class Personnage {
 		description = descriptionPerso;
 		image = imagePerso;
 	}
+
+	public String getImage() {
+		return image;
+	}
 }
