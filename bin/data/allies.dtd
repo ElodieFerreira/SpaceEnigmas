@@ -2,9 +2,18 @@
 <!ELEMENT listeAlliesPossible (allie+)>
 <!ELEMENT allie (nom,image,dialogue,PP,PV,ROLE)>
 <!ATTLIST allie index ID #REQUIRED>
+<<<<<<< HEAD
 <!ELEMENT nom (#PCDATA)>
 <!ELEMENT image (#PCDATA)>
 <!ELEMENT dialogue (#PCDATA)>
 <!ELEMENT PA (#PCDATA)>
 <!ELEMENT PV (#PCDATA)>
 <!ELEMENT ROLE (#PCDATA)>
+=======
+<!ELEMENT nom #PCDATA>
+<!ELEMENT image #PCDATA>
+<!ELEMENT dialogue #PCDATA>
+<!ELEMENT PA #PCDATA>
+<!ELEMENT PV #PCDATA>
+<!ELEMENT ROLE #PCDATA>
+>>>>>>> adfbd2b27e8ebc30460076c096af4360add07e0a

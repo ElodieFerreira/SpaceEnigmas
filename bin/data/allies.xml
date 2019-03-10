@@ -4,7 +4,7 @@
 	<!--Attention, les index commencent à 1 -->
 	<allie index="1">
 		<nom>Edolie</nom>
-		<image>edolie.jpg</image>
+		<image>edolie.png</image>
 		<dialogue>
 			J'ai entendu dire que vous voulez affronter Dyspros! Il a
 			légèrement
@@ -14,11 +14,15 @@
 		</dialogue>
 		<PP>3</PP>
 		<PV>6</PV>
+<<<<<<< HEAD
 		<ROLE>FIGHTER</ROLE>
+=======
+		<ROLE >FIGHTER</ROLE>
+>>>>>>> adfbd2b27e8ebc30460076c096af4360add07e0a
 	</allie>
 	<allie index="2">
 		<nom>Tasbien</nom>
-		<image>tasbien.jpg</image>
+		<image>tasbien.gif</image>
 		<dialogue>
 			Vous allez vous opposer à Dyspros? Prenez-moi avec vous! Il
 			a dit que mon
@@ -28,7 +32,11 @@
 		</dialogue>
 		<PP>4</PP>
 		<PV>5</PV>
+<<<<<<< HEAD
 		<ROLE>FIGHTER</ROLE>
+=======
+		<ROLE >FIGHTER</ROLE>
+>>>>>>> adfbd2b27e8ebc30460076c096af4360add07e0a
 	</allie>
 	<allie index="3">
 		<nom>Dayfa</nom>
@@ -96,7 +104,7 @@
 	</allie>
 	<allie index="8">
 		<nom>Sysou</nom>
-		<image>sysou.jpg</image>
+		<image>sysou.png</image>
 		<dialogue>
 			On m'a dit que vous cherchiez à détruire Dyspros ? Je suis
 			votre homme ! Mes romans avaient beaucoup de succès avant que ce
@@ -109,7 +117,7 @@
 	</allie>
 	<allie index="9">
 		<nom>Annela</nom>
-		<image>annela.jpg</image>
+		<image>annela.gif</image>
 		<dialogue>
 			Vous voulez battre Dyspros ? Un jour, il m'a donné des nombres à haute
 			voix au hasard pour me déconcentrer quand j'étais en
@@ -147,7 +155,7 @@
 	</allie>
 	<allie index="12">
 		<nom>Gronmon</nom>
-		<image>gronmon.jpg</image>
+		<image>gronmon.png</image>
 		<dialogue>
 			Les nouvelles vont vite, très vite. J'ai compris que vous
 			alliez faire face à ce pauvre Dyspros. J'espère que vous dites vrai
@@ -161,7 +169,7 @@
 	</allie>
 	<allie index="13">
 		<nom>Marsah</nom>
-		<image>marsah.jpg</image>
+		<image>marsah.png</image>
 		<dialogue>
 			Vous... Vous allez vraiment prendre votre courage à deux
 			mains et anéantire cet affreux Dy... Dyspros ??
@@ -188,7 +196,7 @@
 	</allie>
 	<allie index="15">
 		<nom>Boubou</nom>
-		<image>boubou.jpg</image>
+		<image>boubou.png</image>
 		<dialogue>
 			Mouais.. Dyspros? Pourquoi pas le combattre... Je vous avoue que je n'ai rien
 			à faire depuis qu'il a tué mon patron. Ce n'est pas plus mal
@@ -200,7 +208,7 @@
 	</allie>
 	<allie index="16">
 		<nom>Miliora</nom>
-		<image>miliora.gif</image>
+		<image>miliora.pngf</image>
 		<dialogue>
 			Je n'ai rien contre Dyspros vous savez! Mais je vais tout de même vous
 			aider. D'ici, l'explosion des diverses planètes qu'il provoque nous
@@ -275,7 +283,7 @@
 	</allie>
 	<allie index="22">
 		<nom>Azagal</nom>
-		<image>azagal.jpg</image>
+		<image>azagal.png</image>
 		<dialogue>
 			Lorsque nous étions enfant, ma soeur et moi révions de liberté. Nous avions
 			décider de nous envoler en dépit des du réglement imposer par
@@ -288,7 +296,7 @@
 	</allie>
 	<allie index="23">
 		<nom>Ogrod</nom>
-		<image>ogrod.jpg</image>
+		<image>ogrod.png</image>
 		<dialogue>
 			Depuis que l'arrivée de Dyspros, toutes les denrées
 			alimentaires sont accaparées dans la capitale pour servir ses gardes
@@ -313,7 +321,7 @@
 	</allie>
 	<allie index="25">
 		<nom>Arctos</nom>
-		<image>arctos.jpg</image>
+		<image>arctos.png</image>
 		<dialogue>
 			Dyspros ? Oui ça me dit quelque chose... J'ai plusieurs
 			colis pour lui, mais cette personne semble avoir de multiple
