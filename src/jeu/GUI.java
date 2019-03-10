@@ -270,7 +270,9 @@ public class GUI implements ActionListener
 		   	cpt++;
 		}
 		for(Personnage personnage : personnageDansLaZone) {
+			System.out.println("ola");
 		   	URL personnageURL = this.getClass().getClassLoader().getResource("images/"+personnage.getImage());
+		   	System.out.println(personnage.getImage());
 			System.out.println(personnageURL);
 		   	if( personnageURL != null ) {
 	        	placementObjetCarte.get(cpt).setIcon( new ImageIcon(personnageURL));

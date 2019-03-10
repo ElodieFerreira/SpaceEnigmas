@@ -87,16 +87,50 @@ public class ObjectBuilder {
 		while(it.hasNext()){
 			zone.get((int)it.next()).getAnimauxDansLazone().add(new Mouton());
 		}
-		
-		
-//		for(int i=0;i<3;i++)
-//		{
-//			Random rand = new Random();
-//			int nbaleat = rand.nextInt((zone.size()-2));
-//			System.out.println(zone.get(nbaleat).getNom());
-//			zone.get(nbaleat).getAnimauxDansLazone().add(new Mouton());
-//			
-//		}
 		return zone ;
 	}
+	public ArrayList<Allies> creerTousLesAllies(String nomFichier) {
+		ReaderXML persoReader = new ReaderXML(nomFichier);
+		ArrayList<Allies> tousLesPersos = new ArrayList<Allies>();
+		NodeList allies = persoReader.getDocument().getElementsByTagName("allie");
+		Random rand = new Random();
+		HashSet hs = new HashSet();
+		int nbaleat = rand.nextInt(5-3+1)+3;
+		while(hs.size()<nbaleat){
+			int num = rand.nextInt((allies.getLength()-1+1));
+			System.out.println(num);
+			hs.add(num);
+		}
+		Iterator it=hs.iterator();
+		while(it.hasNext()){
+		 Element allie = (Element) allies.item((int)it.next());
+		 String nom = allie.getElementsByTagName("nom").item(0).getTextContent();
+		 String image = allie.getElementsByTagName("image").item(0).getTextContent();
+		 String dialogue = allie.getElementsByTagName("dialogue").item(0).getTextContent();
+		 Role role = Role.valueOf(allie.getElementsByTagName("ROLE").item(0).getTextContent());
+		 Integer pv = Integer.valueOf(allie.getElementsByTagName("PV").item(0).getTextContent());
+		 Integer pp = Integer.valueOf(allie.getElementsByTagName("PP").item(0).getTextContent());
+		 tousLesPersos.add(new Allies(nom,null,image,pv,pp,role,dialogue));
+		}
+		return tousLesPersos;
+	}
+	public ArrayList<Zone> positionneAlliees(ArrayList<Zone> zones, ArrayList<Allies> tousLesAllies)
+	{	
+		HashSet hs=new HashSet();
+
+		while(hs.size()<tousLesAllies.size()){
+			Random rand = new Random();
+			int nbaleat = rand.nextInt((zones.size()-2));
+			hs.add(nbaleat);
+		}
+		Iterator it=hs.iterator();
+		int i = 0;
+		while(it.hasNext()){
+			zones.get((int)it.next()).getPersonnageDansLaZone().add(tousLesAllies.get(i));
+			i++;
+		}
+		return zones ;
+
+	}
+	
 }

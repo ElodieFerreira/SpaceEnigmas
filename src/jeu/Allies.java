@@ -1,15 +1,20 @@
 package jeu;
 
 public class Allies extends Personnage {
-	private int pointDeVie;
-	private int pointDePouvoir;
+	private Integer pointDeVie;
+	private Integer pointDePouvoir;
 	private Role statut;
-	public Allies(String nomPerso, String descriptionPerso, String imagePerso,String statutPerso, int pointVie,int pointPouvoir) {
+	private String dialogue;
+
+	public Allies(String nomPerso, String descriptionPerso, String imagePerso, Integer pointDeVie, Integer pointDePouvoir,
+			Role statut, String dialogue) {
 		super(nomPerso, descriptionPerso, imagePerso);
-		statut = Role.valueOf(statutPerso);
-		pointDeVie = pointVie;
-		pointDePouvoir = pointPouvoir;
+		this.pointDeVie = pointDeVie;
+		this.pointDePouvoir = pointDePouvoir;
+		this.statut = statut;
+		this.dialogue = dialogue;
 	}
+
 	public void lancerAttaque() {
 	}
 }

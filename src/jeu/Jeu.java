@@ -42,7 +42,8 @@ public class Jeu implements Serializable {
     	vaisseau = zones.get(0);
     	vaisseau = constructorOfMap.ajouterLesSortiesAuVaisseau(vaisseau, espace);
     	zones = constructorOfMap.positionMouton(zones, 3);
-    	zones.get(4).getPersonnageDansLaZone().add(new Personnage("Le bebs","Mon copain","berger.png"));
+    	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
+    	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
     	zoneCourante = espace.get(0).getZones().get(0);
     }
 

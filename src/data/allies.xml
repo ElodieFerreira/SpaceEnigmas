@@ -14,7 +14,7 @@
 		</dialogue>
 		<PP>3</PP>
 		<PV>6</PV>
-		<ROLE >FIGHTER</ROLE>
+		<ROLE>FIGHTER</ROLE>
 	</allie>
 	<allie index="2">
 		<nom>Tasbien</nom>
@@ -28,7 +28,7 @@
 		</dialogue>
 		<PP>4</PP>
 		<PV>5</PV>
-		<ROLE >FIGHTER</ROLE>
+		<ROLE>FIGHTER</ROLE>
 	</allie>
 	<allie index="3">
 		<nom>Dayfa</nom>
