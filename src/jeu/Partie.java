@@ -18,12 +18,11 @@ public class Partie {
 	private Zone salleDeRepos;
 
 	public void setSalleDeRepos(Zone salleDeReposArg) {
-		salleDeRepos = salleDeReposArg;
+		this.salleDeRepos = salleDeReposArg;
 	}
 	public Partie() {
 		joueur = null;
 		carteActuel = new ArrayList<Planete>();
-		salleDeRepos = new Zone("ezez","ezez","éa");
 	}
 	public Joueur getJoueur() {
 		return joueur;

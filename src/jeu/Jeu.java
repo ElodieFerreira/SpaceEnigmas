@@ -44,9 +44,8 @@ public class Jeu implements Serializable {
     	zones = constructorOfMap.positionMouton(zones, 3);
     	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
     	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
-    	partie.setSalleDeRepos(zones.get(0));
-    	zoneCourante = espace.get(0).getZones().get(0);
-    	
+    	partie.setSalleDeRepos(zones.get(1));
+    	zoneCourante = espace.get(0).getZones().get(0); 	
     }
 
     private void afficherLocalisation() {

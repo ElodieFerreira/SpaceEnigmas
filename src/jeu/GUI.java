@@ -79,7 +79,7 @@ public class GUI implements ActionListener
     }
 
     public void afficheImage(String nomImage) {
-    	System.out.println(nomImage);
+    	System.out.println(nomImage+"coucou");
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	ImageIcon img = new ImageIcon(imageURL);
     	Image imageFormatImage = img.getImage();
@@ -288,10 +288,11 @@ public class GUI implements ActionListener
         mnJoueur.add(Inventaire);
         
         mntmAmis = new JMenuItem("Amis");
-        mntmAmis.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent arg0) {
-        		
+        mntmAmis.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		System.out.println("ola");
+        		System.out.println(jeu.getPartie().getSalleDeRepos()+"voici ma salle de repos");
+        		jeu.allerEn(jeu.getPartie().getSalleDeRepos());
         	}
         });
         mnJoueur.add(mntmAmis);

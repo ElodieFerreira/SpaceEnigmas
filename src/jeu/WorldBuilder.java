@@ -25,7 +25,6 @@ public class WorldBuilder {
         	String descriptionZone = zone.getElementsByTagName("description").item(0).getTextContent();
         	String nomImage = zone.getElementsByTagName("image").item(0).getTextContent();
         	Integer indexZone = Integer.valueOf(zone.getAttribute("index"));
-        	System.out.println(indexZone);
         	zones.add(indexZone,new Zone(nomZone,nomImage,descriptionZone));
         }
     	return zones;
@@ -46,10 +45,6 @@ public class WorldBuilder {
         		planete.ajouterZone(toutesLesZones.get(indexZoneToAdd));
         	}
         	planetesRetour.add(planete);
-        }
-         for(Planete planete : planetesRetour) {
-        	 System.out.println(planete.nom);
-        	 System.out.println(planete.description);
         }
 		return planetesRetour;
 	}
