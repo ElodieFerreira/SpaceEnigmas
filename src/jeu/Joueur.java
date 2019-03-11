@@ -25,10 +25,9 @@ public class Joueur {
 		inventaire.add(A);
 		System.out.println();
 	}
-	public Objets donnerObjet(int index)
+	public Objets donnerObjet(Objets obj)
 	{	
-		Objets obj =inventaire.get(index);
-		inventaire.remove(index);
+		inventaire.remove(obj);
 		return obj;	
 	}
 	

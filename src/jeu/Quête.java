@@ -5,7 +5,8 @@ public class Quête {
 	 * True for -> déjà faite
 	 * False for -> Pas encore faite
 	 */
-	private boolean status;
+	protected int id;
+	protected boolean status;
 	private Objets recompense;
 	public Quête(Objets recompenseJoueur) {
 		recompense = recompenseJoueur;
@@ -13,5 +14,8 @@ public class Quête {
 	}
 	private void terminer() {
 		this.status=true;
+	}
+	public void lancerQuête() {
+		
 	}
 }
