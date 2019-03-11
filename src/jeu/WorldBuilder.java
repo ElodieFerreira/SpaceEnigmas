@@ -11,10 +11,10 @@ import org.w3c.dom.NodeList;
 
 public class WorldBuilder {
 	public ArrayList<Zone> creerToutesLesZones() {
-		// Création du vaisseau : 
+		// Crï¿½ation du vaisseau : 
 		ArrayList<Zone> zones = new ArrayList<Zone>();
     	zones.add(new Zone("Vaisseau","vaisseau.png","test.gif"));
-    	//Création des autres zones
+    	//Crï¿½ation des autres zones
     	ReaderXML spaceReader = new ReaderXML("espace1.xml");
         NodeList nodeZones = spaceReader.getDocument().getElementsByTagName("zone");
         for(int i=0;i<nodeZones.getLength();i++) {
@@ -73,6 +73,11 @@ public class WorldBuilder {
 		}
 		return vaisseau;
 	}
+	/**
+	 * @param zone
+	 * @param nbMouton
+	 * @return arrayList de zone mise Ã  jour
+	 */
 	public ArrayList<Zone> positionMouton(ArrayList<Zone> zone, int nbMouton)
 	{
 		HashSet hs=new HashSet();
@@ -87,7 +92,7 @@ public class WorldBuilder {
 		while(it.hasNext()){
 			zone.get((int)it.next()).getAnimauxDansLazone().add(new Mouton());
 		}
-		return zone ;
+		return zone;
 	}
 	public ArrayList<Allies> creerTousLesAllies(String nomFichier) {
 		ReaderXML persoReader = new ReaderXML(nomFichier);

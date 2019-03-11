@@ -6,6 +6,10 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Fayda
+ *
+ */
 public class Jeu implements Serializable {
 	
     private GUI gui; 
@@ -46,6 +50,7 @@ public class Jeu implements Serializable {
     	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
     	zoneCourante = espace.get(0).getZones().get(0);
     }
+    
 
     private void afficherLocalisation() {
             gui.afficher( zoneCourante.descriptionLongue());
