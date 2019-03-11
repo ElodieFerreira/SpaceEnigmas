@@ -55,6 +55,11 @@ public class GUI implements ActionListener
     private JButton boutonSud;
     private JButton boutonOuest;
     private JButton boutonEst;
+    private JMenuBar menuBar;
+    private JMenu mnJoueur;
+    private JMenuItem Sauvegarde;
+    private JMenuItem Inventaire;
+    private JMenuItem mntmAmis;
     
 
     public GUI(Jeu j) {
@@ -138,10 +143,10 @@ public class GUI implements ActionListener
 //        personnage.setBounds(350, 150, 150, 150);
         panel = new JPanel();
         panelTexte = new JPanel();
-        panelTexte.setBounds(0, 500, 880, 153);
+        panelTexte.setBounds(0, 525, 880, 128);
         panelTexte.setLayout(new BorderLayout());
         panelCarte = new JPanel();
-        panelCarte.setBounds(0, 0, 880, 500);
+        panelCarte.setBounds(0, 25, 880, 499);
         entree = new JTextField(34);
         texte = new JTextArea();
         new JButton("Est");
@@ -181,7 +186,7 @@ public class GUI implements ActionListener
         });
         panelImage = new JPanel();
         image = new JLabel();
-        image.setBounds(-17, 0, 897, 500);
+        image.setBounds(0, 0, 760, 449);
         image.setBackground(new Color(153, 0, 204));
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelImage.setLayout(null);
@@ -196,10 +201,10 @@ public class GUI implements ActionListener
         					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
         					label1.setVisible(false);
         				} else {
-        					System.out.println(jeu.getPartie().getJoueur().allies.size());
+        					System.out.println(jeu.getPartie().getJoueur().friends.size());
         					jeu.afficherDialogue((Allies)objetsDansLaZone.get(0));
-        					jeu.getPartie().getJoueur().allies.add((Allies)objetsDansLaZone.get(0));
-        					System.out.println(jeu.getPartie().getJoueur().allies.size());
+        					jeu.getPartie().getJoueur().friends.add((Allies)objetsDansLaZone.get(0));
+        					System.out.println(jeu.getPartie().getJoueur().friends.size());
         					
         				}
         		} else {
@@ -268,6 +273,28 @@ public class GUI implements ActionListener
         
         panel.add(panelTexte);	
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
+        
+        menuBar = new JMenuBar();
+        menuBar.setBounds(0, 0, 880, 26);
+        panel.add(menuBar);
+        
+        mnJoueur = new JMenu("Joueur");
+        menuBar.add(mnJoueur);
+        
+        Sauvegarde = new JMenuItem("Sauvegarde");
+        mnJoueur.add(Sauvegarde);
+        
+        Inventaire = new JMenuItem("Inventaire");
+        mnJoueur.add(Inventaire);
+        
+        mntmAmis = new JMenuItem("Amis");
+        mntmAmis.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		
+        	}
+        });
+        mnJoueur.add(mntmAmis);
         
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

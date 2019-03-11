@@ -9,12 +9,15 @@ public class Joueur {
 	public ArrayList<Objets> inventaire;
 	private Integer pointdAttaque;
 	private Integer pointDeVie;
-	public HashSet allies;
-	
+	public HashSet friends;
+	/**
+	 * Compte le nombre de quête réalisé par le joueur jusqu'à présent.
+	 */
+	private int nbQueterealise;
 	public Joueur(String nom) {
 		this.nom = nom;
 		inventaire = new ArrayList<Objets>();
-		allies = new HashSet();
+		friends = new HashSet();
 		
 	}
 	public void prendreObjet(Objets A)

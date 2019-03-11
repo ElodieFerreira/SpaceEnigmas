@@ -14,6 +14,8 @@ public class WorldBuilder {
 		// Création du vaisseau : 
 		ArrayList<Zone> zones = new ArrayList<Zone>();
     	zones.add(new Zone("Vaisseau","vaisseau.png","test.gif"));
+    	// Création de la zone des alliés
+    	zones.add(new Zone("Mes amis","zoneVaisseauAmis.jpg","zoneVaisseauAmis.jpg"));
     	//Création des autres zones
     	ReaderXML spaceReader = new ReaderXML("espace1.xml");
         NodeList nodeZones = spaceReader.getDocument().getElementsByTagName("zone");
