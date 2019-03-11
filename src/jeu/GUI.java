@@ -40,7 +40,9 @@ public class GUI implements ActionListener
     private JFrame fenetre;
     private JPanel panel;
     private JPanel panelImage;
-    private ArrayList<JLabel> placementObjetCarte;
+    private ArrayList<JLabel> labelArray;
+    private ArrayList<Object> objetsDansLaZone;
+    private ArrayList<String> naturesObjetsDansLaZone;
     private JLabel label1;
     private JLabel label3;
     private JLabel label2;
@@ -135,6 +137,8 @@ public class GUI implements ActionListener
         fenetre = new JFrame("SpaceEnigmas");
 //        personnage.setBounds(350, 150, 150, 150);
         panel = new JPanel();
+        objetsDansLaZone = new ArrayList<Object>();
+        naturesObjetsDansLaZone = new ArrayList<String>();
         panelTexte = new JPanel();
         panelTexte.setBounds(0, 500, 880, 153);
         panelTexte.setLayout(new BorderLayout());
@@ -213,10 +217,10 @@ public class GUI implements ActionListener
         label3.setBounds(568, 241, 180, 180);
         panelImage.add(label3);
         
-        placementObjetCarte = new ArrayList<JLabel>();
-        placementObjetCarte.add(label1);
-        placementObjetCarte.add(label2);
-        placementObjetCarte.add(label3);
+        labelArray = new ArrayList<JLabel>();
+        labelArray.add(label1);
+        labelArray.add(label2);
+        labelArray.add(label3);
         
         boutonEst = new JButton("EST");
         boutonEst.addMouseListener(new MouseAdapter() {
@@ -256,7 +260,7 @@ public class GUI implements ActionListener
     }
 	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone,ArrayList<Personnage> personnageDansLaZone) {
 		// TODO Auto-generated method stub
-		for(JLabel label : placementObjetCarte) {
+		for(JLabel label : labelArray) {
 			label.setVisible(false);
 		}
 		int cpt = 0;
@@ -264,8 +268,10 @@ public class GUI implements ActionListener
 			URL moutonURL = this.getClass().getClassLoader().getResource("images/"+mouton.getImage());
 		   	System.out.println(mouton);
 		   	if( mouton != null ) {
-	        	placementObjetCarte.get(cpt).setIcon( new ImageIcon(moutonURL));
-	        	placementObjetCarte.get(cpt).setVisible(true);
+		   		objetsDansLaZone.add((Object)mouton);
+		   		naturesObjetsDansLaZone.add("mouton");
+	        	labelArray.get(cpt).setIcon( new ImageIcon(moutonURL));
+	        	labelArray.get(cpt).setVisible(true);
 	        }
 		   	cpt++;
 		}
@@ -275,8 +281,11 @@ public class GUI implements ActionListener
 		   	System.out.println(personnage.getImage());
 			System.out.println(personnageURL);
 		   	if( personnageURL != null ) {
-	        	placementObjetCarte.get(cpt).setIcon( new ImageIcon(personnageURL));
-	        	placementObjetCarte.get(cpt).setVisible(true);
+		   		System.out.println(personnage);
+		   		objetsDansLaZone.add((Object)personnage);
+		   		naturesObjetsDansLaZone.add("personnage");
+	        	labelArray.get(cpt).setIcon( new ImageIcon(personnageURL));
+	        	labelArray.get(cpt).setVisible(true);
 	        }
 		   	cpt++;
 		}

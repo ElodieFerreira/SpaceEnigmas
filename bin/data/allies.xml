@@ -14,11 +14,7 @@
 		</dialogue>
 		<PP>3</PP>
 		<PV>6</PV>
-<<<<<<< HEAD
 		<ROLE>FIGHTER</ROLE>
-=======
-		<ROLE >FIGHTER</ROLE>
->>>>>>> adfbd2b27e8ebc30460076c096af4360add07e0a
 	</allie>
 	<allie index="2">
 		<nom>Tasbien</nom>
@@ -32,11 +28,7 @@
 		</dialogue>
 		<PP>4</PP>
 		<PV>5</PV>
-<<<<<<< HEAD
 		<ROLE>FIGHTER</ROLE>
-=======
-		<ROLE >FIGHTER</ROLE>
->>>>>>> adfbd2b27e8ebc30460076c096af4360add07e0a
 	</allie>
 	<allie index="3">
 		<nom>Dayfa</nom>
