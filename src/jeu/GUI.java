@@ -196,7 +196,11 @@ public class GUI implements ActionListener
         					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
         					label1.setVisible(false);
         				} else {
+        					System.out.println(jeu.getPartie().getJoueur().allies.size());
         					jeu.afficherDialogue((Allies)objetsDansLaZone.get(0));
+        					jeu.getPartie().getJoueur().allies.add((Allies)objetsDansLaZone.get(0));
+        					System.out.println(jeu.getPartie().getJoueur().allies.size());
+        					
         				}
         		} else {
         			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
@@ -321,13 +325,5 @@ public class GUI implements ActionListener
 	        }
 		   	cpt++;
 		}
-//		for(int i=0;i<animauxDansLazone.size();i++) {
-//		   	URL mouton = this.getClass().getClassLoader().getResource("images/"+animauxDansLazone.get(i).getImage());
-//		   	System.out.println(mouton);
-//		   	if( mouton != null ) {
-//	        	label1.setIcon( new ImageIcon(mouton));
-//	        	label1.setVisible(true);
-//	        }
-//		}
 	}
 }
