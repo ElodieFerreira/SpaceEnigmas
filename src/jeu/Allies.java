@@ -15,6 +15,7 @@ public class Allies extends Personnage {
 		this.dialogue = dialogue;
 	}
 
-	public void lancerAttaque() {
+	public String parler() {
+		return dialogue;
 	}
 }

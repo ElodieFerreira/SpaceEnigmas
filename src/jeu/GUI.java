@@ -137,8 +137,6 @@ public class GUI implements ActionListener
         fenetre = new JFrame("SpaceEnigmas");
 //        personnage.setBounds(350, 150, 150, 150);
         panel = new JPanel();
-        objetsDansLaZone = new ArrayList<Object>();
-        naturesObjetsDansLaZone = new ArrayList<String>();
         panelTexte = new JPanel();
         panelTexte.setBounds(0, 500, 880, 153);
         panelTexte.setLayout(new BorderLayout());
@@ -188,16 +186,21 @@ public class GUI implements ActionListener
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelImage.setLayout(null);
         label1 = new JLabel();
-        label1.addMouseMotionListener(new MouseMotionAdapter() {
-        	@Override
-        	public void mouseDragged(MouseEvent arg0) {
-        		mouseDragged(arg0);
-        	}
-        });
         label1.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
-        		jeu.allerEn("NORD");
+        		if(jeu.getPartie().getJoueur()!=null) {
+        				if(naturesObjetsDansLaZone.get(0)=="mouton") {
+        					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+        					jeu.captureDeMouton((Mouton)objetsDansLaZone.get(0));
+        					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+        					label1.setVisible(false);
+        				} else {
+        					jeu.afficherDialogue((Allies)objetsDansLaZone.get(0));
+        				}
+        		} else {
+        			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
+        		}
         	}
         });
         
@@ -210,11 +213,38 @@ public class GUI implements ActionListener
         label2 = new JLabel();
         label2.setBackground(new Color(204, 204, 0));
         label2.setBounds(316, 241, 180, 180);
+        label2.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		if(jeu.getPartie().getJoueur()!=null) {
+    				if(naturesObjetsDansLaZone.get(1)=="mouton") {
+    					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+    					jeu.captureDeMouton((Mouton)objetsDansLaZone.get(1));
+    					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+    					label1.setVisible(false);
+    				} else {
+    					jeu.afficherDialogue((Allies)objetsDansLaZone.get(1));
+    				}
+    		} else {
+    			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
+    		}
+        	}
+        });
         panelImage.add(label2);
         
         label3 = new JLabel();
         label3.setBackground(new Color(204, 204, 0));
         label3.setBounds(568, 241, 180, 180);
+        label3.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		if(naturesObjetsDansLaZone.get(2)=="mouton") {
+        			afficher("C'était un mouton");
+        		} else {
+        			jeu.afficherDialogue((Allies)objetsDansLaZone.get(2));
+        		}
+        	}
+        });
         panelImage.add(label3);
         
         labelArray = new ArrayList<JLabel>();
@@ -263,6 +293,8 @@ public class GUI implements ActionListener
 		for(JLabel label : labelArray) {
 			label.setVisible(false);
 		}
+        objetsDansLaZone = new ArrayList<Object>();
+        naturesObjetsDansLaZone = new ArrayList<String>();
 		int cpt = 0;
 		for(Mouton mouton : animauxDansLazone) {
 			URL moutonURL = this.getClass().getClassLoader().getResource("images/"+mouton.getImage());

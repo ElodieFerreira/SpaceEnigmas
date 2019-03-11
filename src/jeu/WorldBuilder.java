@@ -9,7 +9,7 @@ import java.util.Iterator;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class ObjectBuilder {
+public class WorldBuilder {
 	public ArrayList<Zone> creerToutesLesZones() {
 		// Création du vaisseau : 
 		ArrayList<Zone> zones = new ArrayList<Zone>();
@@ -132,5 +132,8 @@ public class ObjectBuilder {
 		return zones ;
 
 	}
-	
+	public Zone suppresionDuMouton(Zone zone,Mouton mouton) {
+		zone.getAnimauxDansLazone().remove(mouton);
+		return zone;
+	}
 }
