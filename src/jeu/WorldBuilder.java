@@ -9,7 +9,7 @@ import java.util.Iterator;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class ObjectBuilder {
+public class WorldBuilder {
 	public ArrayList<Zone> creerToutesLesZones() {
 		// Création du vaisseau : 
 		ArrayList<Zone> zones = new ArrayList<Zone>();
@@ -78,8 +78,8 @@ public class ObjectBuilder {
 		HashSet hs=new HashSet();
 
 		while(hs.size()<nbMouton){
-			Random rand = new Random();
-			int nbaleat = rand.nextInt((zone.size()-2));
+		 // Min + (Math.random() * (Max - Min))
+			int nbaleat = (int) (1 + (Math.random()*(zone.size()-2)));
 			hs.add(nbaleat);
 		}
 		Iterator it=hs.iterator();
@@ -95,10 +95,10 @@ public class ObjectBuilder {
 		NodeList allies = persoReader.getDocument().getElementsByTagName("allie");
 		Random rand = new Random();
 		HashSet hs = new HashSet();
-		int nbaleat = rand.nextInt(5-3+1)+3;
+		// int nbaleat = (int) (1 + (Math.random()*(zone.size()-2)));
+		int nbaleat = (int) (3 + (Math.random()*(5-3)+1));
 		while(hs.size()<nbaleat){
-			int num = rand.nextInt((allies.getLength()-1+1));
-			System.out.println(num);
+			int num = (int) ((Math.random()*(allies.getLength()-1)));
 			hs.add(num);
 		}
 		Iterator it=hs.iterator();
@@ -120,7 +120,7 @@ public class ObjectBuilder {
 
 		while(hs.size()<tousLesAllies.size()){
 			Random rand = new Random();
-			int nbaleat = rand.nextInt((zones.size()-2));
+			int nbaleat = rand.nextInt((zones.size()-3)+1);
 			hs.add(nbaleat);
 		}
 		Iterator it=hs.iterator();
@@ -132,5 +132,8 @@ public class ObjectBuilder {
 		return zones ;
 
 	}
-	
+	public Zone suppresionDuMouton(Zone zone,Mouton mouton) {
+		zone.getAnimauxDansLazone().remove(mouton);
+		return zone;
+	}
 }

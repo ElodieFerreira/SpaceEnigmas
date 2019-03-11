@@ -4,4 +4,4 @@
 <!ELEMENT nom (#PCDATA)>
 <!ELEMENT image (#PCDATA)>
 <!ATTLIST quéteur index ID #REQUIRED>
-<!ELEMENT dialogues (avantQuete,pendantQuete+?,aprèsQuete)>
+<!ELEMENT dialogues (queteDejaEnCours, avantQuete,(pendantQuete+),aprèsQuete,remerciement)>

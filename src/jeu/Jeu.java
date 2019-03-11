@@ -35,7 +35,7 @@ public class Jeu implements Serializable {
     	gui.addNameFrame(nomJoueur);
     }
     private void creerCarte() {
-    	ObjectBuilder constructorOfMap = new ObjectBuilder();
+    	WorldBuilder constructorOfMap = new WorldBuilder();
     	ArrayList<Zone> zones = constructorOfMap.creerToutesLesZones();
     	zones = constructorOfMap.ajouterToutesLesSorties(zones);
     	ArrayList<Planete> espace = constructorOfMap.creerLesPlanetes(zones);
@@ -98,7 +98,12 @@ public class Jeu implements Serializable {
         gui.afficher(Commande.toutesLesDescriptions().toString());
         gui.afficher();
     }
-    
+    public void captureDeMouton(Mouton mouton) {
+    	WorldBuilder constructorOfMap = new WorldBuilder();
+    	partie.getJoueur().prendreObjet(mouton);
+    	constructorOfMap.suppresionDuMouton(zoneCourante, mouton);
+    	
+    }
     public void allerEn(String direction) {
     	Zone nouvelle = zoneCourante.obtientSortie( direction);
     	if ( nouvelle == null ) {
@@ -114,7 +119,9 @@ public class Jeu implements Serializable {
             gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
         }
     }
-    
+    public void afficherDialogue(Allies allie) {
+    	gui.afficher(allie.parler());
+    }
     private void terminer() {
     	gui.afficher( "Au revoir...");
     	gui.enable( false);

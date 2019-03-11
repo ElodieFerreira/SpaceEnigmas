@@ -40,7 +40,9 @@ public class GUI implements ActionListener
     private JFrame fenetre;
     private JPanel panel;
     private JPanel panelImage;
-    private ArrayList<JLabel> placementObjetCarte;
+    private ArrayList<JLabel> labelArray;
+    private ArrayList<Object> objetsDansLaZone;
+    private ArrayList<String> naturesObjetsDansLaZone;
     private JLabel label1;
     private JLabel label3;
     private JLabel label2;
@@ -184,16 +186,25 @@ public class GUI implements ActionListener
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelImage.setLayout(null);
         label1 = new JLabel();
-        label1.addMouseMotionListener(new MouseMotionAdapter() {
-        	@Override
-        	public void mouseDragged(MouseEvent arg0) {
-        		mouseDragged(arg0);
-        	}
-        });
         label1.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
-        		jeu.allerEn("NORD");
+        		if(jeu.getPartie().getJoueur()!=null) {
+        				if(naturesObjetsDansLaZone.get(0)=="mouton") {
+        					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+        					jeu.captureDeMouton((Mouton)objetsDansLaZone.get(0));
+        					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+        					label1.setVisible(false);
+        				} else {
+        					System.out.println(jeu.getPartie().getJoueur().allies.size());
+        					jeu.afficherDialogue((Allies)objetsDansLaZone.get(0));
+        					jeu.getPartie().getJoueur().allies.add((Allies)objetsDansLaZone.get(0));
+        					System.out.println(jeu.getPartie().getJoueur().allies.size());
+        					
+        				}
+        		} else {
+        			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
+        		}
         	}
         });
         
@@ -206,17 +217,44 @@ public class GUI implements ActionListener
         label2 = new JLabel();
         label2.setBackground(new Color(204, 204, 0));
         label2.setBounds(316, 241, 180, 180);
+        label2.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		if(jeu.getPartie().getJoueur()!=null) {
+    				if(naturesObjetsDansLaZone.get(1)=="mouton") {
+    					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+    					jeu.captureDeMouton((Mouton)objetsDansLaZone.get(1));
+    					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+    					label1.setVisible(false);
+    				} else {
+    					jeu.afficherDialogue((Allies)objetsDansLaZone.get(1));
+    				}
+    		} else {
+    			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
+    		}
+        	}
+        });
         panelImage.add(label2);
         
         label3 = new JLabel();
         label3.setBackground(new Color(204, 204, 0));
         label3.setBounds(568, 241, 180, 180);
+        label3.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		if(naturesObjetsDansLaZone.get(2)=="mouton") {
+        			afficher("C'était un mouton");
+        		} else {
+        			jeu.afficherDialogue((Allies)objetsDansLaZone.get(2));
+        		}
+        	}
+        });
         panelImage.add(label3);
         
-        placementObjetCarte = new ArrayList<JLabel>();
-        placementObjetCarte.add(label1);
-        placementObjetCarte.add(label2);
-        placementObjetCarte.add(label3);
+        labelArray = new ArrayList<JLabel>();
+        labelArray.add(label1);
+        labelArray.add(label2);
+        labelArray.add(label3);
         
         boutonEst = new JButton("EST");
         boutonEst.addMouseListener(new MouseAdapter() {
@@ -256,16 +294,20 @@ public class GUI implements ActionListener
     }
 	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone,ArrayList<Personnage> personnageDansLaZone) {
 		// TODO Auto-generated method stub
-		for(JLabel label : placementObjetCarte) {
+		for(JLabel label : labelArray) {
 			label.setVisible(false);
 		}
+        objetsDansLaZone = new ArrayList<Object>();
+        naturesObjetsDansLaZone = new ArrayList<String>();
 		int cpt = 0;
 		for(Mouton mouton : animauxDansLazone) {
 			URL moutonURL = this.getClass().getClassLoader().getResource("images/"+mouton.getImage());
 		   	System.out.println(mouton);
 		   	if( mouton != null ) {
-	        	placementObjetCarte.get(cpt).setIcon( new ImageIcon(moutonURL));
-	        	placementObjetCarte.get(cpt).setVisible(true);
+		   		objetsDansLaZone.add((Object)mouton);
+		   		naturesObjetsDansLaZone.add("mouton");
+	        	labelArray.get(cpt).setIcon( new ImageIcon(moutonURL));
+	        	labelArray.get(cpt).setVisible(true);
 	        }
 		   	cpt++;
 		}
@@ -275,18 +317,13 @@ public class GUI implements ActionListener
 		   	System.out.println(personnage.getImage());
 			System.out.println(personnageURL);
 		   	if( personnageURL != null ) {
-	        	placementObjetCarte.get(cpt).setIcon( new ImageIcon(personnageURL));
-	        	placementObjetCarte.get(cpt).setVisible(true);
+		   		System.out.println(personnage);
+		   		objetsDansLaZone.add((Object)personnage);
+		   		naturesObjetsDansLaZone.add("personnage");
+	        	labelArray.get(cpt).setIcon( new ImageIcon(personnageURL));
+	        	labelArray.get(cpt).setVisible(true);
 	        }
 		   	cpt++;
 		}
-//		for(int i=0;i<animauxDansLazone.size();i++) {
-//		   	URL mouton = this.getClass().getClassLoader().getResource("images/"+animauxDansLazone.get(i).getImage());
-//		   	System.out.println(mouton);
-//		   	if( mouton != null ) {
-//	        	label1.setIcon( new ImageIcon(mouton));
-//	        	label1.setVisible(true);
-//	        }
-//		}
 	}
 }
