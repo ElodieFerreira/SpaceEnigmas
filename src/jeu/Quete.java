@@ -1,14 +1,14 @@
 package jeu;
 
-public class Quête {
+public class Quete {
 	/**
-	 * True for -> déjà faite
+	 * True for -> dï¿½jï¿½ faite
 	 * False for -> Pas encore faite
 	 */
 	protected int id;
 	protected boolean status;
 	private Objets recompense;
-	public Quête(Objets recompenseJoueur) {
+	public Quete(Objets recompenseJoueur) {
 		recompense = recompenseJoueur;
 		status = false;
 	}
@@ -16,7 +16,7 @@ public class Quête {
 		joueur.prendreObjet(recompense);
 		this.status=true;
 	}
-	public void lancerQuête(Joueur joueur, Quêteur queteur) {
+	public void lancerQuete(Joueur joueur, Queteur queteur) {
 		
 	}
 }

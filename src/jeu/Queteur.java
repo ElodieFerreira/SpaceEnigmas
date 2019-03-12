@@ -2,11 +2,11 @@ package jeu;
 
 import java.util.HashMap;
 
-public class Quêteur extends Personnage {
+public class Queteur extends Personnage {
 	private HashMap<Mouton,Object> inventaire;
 	private String queteDejaEnCours;
-	private String dialogueLancementQuête;
-	public Quêteur(String nomPerso, String descriptionPerso, String imagePerso) {
+	private String dialogueLancementQuete;
+	public Queteur(String nomPerso, String descriptionPerso, String imagePerso) {
 		super(nomPerso, descriptionPerso, imagePerso);
 		// TODO Auto-generated constructor stub
 	}

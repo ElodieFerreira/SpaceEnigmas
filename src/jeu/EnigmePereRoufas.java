@@ -1,4 +1,4 @@
-package EnigmeRoufas;
+package jeu;
 
 import java.util.Scanner;
 
