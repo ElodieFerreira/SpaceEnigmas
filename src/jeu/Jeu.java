@@ -6,6 +6,10 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Fayda
+ *
+ */
 public class Jeu implements Serializable {
 	
     private GUI gui; 
@@ -25,7 +29,6 @@ public class Jeu implements Serializable {
     	if(false) {
     		
     	} else {
-    		partie = new Partie();
     		gui.afficher("Bienvenue ! Rentrez votre pr�nom \n");
     	}
     }
@@ -44,10 +47,10 @@ public class Jeu implements Serializable {
     	zones = constructorOfMap.positionMouton(zones, 3);
     	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
     	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
-    	partie.setSalleDeRepos(zones.get(0));
-    	zoneCourante = espace.get(0).getZones().get(0);
-    	
+    	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
+    	zoneCourante = espace.get(0).getZones().get(0); 	
     }
+    
 
     private void afficherLocalisation() {
             gui.afficher( zoneCourante.descriptionLongue());
@@ -129,8 +132,14 @@ public class Jeu implements Serializable {
         gui.afficherBoutonSortie(zoneCourante.getSorties());
         gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
     }
-    public void afficherDialogue(Allies allie) {
-    	gui.afficher(allie.parler());
+    public void interractionPersonnage(Personnage personnage) {
+    	gui.afficher(personnage.parler());
+    	if(personnage instanceof Allies) {
+    		partie.getJoueur().friends.add(personnage);
+    		if(partie.getJoueur().friends.size()!=partie.getSalleDeRepos().getPersonnageDansLaZone().size()) {
+    			partie.getSalleDeRepos().getPersonnageDansLaZone().add(personnage);
+    		}
+    	}
     }
     private void terminer() {
     	gui.afficher( "Au revoir...");

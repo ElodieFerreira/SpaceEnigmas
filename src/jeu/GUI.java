@@ -79,7 +79,7 @@ public class GUI implements ActionListener
     }
 
     public void afficheImage(String nomImage) {
-    	System.out.println(nomImage);
+    	System.out.println(nomImage+"coucou");
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	ImageIcon img = new ImageIcon(imageURL);
     	Image imageFormatImage = img.getImage();
@@ -194,22 +194,7 @@ public class GUI implements ActionListener
         label1.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
-        		if(jeu.getPartie().getJoueur()!=null) {
-        				if(naturesObjetsDansLaZone.get(0)=="mouton") {
-        					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
-        					jeu.captureDeMouton((Mouton)objetsDansLaZone.get(0));
-        					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
-        					label1.setVisible(false);
-        				} else {
-        					System.out.println(jeu.getPartie().getJoueur().friends.size());
-        					jeu.afficherDialogue((Allies)objetsDansLaZone.get(0));
-        					jeu.getPartie().getJoueur().friends.add((Allies)objetsDansLaZone.get(0));
-        					System.out.println(jeu.getPartie().getJoueur().friends.size());
-        					
-        				}
-        		} else {
-        			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
-        		}
+        		interractionObjet(label1, 0);
         	}
         });
         
@@ -225,18 +210,7 @@ public class GUI implements ActionListener
         label2.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
-        		if(jeu.getPartie().getJoueur()!=null) {
-    				if(naturesObjetsDansLaZone.get(1)=="mouton") {
-    					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
-    					jeu.captureDeMouton((Mouton)objetsDansLaZone.get(1));
-    					System.out.println(jeu.getPartie().getJoueur().inventaire.size());
-    					label1.setVisible(false);
-    				} else {
-    					jeu.afficherDialogue((Allies)objetsDansLaZone.get(1));
-    				}
-    		} else {
-    			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
-    		}
+        		interractionObjet(label2, 1);
         	}
         });
         panelImage.add(label2);
@@ -247,11 +221,7 @@ public class GUI implements ActionListener
         label3.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
-        		if(naturesObjetsDansLaZone.get(2)=="mouton") {
-        			afficher("C'était un mouton");
-        		} else {
-        			jeu.afficherDialogue((Allies)objetsDansLaZone.get(2));
-        		}
+        		interractionObjet(label3, 2);
         	}
         });
         panelImage.add(label3);
@@ -288,18 +258,16 @@ public class GUI implements ActionListener
         mnJoueur.add(Inventaire);
         
         mntmAmis = new JMenuItem("Amis");
-        mntmAmis.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent arg0) {
-        		
+        mntmAmis.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		System.out.println("ola");
+        		System.out.println(jeu.getPartie().getSalleDeRepos()+"voici ma salle de repos");
+        		jeu.allerEn(jeu.getPartie().getSalleDeRepos());
         	}
         });
-        mnJoueur.add(mntmAmis);
-        
+        mnJoueur.add(mntmAmis);      
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         entree.addActionListener(this);
-
         fenetre.setBounds(500,10,900,700);
         fenetre.setVisible(true);
         entree.requestFocus();
@@ -351,6 +319,22 @@ public class GUI implements ActionListener
 	        	labelArray.get(cpt).setVisible(true);
 	        }
 		   	cpt++;
+		}
+	}
+	public void interractionObjet(JLabel label, int index) {
+		if(jeu.getPartie().getJoueur()!=null) {
+			if(naturesObjetsDansLaZone.get(index)=="mouton") {
+				System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+				jeu.captureDeMouton((Mouton)objetsDansLaZone.get(index));
+				System.out.println(jeu.getPartie().getJoueur().inventaire.size());
+				label.setVisible(false);
+			} else {
+				System.out.println(jeu.getPartie().getJoueur().friends.size());
+				jeu.interractionPersonnage((Personnage)objetsDansLaZone.get(index));
+				System.out.println(jeu.getPartie().getJoueur().friends.size());
+			}
+		} else {
+			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
 		}
 	}
 }

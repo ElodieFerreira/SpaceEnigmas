@@ -11,12 +11,12 @@ import org.w3c.dom.NodeList;
 
 public class WorldBuilder {
 	public ArrayList<Zone> creerToutesLesZones() {
-		// Création du vaisseau : 
+		// CrÃ©ation du vaisseau : 
 		ArrayList<Zone> zones = new ArrayList<Zone>();
     	zones.add(new Zone("Vaisseau","vaisseau.png","test.gif"));
-    	// Création de la zone des alliés
+    	// CrÃ©ation de la zone des alliÃ©s
     	zones.add(new Zone("Mes amis","zoneVaisseauAmis.jpg","zoneVaisseauAmis.jpg"));
-    	//Création des autres zones
+    	//CrÃ©ation des autres zones
     	ReaderXML spaceReader = new ReaderXML("espace1.xml");
         NodeList nodeZones = spaceReader.getDocument().getElementsByTagName("zone");
         for(int i=0;i<nodeZones.getLength();i++) {
@@ -25,7 +25,6 @@ public class WorldBuilder {
         	String descriptionZone = zone.getElementsByTagName("description").item(0).getTextContent();
         	String nomImage = zone.getElementsByTagName("image").item(0).getTextContent();
         	Integer indexZone = Integer.valueOf(zone.getAttribute("index"));
-        	System.out.println(indexZone);
         	zones.add(indexZone,new Zone(nomZone,nomImage,descriptionZone));
         }
     	return zones;
@@ -46,10 +45,6 @@ public class WorldBuilder {
         		planete.ajouterZone(toutesLesZones.get(indexZoneToAdd));
         	}
         	planetesRetour.add(planete);
-        }
-         for(Planete planete : planetesRetour) {
-        	 System.out.println(planete.nom);
-        	 System.out.println(planete.description);
         }
 		return planetesRetour;
 	}
@@ -75,13 +70,17 @@ public class WorldBuilder {
 		}
 		return vaisseau;
 	}
+	public Zone ajouterSortieZoneDeRepos(Zone repos,String direction,Zone sortie) {
+		repos.ajouteSortie(Sortie.valueOf(direction), sortie);
+		return repos;
+	}
 	public ArrayList<Zone> positionMouton(ArrayList<Zone> zone, int nbMouton)
 	{
 		HashSet hs=new HashSet();
 
 		while(hs.size()<nbMouton){
 		 // Min + (Math.random() * (Max - Min))
-			int nbaleat = (int) (1 + (Math.random()*(zone.size()-2)));
+			int nbaleat = 2 + (int)(Math.random()*((zone.size()-4)));
 			hs.add(nbaleat);
 		}
 		Iterator it=hs.iterator();
@@ -119,10 +118,9 @@ public class WorldBuilder {
 	public ArrayList<Zone> positionneAlliees(ArrayList<Zone> zones, ArrayList<Allies> tousLesAllies)
 	{	
 		HashSet hs=new HashSet();
-
 		while(hs.size()<tousLesAllies.size()){
 			Random rand = new Random();
-			int nbaleat = rand.nextInt((zones.size()-3)+1);
+			int nbaleat = 2 + (int)(Math.random()*((zones.size()-4)));
 			hs.add(nbaleat);
 		}
 		Iterator it=hs.iterator();

@@ -14,4 +14,7 @@ public class Personnage {
 	public String getImage() {
 		return image;
 	}
+	public String parler() {
+		return "hmm, je ne sais pas quoi dire...";
+	}
 }

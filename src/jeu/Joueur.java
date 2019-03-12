@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Joueur {
-	private String nom;
+	public String nom;
 	public ArrayList<Objets> inventaire;
 	private Integer pointdAttaque;
 	private Integer pointDeVie;
@@ -25,10 +25,9 @@ public class Joueur {
 		inventaire.add(A);
 		System.out.println();
 	}
-	public Objets donnerObjet(int index)
+	public Objets donnerObjet(Objets obj)
 	{	
-		Objets obj =inventaire.get(index);
-		inventaire.remove(index);
+		inventaire.remove(obj);
 		return obj;	
 	}
 	
