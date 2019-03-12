@@ -5,19 +5,21 @@
     <nom>Michel</nom>
     <image>image</image>
     <dialogues>
-      <queteDejaEnCours></queteDejaEnCours>
-      <avantQuete>Vous saviez que la Oecophylla smaragdina est une espèce d'insectes de la famlle des Formicidae, sous-famille des Formicinae, de la tribu des Oecophyllini et du genre Oecophylla ? Autrefois elles cohabitaient en paix avec mes moutons mais depuis que je l'ai ai perdus, les fourmis sont parties... *pleure*. Si vous parvenez à m'en retrouver 3 je vous en seerait éternellement reconnaissant !</avantQuete>
-      <pendantQuete/>
-      <aprèsQuete>Vous les avez retrouvés ? C'est tout simplement EXTRAORDINAIRE ! Comment avec-vous fait ?... Non, en fait je m'en fiche de comment vous avez fait. Laissez moi vous donner du Bronze qui j'espère vous aidera. </aprèsQuete>
-      <remerciement></remerciement>
+      <queteDejaEnCours>Le temps passe, mais les moutons restent les mêmes...</queteDejaEnCours>
+      <avantQuete>Vous saviez que la Oecophylla smaragdina est une espèce d'insectes de la famille des Formicidae, sous-famille des Formicinae, de la tribu des Oecophyllini et du genre Oecophylla ? Autrefois elles cohabitaient en paix avec mes moutons mais depuis que je les ai perdus, les fourmis sont parties... *pleure*. Si vous parvenez à me retrouver 3 je vous en serait éternellement reconnaissant ! </avantQuete>
+      <pendantQuete>Faites attention, mes moutons sont très voyageurs, vous pourriez en trouver sur d'autres planètes !</pendantQuete>
+      <pendantQuete >Vous avez retrouvé Volvic, mon mouton préféré ! Plus que deux s'il vous-plait !</pendantQuete>
+      <pendantQuete >Evian vous l'avez retrouvé ! Lui je l'aime pas, il est méchant avec moi, mais c'est quand même la famille !</pendantQuete>
+      <aprèsQuete>Léandro, Vous l'avez retrouvé ? Vous les avez tous retrouvé ?! C'est tout simplement EXTRAORDINAIRE ! Comment avec-vous fait ?... Non, en fait je m'en fiche de comment vous avez fait. Laissez moi vous donner du Bronze qui j'espère vous aidera.</aprèsQuete>
+      <remerciement>Depuis que vous les avez retrouvé, aucun de mes moutons ne s'est échappé !</remerciement>
     </dialogues>
   </quéteur>
   <quéteur index="1">
   	<nom>Cash</nom>
   	<image>image</image>
   	<dialogues>
-  		<queteDejaEnCours />
-  		<avantQuete >Si vous continuez à vouloir me pendre, tous mes clients se vengeront !!! *les brigands se retourne vers vous* "HE! TOI LA ! Tu connais le jeu du pendu ? Eh ien on va jouer mais pour de vrai. Si tu trouves le mot, tu sauves la mafieuse, sinon elle meurt.</avantQuete>
+  		<queteDejaEnCours >Passe ton chemin gamin, j'ai du travail !</queteDejaEnCours>
+  		<avantQuete >Si vous continuez à vouloir me pendre, tous mes clients se vengeront ! *les brigands se retourne* "HE! TOI LA ! Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. Si tu trouves le mot, tu sauves la mafieuse, sinon elle meurt.</avantQuete>
   		<pendantQuete ></pendantQuete><pendantQuete />
   		<pendantQuete />
   		<aprèsQuete >Je dois vous dire que vous m'avez impressionné étranger. Sortir un mot en si peu de temps, vous avez vu leurs têtes déconfites hahaha. Afin de vous remercier pour m'avoir sauvé, permetez-moi de vous donner une partie de mon or que j'ai illégalement récupérer hahaha</aprèsQuete>
