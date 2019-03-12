@@ -3,5 +3,24 @@
 <baseDeMots>
   <niveau>
     <mot></mot>
+    <mot>MOUTON</mot>
+    <mot>ESPACE</mot>
+    <mot>PLANETE</mot>
+    <mot>ETOILE</mot>
+    <mot>GALAXIE</mot>
+  </niveau>
+  <niveau>
+  	<mot>TELEPORTEUR</mot>
+  	<mot>INVENTION</mot>
+  	<mot>MINERAIS</mot>
+  	<mot>MARCHAND</mot>
+  	<mot>GALACTIQUE</mot>
+  </niveau>
+  <niveau>
+  	<mot>TELEPORTATION</mot>
+  	<mot>ASTRONOMIE</mot>
+  	<mot>DIMENSIONNEL</mot>
+  	<mot>SPATIOPORTS</mot>
+  	<mot>TYRANNIQUE</mot>
   </niveau>
 </baseDeMots>
