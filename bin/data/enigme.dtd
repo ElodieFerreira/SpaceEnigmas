@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT Enigmes (enigme+)>
+<!ELEMENT enigme (question,reponse)>
+<!ELEMENT question (#PCDATA)>
+<!ELEMENT reponse (#PCDATA)>
+<!ATTLIST enigme niveau CDATA #REQUIRED>

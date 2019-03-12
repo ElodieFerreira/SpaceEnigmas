@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE personnages SYSTEM "Queteur.dtd" >
+<!DOCTYPE personnages SYSTEM "Queteur.dtd">
+<!-- Les index correspondent aux zones d'apparition  -->
 <personnages>
-  <quéteur index="0">
+  <queteur index="6">
     <nom>Michel</nom>
-    <image>image</image>
+    <image>edolie.gif</image>
     <dialogues>
       <queteDejaEnCours>Le temps passe, mais les moutons restent les mêmes...</queteDejaEnCours>
       <avantQuete>Vous saviez que la Oecophylla smaragdina est une espèce d'insectes de la famille des Formicidae, sous-famille des Formicinae, de la tribu des Oecophyllini et du genre Oecophylla ? Autrefois elles cohabitaient en paix avec mes moutons mais depuis que je les ai perdus, les fourmis sont parties... *pleure*. Si vous parvenez à me retrouver 3 je vous en serait éternellement reconnaissant ! </avantQuete>
@@ -13,10 +14,10 @@
       <aprèsQuete>Léandro, Vous l'avez retrouvé ? Vous les avez tous retrouvé ?! C'est tout simplement EXTRAORDINAIRE ! Comment avec-vous fait ?... Non, en fait je m'en fiche de comment vous avez fait. Laissez moi vous donner du Bronze qui j'espère vous aidera.</aprèsQuete>
       <remerciement>Depuis que vous les avez retrouvé, aucun de mes moutons ne s'est échappé !</remerciement>
     </dialogues>
-  </quéteur>
-  <quéteur index="1">
+  </queteur>
+  <queteur index="9">
   	<nom>Cash</nom>
-  	<image>image</image>
+  	<image>edolie.gif</image>
   	<dialogues>
   		<queteDejaEnCours >Passe ton chemin gamin, j'ai du travail !</queteDejaEnCours>
   		<avantQuete >Si vous continuez à vouloir me pendre, tous mes clients se vengeront ! *les brigands se retourne* "HE! TOI LA ! Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. Si tu trouves le mot, tu sauves la mafieuse, sinon elle meurt.</avantQuete>
@@ -26,10 +27,10 @@
   		<pendantQuete >Bravo, cette lettre est dans le mot. Tu peux proposer ta réponse ou demander une autre lettre.</pendantQuete>
   		<aprèsQuete >C'est le bon mot, elle est libre ! Je dois vous dire que vous m'avez impressionné étranger. Sortir un mot en si peu de temps, vous avez vu leurs têtes déconfites hahaha. Afin de vous remercier pour m'avoir sauvé, permetez-moi de vous donner ce minerai que j'ai illégalement récupérer hahaha</aprèsQuete>
   		<remerciement >Merci de m'avoir sauver, je te dois une fière chandelle ! Viens me voir si t'as besoin de marchandises interdites !</remerciement></dialogues>
-  </quéteur>
-  <quéteur index="2">
+  </queteur>
+  <queteur index="13">
   	<nom>Père Roufas</nom>
-  	<image>image</image>
+  	<image>edolie.gif</image>
   	<dialogues>
   		<queteDejaEnCours >As-tu... accepté... la sagesse dans ta vie ?</queteDejaEnCours>
   		<avantQuete >Entrez étranger, entrez, Culsans, un dieu important est apparu dans mes rêves pour me prévenir qu'un étranger viendrai calmer mon mal à tous jamais. Depuis des dizaines et des dizaines d'années, je tente en vain de répondre à une énigme de la plus haute importance. Réussisez à y répondre et je vous aiderai dans votre quête</avantQuete>
@@ -37,5 +38,5 @@
   		<aprèsQuete >Vous avez trouvé la bonne réponse! C'est inexplicable, vous avez un talent iné pour devenir moine. Je vous engage à commencer la formation une fois que votre quête sera terminée. D'ailleurs, afin de vous aider du mieux possible, je vous confie de l'argent</aprèsQuete>
   		<remerciement >Vous avez réfléchis à ma proposition ? Devenir moine, ça vous donne plein d'avantages ! Evidemenment, vous devez renoncer à toutes possessions matérielles, mais bon...</remerciement>
   	</dialogues>
-  </quéteur>
+  </queteur>
 </personnages>

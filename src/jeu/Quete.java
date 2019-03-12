@@ -2,7 +2,7 @@ package jeu;
 
 public class Quete {
 	/**
-	 * True for -> d�j� faite
+	 * True for -> déjà faite
 	 * False for -> Pas encore faite
 	 */
 	protected int id;

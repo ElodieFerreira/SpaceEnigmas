@@ -129,10 +129,47 @@ public class WorldBuilder {
 			i++;
 		}
 		return zones ;
-
 	}
 	public Zone suppresionDuMouton(Zone zone,Mouton mouton) {
 		zone.getAnimauxDansLazone().remove(mouton);
 		return zone;
 	}
+	
+	public ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones) {
+		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
+		NodeList queteursNode = queteurReader.getDocument().getElementsByTagName("queteur");
+		for(int i=0;i<queteursNode.getLength();i++) {
+			// Selection du quêteurs 
+			Element queteurElement = (Element) queteursNode.item(i);
+			// Selection de la zone de spawn
+			Integer indexZone = Integer.valueOf(queteurElement.getAttribute("index"));
+			// Selection des données propres aux personnages
+			String nom = queteurElement.getElementsByTagName("nom").item(0).getTextContent();
+			String image = queteurElement.getElementsByTagName("image").item(0).getTextContent();
+			// Creation du queteur
+			Queteur queteur = new Queteur(nom,"",image);
+			
+			// Recuperation des dialogues
+			String dialoguesQueteEnCours = queteurElement.getElementsByTagName("queteDejaEnCours").item(0).getTextContent();
+			String dialogueLancementQuete = queteurElement.getElementsByTagName("avantQuete").item(0).getTextContent();
+			ArrayList<String> dialoguePendantQuete = new ArrayList<String>();
+			NodeList dialoguePendantNode = queteurElement.getElementsByTagName("pendantQuete");
+			for(int j=0;j<dialoguePendantNode.getLength();j++) {
+				Element dialogue = (Element) dialoguePendantNode.item(j);
+				dialoguePendantQuete.add(dialogue.getTextContent());
+			}
+			String dialogueFinQuete = queteurElement.getElementsByTagName("aprèsQuete").item(0).getTextContent();
+			String remerciements = queteurElement.getElementsByTagName("remerciement").item(0).getTextContent();
+			queteur.setAllDialogues(dialoguesQueteEnCours, dialogueLancementQuete, dialoguePendantQuete, dialogueFinQuete, remerciements);
+			// mise en place du queteur dans sa zone
+			toutesLesZones.get(indexZone).getPersonnageDansLaZone().add(queteur);
+		}
+		return toutesLesZones;
+	}
+	public ArrayList<Quete> creerLesQuetesDuJeu() {
+		ArrayList<Quete> quetes = new ArrayList<Quete>();
+		//Creation de la premiere quetes
+		
+	}
 }
+

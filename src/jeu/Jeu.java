@@ -47,6 +47,7 @@ public class Jeu implements Serializable {
     	zones = constructorOfMap.positionMouton(zones, 3);
     	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
     	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
+    	zones = constructorOfMap.miseEnPlaceDesQueteurs(zones);
     	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
     	zoneCourante = espace.get(0).getZones().get(0); 	
     }
@@ -133,12 +134,14 @@ public class Jeu implements Serializable {
         gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
     }
     public void interractionPersonnage(Personnage personnage) {
-    	gui.afficher(personnage.parler());
     	if(personnage instanceof Allies) {
+    		gui.afficher(personnage.parler());
     		partie.getJoueur().friends.add(personnage);
     		if(partie.getJoueur().friends.size()!=partie.getSalleDeRepos().getPersonnageDansLaZone().size()) {
     			partie.getSalleDeRepos().getPersonnageDansLaZone().add(personnage);
     		}
+    	} else if (personnage instanceof Queteur) {
+    		
     	}
     }
     private void terminer() {

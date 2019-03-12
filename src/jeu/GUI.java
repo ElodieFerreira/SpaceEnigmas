@@ -60,6 +60,10 @@ public class GUI implements ActionListener
     private JMenuItem Sauvegarde;
     private JMenuItem Inventaire;
     private JMenuItem mntmAmis;
+    private JMenuItem test;
+    private JMenu mnAide;
+    private JMenuItem Interface;
+    private JMenuItem Planete;
     
 
     public GUI(Jeu j) {
@@ -266,6 +270,29 @@ public class GUI implements ActionListener
         	}
         });
         mnJoueur.add(mntmAmis);      
+        
+        mnAide = new JMenu("Aide");
+        mnJoueur.add(mnAide);
+        
+        test = new JMenuItem("Test");
+        mnAide.add(test);
+        
+        Interface = new JMenuItem("Interface");
+        mnAide.add(Interface);
+        
+        Planete = new JMenuItem("Carte");
+        mnAide.add(Planete);
+        test.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		Desktop desk = Desktop.getDesktop();
+        		try {
+					desk.open(new File("src/images/edolie.gif"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        	}
+        });
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         entree.addActionListener(this);
         fenetre.setBounds(500,10,900,700);

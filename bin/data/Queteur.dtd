@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT personnages (quéteur+)>
-<!ELEMENT quéteur (nom, image, dialogues)>
+<!ELEMENT queteur (nom, image, dialogues)>
 <!ELEMENT nom (#PCDATA)>
 <!ELEMENT image (#PCDATA)>
-<!ATTLIST quéteur index ID #REQUIRED>
+<!ATTLIST queteur index ID #REQUIRED>
 <!ELEMENT dialogues (queteDejaEnCours, avantQuete,(pendantQuete+),aprèsQuete,remerciement)>
