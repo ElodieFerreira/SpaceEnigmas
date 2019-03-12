@@ -3,7 +3,7 @@
 <personnages>
   <quéteur index="0">
     <nom>Michel</nom>
-    <image>image</image>
+    <image>michel.png</image>
     <dialogues>
       <queteDejaEnCours>Le temps passe, mais les moutons restent les mêmes...</queteDejaEnCours>
       <avantQuete>Vous saviez que la Oecophylla smaragdina est une espèce d'insectes de la famille des Formicidae, sous-famille des Formicinae, de la tribu des Oecophyllini et du genre Oecophylla ? Autrefois elles cohabitaient en paix avec mes moutons mais depuis que je les ai perdus, les fourmis sont parties... *pleure*. Si vous parvenez à me retrouver 3 je vous en serait éternellement reconnaissant ! </avantQuete>
@@ -16,7 +16,7 @@
   </quéteur>
   <quéteur index="1">
   	<nom>Cash</nom>
-  	<image>image</image>
+  	<image>cash.png</image>
   	<dialogues>
   		<queteDejaEnCours >Passe ton chemin gamin, j'ai du travail !</queteDejaEnCours>
   		<avantQuete >Si vous continuez à vouloir me pendre, tous mes clients se vengeront ! *les brigands se retourne* "HE! TOI LA ! Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. Si tu trouves le mot, tu sauves la mafieuse, sinon elle meurt.</avantQuete>
@@ -29,7 +29,7 @@
   </quéteur>
   <quéteur index="2">
   	<nom>Père Roufas</nom>
-  	<image>image</image>
+  	<image>pereroufas.gif</image>
   	<dialogues>
   		<queteDejaEnCours >As-tu... accepté... la sagesse dans ta vie ?</queteDejaEnCours>
   		<avantQuete >Entrez étranger, entrez, Culsans, un dieu important est apparu dans mes rêves pour me prévenir qu'un étranger viendrai calmer mon mal à tous jamais. Depuis des dizaines et des dizaines d'années, je tente en vain de répondre à une énigme de la plus haute importance. Réussisez à y répondre et je vous aiderai dans votre quête</avantQuete>
