@@ -1,13 +1,13 @@
 package jeu;
 
-public class Quête {
+public class QuÃªte {
 	/**
-	 * True for -> déjà faite
+	 * True for -> dï¿½jï¿½ faite
 	 * False for -> Pas encore faite
 	 */
-	private boolean status;
+	protected boolean status;
 	private Objets recompense;
-	public Quête(Objets recompenseJoueur) {
+	public QuÃªte(Objets recompenseJoueur) {
 		recompense = recompenseJoueur;
 		status = false;
 	}
