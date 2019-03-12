@@ -140,7 +140,7 @@ public class GUI implements ActionListener
 
     private void creerGUI() {
         fenetre = new JFrame("SpaceEnigmas");
-//        personnage.setBounds(350, 150, 150, 150);
+//      personnage.setBounds(350, 150, 150, 150);
         panel = new JPanel();
         panelTexte = new JPanel();
         panelTexte.setBounds(0, 525, 880, 128);
@@ -334,7 +334,7 @@ public class GUI implements ActionListener
 				System.out.println(jeu.getPartie().getJoueur().friends.size());
 			}
 		} else {
-			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!");
+			afficher("Je n'ai pas ton prï¿½nom jeune inconnu ! Donne le moi avant de commencer la partie!");
 		}
 	}
 }
