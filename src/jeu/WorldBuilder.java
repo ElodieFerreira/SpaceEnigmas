@@ -99,7 +99,7 @@ public class WorldBuilder {
 		// int nbaleat = (int) (1 + (Math.random()*(zone.size()-2)));
 		int nbaleat = (int) (3 + (Math.random()*(5-3)+1));
 		while(hs.size()<nbaleat){
-			int num = (int) (2+(Math.random()*(allies.getLength()-2)));
+			int num = (int) ((Math.random()*(allies.getLength()-1)));
 			hs.add(num);
 		}
 		Iterator it=hs.iterator();
