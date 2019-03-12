@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Enigmes SYSTEM "enigme.dtd">
+<!-- Les niveaux indiquent la difficulté. Niveau 0 = très facile. 1 =moyen et 2 
+= difficile -->
+<Enigmes>
+  <enigme niveau="">
+    <question>question</question>
+    <reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+  <enigme niveau="">
+  	<question>question</question>
+  	<reponse>reponse</reponse>
+  </enigme>
+</Enigmes>

@@ -2,6 +2,7 @@
 <!DOCTYPE baseDeMots SYSTEM "mots.dtd" >
 <baseDeMots>
   <niveau>
+    <mot></mot>
     <mot>MOUTON</mot>
     <mot>ESPACE</mot>
     <mot>PLANETE</mot>
