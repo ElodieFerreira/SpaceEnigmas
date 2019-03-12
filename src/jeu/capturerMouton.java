@@ -9,8 +9,7 @@ public class capturerMouton extends Quête {
 	private int nombreMoutonRequis;
 
 	public void lancerQuête(Joueur joueur, Quêteur queteur) {
-		super.status = true;
-		while(status) {
+		while(!status) {
 			if(queteur.getInventaire().get(0)!=null) {
 				Mouton mouton = (Mouton) queteur.getInventaire().get(0);
 				if(mouton.Nom().indexOf("mouton")!=-1) { 
