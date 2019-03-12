@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE personnages SYSTEM "Queteur.dtd" >
 <personnages>
+<<<<<<< HEAD
   <quéteur index="0">
     <nom>Michel</nom>
     <image>image</image>
@@ -38,3 +39,77 @@
   	</dialogues>
   </quéteur>
 </personnages>
+=======
+	<quéteur index="0">
+		<nom>Michel</nom>
+		<image>image</image>
+		<dialogues>
+			<queteDejaEnCours></queteDejaEnCours>
+			<avantQuete>
+			Vous saviez que la Oecophylla smaragdina est une espèce
+			d'insectes de la famlle des Formicidae, sous-famille des Formicinae,
+			de la tribu des Oecophyllini et du genre Oecophylla ? Autrefois
+			elles cohabitaient en paix avec mes moutons mais depuis que je l'ai
+			ai perdus, les fourmis sont parties... *pleure*. Si vous parvenez à
+			m'en retrouver 3 je vous en seerait éternellement reconnaissant !
+			</avantQuete>
+			<pendantQuete />
+			<aprèsQuete>
+			Vous les avez retrouvés ? C'est tout simplement
+			EXTRAORDINAIRE ! Comment avec-vous fait ?... Non, en fait je m'en
+			fiche de comment vous avez fait. Laissez moi vous donner du Bronze
+			qui j'espère vous aidera. </aprèsQuete>
+			<remerciement></remerciement>
+		</dialogues>
+	</quéteur>
+	<quéteur index="1">
+		<nom>Cash</nom>
+		<image>image</image>
+		<dialogues>
+			<queteDejaEnCours />
+			<avantQuete>
+			Si vous continuez à vouloir me pendre, tous mes clients
+			se vengeront !!! *les brigands se retourne vers vous* "HE! TOI LA !
+			Tu connais le jeu du pendu ? Eh ien on va jouer mais pour de vrai.
+			Si tu trouves le mot, tu sauves la mafieuse, sinon elle meurt.
+			</avantQuete>
+			<pendantQuete></pendantQuete>
+			<pendantQuete />
+			<pendantQuete />
+			<aprèsQuete>
+			Je dois vous dire que vous m'avez impressionné étranger.
+			Sortir un mot en si peu de temps, vous avez vu leurs têtes
+			déconfites hahaha. Afin de vous remercier pour m'avoir sauvé,
+			permetez-moi de vous donner une partie de mon or que j'ai
+			illégalement récupérer hahaha
+			</aprèsQuete>
+			<remerciement />
+		</dialogues>
+	</quéteur>
+	<quéteur index="2">
+		<nom>Père Roufas</nom>
+		<image>image</image>
+		<dialogues>
+			<queteDejaEnCours />
+			<avantQuete>
+			Entrez étranger, entrez, Culsans, un dieu important est
+			apparu dans mes rêves pour me prévenir qu'un étranger viendrai
+			calmer mon mal à tous jamais. Depuis des dizaines et des dizaines
+			d'années, je tente en vain de répondre à une énigme de la plus haute
+			importance. Réussisez à y répondre et je vous aiderai dans votre
+			quête
+			</avantQuete>
+			<pendantQuete />
+			<pendantQuete />
+			<aprèsQuete>
+			Vous avez trouvé la bonne réponse! C'est inexplicable,
+			vous avez un talent iné pour devenir moine. Je vous engage à
+			commencer la formation une fois que votre quête sera terminée.
+			D'ailleurs, afin de vous aiderr du mieux possible, je vous confie de
+			l'argent
+			</aprèsQuete>
+			<remerciement />
+		</dialogues>
+	</quéteur>
+</personnages>
+>>>>>>> ff670cc0ef086df391f295cb055c7797726aa496
