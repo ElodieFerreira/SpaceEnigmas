@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Joueur {
-	private String nom;
+	public String nom;
 	public ArrayList<Objets> inventaire;
 	private Integer pointdAttaque;
 	private Integer pointDeVie;

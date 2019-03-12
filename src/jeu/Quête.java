@@ -12,10 +12,11 @@ public class Quête {
 		recompense = recompenseJoueur;
 		status = false;
 	}
-	private void terminer() {
+	protected void terminer(Joueur joueur) {
+		joueur.prendreObjet(recompense);
 		this.status=true;
 	}
-	public void lancerQuête() {
+	public void lancerQuête(Joueur joueur, Quêteur queteur) {
 		
 	}
 }
