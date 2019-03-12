@@ -8,6 +8,9 @@ public class Objets {
 	public String getNomImage() {
 		return NomImage;
 	}
+	public String Nom() {
+		return Nom;
+	}
 
 	public Objets(String nom, String description, String nomImage) {
 		super();

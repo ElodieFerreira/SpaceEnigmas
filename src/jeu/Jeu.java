@@ -14,12 +14,12 @@ public class Jeu implements Serializable {
 	
     private GUI gui; 
 	private Zone zoneCourante;
-	private Zone vaisseau;
     private Partie partie;
     
     public Jeu() {
-        creerCarte();
         gui = null;
+        partie = new Partie();
+        creerCarte();
     }
     public Partie getPartie() {
     	return partie;
@@ -29,7 +29,6 @@ public class Jeu implements Serializable {
     	if(false) {
     		
     	} else {
-    		partie = new Partie();
     		gui.afficher("Bienvenue ! Rentrez votre pr�nom \n");
     	}
     }
@@ -43,12 +42,13 @@ public class Jeu implements Serializable {
     	ArrayList<Zone> zones = constructorOfMap.creerToutesLesZones();
     	zones = constructorOfMap.ajouterToutesLesSorties(zones);
     	ArrayList<Planete> espace = constructorOfMap.creerLesPlanetes(zones);
-    	vaisseau = zones.get(0);
+    	Zone vaisseau = zones.get(0);
     	vaisseau = constructorOfMap.ajouterLesSortiesAuVaisseau(vaisseau, espace);
     	zones = constructorOfMap.positionMouton(zones, 3);
     	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
     	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
-    	zoneCourante = espace.get(0).getZones().get(0);
+    	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
+    	zoneCourante = espace.get(0).getZones().get(0); 	
     }
     
 
@@ -110,7 +110,7 @@ public class Jeu implements Serializable {
     	
     }
     public void allerEn(String direction) {
-    	Zone nouvelle = zoneCourante.obtientSortie( direction);
+    	Zone nouvelle = zoneCourante.obtientSortie(direction);
     	if ( nouvelle == null ) {
         	gui.afficher( "Pas de sortie " + direction);
     		gui.afficher();
@@ -124,8 +124,22 @@ public class Jeu implements Serializable {
             gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
         }
     }
-    public void afficherDialogue(Allies allie) {
-    	gui.afficher(allie.parler());
+    public void allerEn(Zone nouvelleZone) {
+    	zoneCourante = nouvelleZone;
+    	gui.afficher(zoneCourante.descriptionLongue());
+    	gui.afficher();
+        gui.afficheImage(zoneCourante.nomImage());	
+        gui.afficherBoutonSortie(zoneCourante.getSorties());
+        gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
+    }
+    public void interractionPersonnage(Personnage personnage) {
+    	gui.afficher(personnage.parler());
+    	if(personnage instanceof Allies) {
+    		partie.getJoueur().friends.add(personnage);
+    		if(partie.getJoueur().friends.size()!=partie.getSalleDeRepos().getPersonnageDansLaZone().size()) {
+    			partie.getSalleDeRepos().getPersonnageDansLaZone().add(personnage);
+    		}
+    	}
     }
     private void terminer() {
     	gui.afficher( "Au revoir...");
