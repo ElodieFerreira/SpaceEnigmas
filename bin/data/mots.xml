@@ -2,7 +2,10 @@
 <!DOCTYPE baseDeMots SYSTEM "mots.dtd" >
 <baseDeMots>
   <niveau>
+<<<<<<< HEAD
     <mot></mot>
+=======
+>>>>>>> c2b59f25920172fe04ffcd04ca400aec19ab456e
     <mot>MOUTON</mot>
     <mot>ESPACE</mot>
     <mot>PLANETE</mot>

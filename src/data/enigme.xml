@@ -3,48 +3,50 @@
 <!-- Les niveaux indiquent la difficulté. Niveau 0 = très facile. 1 =moyen et 2 
 = difficile -->
 <Enigmes>
-  <enigme niveau="">
-    <question>question</question>
-    <reponse>reponse</reponse>
+  <enigme niveau="2">
+    <question>
+    Modeste employé de bureau, Notant jadis sur ses tablettes, Pouvant porter une palette, Et qui déchiffre les rouleaux. Qui est-il ?
+    </question>
+    <reponse>
+    Le Scribe
+    </reponse>
+    <indice>
+    un acteur de cinéma en a joué un nommé Otis
+  </indice>
   </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
+
+  <enigme niveau="2">
+  	<question>
+    Ses formules sont connues, Celle du cœur est peu pratiquée. Apanage des hommes civilisés, Elle est encore bien méconnue. Qui est-elle ?
+    </question>
+  	<reponse>
+    La politesse
+    </reponse>
+    <indice>
+    Une de ces règles est : "attendre que tout le monde soit servi avant de commencer à manger"
+  </indice>
   </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
+
+  <enigme niveau="2">
+  	<question>
+    Est-il brun, rayé de blanc, Ou blanc rayé de brun. Serait-ce un âne africain ? En tout cas il va bon train. Qui est-il ?
+    </question>
+  	<reponse>
+    Le Zèbre</reponse>
+    <indice>
+    Ressemble aussi à un cheval
+  </indice>
   </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
-  </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
-  </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
-  </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
-  </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
-  </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
-  </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
-  </enigme>
-  <enigme niveau="">
-  	<question>question</question>
-  	<reponse>reponse</reponse>
-  </enigme>
+  
+  <enigme niveau="2">
+  	<question>
+    Très souvent policière, C'est un jeu de l'esprit. Tel le mystère de la vie, Qu'honore un bien vieux père. Qui est-elle ?
+    </question>
+  	<reponse>
+    L'énigme 
+    </reponse>
+    <indice>
+    En lien avec ce que vous faites maintenant
+  </indice>
+  </enigme>  
 </Enigmes>
