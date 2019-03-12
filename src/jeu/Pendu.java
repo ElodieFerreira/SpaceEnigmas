@@ -3,9 +3,6 @@ package jeu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
-
 public class Pendu extends Quête{
 	
 	private ArrayList<String> mots;
@@ -18,7 +15,7 @@ public class Pendu extends Quête{
 		super(recompenseJoueur);
 		// TODO Auto-generated constructor stub
 		nombreDeCoups = 0;
-		ArrayList<String> mots = new ArrayList<String>();
+		mots = new ArrayList<String>();
 		mots.add(motADeviner);
 		motJeu = new String("");
 		for(int i=0;i<motADeviner.length();i++) {
@@ -36,20 +33,32 @@ public class Pendu extends Quête{
 		}
 	}
 	
-	private void checkCaractère(String rep) {
-		
+	private boolean EstDansMot(String rep) {
 		int id=this.mots.get(0).indexOf(rep);
 		if(id==-1) {
-			System.out.println("Perdu!");
-			
+			return false;
 		}
 		else {
 			//do {
-				id=mots.get(0).indexOf(rep,id);
-				
+			return true;				
 			
 			
 		}
+	}
+	
+	private void dévoileLettre(String lettre, int id) {
+		int index=mots.get(0).indexOf(lettre,id);
+		System.out.println(motJeu.length());
+		if(index!=-1) {
+			String premièrePartie = motJeu.substring(0, index);
+			String deuxièmePartie = motJeu.substring(index+1,motJeu.length());
+			motJeu=premièrePartie+lettre+deuxièmePartie;
+			dévoileLettre(lettre,index+1);
+		}	
+	}
+	
+	private boolean EstComplet() {
+		return (motJeu.equals(mots.get(0)));
 	}
 	
 	public void LancerQuête() {
@@ -57,19 +66,32 @@ public class Pendu extends Quête{
 		while(!status) {
 			Scanner rep = new Scanner(System.in);
 			System.out.println("Tapez vore lettre ");
-			String str = rep.nextLine();
+			String str = rep.nextLine().toUpperCase();
 			if(!EstTropGrande(str)) {
-				System.out.println("Okay!");
-				checkCaractère(str);
+				
+				if(EstDansMot(str)) {
+					dévoileLettre(str,0);
+					System.out.println(motJeu);
+					if(EstComplet()) {
+						status=true;
+					}
+				}
+				else {
+					System.out.println("Mauvaise réponse !");
+				}
+				
 			}
-			else if(str.toUpperCase().equals("SOLUTION")) {
-				Scanner prop = new Scanner(System.in);
-				System.out.println("Rentrez la soluton : ");
-				String Prop = prop.nextLine();
+			else  {
+				
+				if(str.equals(mots.get(0))){
+					status=true;
+					System.out.println("Gagné!");
+				}
+				else {
+					System.out.println("Elodie me dit de te dire que tu es nul, mais je trouve ça un peu méchant");
+				}
 			}
-			else {
-				System.out.println("Tapez un seul caractère");
-			}
+			
 			
 		}
 	}

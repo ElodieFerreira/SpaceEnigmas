@@ -3,7 +3,6 @@ package jeu;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 import java.util.Iterator;
 
 import org.w3c.dom.Element;
