@@ -1,6 +1,8 @@
 package jeu;
 
-public class Quete {
+import java.io.Serializable;
+
+public class Quete implements Serializable {
 	/**
 	 * True for -> déjà faite
 	 * False for -> Pas encore faite

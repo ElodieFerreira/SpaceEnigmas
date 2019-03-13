@@ -259,6 +259,11 @@ public class GUI implements ActionListener,Serializable
         menuBar.add(mnJoueur);
         
         Sauvegarde = new JMenuItem("Sauvegarde");
+        Sauvegarde.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		jeu.Sauvegarde();
+        	}
+        });
         mnJoueur.add(Sauvegarde);
         
         Inventaire = new JMenuItem("Inventaire");
@@ -338,8 +343,8 @@ public class GUI implements ActionListener,Serializable
 		int cpt = 0;
 		for(Mouton mouton : animauxDansLazone) {
 			URL moutonURL = this.getClass().getClassLoader().getResource("images/"+mouton.getImage());
-		   	System.out.println(mouton);
-		   	if( mouton != null ) {
+		   	System.out.println("je suis le mouton"+mouton.getImage());
+		   	if( moutonURL != null ) {
 		   		objetsDansLaZone.add((Object)mouton);
 		   		naturesObjetsDansLaZone.add("mouton");
 	        	labelArray.get(cpt).setIcon( new ImageIcon(moutonURL));

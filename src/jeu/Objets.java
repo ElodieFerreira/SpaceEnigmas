@@ -1,5 +1,8 @@
 package jeu;
-public class Objets {
+
+import java.io.Serializable;
+
+public class Objets implements Serializable{
 	
 	private String Nom;
 	private String Description;
@@ -12,10 +15,10 @@ public class Objets {
 		return Nom;
 	}
 
-	public Objets()
-	{
-		
-	}
+//	public Objets()
+//	{
+//		
+//	}
 	
 	public Objets(String nom, String description, String nomImage) {
 		this.Nom = nom;

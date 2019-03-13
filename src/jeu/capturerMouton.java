@@ -2,7 +2,7 @@ package jeu;
 
 import java.io.Serializable;
 
-public class capturerMouton extends Quete implements Serializable {
+public class capturerMouton extends Quete {
 	private static final long serialVersionUID = 7412067131135157257L;
 	private int nombreMoutonRequis;
 	private int nombreMoutonRecu;

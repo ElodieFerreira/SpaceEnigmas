@@ -7,7 +7,7 @@ public class Sauvegarde
 {
 	private static final String fileName ="mygame.ser";
 	/* Test de sauvegarde de la zoneCourante private Jeu save;*/
-	public transient Jeu save;
+	public Jeu save;
 	// Création d'un constructeur qui initialise save à la valeur de la zone courante
 //	public Sauvegarde(int test,int test2) 
 //	{
@@ -42,7 +42,7 @@ public class Sauvegarde
 	{
 		try 
 		{
-			FileOutputStream file = new FileOutputStream("myzone.txt");
+			FileOutputStream file = new FileOutputStream("src/data/sauvegarde.txt");
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			System.out.println("Preparation de la serealisation de la zone");
 			/*String nom = zone.getNom();
@@ -92,31 +92,34 @@ public class Sauvegarde
 		}
 	}*/
 	
-	public void Deserialize(Jeu zoneCourante)
+	public Jeu Deserialize(Jeu zoneCourante)
 	{
 		// Maintenant on va procéder à la déséralisation
 				try 
 				{
 					// Lecture du fichier 
-					FileInputStream file = new FileInputStream("myzone.txt");
+					FileInputStream file = new FileInputStream("src/data/sauvegarde.txt");
 					ObjectInputStream in = new ObjectInputStream(file);
 					// Méthode pour déséréalizer un objet 
-					zoneCourante= (Jeu)in.readObject();
+					this.save = (Jeu)in.readObject();
 					//nomJoueur= (String)in.readObject();
 					in.close();
 					file.close();
 					System.out.println(zoneCourante + "L'objet a été déséréalizer");
 					// printdata(test);
+					return save;
 				}
 				catch(IOException e)
 				{
 					System.err.println("IOException 1 a été trouvé ");
-					e.printStackTrace();
+//					e.printStackTrace();
+					return null;
 				}
 				catch (ClassNotFoundException ex)
 				{
-					System.err.println("ClassNotFoundException a été trouvé ");
-					ex.printStackTrace();
+//					System.err.println("ClassNotFoundException a été trouvé ");
+//					ex.printStackTrace();
+					return null;
 				}
 	}
 	public void Deserialize(String nomJoueur)

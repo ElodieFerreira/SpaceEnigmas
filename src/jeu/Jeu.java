@@ -18,17 +18,27 @@ public class Jeu implements Serializable {
     
     public Jeu() {
         gui = null;
-   		partie = new Partie();
-	    creerCarte();
     }
     public Partie getPartie() {
     	return partie;
     }
-    public void setGUI( GUI g) { gui = g; afficherMessageDeBienvenue(); }
+    public void setPartie(Partie lastPartie) {
+    	this.partie = lastPartie;
+    }
+    public void setGUI( GUI g) { gui = g; }
     public void lancerDebutJeu() {
-    	if(false) {
-    		
+    	Sauvegarde sauvegarde = new Sauvegarde(this);
+    	if(sauvegarde.Deserialize(this)!=null) {
+    		Jeu jeu = sauvegarde.Deserialize(this);
+    		this.partie = jeu.getPartie();
+    		this.zoneCourante = jeu.GetZoneCourante1();
+    		gui.addNameFrame(partie.getJoueur().getNom());
+    		afficherMessageDeBienvenue();
     	} else {
+    		partie = new Partie();
+    		this.setGUI(new GUI(this));
+    	    creerCarte();
+    	    afficherMessageDeBienvenue();
     		gui.afficher("Bienvenue ! Rentrez votre pr�nom \n");
     	}
     }
@@ -55,7 +65,9 @@ public class Jeu implements Serializable {
     
 
     private void afficherLocalisation() {
+    	  	gui.afficheImage(zoneCourante.nomImage());	
             gui.afficher( zoneCourante.descriptionLongue());
+            gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
             gui.afficherBoutonSortie(zoneCourante.getSorties());
             gui.afficher();
     }
