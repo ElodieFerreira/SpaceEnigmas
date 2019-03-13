@@ -148,4 +148,8 @@ public class Jeu implements Serializable {
     public Zone getZoneCourante() {
     	return this.getZoneCourante();
     }
+    public Zone GetZoneCourante1()
+    {
+    	return this.zoneCourante;
+    }
 }
