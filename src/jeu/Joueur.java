@@ -12,12 +12,14 @@ public class Joueur implements Serializable {
 	private Integer pointdAttaque;
 	private Integer pointDeVie;
 	public HashSet friends;
+	private Quete queteEnCours;
 	/**
 	 * Compte le nombre de qu�te r�alis� par le joueur jusqu'� pr�sent.
 	 */
 	private int nbQueterealise;
 	public Joueur(String nom) {
 		this.nom = nom;
+		queteEnCours = null;
 		inventaire = new ArrayList<Objets>();
 		friends = new HashSet();
 		
@@ -40,6 +42,7 @@ public class Joueur implements Serializable {
 		}
 		return null;
 	}
+
 	public String getNom()
 	{
 		return this.nom;
@@ -47,6 +50,12 @@ public class Joueur implements Serializable {
 	public void setNom(String newName)
 	{
 		this.nom=newName;
+	}
+	public Quete quete() {
+		return queteEnCours;
+	}
+	public void setQuete(Quete quete) {
+		this.queteEnCours=quete;
 	}
 	
 }

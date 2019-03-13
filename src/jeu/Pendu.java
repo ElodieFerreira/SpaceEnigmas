@@ -13,7 +13,7 @@ public class Pendu extends Quete{
 	
 	public Pendu(Objets recompenseJoueur,String motADeviner) {
 		super(recompenseJoueur);
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor 
 		nombreDeCoups = 0;
 		mots = new ArrayList<String>();
 		mots.add(motADeviner);
@@ -97,14 +97,5 @@ public class Pendu extends Quete{
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	
 }

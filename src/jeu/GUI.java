@@ -281,6 +281,17 @@ public class GUI implements ActionListener,Serializable
         mnAide.add(test);
         
         Interface = new JMenuItem("Interface");
+        Interface.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		Desktop desk = Desktop.getDesktop();
+        		try {
+					desk.open(new File("src/data/interface.pdf"));
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+        	}
+        });
         mnAide.add(Interface);
         
         Planete = new JMenuItem("Carte");

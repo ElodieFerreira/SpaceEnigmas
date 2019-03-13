@@ -20,6 +20,37 @@ public class Queteur extends Personnage {
 		return inventaire;
 	}
 
+	public String parler(Joueur joueur) {
+		quete.lancerQuete(joueur, this);
+		return dialogueLancementQuete;
+	}
+	public Quete quete() {
+		return quete;
+	}
+	public void prendre(Objets obj) {
+		this.inventaire.add(obj);
+	}
+	// les getters 
+	public String dialogueLancementQuete() {
+		return dialogueLancementQuete;
+	}
+	public String dialoguePendantQuete(int index) {
+		return dialoguePendantQuete.get(index);
+	}
+	public String dialogueFinQuete() {
+		return dialogueFinQuete;
+	}
+	public String remerciement() {
+		return remerciements;
+	}
+	public String queteDejaEnCours() {
+		return queteDejaEnCours;
+	}
+	public ArrayList<Objets> inventaire() {
+		return inventaire;
+	}
+	// Les setteurs 
+
 	public void setQuete(Quete quete) {
 		this.quete = quete;
 	}
@@ -45,14 +76,9 @@ public class Queteur extends Personnage {
 		dialogueFinQuete = fin;
 		remerciements = merci;
 	}
-	public String parler(Joueur joueur) {
-		quete.lancerQuete(joueur, this);
-		return dialogueLancementQuete;
+	public boolean besoinAide() {
+		// TODO Auto-generated method stub
+		return quete.isStatus();
 	}
-	public Quete quete() {
-		return quete;
-	}
-	public void prendre(Objets obj) {
-		this.inventaire.add(obj);
-	}
+
 }

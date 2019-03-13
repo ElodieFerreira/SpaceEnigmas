@@ -18,14 +18,12 @@ public class Partie implements Serializable {
 	 */
 	private ArrayList<Planete> carteActuel;
 	private Zone salleDeRepos;
-	private Quete queteEnCours;
 
 	public void setSalleDeRepos(Zone salleDeReposArg) {
 		this.salleDeRepos = salleDeReposArg;
 	}
 	public Partie() {
 		joueur = null;
-		queteEnCours=null;
 		carteActuel = new ArrayList<Planete>();
 	}
 	public Joueur getJoueur() {
@@ -38,10 +36,20 @@ public class Partie implements Serializable {
 		return salleDeRepos;
 	}
 	
-	public Quete queteEnCours() {
-		return queteEnCours;
-	}
 	public void setQuete(Quete quete) {
-		this.queteEnCours = quete;
+		joueur.setQuete(quete);
+	}
+	public ArrayList<Planete> carteActuel() {
+		return carteActuel;
+	}
+	public ArrayList<Zone> zones() {
+		ArrayList<Zone> zones = ArrayList<Zone>();
+		for(Planete pl : carteActuel) {
+			zones.addAll(pl.getZones());
+		}
+		return zones;		
+	}
+	public Quete queteEnCoursPartie() {
+		return joueur.quete();
 	}
 }
