@@ -209,4 +209,14 @@ public class Jeu implements Serializable {
     public void perdu() {
     	System.out.println("T'as perdu wesh! ");
     }
+    public void SupprimerPartie()
+    {
+		File fichier = new File("src/data/sauvegarde.txt");
+		fichier.delete();
+		partie = new Partie();
+		this.setGUI(gui);
+		creerCarte();
+		afficherMessageDeBienvenue();
+		gui.afficher("Bienvenue ! Rentrez votre prénom \n");
+    }
 }
