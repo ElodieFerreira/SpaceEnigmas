@@ -1,18 +1,18 @@
 package jeu;
 
 public class capturerMouton extends Quete {
-	public capturerMouton(Objets recompenseJoueur) {
+	private int nombreMoutonRequis;
+	public capturerMouton(Objets recompenseJoueur,int nbmouton) {
 		super(recompenseJoueur);
+		nombreMoutonRequis = nbmouton;
 		// TODO Auto-generated constructor stub
 	}
-
-	private int nombreMoutonRequis;
+	
 
 	public void lancerQuete(Joueur joueur, Queteur queteur) {
-		while(!status) {
-			if(queteur.getInventaire().get(0)!=null) {
-					super.terminer(joueur);
-			}
-		}
+		
+	}
+	public int nbMouton() {
+		return nombreMoutonRequis;
 	}
 }

@@ -10,7 +10,7 @@ public class Partie {
 	 * 2 est la derniére phase.
 	 */
 	private int phaseDeJeu;
-	// impl�mentation par la suite de la zone courante ici;
+	// implémentation par la suite de la zone courante ici;
 	/**
 	 * L'état de la carte actuellement avec les objets et les personnages dessus
 	 */
@@ -23,6 +23,7 @@ public class Partie {
 	}
 	public Partie() {
 		joueur = null;
+		queteEnCours=null;
 		carteActuel = new ArrayList<Planete>();
 	}
 	public Joueur getJoueur() {
@@ -33,5 +34,12 @@ public class Partie {
 	}
 	public Zone getSalleDeRepos() {
 		return salleDeRepos;
+	}
+	
+	public Quete queteEnCours() {
+		return queteEnCours;
+	}
+	public void setQuete(Quete quete) {
+		this.queteEnCours = quete;
 	}
 }

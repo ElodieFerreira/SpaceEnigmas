@@ -13,6 +13,7 @@ public class Queteur extends Personnage {
 	private Quete quete;
 	public Queteur(String nomPerso, String descriptionPerso, String imagePerso) {
 		super(nomPerso, descriptionPerso, imagePerso);
+		inventaire = new ArrayList<Objets>();
 		// TODO Auto-generated constructor stub
 	}
 	public ArrayList<Objets> getInventaire() {
@@ -44,5 +45,14 @@ public class Queteur extends Personnage {
 		dialogueFinQuete = fin;
 		remerciements = merci;
 	}
-	
+	public String parler(Joueur joueur) {
+		quete.lancerQuete(joueur, this);
+		return dialogueLancementQuete;
+	}
+	public Quete quete() {
+		return quete;
+	}
+	public void prendre(Objets obj) {
+		this.inventaire.add(obj);
+	}
 }

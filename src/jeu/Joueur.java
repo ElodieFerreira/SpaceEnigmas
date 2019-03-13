@@ -11,7 +11,7 @@ public class Joueur {
 	private Integer pointDeVie;
 	public HashSet friends;
 	/**
-	 * Compte le nombre de quête réalisé par le joueur jusqu'à présent.
+	 * Compte le nombre de quï¿½te rï¿½alisï¿½ par le joueur jusqu'ï¿½ prï¿½sent.
 	 */
 	private int nbQueterealise;
 	public Joueur(String nom) {
@@ -30,6 +30,13 @@ public class Joueur {
 		inventaire.remove(obj);
 		return obj;	
 	}
-	
+	public Mouton recupererMouton() {
+		for(Objets obj : inventaire) {
+			if(obj instanceof Mouton) {
+				return (Mouton) obj;
+			}
+		}
+		return null;
+	}
 	
 }

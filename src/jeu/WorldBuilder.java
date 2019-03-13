@@ -135,7 +135,7 @@ public class WorldBuilder {
 		return zone;
 	}
 	
-	public ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones) {
+	public ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones,ArrayList<Quete> toutesLesQuetes) {
 		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
 		NodeList queteursNode = queteurReader.getDocument().getElementsByTagName("queteur");
 		for(int i=0;i<queteursNode.getLength();i++) {
@@ -161,6 +161,7 @@ public class WorldBuilder {
 			String dialogueFinQuete = queteurElement.getElementsByTagName("aprèsQuete").item(0).getTextContent();
 			String remerciements = queteurElement.getElementsByTagName("remerciement").item(0).getTextContent();
 			queteur.setAllDialogues(dialoguesQueteEnCours, dialogueLancementQuete, dialoguePendantQuete, dialogueFinQuete, remerciements);
+			queteur.setQuete(toutesLesQuetes.get(i));
 			// mise en place du queteur dans sa zone
 			toutesLesZones.get(indexZone).getPersonnageDansLaZone().add(queteur);
 		}
@@ -169,7 +170,11 @@ public class WorldBuilder {
 	public ArrayList<Quete> creerLesQuetesDuJeu() {
 		ArrayList<Quete> quetes = new ArrayList<Quete>();
 		//Creation de la premiere quetes
-		
+		capturerMouton capture = new capturerMouton(null, 3);
+		quetes.add(capture);
+		quetes.add(capture);
+		quetes.add(capture);
+		return quetes;
 	}
 }
 
