@@ -275,6 +275,7 @@ public class GUI implements ActionListener,Serializable
         		System.out.println("ola");
         		System.out.println(jeu.getPartie().getSalleDeRepos()+"voici ma salle de repos");
         		jeu.allerEn(jeu.getPartie().getSalleDeRepos());
+        		
         	}
         });
         mnJoueur.add(mntmAmis);      

@@ -6,7 +6,7 @@ public class Main {
 		GUI gui = new GUI( jeu);
 		jeu.setGUI( gui);
 		jeu.lancerDebutJeu();
-		Sauvegarde save = new Sauvegarde(jeu);
+		//Sauvegarde save = new Sauvegarde(jeu);
 		/*if(jeu.GetZoneCourante1().getNomZone()=="Maisonjoueur")
 		/{
 		save.Serialize(jeu.GetZoneCourante1());
