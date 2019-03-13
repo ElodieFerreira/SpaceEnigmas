@@ -13,8 +13,7 @@ public class Partie implements Serializable {
 	 */
 	public int nbCommandeMax;
 	public int nbCommande;
-	private int phaseDeJeuMaximum;
-	private int phaseDeJeu;
+
 	// implémentation par la suite de la zone courante ici;
 	/**
 	 * L'état de la carte actuellement avec les objets et les personnages dessus

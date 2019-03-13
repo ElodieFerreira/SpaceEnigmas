@@ -13,6 +13,8 @@ public class Joueur implements Serializable {
 	private Integer pointDeVie;
 	public HashSet friends;
 	private Quete queteEnCours;
+	public int niveauMaximum;
+	public int niveauActuel;
 	/**
 	 * Compte le nombre de qu�te r�alis� par le joueur jusqu'� pr�sent.
 	 */
@@ -22,6 +24,8 @@ public class Joueur implements Serializable {
 		queteEnCours = null;
 		inventaire = new ArrayList<Objets>();
 		friends = new HashSet();
+		niveauMaximum = 10;
+		niveauActuel = 0;
 		
 	}
 	public void prendreObjet(Objets A)
