@@ -6,9 +6,9 @@ public class Main {
 		GUI gui = new GUI( jeu);
 		jeu.setGUI( gui);
 		jeu.lancerDebutJeu();
-		Sauvegarde save = new Sauvegarde(jeu);
+		/*Sauvegarde save = new Sauvegarde(jeu);
 		save.Serialize(jeu.GetZoneCourante1());
 		System.out.println(jeu.GetZoneCourante1());
-		save.Deserialize(jeu.GetZoneCourante1());
+		save.Deserialize(jeu.GetZoneCourante1());*/
 	}
 }
