@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Enigmes SYSTEM "dialoguesMechant.dtd">
+<!-- Les niveaux indiquent la difficulté. Niveau 0 = très facile. 1 =moyen et 2 
+= difficile -->
+<Dialogue>
+  <dialogue> <!-- dialogue de départ-->
+  QUI OSE ME DERANGER A L'HEURE DU REPAS? Toi? HAHAHAHA tu penses vraiment pouvoir m'anéantir avec ta pseudo armée?
+  Sache que personne n'est ressorti vivant d'ici alors tu n'échappera pas à la règle MOUAHAHAHAHA!
+  </dialogue>
+  <dialogue> <!-- dialogue de dégat-->
+  Je dois avouer que tu te débrouille pas trop mal. Mais cela ne suffira pas à me battre!!
+  </dialogue>
+  <dialogue> <!-- dialogue de dégat-->
+  Aurai-je senti quelque chose? Ah oui c'est un humain qui essaye de me tuer avec son jouet HAHAHAHA.
+  </dialogue>
+  <dialogue> <!-- dialogue de dégat-->
+  Bon, quand est-ce que l'on commence sérieusement le combat? Non mais parceque la je dois dire que je ne ressent rien HAHAHAHA.
+  </dialogue>
+</Dialogue>
