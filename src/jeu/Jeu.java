@@ -214,6 +214,7 @@ public class Jeu implements Serializable {
 		fichier.delete();
 		partie = new Partie();
 		this.setGUI(gui);
+		gui.addNameFrame("");
 		creerCarte();
 		afficherMessageDeBienvenue();
 		gui.afficher("Bienvenue ! Rentrez votre prénom \n");

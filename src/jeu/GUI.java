@@ -67,6 +67,7 @@ public class GUI implements ActionListener,Serializable
     private JMenu mnAide;
     private JMenuItem Interface;
     private JMenuItem Planete;
+    private JMenuItem suppression;
     
 
     public GUI(Jeu j) {
@@ -283,6 +284,14 @@ public class GUI implements ActionListener,Serializable
         	}
         });
         mnJoueur.add(mntmAmis);      
+        
+        suppression = new JMenuItem("Suppression");
+        suppression.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		jeu.SupprimerPartie();
+        	}
+        });
+        mnJoueur.add(suppression);
         
         mnAide = new JMenu("Aide");
         mnJoueur.add(mnAide);
