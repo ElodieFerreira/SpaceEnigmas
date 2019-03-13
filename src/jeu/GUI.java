@@ -171,12 +171,14 @@ public class GUI implements ActionListener,Serializable
         boutonOuest.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
+        		jeu.incrementerCommande();
         		jeu.allerEn("OUEST");
         	}
         });
         boutonNord = new JButton("Nord");
         boutonNord.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		jeu.incrementerCommande();
         		jeu.allerEn("NORD");
         	}
         });
@@ -188,6 +190,7 @@ public class GUI implements ActionListener,Serializable
         boutonSud.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
+        		jeu.incrementerCommande();
         		jeu.allerEn("SUD");
         	}
         });
@@ -242,6 +245,7 @@ public class GUI implements ActionListener,Serializable
         boutonEst.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
+        		jeu.incrementerCommande();
         		jeu.allerEn("EST");
         	}
         });
@@ -324,11 +328,13 @@ public class GUI implements ActionListener,Serializable
     }
 
     private void executerCommande() {
+    	jeu.incrementerCommande();
         String commandeLue = entree.getText();
         entree.setText("");
         if(jeu.getPartie().getJoueur()==null) {
         	 jeu.creationJoueur(commandeLue);
         } else {
+        	// Ici on test si on est dans une enigme qui a besoin de
         	jeu.traiterCommande( commandeLue);
         }
         
@@ -368,6 +374,7 @@ public class GUI implements ActionListener,Serializable
 		}
 	}
 	public void interractionObjet(JLabel label, int index) {
+		jeu.incrementerCommande();
 		if(jeu.getPartie().getJoueur()!=null) {
 			if(naturesObjetsDansLaZone.get(index)=="mouton") {
 				System.out.println(jeu.getPartie().getJoueur().inventaire.size());

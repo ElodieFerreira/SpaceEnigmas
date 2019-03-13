@@ -10,6 +10,8 @@ public class Quete implements Serializable {
 	protected int id;
 	protected boolean status;
 	private Objets recompense;
+	private int nbrCoupDebut;
+	private int nbrCoupFin;
 	
 	public Quete()
 	{

@@ -199,4 +199,14 @@ public class Jeu implements Serializable {
     	Sauvegarde save = new Sauvegarde(this);
     	save.Serialize(this);
     }
+    public void incrementerCommande() {
+    	partie.nbCommande++;
+    	System.out.println(partie.nbCommande);
+    	if(partie.nbCommande==partie.nbCommandeMax) {
+    		perdu();
+    	}
+    }
+    public void perdu() {
+    	System.out.println("T'as perdu wesh! ");
+    }
 }

@@ -21,12 +21,12 @@
   	<dialogues>
   		<queteDejaEnCours >Passe ton chemin gamin, j'ai du travail !</queteDejaEnCours>
   		<avantQuete >Si vous continuez à vouloir me pendre, tous mes clients se vengeront ! *les brigands se retourne* "HE! TOI LA ! Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. Si tu trouves le mot, tu sauves la mafieuse, sinon elle meurt.</avantQuete>
-  		<pendantQuete >Vas-y, choisis une lettre, et réfléchis bien ! Au bout de 8 erreurs, c'est la corde qui choisira !</pendantQuete>
-  		<pendantQuete >Raté, cette lettre n'est pas dans le mot ! Plus que nb erreurs.</pendantQuete>
-  		<pendantQuete >Et non, c'est pas le bon mot ! Plus que nb erreurs.</pendantQuete>
+  		<pendantQuete>Vas-y, choisis une lettre, et réfléchis bien ! Au bout de 8 erreurs, c'est la corde qui choisira !</pendantQuete>
+  		<pendantQuete>Raté, cette lettre n'est pas dans le mot ! Plus que nb erreurs.</pendantQuete>
+  		<pendantQuete>Et non, c'est pas le bon mot ! Plus que nb erreurs.</pendantQuete>
   		<pendantQuete >Bravo, cette lettre est dans le mot. Tu peux proposer ta réponse ou demander une autre lettre.</pendantQuete>
-  		<aprèsQuete >C'est le bon mot, elle est libre ! Je dois vous dire que vous m'avez impressionné étranger. Sortir un mot en si peu de temps, vous avez vu leurs têtes déconfites hahaha. Afin de vous remercier pour m'avoir sauvé, permetez-moi de vous donner ce minerai que j'ai illégalement récupérer hahaha</aprèsQuete>
-  		<remerciement >Merci de m'avoir sauver, je te dois une fière chandelle ! Viens me voir si t'as besoin de marchandises interdites !</remerciement></dialogues>
+  		<aprèsQuete>C'est le bon mot, elle est libre ! Je dois vous dire que vous m'avez impressionné étranger. Sortir un mot en si peu de temps, vous avez vu leurs têtes déconfites hahaha. Afin de vous remercier pour m'avoir sauvé, permetez-moi de vous donner ce minerai que j'ai illégalement récupérer hahaha</aprèsQuete>
+  		<remerciement>Merci de m'avoir sauver, je te dois une fière chandelle ! Viens me voir si t'as besoin de marchandises interdites !</remerciement></dialogues>
   </queteur>
   <queteur index="13">
   	<nom>Père Roufas</nom>
