@@ -3,7 +3,7 @@ package jeu;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Pendu extends Quête{
+public class Pendu extends Quete{
 	
 	private ArrayList<String> mots;
 	private int nombreDeCoups;
