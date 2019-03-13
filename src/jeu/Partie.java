@@ -11,6 +11,9 @@ public class Partie implements Serializable {
 	 * 1 lorsque l'utilisateur fait ses qu�tes
 	 * 2 est la derniére phase.
 	 */
+	public int nbCommandeMax;
+	public int nbCommande;
+	private int phaseDeJeuMaximum;
 	private int phaseDeJeu;
 	// implémentation par la suite de la zone courante ici;
 	/**
@@ -25,6 +28,8 @@ public class Partie implements Serializable {
 	public Partie() {
 		joueur = null;
 		carteActuel = new ArrayList<Planete>();
+		nbCommande = 0;
+		nbCommandeMax = 10;
 	}
 	public Joueur getJoueur() {
 		return joueur;
@@ -43,7 +48,7 @@ public class Partie implements Serializable {
 		return carteActuel;
 	}
 	public ArrayList<Zone> zones() {
-		ArrayList<Zone> zones = ArrayList<Zone>();
+		ArrayList<Zone> zones = new ArrayList<Zone>();
 		for(Planete pl : carteActuel) {
 			zones.addAll(pl.getZones());
 		}
@@ -52,4 +57,5 @@ public class Partie implements Serializable {
 	public Quete queteEnCoursPartie() {
 		return joueur.quete();
 	}
+	
 }

@@ -199,6 +199,16 @@ public class Jeu implements Serializable {
     	Sauvegarde save = new Sauvegarde(this);
     	save.Serialize(this);
     }
+    public void incrementerCommande() {
+    	partie.nbCommande++;
+    	System.out.println(partie.nbCommande);
+    	if(partie.nbCommande==partie.nbCommandeMax) {
+    		perdu();
+    	}
+    }
+    public void perdu() {
+    	System.out.println("T'as perdu wesh! ");
+    }
     public void SupprimerPartie()
     {
 		File fichier = new File("src/data/sauvegarde.txt");
@@ -208,8 +218,5 @@ public class Jeu implements Serializable {
 		creerCarte();
 		afficherMessageDeBienvenue();
 		gui.afficher("Bienvenue ! Rentrez votre prénom \n");
-//		Jeu jeu = new Jeu();
-//		jeu.setGUI(gui);
-//		jeu.lancerDebutJeu();
     }
 }
