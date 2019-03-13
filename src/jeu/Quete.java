@@ -36,10 +36,9 @@ public class Quete implements Serializable {
 		}
 	}
 	public String executerQuete(Joueur joueur, Queteur queteur) {
-		return null;
+		return queteur.dialoguePendantQuete(0);
 	}
 	public boolean isStatus() {
 		return status;
-	}
-	
+	}	
 }

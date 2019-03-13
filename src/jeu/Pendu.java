@@ -7,21 +7,18 @@ public class Pendu extends Quete{
 	
 	private ArrayList<String> mots;
 	private int nombreDeCoups;
+	private int nombreDeCoupsMax;
 	private String reponse;
 	private char[] lettresJouées;
 	private String motJeu;
 	
-	public Pendu(Objets recompenseJoueur,String motADeviner) {
+	public Pendu(Objets recompenseJoueur, ArrayList<String> newMots) {
 		super(recompenseJoueur);
 		// TODO Auto-generated constructor 
 		nombreDeCoups = 0;
 		mots = new ArrayList<String>();
-		mots.add(motADeviner);
-		motJeu = new String("");
-		for(int i=0;i<motADeviner.length();i++) {
-			motJeu += "-";
-		}
-		LancerQuête();
+		motJeu = new String ("");
+		mots.addAll(newMots);
 	}
 	
 	private boolean EstTropGrande(String st) {
@@ -47,7 +44,7 @@ public class Pendu extends Quete{
 	}
 	
 	private void dévoileLettre(String lettre, int id) {
-		int index=mots.get(0).indexOf(lettre,id);
+		int index=reponse.indexOf(lettre,id);
 		System.out.println(motJeu.length());
 		if(index!=-1) {
 			String premièrePartie = motJeu.substring(0, index);
@@ -60,42 +57,47 @@ public class Pendu extends Quete{
 	private boolean EstComplet() {
 		return (motJeu.equals(mots.get(0)));
 	}
-	
-	public void LancerQuête() {
-		System.out.println(motJeu);
-		while(!status) {
-			Scanner rep = new Scanner(System.in);
-			System.out.println("Tapez vore lettre ");
-			String str = rep.nextLine().toUpperCase();
-			if(!EstTropGrande(str)) {
-				
-				if(EstDansMot(str)) {
-					dévoileLettre(str,0);
-					System.out.println(motJeu);
-					if(EstComplet()) {
-						status=true;
-					}
+		
+	public String executerQuete(Joueur joueur, Queteur queteur, String str) {
+		if(!EstTropGrande(str)) {
+			if(EstDansMot(str)) {
+				dévoileLettre(str,0);
+				if(EstComplet()) {
+					terminer(joueur);
+					return queteur.dialogueFinQuete();
 				}
-				else {
-					System.out.println("Mauvaise réponse !");
-				}
-				
+				return queteur.dialoguePendantQuete(3)+"\n"+motJeu;
 			}
-			else  {
-				
-				if(str.equals(mots.get(0))){
-					status=true;
-					System.out.println("Gagné!");
-				}
-				else {
-					System.out.println("Elodie me dit de te dire que tu es nul, mais je trouve ça un peu méchant");
-				}
+			else {
+				return queteur.dialoguePendantQuete(1);
 			}
-			
-			
+		}
+		else  {
+			if(str.equals(mots.get(0))){
+				terminer(joueur);
+				return queteur.dialogueFinQuete();
+			}
+			else {
+				return queteur.dialoguePendantQuete(2);
+			}
 		}
 	}
-	
-	
-
+	public boolean lancerQuete(Joueur joueur, Queteur queteur) {
+		if(!status) {
+			int niveau = joueur.niveauActuel;
+			reponse = mots.get(niveau);
+			System.out.println(reponse);
+			System.out.println("TailleMot"+reponse.length());
+			for(int i=0;i<reponse.length();i++) {
+				System.out.println(reponse);
+				motJeu += "-";
+			}
+			return true;
+		} else {
+			return false;
+		}
+	} 
+	public String motJeu() {
+		return motJeu;
+	}
 }

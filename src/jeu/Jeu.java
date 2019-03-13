@@ -82,40 +82,33 @@ public class Jeu implements Serializable {
     }
     
     public void traiterCommande(String commandeLue) {
-    	gui.afficher( "> "+ commandeLue + "\n");
-        switch (commandeLue.toUpperCase()) {
-        case "?" : case "AIDE" : 
-            afficherAide(); 
-        	break;
-        case "N" : case "NORD" :
-        	allerEn( "NORD"); 
-        	break;
-       case "S" : case "SUD" :
-        	allerEn( "SUD"); 
-        	break;
-        case "E" : case "EST" :
-        	allerEn( "EST"); 
-        	break;
-        case "O" : case "OUEST" :
-        	allerEn( "OUEST"); 
-        	break;
-        case "Q" : case "QUITTER" :
-        	terminer();
-        	break;
-       	default : 
-            gui.afficher("Commande inconnue");
-            break;
-        }
+//    	gui.afficher( "> "+ commandeLue + "\n");
+//        switch (commandeLue.toUpperCase()) {
+//        case "?" : case "AIDE" : 
+//            afficherAide(); 
+//        	break;
+//        case "N" : case "NORD" :
+//        	allerEn( "NORD"); 
+//        	break;
+//       case "S" : case "SUD" :
+//        	allerEn( "SUD"); 
+//        	break;
+//        case "E" : case "EST" :
+//        	allerEn( "EST"); 
+//        	break;
+//        case "O" : case "OUEST" :
+//        	allerEn( "OUEST"); 
+//        	break;
+//        case "Q" : case "QUITTER" :
+//        	terminer();
+//        	break;
+//       	default : 
+//            gui.afficher("Commande inconnue");
+//            break;
+//        }
+    	
     }
 
-    private void afficherAide() {
-        gui.afficher("Etes-vous perdu ?");
-        gui.afficher();
-        gui.afficher("Les commandes autorisées sont :");
-        gui.afficher();
-        gui.afficher(Commande.toutesLesDescriptions().toString());
-        gui.afficher();
-    }
     public void captureDeMouton(Mouton mouton) {
     	WorldBuilder constructorOfMap = new WorldBuilder();
     	partie.getJoueur().prendreObjet(mouton);
@@ -171,17 +164,6 @@ public class Jeu implements Serializable {
 			}
     	} 
     }
-    private boolean verifierCaptureMouton() {
-		// TODO Auto-generated method stub
-		int nbMouton = ((capturerMouton) getPartie().queteEnCoursPartie()).nbMouton();
-		int cptMouton =0;
-		for(Objets obj : getPartie().getJoueur().inventaire) {
-			if(obj instanceof Mouton) {
-				cptMouton++;
-			}
-		}
-		return cptMouton==nbMouton;
-	}
 	private void terminer() {
     	gui.afficher( "Au revoir...");
     	gui.enable( false);
@@ -219,4 +201,7 @@ public class Jeu implements Serializable {
 		afficherMessageDeBienvenue();
 		gui.afficher("Bienvenue ! Rentrez votre prénom \n");
     }
+	public void envoyerReponseEnigme(String str,Queteur queteur) {
+		gui.afficher(((Pendu)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,str));
+	}
 }

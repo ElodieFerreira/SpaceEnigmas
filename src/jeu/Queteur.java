@@ -22,6 +22,9 @@ public class Queteur extends Personnage {
 
 	public String parler(Joueur joueur) {
 		quete.lancerQuete(joueur, this);
+		if(quete instanceof Pendu) {
+			return dialogueLancementQuete+"\n"+((Pendu) quete).motJeu();
+		}
 		return dialogueLancementQuete;
 	}
 	public Quete quete() {

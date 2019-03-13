@@ -28,8 +28,7 @@ public class capturerMouton extends Quete {
 			int manqueMouton = nombreMoutonRequis-queteur.inventaire().size();
 			return queteur.dialoguePendantQuete(manqueMouton-1);
 		} else {
-			super.status = true;
-			joueur.setQuete(null);
+			terminer(joueur);
 			return queteur.dialogueFinQuete();
 		}
 	}

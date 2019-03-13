@@ -168,12 +168,24 @@ public class WorldBuilder {
 	}
 	public ArrayList<Quete> creerLesQuetesDuJeu() {
 		ArrayList<Quete> quetes = new ArrayList<Quete>();
-		//Creation de la premiere quetes
+		//Creation de la premiere quete : Mouton
 		capturerMouton capture = new capturerMouton(null, 3);
-		capturerMouton capture1 = new capturerMouton(null,4);
 		quetes.add(capture);
-		quetes.add(capture1);
-		quetes.add(capture1);
+		//Creation de la seconde quete : Pendu
+		ArrayList<String> mots = new ArrayList<String>();
+		ReaderXML motPendu = new ReaderXML("mots.xml");
+		NodeList motsPendus = motPendu.getDocument().getElementsByTagName("niveau");
+		for(int i=0;i<motsPendus.getLength();i++) {
+			Element niveau = (Element) motsPendus.item(i);
+			NodeList motsDuNiveau = niveau.getElementsByTagName("mot");
+			Random r = new Random();
+			int intRand = r.nextInt(motsDuNiveau.getLength());
+			String mot = motsDuNiveau.item(intRand).getTextContent();
+			mots.add(mot);
+		}
+		Pendu pendu = new Pendu(null,mots);
+		quetes.add(pendu);
+		quetes.add(pendu);
 		return quetes;
 	}
 }

@@ -87,13 +87,11 @@ public class GUI implements ActionListener,Serializable
     }
 
     public void afficheImage(String nomImage) {
-    	System.out.println(nomImage+"coucou");
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	ImageIcon img = new ImageIcon(imageURL);
     	Image imageFormatImage = img.getImage();
     	imageFormatImage.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
     	ImageIcon newIcon = new ImageIcon(imageFormatImage);
-    	System.out.println(imageURL);
 	   	if( imageURL != null ) {
         	image.setIcon(newIcon);
         	panelImage.add(image);
@@ -344,8 +342,20 @@ public class GUI implements ActionListener,Serializable
         if(jeu.getPartie().getJoueur()==null) {
         	 jeu.creationJoueur(commandeLue);
         } else {
-        	// Ici on test si on est dans une enigme qui a besoin de
-        	jeu.traiterCommande( commandeLue);
+        	// Ici on test si on est dans une enigme qui a besoin des commandes
+        	if(jeu.getPartie().queteEnCoursPartie() instanceof Pendu) {	
+        		Queteur queteur = null;
+        		for(Object obj : objetsDansLaZone) {
+        			if(obj instanceof Queteur) {
+            			if(((Queteur) obj).quete()==jeu.getPartie().queteEnCoursPartie()) {
+            				queteur = (Queteur) obj;
+            			}
+        			}
+        		}
+        		jeu.envoyerReponseEnigme(commandeLue, queteur);
+        	} else {
+        		jeu.traiterCommande( commandeLue);
+        	}
         }
         
     }
@@ -359,7 +369,6 @@ public class GUI implements ActionListener,Serializable
 		int cpt = 0;
 		for(Mouton mouton : animauxDansLazone) {
 			URL moutonURL = this.getClass().getClassLoader().getResource("images/"+mouton.getImage());
-		   	System.out.println("je suis le mouton"+mouton.getImage());
 		   	if( moutonURL != null ) {
 		   		objetsDansLaZone.add((Object)mouton);
 		   		naturesObjetsDansLaZone.add("mouton");
@@ -369,12 +378,8 @@ public class GUI implements ActionListener,Serializable
 		   	cpt++;
 		}
 		for(Personnage personnage : personnageDansLaZone) {
-			System.out.println("ola");
 		   	URL personnageURL = this.getClass().getClassLoader().getResource("images/"+personnage.getImage());
-		   	System.out.println(personnage.getImage());
-			System.out.println(personnageURL);
 		   	if( personnageURL != null ) {
-		   		System.out.println(personnage);
 		   		objetsDansLaZone.add((Object)personnage);
 		   		naturesObjetsDansLaZone.add("personnage");
 	        	labelArray.get(cpt).setIcon( new ImageIcon(personnageURL));
@@ -387,14 +392,10 @@ public class GUI implements ActionListener,Serializable
 		jeu.incrementerCommande();
 		if(jeu.getPartie().getJoueur()!=null) {
 			if(naturesObjetsDansLaZone.get(index)=="mouton") {
-				System.out.println(jeu.getPartie().getJoueur().inventaire.size());
 				jeu.captureDeMouton((Mouton)objetsDansLaZone.get(index));
-				System.out.println(jeu.getPartie().getJoueur().inventaire.size());
 				label.setVisible(false);
 			} else {
-				System.out.println(jeu.getPartie().getJoueur().friends.size());
 				jeu.interractionPersonnage((Personnage)objetsDansLaZone.get(index));
-				System.out.println(jeu.getPartie().getJoueur().friends.size());
 			}
 		} else {
 			afficher("Je n'ai pas ton pr�nom jeune inconnu ! Donne le moi avant de commencer la partie!");

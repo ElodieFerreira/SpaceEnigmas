@@ -80,6 +80,7 @@
   			Réussisez à y répondre et je vous aiderai dans votre quête
   		</avantQuete>
   		<pendantQuete >indice</pendantQuete>
+  		<pendantQuete>Mauvaise reponse</pendantQuete>
   		<aprèsQuete>
   			Vous avez trouvé la bonne réponse! C'est inexplicable, vous avez un talent iné pour devenir moine. 
   			Je vous engage à commencer la formation une fois que votre quête sera terminée. 
