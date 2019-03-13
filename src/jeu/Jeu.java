@@ -36,7 +36,6 @@ public class Jeu implements Serializable {
     		afficherMessageDeBienvenue();
     	} else {
     		partie = new Partie();
-    		this.setGUI(new GUI(this));
     	    creerCarte();
     	    afficherMessageDeBienvenue();
     		gui.afficher("Bienvenue ! Rentrez votre pr�nom \n");
