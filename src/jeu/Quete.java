@@ -16,7 +16,18 @@ public class Quete {
 		joueur.prendreObjet(recompense);
 		this.status=true;
 	}
-	public void lancerQuete(Joueur joueur, Queteur queteur) {
-		
+	public boolean lancerQuete(Joueur joueur, Queteur queteur) {
+		if(!status) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+	public String executerQuete(Joueur joueur, Queteur queteur) {
+		return null;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	
 }

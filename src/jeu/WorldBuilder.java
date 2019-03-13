@@ -128,13 +128,12 @@ public class WorldBuilder {
 			zones.get((int)it.next()).getPersonnageDansLaZone().add(tousLesAllies.get(i));
 			i++;
 		}
-		return zones ;
+		return zones;
 	}
 	public Zone suppresionDuMouton(Zone zone,Mouton mouton) {
 		zone.getAnimauxDansLazone().remove(mouton);
 		return zone;
 	}
-	
 	public ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones,ArrayList<Quete> toutesLesQuetes) {
 		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
 		NodeList queteursNode = queteurReader.getDocument().getElementsByTagName("queteur");
@@ -147,7 +146,7 @@ public class WorldBuilder {
 			String nom = queteurElement.getElementsByTagName("nom").item(0).getTextContent();
 			String image = queteurElement.getElementsByTagName("image").item(0).getTextContent();
 			// Creation du queteur
-			Queteur queteur = new Queteur(nom,"",image);
+			Queteur queteur = new Queteur(nom," ",image);
 			
 			// Recuperation des dialogues
 			String dialoguesQueteEnCours = queteurElement.getElementsByTagName("queteDejaEnCours").item(0).getTextContent();
@@ -171,9 +170,10 @@ public class WorldBuilder {
 		ArrayList<Quete> quetes = new ArrayList<Quete>();
 		//Creation de la premiere quetes
 		capturerMouton capture = new capturerMouton(null, 3);
+		capturerMouton capture1 = new capturerMouton(null,4);
 		quetes.add(capture);
-		quetes.add(capture);
-		quetes.add(capture);
+		quetes.add(capture1);
+		quetes.add(capture1);
 		return quetes;
 	}
 }

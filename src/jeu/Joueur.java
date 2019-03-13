@@ -10,12 +10,14 @@ public class Joueur {
 	private Integer pointdAttaque;
 	private Integer pointDeVie;
 	public HashSet friends;
+	private Quete queteEnCours;
 	/**
 	 * Compte le nombre de qu�te r�alis� par le joueur jusqu'� pr�sent.
 	 */
 	private int nbQueterealise;
 	public Joueur(String nom) {
 		this.nom = nom;
+		queteEnCours = null;
 		inventaire = new ArrayList<Objets>();
 		friends = new HashSet();
 		
@@ -37,6 +39,12 @@ public class Joueur {
 			}
 		}
 		return null;
+	}
+	public Quete quete() {
+		return queteEnCours;
+	}
+	public void setQuete(Quete quete) {
+		this.queteEnCours=quete;
 	}
 	
 }

@@ -142,26 +142,27 @@ public class Jeu implements Serializable {
     			partie.getSalleDeRepos().getPersonnageDansLaZone().add(personnage);
     		}
     	} else if (personnage instanceof Queteur) {
-    		if(getPartie().queteEnCours()==null) {
-    			gui.afficher(((Queteur) personnage).parler(getPartie().getJoueur()));
-    			partie.setQuete(((Queteur) personnage).quete());
-    		} else if(getPartie().queteEnCours() instanceof capturerMouton && ((Queteur) personnage).quete()==getPartie().queteEnCours() ) {
-    			queteDesMoutons((Queteur) personnage);
-    		}
+    		Queteur queteur = (Queteur) personnage;
+    		if(!queteur.besoinAide()) {
+    			if(getPartie().queteEnCoursPartie()==null) {
+    				gui.afficher(queteur.parler(getPartie().getJoueur()));
+    				partie.setQuete((queteur).quete());
+    			} else {
+    				if(queteur.quete()==getPartie().queteEnCoursPartie()) {
+    					gui.afficher(queteur.quete().executerQuete(getPartie().getJoueur(), queteur));
+    				} else {
+    					gui.afficher(((Queteur) personnage).queteDejaEnCours());
+    				}
+    				
+    			}
+			} else {
+				gui.afficher(queteur.remerciement());
+			}
     	} 
-    }
-    private void queteDesMoutons(Queteur personnage) {
-    	if(verifierCaptureMouton()) {
-			Mouton mouton = getPartie().getJoueur().recupererMouton();
-			personnage.prendre(getPartie().getJoueur().donnerObjet(mouton));
-			gui.afficher("Merci");
-    	} else {
-			gui.afficher("tu n'as pas assez de mouton...");
-		}
     }
     private boolean verifierCaptureMouton() {
 		// TODO Auto-generated method stub
-		int nbMouton = ((capturerMouton) getPartie().queteEnCours()).nbMouton();
+		int nbMouton = ((capturerMouton) getPartie().queteEnCoursPartie()).nbMouton();
 		int cptMouton =0;
 		for(Objets obj : getPartie().getJoueur().inventaire) {
 			if(obj instanceof Mouton) {
@@ -181,4 +182,5 @@ public class Jeu implements Serializable {
     {
     	return this.zoneCourante;
     }
+
 }
