@@ -25,6 +25,8 @@ public class Quete implements Serializable {
 	protected void terminer(Joueur joueur) {
 		joueur.prendreObjet(recompense);
 		this.status=true;
+		joueur.setQuete(null);
+		joueur.niveauActuel++;
 	}
 	public boolean lancerQuete(Joueur joueur, Queteur queteur) {
 		if(!status) {
