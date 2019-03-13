@@ -18,8 +18,8 @@ public class Jeu implements Serializable {
     
     public Jeu() {
         gui = null;
-        partie = new Partie();
-        creerCarte();
+   		partie = new Partie();
+	    creerCarte();
     }
     public Partie getPartie() {
     	return partie;
