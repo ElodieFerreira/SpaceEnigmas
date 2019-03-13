@@ -1,10 +1,12 @@
 package jeu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Joueur {
+public class Joueur implements Serializable {
+	private static final long serialVersionUID = 7414382947582054818L;
 	public String nom;
 	public ArrayList<Objets> inventaire;
 	private Integer pointdAttaque;
@@ -37,6 +39,14 @@ public class Joueur {
 			}
 		}
 		return null;
+	}
+	public String getNom()
+	{
+		return this.nom;
+	}
+	public void setNom(String newName)
+	{
+		this.nom=newName;
 	}
 	
 }

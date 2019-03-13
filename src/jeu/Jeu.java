@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
  *
  */
 public class Jeu implements Serializable {
-	
-    private GUI gui; 
+	private static final long serialVersionUID = 4706534921209753458L;
+	private GUI gui; 
 	private Zone zoneCourante;
     private Partie partie;
     
@@ -180,5 +180,10 @@ public class Jeu implements Serializable {
     public Zone GetZoneCourante1()
     {
     	return this.zoneCourante;
+    }
+    public void Sauvegarde()
+    {
+    	Sauvegarde save = new Sauvegarde(this);
+    	save.Serialize(this);
     }
 }

@@ -1,8 +1,9 @@
 package jeu;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-public class Mouton extends Objets {
-
+public class Mouton extends Objets implements Serializable {
+	private static final long serialVersionUID = 2934790090291592942L;
 	public static ArrayList<Zone> PositionMouton(ArrayList<Zone> zone, int nbMouton)
 	{
 		for(int i=0;i<3;i++)

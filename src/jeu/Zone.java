@@ -8,7 +8,8 @@ import org.w3c.dom.NodeList;
 
 public class Zone implements Serializable
 {
-    private String nom;
+	private static final long serialVersionUID = 6409281714245147128L;
+	private String nom;
     private String description;
     private String nomImage;
     private HashMap<String,Zone> sorties;   
@@ -62,6 +63,12 @@ public class Zone implements Serializable
 		return personnageDansLaZone;
 	}
 
-	
+	public String getDescription() {
+		return description;
+	}
+
+	public String getNomImage() {
+		return nomImage;
+	}
 }
 

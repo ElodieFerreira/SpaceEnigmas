@@ -1,6 +1,9 @@
 package jeu;
 
-public class Personnage {
+import java.io.Serializable;
+
+public class Personnage implements Serializable{
+	private static final long serialVersionUID = -2531684055147232247L;
 	private String nom;
 	private String description;
 	private String image;

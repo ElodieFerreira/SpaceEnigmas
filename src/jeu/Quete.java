@@ -8,6 +8,12 @@ public class Quete {
 	protected int id;
 	protected boolean status;
 	private Objets recompense;
+	
+	public Quete()
+	{
+		
+	}
+	
 	public Quete(Objets recompenseJoueur) {
 		recompense = recompenseJoueur;
 		status = false;

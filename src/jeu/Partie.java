@@ -1,8 +1,10 @@
 package jeu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Partie {
+public class Partie implements Serializable {
+	private static final long serialVersionUID = -5799011054091607425L;
 	private Joueur joueur;
 	/**
 	 * Définit par un int la phase de jeu actuel. 0 pour le d�but ( pr�sentation de Mentris... ) 

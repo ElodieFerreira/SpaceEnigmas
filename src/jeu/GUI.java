@@ -31,12 +31,15 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.Serializable;
+
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class GUI implements ActionListener
+public class GUI implements ActionListener,Serializable 
 {
-    private Jeu jeu;
+	private static final long serialVersionUID = -1091520350373841679L;
+	private Jeu jeu;
     private JFrame fenetre;
     private JPanel panel;
     private JPanel panelImage;
