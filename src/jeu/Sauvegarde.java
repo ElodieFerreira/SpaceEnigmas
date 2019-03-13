@@ -17,7 +17,7 @@ public class Sauvegarde implements Serializable
 	public Sauvegarde(Jeu JeuCourant)
 	{
 		save=JeuCourant;
-		Zone place = save.getZoneCourante();
+		Zone place = save.GetZoneCourante1();
 	}
 	public void Serialize(Zone test )
 	{
