@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class MainRoufas {
 
 	public static void main(String[] args) {
-		EnigmePereRoufas essai = new EnigmePereRoufas(4);
+		EnigmeTextuel essai = new EnigmeTextuel(4);
 		
 		int idTab;
 		idTab= (int)(java.lang.Math.random()*4);

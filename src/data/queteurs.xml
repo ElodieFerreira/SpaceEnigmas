@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE personnages SYSTEM "Queteur.dtd" >
+<!DOCTYPE personnages SYSTEM "Queteur.dtd">
+<!-- Les index correspondent aux zones d'apparition  -->
 <personnages>
-  <quéteur index="0">
+  <queteur index="6">
     <nom>Michel</nom>
     <image>michel.png</image>
     <dialogues>
@@ -13,8 +14,8 @@
       <aprèsQuete>Léandro, Vous l'avez retrouvé ? Vous les avez tous retrouvé ?! C'est tout simplement EXTRAORDINAIRE ! Comment avec-vous fait ?... Non, en fait je m'en fiche de comment vous avez fait. Laissez moi vous donner du Bronze qui j'espère vous aidera.</aprèsQuete>
       <remerciement>Depuis que vous les avez retrouvé, aucun de mes moutons ne s'est échappé !</remerciement>
     </dialogues>
-  </quéteur>
-  <quéteur index="1">
+  </queteur>
+  <queteur index="9">
   	<nom>Cash</nom>
   	<image>cash.png</image>
   	<dialogues>
@@ -26,8 +27,8 @@
   		<pendantQuete >Bravo, cette lettre est dans le mot. Tu peux proposer ta réponse ou demander une autre lettre.</pendantQuete>
   		<aprèsQuete >C'est le bon mot, elle est libre ! Je dois vous dire que vous m'avez impressionné étranger. Sortir un mot en si peu de temps, vous avez vu leurs têtes déconfites hahaha. Afin de vous remercier pour m'avoir sauvé, permetez-moi de vous donner ce minerai que j'ai illégalement récupérer hahaha</aprèsQuete>
   		<remerciement >Merci de m'avoir sauver, je te dois une fière chandelle ! Viens me voir si t'as besoin de marchandises interdites !</remerciement></dialogues>
-  </quéteur>
-  <quéteur index="2">
+  </queteur>
+  <queteur index="13">
   	<nom>Père Roufas</nom>
   	<image>pereroufas.gif</image>
   	<dialogues>
@@ -37,5 +38,5 @@
   		<aprèsQuete >Vous avez trouvé la bonne réponse! C'est inexplicable, vous avez un talent iné pour devenir moine. Je vous engage à commencer la formation une fois que votre quête sera terminée. D'ailleurs, afin de vous aider du mieux possible, je vous confie de l'argent</aprèsQuete>
   		<remerciement >Vous avez réfléchis à ma proposition ? Devenir moine, ça vous donne plein d'avantages ! Evidemenment, vous devez renoncer à toutes possessions matérielles, mais bon...</remerciement>
   	</dialogues>
-  </quéteur>
+  </queteur>
 </personnages>

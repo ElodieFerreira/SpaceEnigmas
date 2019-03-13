@@ -47,6 +47,8 @@ public class Jeu implements Serializable {
     	zones = constructorOfMap.positionMouton(zones, 3);
     	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
     	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
+    	ArrayList<Quete> quetes = constructorOfMap.creerLesQuetesDuJeu();
+    	zones = constructorOfMap.miseEnPlaceDesQueteurs(zones,quetes);
     	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
     	zoneCourante = espace.get(0).getZones().get(0); 	
     }
@@ -133,15 +135,42 @@ public class Jeu implements Serializable {
         gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
     }
     public void interractionPersonnage(Personnage personnage) {
-    	gui.afficher(personnage.parler());
     	if(personnage instanceof Allies) {
+    		gui.afficher(personnage.parler());
     		partie.getJoueur().friends.add(personnage);
     		if(partie.getJoueur().friends.size()!=partie.getSalleDeRepos().getPersonnageDansLaZone().size()) {
     			partie.getSalleDeRepos().getPersonnageDansLaZone().add(personnage);
     		}
-    	}
+    	} else if (personnage instanceof Queteur) {
+    		if(getPartie().queteEnCours()==null) {
+    			gui.afficher(((Queteur) personnage).parler(getPartie().getJoueur()));
+    			partie.setQuete(((Queteur) personnage).quete());
+    		} else if(getPartie().queteEnCours() instanceof capturerMouton && ((Queteur) personnage).quete()==getPartie().queteEnCours() ) {
+    			queteDesMoutons((Queteur) personnage);
+    		}
+    	} 
     }
-    private void terminer() {
+    private void queteDesMoutons(Queteur personnage) {
+    	if(verifierCaptureMouton()) {
+			Mouton mouton = getPartie().getJoueur().recupererMouton();
+			personnage.prendre(getPartie().getJoueur().donnerObjet(mouton));
+			gui.afficher("Merci");
+    	} else {
+			gui.afficher("tu n'as pas assez de mouton...");
+		}
+    }
+    private boolean verifierCaptureMouton() {
+		// TODO Auto-generated method stub
+		int nbMouton = ((capturerMouton) getPartie().queteEnCours()).nbMouton();
+		int cptMouton =0;
+		for(Objets obj : getPartie().getJoueur().inventaire) {
+			if(obj instanceof Mouton) {
+				cptMouton++;
+			}
+		}
+		return cptMouton==nbMouton;
+	}
+	private void terminer() {
     	gui.afficher( "Au revoir...");
     	gui.enable( false);
     }
