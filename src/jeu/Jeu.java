@@ -164,10 +164,10 @@ public class Jeu implements Serializable {
 			}
     	} 
     }
-	private void terminer() {
-    	gui.afficher( "Au revoir...");
-    	gui.enable( false);
-    }
+//	private void terminer() {
+//    	gui.afficher( "Au revoir...");
+//    	gui.enable( false);
+//    }
     public Zone getZoneCourante() {
     	return this.getZoneCourante();
     }
@@ -189,6 +189,15 @@ public class Jeu implements Serializable {
     }
     public void perdu() {
     	System.out.println("T'as perdu wesh! ");
+    	afficherScenePerdante();
+//    	gui.stopFenetre();
+    }
+    public void afficherScenePerdante() {
+    	zoneCourante = new Zone("","","");
+    	gui.afficher("Vous êtes mort. Sans votre aide, Dyspros continuera encore longtemps son règne de terreur sur la galaxie...");
+    	gui.afficheImage("zoneperdante.gif");
+    	gui.afficherElementZone(new ArrayList<Mouton>(), new ArrayList<Personnage>());
+    	gui.afficherBoutonSortie(zoneCourante.getSorties());
     }
     public void SupprimerPartie()
     {
@@ -202,6 +211,13 @@ public class Jeu implements Serializable {
 		gui.afficher("Bienvenue ! Rentrez votre prénom \n");
     }
 	public void envoyerReponseEnigme(String str,Queteur queteur) {
-		gui.afficher(((Pendu)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,str));
+		if(queteur.quete() instanceof Pendu) {
+			gui.afficher(((Pendu)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,str));
+		} else if(queteur.quete() instanceof EnigmeTextuel) {
+			gui.afficher(((EnigmeTextuel)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,str));
+		}
+		if(!getPartie().getJoueur().alive) {
+			perdu();
+		}
 	}
 }

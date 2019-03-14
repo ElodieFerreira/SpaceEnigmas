@@ -28,7 +28,7 @@ public class Partie implements Serializable {
 		joueur = null;
 		carteActuel = new ArrayList<Planete>();
 		nbCommande = 0;
-		nbCommandeMax = 10;
+		nbCommandeMax = 100;
 	}
 	public Joueur getJoueur() {
 		return joueur;

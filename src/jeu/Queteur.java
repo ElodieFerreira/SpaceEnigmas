@@ -25,6 +25,9 @@ public class Queteur extends Personnage {
 		if(quete instanceof Pendu) {
 			return dialogueLancementQuete+"\n"+((Pendu) quete).motJeu();
 		}
+		if(quete instanceof EnigmeTextuel) {
+			return dialogueLancementQuete+"\n"+((EnigmeTextuel) quete).sujetEnigme(joueur.niveauActuel);
+		}
 		return dialogueLancementQuete;
 	}
 	public Quete quete() {

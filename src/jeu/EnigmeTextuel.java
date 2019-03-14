@@ -1,65 +1,48 @@
 package jeu;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EnigmeTextuel extends Quete {
 	
 
-	private String[] enoncerEnigme;
-	private String[] repEnigme;
-	private String[] indices;
+	private ArrayList<String> enonceeEnigme;
+	private ArrayList<String> repEnigme;
+	private ArrayList<String> indices;
+	private int nombreDeCoups;
+	private int nombreDeCoupsMax;
 	
-	public EnigmeTextuel(Objets recompenseJoueur) {
+	public EnigmeTextuel(Objets recompenseJoueur,ArrayList<String> enoncee, ArrayList<String> reponses, ArrayList<String> indice) {
 		super(recompenseJoueur);
+		enonceeEnigme = enoncee; 
+		repEnigme = reponses;
+		indices = indice;
+		nombreDeCoups = 0;
+		nombreDeCoupsMax = 5;
 		// TODO Auto-generated constructor stub
 	}
 
-	public String sujetEnigme(int idTab)
+	public String sujetEnigme(int niveau)
 	{
-		this.enoncerEnigme[0] = "Parfois mauvaise et redouté.  Elle peut faire des blessés. Qu’elle soit d’eau ou de reins. Elle est aussi mot de la fin. Qui est-elle ?";
-		this.enoncerEnigme[1] = "Meilleure ville de France";
-		this.enoncerEnigme[2] = "Capitale d'un pays";
-		this.enoncerEnigme[3] = "Capitale de région";
-		return this.enoncerEnigme[idTab];
+		return this.enonceeEnigme.get(niveau);
 	}
 
 	
-	public String reponseEnigme(int idTab)
+	public String reponseEnigme(int niveau)
 	{
-		this.repEnigme[0] = "LA CHUTE";
-		this.repEnigme[1] = "TOULON";
-		this.repEnigme[2] = "PARIS";
-		this.repEnigme[3] = "MARSEILLE";
-		
-		return this.repEnigme[idTab];
+		return this.repEnigme.get(niveau);
 	}
-	public String indiceEnigme(int idTab)
+	public String indiceEnigme(int niveau)
 	{
-		this.indices[0] = "Synonyme de Tomber";
-		this.indices[1] = "Meilleure equipe de rugby";
-		this.indices[2] = "dispose d'un obélisque";
-		this.indices[3] = "Bonne mère";
-		
-		return this.indices[idTab];
+		return this.indices.get(niveau);
 	}
 	
-	public String testreponse(int idTab,int cpt)
-	{
-		if(cpt>=2)
-		{
-			System.out.println("voici un indice pour vous aider\n"+this.indiceEnigme(idTab));
-		}
 
-		
-		Scanner rep = new Scanner(System.in);
-		System.out.println("Tapez vore réponse");
-		String str = rep.nextLine();
-		return str;
-	}
 	
-	public boolean bonneReponse(String reponse, int idTab)
-	{
-		if(reponse.equals(this.reponseEnigme(idTab)))
+	public boolean bonneReponse(String reponse, int niveau)
+	{	System.out.println(reponse);
+		System.out.println(this.reponseEnigme(niveau));
+		if(reponse.equals(this.reponseEnigme(niveau)))
 		{
 			return true;
 		}
@@ -67,6 +50,21 @@ public class EnigmeTextuel extends Quete {
 		{
 			return false;
 		}
+	}
+	public String executerQuete(Joueur joueur, Queteur queteur, String str) {
+		nombreDeCoups++;
+		if(bonneReponse(str,joueur.niveauActuel)) {
+			terminer(joueur);
+			return queteur.dialogueFinQuete();
+		}
+		if(nombreDeCoups==2)
+		{ 
+		return "voici un indice pour vous aider\n"+this.indiceEnigme(joueur.niveauActuel);
+		} else if(nombreDeCoups<=5) {
+			return queteur.dialoguePendantQuete(1);
+		}
+		joueur.alive=false;
+		return "";
 	}
 }
 	

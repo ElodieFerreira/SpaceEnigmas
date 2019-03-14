@@ -7,7 +7,6 @@ public class Quete implements Serializable {
 	 * True for -> déjà faite
 	 * False for -> Pas encore faite
 	 */
-	protected int id;
 	protected boolean status;
 	private Objets recompense;
 	private int nbrCoupDebut;
@@ -28,17 +27,16 @@ public class Quete implements Serializable {
 		joueur.setQuete(null);
 		joueur.niveauActuel++;
 	}
-	public boolean lancerQuete(Joueur joueur, Queteur queteur) {
-		if(!status) {
-			return true;
-		} else {
-			return false;
-		}
+	public void lancerQuete(Joueur joueur, Queteur queteur) {
+	
 	}
 	public String executerQuete(Joueur joueur, Queteur queteur) {
 		return queteur.dialoguePendantQuete(0);
 	}
 	public boolean isStatus() {
 		return status;
-	}	
+	}
+	public void perdu(Joueur joueur) {
+		joueur.alive = false;
+	}
 }

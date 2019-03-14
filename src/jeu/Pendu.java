@@ -16,6 +16,7 @@ public class Pendu extends Quete{
 		super(recompenseJoueur);
 		// TODO Auto-generated constructor 
 		nombreDeCoups = 0;
+		nombreDeCoupsMax = 8;
 		mots = new ArrayList<String>();
 		motJeu = new String ("");
 		mots.addAll(newMots);
@@ -38,12 +39,11 @@ public class Pendu extends Quete{
 		else {
 			//do {
 			return true;				
-			
-			
 		}
 	}
 	
 	private void dévoileLettre(String lettre, int id) {
+		System.out.println(reponse);
 		int index=reponse.indexOf(lettre,id);
 		System.out.println(motJeu.length());
 		if(index!=-1) {
@@ -64,38 +64,49 @@ public class Pendu extends Quete{
 				dévoileLettre(str,0);
 				if(EstComplet()) {
 					terminer(joueur);
-					return queteur.dialogueFinQuete();
+					return reponse+"\n"+queteur.dialogueFinQuete();
 				}
 				return queteur.dialoguePendantQuete(3)+"\n"+motJeu;
 			}
 			else {
-				return queteur.dialoguePendantQuete(1);
+				// Il a fait une erreur sur la lettre
+				// C'est considéré comme un coup de plus : 
+				nombreDeCoups++;
+				if(nombreDeCoups==nombreDeCoupsMax) {
+					perdu(joueur);
+					return "";
+				}
+				return queteur.dialoguePendantQuete(1).replaceAll(" nb",String.valueOf(nombreDeCoupsMax-nombreDeCoups))+"\n"+motJeu;
 			}
 		}
 		else  {
 			if(str.equals(mots.get(0))){
 				terminer(joueur);
-				return queteur.dialogueFinQuete();
+				return reponse+"\n"+queteur.dialogueFinQuete();
 			}
 			else {
-				return queteur.dialoguePendantQuete(2);
+				nombreDeCoups++;
+				if(nombreDeCoups==nombreDeCoupsMax) {
+					perdu(joueur);
+					return "";
+				}
+				return queteur.dialoguePendantQuete(2)+"\n"+motJeu;
 			}
 		}
 	}
-	public boolean lancerQuete(Joueur joueur, Queteur queteur) {
-		if(!status) {
-			int niveau = joueur.niveauActuel;
-			reponse = mots.get(niveau);
+	public void lancerQuete(Joueur joueur, Queteur queteur) {
+		int niveau = joueur.niveauActuel;
+		reponse = mots.get(niveau);
+		System.out.println(reponse);
+		System.out.println("TailleMot"+reponse.length());
+		for(int i=0;i<reponse.length();i++) {
 			System.out.println(reponse);
-			System.out.println("TailleMot"+reponse.length());
-			for(int i=0;i<reponse.length();i++) {
-				System.out.println(reponse);
-				motJeu += "-";
-			}
-			return true;
-		} else {
-			return false;
+			motJeu += "-";
 		}
+//			return true;
+//		} else {
+//			return false;
+//		}
 	} 
 	public String motJeu() {
 		return motJeu;

@@ -2,51 +2,52 @@
 <!DOCTYPE Enigmes SYSTEM "enigme.dtd">
 <!-- Les niveaux indiquent la difficulté. Niveau 0 = très facile. 1 =moyen et 2 
 = difficile -->
-<Enigmes>
-  <enigme niveau="2">
+<enigmes>
+<niveau>
+  <enigme>
     <question>
     Modeste employé de bureau, Notant jadis sur ses tablettes, Pouvant porter une palette, Et qui déchiffre les rouleaux. Qui est-il ?
     </question>
-    <reponse>
-    Le Scribe
-    </reponse>
+    <reponse>scribe</reponse>
     <indice>
     un acteur de cinéma en a joué un nommé Otis
   </indice>
   </enigme>
-
-  <enigme niveau="2">
+</niveau>
+<niveau>
+  <enigme>
   	<question>
     Ses formules sont connues, Celle du cœur est peu pratiquée. Apanage des hommes civilisés, Elle est encore bien méconnue. Qui est-elle ?
     </question>
   	<reponse>
-    La politesse
+    politesse
     </reponse>
     <indice>
     Une de ces règles est : "attendre que tout le monde soit servi avant de commencer à manger"
   </indice>
   </enigme>
-
-  <enigme niveau="2">
+</niveau>
+<niveau>
+  <enigme>
   	<question>
     Est-il brun, rayé de blanc, Ou blanc rayé de brun. Serait-ce un âne africain ? En tout cas il va bon train. Qui est-il ?
     </question>
   	<reponse>
-    Le Zèbre</reponse>
+    zèbre</reponse>
     <indice>
     Ressemble aussi à un cheval
   </indice>
-  </enigme>
-  
-  <enigme niveau="2">
+  </enigme> 
+  <enigme>
   	<question>
     Très souvent policière, C'est un jeu de l'esprit. Tel le mystère de la vie, Qu'honore un bien vieux père. Qui est-elle ?
     </question>
   	<reponse>
-    L'énigme 
+    énigme 
     </reponse>
     <indice>
     En lien avec ce que vous faites maintenant
-  </indice>
+  	</indice>
   </enigme>  
-</Enigmes>
+ </niveau>
+</enigmes>

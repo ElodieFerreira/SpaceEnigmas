@@ -79,7 +79,7 @@ public class WorldBuilder {
 
 		while(hs.size()<nbMouton){
 		 // Min + (Math.random() * (Max - Min))
-			int nbaleat = 2 + (int)(Math.random()*((zone.size()-4)));
+			int nbaleat = 2 + (int)(Math.random()*((zone.size()-3)));
 			hs.add(nbaleat);
 		}
 		Iterator it=hs.iterator();
@@ -185,7 +185,28 @@ public class WorldBuilder {
 		}
 		Pendu pendu = new Pendu(null,mots);
 		quetes.add(pendu);
-		quetes.add(pendu);
+		//Creation de la troisieme quete : Enigme
+		ArrayList<String> questionArray = new ArrayList<String>();
+		ArrayList<String> reponseArray = new ArrayList<String>();
+		ArrayList<String> indiceArray = new ArrayList<String>();
+		ReaderXML enigmesXML = new ReaderXML("enigme.xml");
+		NodeList enigmesComplete = enigmesXML.getDocument().getElementsByTagName("niveau");
+		for(int i=0;i<enigmesComplete.getLength();i++) {
+			Element niveau = (Element) enigmesComplete.item(i);
+			NodeList enigmesDuNiveau = niveau.getElementsByTagName("enigme");
+			Random r = new Random();
+			System.out.println(enigmesDuNiveau.getLength());
+			int intRand = r.nextInt(enigmesDuNiveau.getLength());
+			Element enigme = (Element) enigmesDuNiveau.item(intRand);
+			String question = enigme.getElementsByTagName("question").item(0).getTextContent();
+			questionArray.add(question);
+			String reponse = enigme.getElementsByTagName("reponse").item(0).getTextContent();
+			reponseArray.add(reponse);
+			String indice = enigme.getElementsByTagName("indice").item(0).getTextContent();
+			indiceArray.add(indice);
+		}
+		EnigmeTextuel enigme = new EnigmeTextuel(null, questionArray, reponseArray, indiceArray);
+		quetes.add(enigme);
 		return quetes;
 	}
 }

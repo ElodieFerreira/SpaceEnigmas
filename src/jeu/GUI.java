@@ -343,7 +343,7 @@ public class GUI implements ActionListener,Serializable
         	 jeu.creationJoueur(commandeLue);
         } else {
         	// Ici on test si on est dans une enigme qui a besoin des commandes
-        	if(jeu.getPartie().queteEnCoursPartie() instanceof Pendu) {	
+        	if(jeu.getPartie().queteEnCoursPartie() instanceof Pendu  || jeu.getPartie().queteEnCoursPartie() instanceof EnigmeTextuel) {	
         		Queteur queteur = null;
         		for(Object obj : objetsDansLaZone) {
         			if(obj instanceof Queteur) {
@@ -352,12 +352,17 @@ public class GUI implements ActionListener,Serializable
             			}
         			}
         		}
-        		jeu.envoyerReponseEnigme(commandeLue, queteur);
+        		if (queteur!=null) {
+        			jeu.envoyerReponseEnigme(commandeLue, queteur);
+        		}
         	} else {
         		jeu.traiterCommande( commandeLue);
         	}
         }
         
+    }
+    public void stopFenetre() {
+    	fenetre.setVisible(false);
     }
 	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone,ArrayList<Personnage> personnageDansLaZone) {
 		// TODO Auto-generated method stub
@@ -398,7 +403,7 @@ public class GUI implements ActionListener,Serializable
 				jeu.interractionPersonnage((Personnage)objetsDansLaZone.get(index));
 			}
 		} else {
-			afficher("Je n'ai pas ton pr�nom jeune inconnu ! Donne le moi avant de commencer la partie!");
+			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!\n");
 		}
 	}
 }

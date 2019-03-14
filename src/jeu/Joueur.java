@@ -15,8 +15,9 @@ public class Joueur implements Serializable {
 	private Quete queteEnCours;
 	public int niveauMaximum;
 	public int niveauActuel;
+	public boolean alive;
 	/**
-	 * Compte le nombre de qu�te r�alis� par le joueur jusqu'� pr�sent.
+	 * Compte le nombre de quête rêalisé par le joueur jusqu'à présent.
 	 */
 	private int nbQueterealise;
 	public Joueur(String nom) {
@@ -26,7 +27,7 @@ public class Joueur implements Serializable {
 		friends = new HashSet();
 		niveauMaximum = 10;
 		niveauActuel = 0;
-		
+		alive = true;
 	}
 	public void prendreObjet(Objets A)
 	{
