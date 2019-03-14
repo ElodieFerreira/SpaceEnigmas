@@ -20,6 +20,11 @@ public class Partie implements Serializable {
 	 */
 	private ArrayList<Planete> carteActuel;
 	private Zone salleDeRepos;
+	private Zone sceneFinal;
+	
+	public void setsceneFinal(Zone zone) {
+		sceneFinal = zone;
+	}
 
 	public void setSalleDeRepos(Zone salleDeReposArg) {
 		this.salleDeRepos = salleDeReposArg;

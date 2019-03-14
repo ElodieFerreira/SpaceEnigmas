@@ -155,6 +155,7 @@ public class GUI implements ActionListener,Serializable
         panelCarte.setBounds(0, 25, 880, 499);
         entree = new JTextField(34);
         texte = new JTextArea();
+        texte.setFont(new Font("Monospaced", Font.PLAIN, 21));
         new JButton("Est");
         new JButton("Ouest");
         texte.setEditable(false);

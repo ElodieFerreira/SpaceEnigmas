@@ -43,7 +43,6 @@ public class Pendu extends Quete{
 	}
 	
 	private void dévoileLettre(String lettre, int id) {
-		System.out.println(reponse);
 		int index=reponse.indexOf(lettre,id);
 		System.out.println(motJeu.length());
 		if(index!=-1) {

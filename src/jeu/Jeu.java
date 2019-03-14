@@ -6,10 +6,6 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Fayda
- *
- */
 public class Jeu implements Serializable {
 	private static final long serialVersionUID = 4706534921209753458L;
 	private GUI gui; 
@@ -53,12 +49,12 @@ public class Jeu implements Serializable {
     	ArrayList<Planete> espace = constructorOfMap.creerLesPlanetes(zones);
     	Zone vaisseau = zones.get(0);
     	vaisseau = constructorOfMap.ajouterLesSortiesAuVaisseau(vaisseau, espace);
-    	zones = constructorOfMap.positionMouton(zones, 3);
     	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
     	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
     	ArrayList<Quete> quetes = constructorOfMap.creerLesQuetesDuJeu();
     	zones = constructorOfMap.miseEnPlaceDesQueteurs(zones,quetes);
     	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
+    	partie.setsceneFinal(zones.get(zones.size()-1));
     	zoneCourante = espace.get(0).getZones().get(0); 	
     }
     
@@ -150,6 +146,10 @@ public class Jeu implements Serializable {
     		if(!queteur.besoinAide()) {
     			if(getPartie().queteEnCoursPartie()==null) {
     				gui.afficher(queteur.parler(getPartie().getJoueur()));
+    				if(queteur.quete() instanceof capturerMouton) {
+    					WorldBuilder mouton = new WorldBuilder();
+    					mouton.positionMouton(partie.zones(),3);
+    				}
     				partie.setQuete((queteur).quete());
     			} else {
     				if(queteur.quete()==getPartie().queteEnCoursPartie()) {
