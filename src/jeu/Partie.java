@@ -61,5 +61,8 @@ public class Partie implements Serializable {
 	public Quete queteEnCoursPartie() {
 		return joueur.quete();
 	}
+	public void setEspace(ArrayList<Planete> planetes) {
+		carteActuel= planetes;
+	}
 	
 }

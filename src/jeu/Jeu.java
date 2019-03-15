@@ -55,6 +55,7 @@ public class Jeu implements Serializable {
     	zones = constructorOfMap.miseEnPlaceDesQueteurs(zones,quetes);
     	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
     	partie.setsceneFinal(zones.get(zones.size()-1));
+    	partie.setEspace(espace);
     	zoneCourante = espace.get(0).getZones().get(0); 	
     }
     
@@ -78,31 +79,7 @@ public class Jeu implements Serializable {
     }
     
     public void traiterCommande(String commandeLue) {
-//    	gui.afficher( "> "+ commandeLue + "\n");
-//        switch (commandeLue.toUpperCase()) {
-//        case "?" : case "AIDE" : 
-//            afficherAide(); 
-//        	break;
-//        case "N" : case "NORD" :
-//        	allerEn( "NORD"); 
-//        	break;
-//       case "S" : case "SUD" :
-//        	allerEn( "SUD"); 
-//        	break;
-//        case "E" : case "EST" :
-//        	allerEn( "EST"); 
-//        	break;
-//        case "O" : case "OUEST" :
-//        	allerEn( "OUEST"); 
-//        	break;
-//        case "Q" : case "QUITTER" :
-//        	terminer();
-//        	break;
-//       	default : 
-//            gui.afficher("Commande inconnue");
-//            break;
-//        }
-    	
+    	System.out.println("ok");
     }
 
     public void captureDeMouton(Mouton mouton) {
@@ -119,14 +96,18 @@ public class Jeu implements Serializable {
     	}
         else {
         	zoneCourante = nouvelle;
-        	gui.afficher(zoneCourante.descriptionLongue());
-        	gui.afficher();
-            gui.afficheImage(zoneCourante.nomImage());	
-            gui.afficherBoutonSortie(zoneCourante.getSorties());
-            gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
+        	afficherZone();
         }
     }
-    public void allerEn(Zone nouvelleZone) {
+    private void afficherZone() {
+		// TODO Auto-generated method stub
+    	gui.afficher(zoneCourante.descriptionLongue());
+    	gui.afficher();
+        gui.afficheImage(zoneCourante.nomImage());	
+        gui.afficherBoutonSortie(zoneCourante.getSorties());
+        gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
+	}
+	public void allerEn(Zone nouvelleZone) {
     	zoneCourante = nouvelleZone;
     	gui.afficher(zoneCourante.descriptionLongue());
     	gui.afficher();
@@ -148,12 +129,15 @@ public class Jeu implements Serializable {
     				gui.afficher(queteur.parler(getPartie().getJoueur()));
     				if(queteur.quete() instanceof capturerMouton) {
     					WorldBuilder mouton = new WorldBuilder();
-    					mouton.positionMouton(partie.zones(),3);
+    					ArrayList<Zone> zone = mouton.positionMouton(partie.zones(),3);				
     				}
     				partie.setQuete((queteur).quete());
     			} else {
     				if(queteur.quete()==getPartie().queteEnCoursPartie()) {
     					gui.afficher(queteur.quete().executerQuete(getPartie().getJoueur(), queteur));
+    					if(getPartie().getJoueur().niveauActuel== getPartie().getJoueur().niveauMaximum) {
+    						preparerCombatFinal();
+    					}
     				} else {
     					gui.afficher(((Queteur) personnage).queteDejaEnCours());
     				}
@@ -164,6 +148,10 @@ public class Jeu implements Serializable {
 			}
     	} 
     }
+private void preparerCombatFinal() {
+		// TODO Auto-generated method stub
+		
+	}
 //	private void terminer() {
 //    	gui.afficher( "Au revoir...");
 //    	gui.enable( false);
@@ -193,11 +181,8 @@ public class Jeu implements Serializable {
 //    	gui.stopFenetre();
     }
     public void afficherScenePerdante() {
-    	zoneCourante = new Zone("","","");
-    	gui.afficher("Vous êtes mort. Sans votre aide, Dyspros continuera encore longtemps son règne de terreur sur la galaxie...");
-    	gui.afficheImage("zoneperdante.gif");
-    	gui.afficherElementZone(new ArrayList<Mouton>(), new ArrayList<Personnage>());
-    	gui.afficherBoutonSortie(zoneCourante.getSorties());
+    	zoneCourante = new Zone("","zoneperdante.gif","Vous êtes mort. Sans votre aide, Dyspros continuera encore longtemps son règne de terreur sur la galaxie...");
+    	afficherZone();
     }
     public void SupprimerPartie()
     {

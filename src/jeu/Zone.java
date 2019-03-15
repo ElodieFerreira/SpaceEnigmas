@@ -46,7 +46,7 @@ public class Zone implements Serializable
     }
 
     public String descriptionLongue()  {
-        return "Vous êtes dans " + nom + "\nSorties : " + sorties();
+        return "Vous êtes dans " + nom + "\n" + description;
     }
 
     private String sorties() {

@@ -19,9 +19,7 @@
   	<question>
     Ses formules sont connues, Celle du cœur est peu pratiquée. Apanage des hommes civilisés, Elle est encore bien méconnue. Qui est-elle ?
     </question>
-  	<reponse>
-    politesse
-    </reponse>
+  	<reponse>politesse</reponse>
     <indice>
     Une de ces règles est : "attendre que tout le monde soit servi avant de commencer à manger"
   </indice>
@@ -32,19 +30,15 @@
   	<question>
     Est-il brun, rayé de blanc, Ou blanc rayé de brun. Serait-ce un âne africain ? En tout cas il va bon train. Qui est-il ?
     </question>
-  	<reponse>
-    zèbre</reponse>
-    <indice>
-    Ressemble aussi à un cheval
+  	<reponse>zèbre</reponse>
+    <indice> Ressemble aussi à un cheval
   </indice>
   </enigme> 
   <enigme>
   	<question>
     Très souvent policière, C'est un jeu de l'esprit. Tel le mystère de la vie, Qu'honore un bien vieux père. Qui est-elle ?
     </question>
-  	<reponse>
-    énigme 
-    </reponse>
+  	<reponse>énigme </reponse>
     <indice>
     En lien avec ce que vous faites maintenant
   	</indice>

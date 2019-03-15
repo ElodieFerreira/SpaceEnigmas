@@ -7,21 +7,21 @@
     <description>Perlimpinpin est une planète isolée dans la galaxie. Ses habitants ne sont pas très importants.</description>
     <cartePlanete>
     	<zone index="2">
-				<nom>Spatioport</nom>
+				<nom>Perlimpinpin - Spatioport</nom>
 				<description> Un spatioport peu fréquenté. Le seul moyen de sortir de la planète et de rejoindre le reste de la civilisation.</description>
 				<image>zone1.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="3">NORD</sortie>
 		</zone>
 		<zone index="3">
-				<nom>Marché</nom>
+				<nom>Perlimpinpin - Marché</nom>
 				<description> Un petit marché local où les habitants se réunissent pour acheter aux marchands voyageurs des produits de toute la galaxie. </description>
 				<image>zone2.gif</image>
 				<sortie index="2">SUD</sortie>
 				<sortie index="4">OUEST</sortie>
 		</zone>
 		<zone index="4">
-				<nom>Maison de joueur</nom>
+				<nom>Perlimpinpin - Maison de joueur</nom>
 				<description> Une chambre typique, d'une maison ordinaire, sur une plan�te sans histoire...</description>
 				<image>Maisonjoueur.gif</image>
 				<sortie index="3">EST</sortie>
@@ -33,21 +33,21 @@
     <description>Samaria est une planète agricole nourissant la majorité de la galaxie. Ses habitants ne semblent pas savoir qu'ils disposent de technologies ultra-avancées et préfèrent vivre une vie simple, comme dans les anciens temps.</description>
     <cartePlanete>
     	<zone index="5">
-				<nom>Spatioport</nom>
+				<nom>Samaria - Spatioport</nom>
 				<description> Un spatioport très fréquenté par les marchands voyageurs qui y acheminent des denrées vers les plus grandes planètes. Les habitants de Samaria ne le visitent pas du tout.</description>
 				<image>zone1.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="6">NORD</sortie>
 		</zone>
 		<zone index="6">
-				<nom>Prairie isolée</nom>
+				<nom>Samaria - Prairie isolée</nom>
 				<description>Une petite prairie à l'écart de la planète. Les bergers y emmènent parfois leur troupeau. </description>
 				<image>zone5.gif</image>
 				<sortie index="5">SUD</sortie>
 				<sortie index="7">OUEST</sortie>
 		</zone>
 		<zone index="7">
-				<nom>Champs Agricoles</nom>
+				<nom>Samaria -Champs Agricoles</nom>
 				<description> Des champs qui s'étendent à perte de vue. C'est ici que les paysans produisent les denrées vendues dans la galaxie entière.</description>
 				<image>zone6.JPG</image>
 				<sortie index="6">EST</sortie>
@@ -59,21 +59,21 @@
     <description>Ancnciennement la planète la plus riche de la galaxie , Lorniala ne connait que le crime et la pauvreté depuis que la Mafia galactique a décidé de s'y installer.</description>
     <cartePlanete>
     	<zone index="8">
-				<nom>Spatioport</nom>
+				<nom>Lorniala - Spatioport</nom>
 				<description>  Un spatioport délabré surtout utilisé pour la contrebade.</description>
 				<image>zone1.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="9">NORD</sortie>
 		</zone>
 		<zone index="9">
-				<nom>Marché</nom>
+				<nom>Lorniala - Marché</nom>
 				<description>On trouve ce que l'on veut au marché de Lorniala. Pour le bon prix, on peut y acquérir les produits les plus illégaux. </description>
 				<image>zone8.gif</image>
 				<sortie index="8">SUD</sortie>
 				<sortie index="10">OUEST</sortie>
 		</zone>
 		<zone index="10">
-				<nom>Rue abandonnée</nom>
+				<nom>Lorniala - Rue abandonnée</nom>
 				<description>Cette rue déserte est bien pratique pour les criminels qui y exécutent leurs basses oeuvres.</description>
 				<image>zone9.gif</image>
 				<sortie index="9">EST</sortie>
@@ -85,21 +85,21 @@
     <description> Les moines de Kishu sont les gardiens d'une sagesse ancienne.</description>
     <cartePlanete>
     	<zone index="11">
-				<nom>Spatioport</nom>
+				<nom>Kishu - Spatioport</nom>
 				<description> Le spatioport acceuille les pélerins de la galaxie entière venus y chercher l'apaisement de leur âme et la réponse à leurs questions spirituelles.</description>
 				<image>zone1.gif</image>
 				<sortie index="0">SUD</sortie>
 				<sortie index="12">NORD</sortie>
 		</zone>
 		<zone index="12">
-				<nom>Jardins</nom>
+				<nom>Kishu - Jardins</nom>
 				<description>Pélerins et moines viennent méditer dans ce magnifique jardin unique dans la galaxie.</description>
 				<image>zone11.gif</image>
 				<sortie index="11">SUD</sortie>
 				<sortie index="13">OUEST</sortie>
 		</zone>
 		<zone index="13">
-				<nom>Temple</nom>
+				<nom>Kishu - Temple</nom>
 				<description>Construit il y a des millénaires, ce temple isolé regorge de mystères.</description>
 				<image>zone12.JPG</image>
 				<sortie index="12">EST</sortie>

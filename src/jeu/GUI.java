@@ -118,21 +118,25 @@ public class GUI implements ActionListener,Serializable
  
     public void afficherBoutonSortie(HashMap<String,Zone> sorties) {
     	if(sorties.get("NORD")!=null) {
+    		boutonNord.setText(sorties.get("NORD").getNom());
     		boutonNord.setVisible(true);
     	} else {
     		boutonNord.setVisible(false);
     	}
     	if(sorties.get("SUD")!=null) {
+    		boutonSud.setText(sorties.get("SUD").getNom());
     		boutonSud.setVisible(true);
     	} else {
     		boutonSud.setVisible(false);
     	}
     	if(sorties.get("EST")!=null) {
+    		boutonEst.setText(sorties.get("EST").getNom());
     		boutonEst.setVisible(true);
     	} else {
     		boutonEst.setVisible(false);
     	}
     	if(sorties.get("OUEST")!=null) {
+    		boutonOuest.setText(sorties.get("OUEST").getNom());
     		boutonOuest.setVisible(true);
     	} else {
     		boutonOuest.setVisible(false);
