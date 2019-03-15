@@ -22,9 +22,9 @@ public class Jeu implements Serializable {
     }
     public void setGUI( GUI g) { gui = g; }
     public void lancerDebutJeu() {
-    	Sauvegarde  sauvegarde = new Sauvegarde(partie);
-    	if(sauvegarde.Deserialize(partie)!=null) {
-    		Partie savePartie = sauvegarde.Deserialize(partie);
+    	//Sauvegarde  sauvegarde = new Sauvegarde(partie);
+    	if(Sauvegarde.Deserialize(partie)!=null) {
+    		Partie savePartie = Sauvegarde.Deserialize(partie);
     		this.partie = savePartie;
     		partie.setZoneCourante(savePartie.getZoneCourante());
     		gui.addNameFrame(partie.getJoueur().getNom());

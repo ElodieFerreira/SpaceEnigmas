@@ -7,7 +7,7 @@ public class Sauvegarde
 {
 	private static final String fileName ="mygame.ser";
 	/* Test de sauvegarde de la zoneCourante private Jeu save;*/
-	public Partie save;
+	public static Partie save;
 	// Création d'un constructeur qui initialise save à la valeur de la zone courante
 //	public Sauvegarde(int test,int test2) 
 //	{
@@ -91,7 +91,7 @@ public class Sauvegarde
 		}
 	}*/
 	
-	public Partie Deserialize(Partie partieCourante)
+	public static Partie Deserialize(Partie partieCourante)
 	{
 		// Maintenant on va procéder à la déséralisation
 				try 
@@ -100,11 +100,11 @@ public class Sauvegarde
 					FileInputStream file = new FileInputStream("src/data/sauvegarde.txt");
 					ObjectInputStream in = new ObjectInputStream(file);
 					// Méthode pour déséréalizer un objet 
-					this.save = (Partie)in.readObject();
+					save = (Partie)in.readObject();
 					//nomJoueur= (String)in.readObject();
 					in.close();
 					file.close();
-					System.out.println(partieCourante + "L'objet a été déséréalizer");
+					System.out.println("L'objet a été déséréalizer");
 					// printdata(test);
 					return save;
 				}
