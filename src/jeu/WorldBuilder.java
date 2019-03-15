@@ -167,10 +167,23 @@ public class WorldBuilder {
 		}
 		return toutesLesZones;
 	}
-	public ArrayList<Quete> creerLesQuetesDuJeu() {
+	public static ArrayList<Objets> creerLesObjets() {
+		ArrayList<Objets> objets = new ArrayList<Objets>();
+		ReaderXML objetsReader = new ReaderXML("Objet.xml");
+		NodeList objetsNode = objetsReader.getDocument().getElementsByTagName("minerai");
+		for(int i=0;i<objetsNode.getLength();i++) {
+			Element objet = (Element) objetsNode.item(i);
+			String nom = objet.getElementsByTagName("nom").item(0).getTextContent();
+			String description = objet.getElementsByTagName("description").item(0).getTextContent();
+			String image = objet.getElementsByTagName("image").item(0).getTextContent();
+			objets.add(new Objets(nom,description,image));
+		}
+		return objets;
+	}
+	public ArrayList<Quete> creerLesQuetesDuJeu(ArrayList<Objets> recompenses) {
 		ArrayList<Quete> quetes = new ArrayList<Quete>();
 		//Creation de la premiere quete : Mouton
-		capturerMouton capture = new capturerMouton(null, 3);
+		capturerMouton capture = new capturerMouton(recompenses.get(0), 3);
 		quetes.add(capture);
 		//Creation de la seconde quete : Pendu
 		ArrayList<String> mots = new ArrayList<String>();
@@ -184,7 +197,7 @@ public class WorldBuilder {
 			String mot = motsDuNiveau.item(intRand).getTextContent();
 			mots.add(mot);
 		}
-		Pendu pendu = new Pendu(null,mots);
+		Pendu pendu = new Pendu(recompenses.get(1),mots);
 		quetes.add(pendu);
 		//Creation de la troisieme quete : Enigme
 		ArrayList<String> questionArray = new ArrayList<String>();
@@ -206,7 +219,7 @@ public class WorldBuilder {
 			String indice = enigme.getElementsByTagName("indice").item(0).getTextContent();
 			indiceArray.add(indice);
 		}
-		EnigmeTextuel enigme = new EnigmeTextuel(null, questionArray, reponseArray, indiceArray);
+		EnigmeTextuel enigme = new EnigmeTextuel(recompenses.get(2), questionArray, reponseArray, indiceArray);
 		quetes.add(enigme);
 		return quetes;
 	}
