@@ -7,20 +7,19 @@ public class Sauvegarde
 {
 	private static final String fileName ="mygame.ser";
 	/* Test de sauvegarde de la zoneCourante private Jeu save;*/
-	public Jeu save;
+	public Partie save;
 	// Création d'un constructeur qui initialise save à la valeur de la zone courante
 //	public Sauvegarde(int test,int test2) 
 //	{
 //		this.val=test;
 //		this.val1=test2;
 //	}
-	public Sauvegarde(Jeu JeuCourant)
+	public Sauvegarde(Partie partieCourante)
 	{
-		save=JeuCourant;
+		save=partieCourante;
 		//save.getPartie().getJoueur().setNom(nomJoueur);
-		Zone place = save.GetZoneCourante1();
 	}
-	public void Serialize(String nomJoueur,Zone test)
+	/*public void Serialize(String nomJoueur,Zone test)
 	{
 		try 
 		{
@@ -37,8 +36,8 @@ public class Sauvegarde
 			System.out.println("IO EXCEPTION TROUVE");
 		}
 		
-	}
-	public void Serialize(Jeu zone)
+	}*/
+	public static void Serialize(Partie partieCourante)
 	{
 		try 
 		{
@@ -52,7 +51,7 @@ public class Sauvegarde
 			ArrayList<Mouton> animauxDansLazone = zone.getAnimauxDansLazone();
 			ArrayList<Personnage> personnageDansLaZone = zone.getPersonnageDansLaZone();
 			out.writeObject(nom + "\n" + description+ "\n" + nomImage+ "\n" + sorties + "\n" + animauxDansLazone + "\n" + personnageDansLaZone);*/
-			out.writeObject(zone);
+			out.writeObject(partieCourante);
 			System.out.println("La zone a bien été serealisé");
 			out.close();
 			file.close();
@@ -60,7 +59,7 @@ public class Sauvegarde
 		catch(IOException IOE)
 		{
 			System.err.println("IOE Exception trouve ");
-			IOE.printStackTrace(System.err);
+			//IOE.printStackTrace(System.err);
 		}
 	}
 	/*public void Serialize(Zone zone)
@@ -92,7 +91,7 @@ public class Sauvegarde
 		}
 	}*/
 	
-	public Jeu Deserialize(Jeu zoneCourante)
+	public Partie Deserialize(Partie partieCourante)
 	{
 		// Maintenant on va procéder à la déséralisation
 				try 
@@ -101,11 +100,11 @@ public class Sauvegarde
 					FileInputStream file = new FileInputStream("src/data/sauvegarde.txt");
 					ObjectInputStream in = new ObjectInputStream(file);
 					// Méthode pour déséréalizer un objet 
-					this.save = (Jeu)in.readObject();
+					this.save = (Partie)in.readObject();
 					//nomJoueur= (String)in.readObject();
 					in.close();
 					file.close();
-					System.out.println(zoneCourante + "L'objet a été déséréalizer");
+					System.out.println(partieCourante + "L'objet a été déséréalizer");
 					// printdata(test);
 					return save;
 				}

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Partie implements Serializable {
 	private static final long serialVersionUID = -5799011054091607425L;
 	private Joueur joueur;
+	private Zone zoneCourante;
 	/**
 	 * Définit par un int la phase de jeu actuel. 0 pour le d�but ( pr�sentation de Mentris... ) 
 	 * 1 lorsque l'utilisateur fait ses qu�tes
@@ -64,7 +65,16 @@ public class Partie implements Serializable {
 	public void setEspace(ArrayList<Planete> planetes) {
 		carteActuel= planetes;
 	} 
+	public Zone getZoneCourante()
+	{
+		return zoneCourante;
+	}
+	public void setZoneCourante(Zone newzone)
+	{
+		zoneCourante = newzone;
+	}
 	public Zone getSceneFinal() {
 		return sceneFinal;
 	}
+	 
 }
