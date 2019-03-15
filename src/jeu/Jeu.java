@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 public class Jeu implements Serializable {
 	private static final long serialVersionUID = 4706534921209753458L;
 	private GUI gui; 
-	private Zone zoneCourante;
     private Partie partie;
     
     public Jeu() {
@@ -23,11 +22,11 @@ public class Jeu implements Serializable {
     }
     public void setGUI( GUI g) { gui = g; }
     public void lancerDebutJeu() {
-    	Sauvegarde sauvegarde = new Sauvegarde(this);
-    	if(sauvegarde.Deserialize(this)!=null) {
-    		Jeu jeu = sauvegarde.Deserialize(this);
-    		this.partie = jeu.getPartie();
-    		this.zoneCourante = jeu.GetZoneCourante1();
+    	//Sauvegarde  sauvegarde = new Sauvegarde(partie);
+    	if(Sauvegarde.Deserialize(partie)!=null) {
+    		Partie savePartie = Sauvegarde.Deserialize(partie);
+    		this.partie = savePartie;
+    		partie.setZoneCourante(savePartie.getZoneCourante());
     		gui.addNameFrame(partie.getJoueur().getNom());
     		afficherMessageDeBienvenue();
     	} else {
@@ -56,15 +55,15 @@ public class Jeu implements Serializable {
     	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
     	partie.setsceneFinal(zones.get(zones.size()-1));
     	partie.setEspace(espace);
-    	zoneCourante = espace.get(0).getZones().get(0); 	
+    	partie.setZoneCourante(espace.get(0).getZones().get(0)); 	
     }
     
 
     private void afficherLocalisation() {
-    	  	gui.afficheImage(zoneCourante.nomImage());	
-            gui.afficher( zoneCourante.descriptionLongue());
-            gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
-            gui.afficherBoutonSortie(zoneCourante.getSorties());
+    	  	gui.afficheImage(partie.getZoneCourante().nomImage());	
+            gui.afficher(partie.getZoneCourante().descriptionLongue());
+            gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
+            gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
             gui.afficher();
     }
 
@@ -73,8 +72,8 @@ public class Jeu implements Serializable {
     	gui.afficher();
         gui.afficher("Tapez '?' pour obtenir de l'aide.");
         gui.afficher();
-        gui.afficheImage(zoneCourante.nomImage());	
-        gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
+        gui.afficheImage(partie.getZoneCourante().nomImage());	
+        gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
         afficherLocalisation();
     }
     
@@ -85,35 +84,35 @@ public class Jeu implements Serializable {
     public void captureDeMouton(Mouton mouton) {
     	WorldBuilder constructorOfMap = new WorldBuilder();
     	partie.getJoueur().prendreObjet(mouton);
-    	constructorOfMap.suppresionDuMouton(zoneCourante, mouton);
+    	constructorOfMap.suppresionDuMouton(partie.getZoneCourante(), mouton);
     	
     }
     public void allerEn(String direction) {
-    	Zone nouvelle = zoneCourante.obtientSortie(direction);
+    	Zone nouvelle = partie.getZoneCourante().obtientSortie(direction);
     	if ( nouvelle == null ) {
         	gui.afficher( "Pas de sortie " + direction);
     		gui.afficher();
     	}
         else {
-        	zoneCourante = nouvelle;
+        	partie.setZoneCourante(nouvelle);
         	afficherZone();
         }
     }
     private void afficherZone() {
 		// TODO Auto-generated method stub
-    	gui.afficher(zoneCourante.descriptionLongue());
+    	gui.afficher(partie.getZoneCourante().descriptionLongue());
     	gui.afficher();
-        gui.afficheImage(zoneCourante.nomImage());	
-        gui.afficherBoutonSortie(zoneCourante.getSorties());
-        gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
+        gui.afficheImage(partie.getZoneCourante().nomImage());	
+        gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
+        gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
 	}
 	public void allerEn(Zone nouvelleZone) {
-    	zoneCourante = nouvelleZone;
-    	gui.afficher(zoneCourante.descriptionLongue());
+    	partie.setZoneCourante(nouvelleZone);
+    	gui.afficher(partie.getZoneCourante().descriptionLongue());
     	gui.afficher();
-        gui.afficheImage(zoneCourante.nomImage());	
-        gui.afficherBoutonSortie(zoneCourante.getSorties());
-        gui.afficherElementZone(zoneCourante.getAnimauxDansLazone(),zoneCourante.getPersonnageDansLaZone());
+        gui.afficheImage(partie.getZoneCourante().nomImage());	
+        gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
+        gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
     }
     public void interractionPersonnage(Personnage personnage) {
     	if(personnage instanceof Allies) {
@@ -156,15 +155,10 @@ public class Jeu implements Serializable {
     public Zone getZoneCourante() {
     	return this.getZoneCourante();
     }
-    public Zone GetZoneCourante1()
+   /* public Zone GetZoneCourante1()
     {
-    	return this.zoneCourante;
-    }
-    public void Sauvegarde()
-    {
-    	Sauvegarde save = new Sauvegarde(this);
-    	save.Serialize(this);
-    }
+    	return partie.getZoneCourante();
+    }*/
     public void incrementerCommande() {
     	partie.nbCommande++;
     	System.out.println(partie.nbCommande);
@@ -178,7 +172,7 @@ public class Jeu implements Serializable {
 //    	gui.stopFenetre();
     }
     public void afficherScenePerdante() {
-    	zoneCourante = new Zone("","zoneperdante.gif","Vous êtes mort. Sans votre aide, Dyspros continuera encore longtemps son règne de terreur sur la galaxie...");
+    	partie.setZoneCourante(new Zone("","zoneperdante.gif","Vous êtes mort. Sans votre aide, Dyspros continuera encore longtemps son règne de terreur sur la galaxie..."));
     	afficherZone();
     }
     public void SupprimerPartie()
@@ -211,7 +205,12 @@ public class Jeu implements Serializable {
 	}
 	public void lancerPhaseFinale() {
 		partie.getSalleDeRepos().ajouteSortie(Sortie.valueOf("NORD"), partie.getSceneFinal());
-		zoneCourante = partie.getSalleDeRepos();
+		partie.setZoneCourante(partie.getSalleDeRepos());
 		afficherZone();
 	}
+	public void Sauvegarde()
+    {
+    	Sauvegarde save = new Sauvegarde(partie);
+    	save.Serialize(partie);
+    }
 }
