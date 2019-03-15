@@ -113,7 +113,7 @@
     	<zone index="14">
 				<nom>Champ de bataille</nom>
 				<description> Le lieu ou se déroule le combat final.</description>
-				<image>vaisseau.png</image>
+				<image>ZoneCombat.gif</image>
 		</zone>
     </cartePlanete>
   </planete>
