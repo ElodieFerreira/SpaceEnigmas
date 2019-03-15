@@ -50,7 +50,8 @@ public class Jeu implements Serializable {
     	vaisseau = constructorOfMap.ajouterLesSortiesAuVaisseau(vaisseau, espace);
     	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
     	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
-    	ArrayList<Quete> quetes = constructorOfMap.creerLesQuetesDuJeu();
+    	ArrayList<Objets> objets = constructorOfMap.creerLesObjets();
+    	ArrayList<Quete> quetes = constructorOfMap.creerLesQuetesDuJeu(objets);
     	zones = constructorOfMap.miseEnPlaceDesQueteurs(zones,quetes);
     	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
     	partie.setsceneFinal(zones.get(zones.size()-1));

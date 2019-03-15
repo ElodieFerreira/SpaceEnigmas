@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!ELEMENT Objets (minerai,nom,description,image)>
-<!ELEMENT minerai(#PCDATA)>
-<!ELEMENT nom(#PCDATA)>
-<!ELEMENT description(#PCDATA)>
+<!ELEMENT minerai (#PCDATA)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
 <!ELEMENT image (#PCDATA)>
