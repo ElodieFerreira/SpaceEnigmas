@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Objets SYSTEM "Objet.dtd" >
+<Objets>
+<minerai>
+  <nom>Lingot d'or</nom>
+  <description> élément chimique dont le numéro atomique est 79, ce précieux métal vous permettra d'obtenir des armes solides </description>
+ <image>gold.png</image> 
+ </minerai>
+ <minerai>
+  <nom>Lingot d'argent</nom>
+  <description> élément chimique dont le numéro atomique est 47, ce précieux métal vous permettra d'obtenir des armes puissantes </description>
+ <image>silver.png</image> 
+ </minerai>
+ <minerai>
+  <nom>Lingot de bronze </nom>
+  <description> élément chimique composé de cuivre et d'étain, ce précieux métal vous permettra d'obtenir des balles redoutables</description>
+ <image>bronze.png</image> 
+ </minerai>
+</Objets>
