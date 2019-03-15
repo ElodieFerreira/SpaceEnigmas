@@ -32,7 +32,7 @@ public class Pendu extends Quete{
 	}
 	
 	private boolean EstDansMot(String rep) {
-		int id=this.reponse.indexOf(rep);
+		int id=this.reponse.indexOf(rep.toUpperCase());
 		if(id==-1) {
 			return false;
 		}
@@ -43,13 +43,13 @@ public class Pendu extends Quete{
 	}
 	
 	private void dévoileLettre(String lettre, int id) {
-		int index=reponse.indexOf(lettre,id);
+		int index=reponse.indexOf(lettre.toUpperCase(),id);
 		System.out.println(motJeu.length());
 		if(index!=-1) {
 			String premièrePartie = motJeu.substring(0, index);
 			String deuxièmePartie = motJeu.substring(index+1,motJeu.length());
 			motJeu=premièrePartie+lettre+deuxièmePartie;
-			dévoileLettre(lettre,index+1);
+			dévoileLettre(lettre.toUpperCase(),index+1);
 		}	
 	}
 	
@@ -79,7 +79,7 @@ public class Pendu extends Quete{
 			}
 		}
 		else  {
-			if(str.equals(reponse)){
+			if(str.toUpperCase().equals(reponse)){
 				terminer(joueur);
 				return reponse+"\n"+queteur.dialogueFinQuete();
 			}

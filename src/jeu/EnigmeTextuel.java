@@ -42,7 +42,8 @@ public class EnigmeTextuel extends Quete {
 	public boolean bonneReponse(String reponse, int niveau)
 	{	System.out.println(reponse);
 		System.out.println(this.reponseEnigme(niveau));
-		if(reponse.equals(this.reponseEnigme(niveau)))
+		int id = reponse.toUpperCase().indexOf(reponseEnigme(niveau).toUpperCase());
+		if(id!=-1)
 		{
 			return true;
 		}
