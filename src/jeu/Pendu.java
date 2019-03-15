@@ -23,7 +23,7 @@ public class Pendu extends Quete{
 	}
 	
 	private boolean EstTropGrande(String st) {
-		if(st.length()>1) {
+		if(st.toUpperCase().length()>1) {
 			return true;
 		}
 		else {
@@ -48,7 +48,7 @@ public class Pendu extends Quete{
 		if(index!=-1) {
 			String premièrePartie = motJeu.substring(0, index);
 			String deuxièmePartie = motJeu.substring(index+1,motJeu.length());
-			motJeu=premièrePartie+lettre+deuxièmePartie;
+			motJeu=premièrePartie+lettre.toUpperCase()+deuxièmePartie;
 			dévoileLettre(lettre.toUpperCase(),index+1);
 		}	
 	}
