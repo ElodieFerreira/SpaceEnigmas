@@ -11,6 +11,7 @@ public class Teleporteur extends Objets {
 	}
 	public Zone teleportation(Planete planete) {
 		nombreDeTeleportation++;
-		return planete.get
+		int idZone = (int) ((int) 0+(Math.random()*(3-0)+1);
+		return planete.get(idZone);
 	}
 }
