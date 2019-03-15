@@ -34,4 +34,7 @@ public class Planete implements Serializable{
 	public String getDescription() {
 		return this.description;
 	}
+	public Zone getZone(int index) {
+		return cartePlanete.get(index);
+	}
 }
