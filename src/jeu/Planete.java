@@ -1,5 +1,6 @@
 package jeu;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +8,11 @@ import java.util.Map;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class Planete {
+public class Planete implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5073736559358207072L;
 	String nom;
 	String description;
 	private ArrayList<Zone> cartePlanete;

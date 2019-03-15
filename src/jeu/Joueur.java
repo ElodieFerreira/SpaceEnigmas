@@ -25,7 +25,7 @@ public class Joueur implements Serializable {
 		queteEnCours = null;
 		inventaire = new ArrayList<Objets>();
 		friends = new HashSet();
-		niveauMaximum = 10;
+		niveauMaximum = 3;
 		niveauActuel = 0;
 		alive = true;
 	}

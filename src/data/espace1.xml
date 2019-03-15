@@ -114,7 +114,6 @@
 				<nom>Champ de bataille</nom>
 				<description> Le lieu ou se déroule le combat final.</description>
 				<image>vaisseau.png</image>
-				<sortie index="0">SUD</sortie>
 		</zone>
     </cartePlanete>
   </planete>

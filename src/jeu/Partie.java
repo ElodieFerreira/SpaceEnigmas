@@ -63,6 +63,8 @@ public class Partie implements Serializable {
 	}
 	public void setEspace(ArrayList<Planete> planetes) {
 		carteActuel= planetes;
+	} 
+	public Zone getSceneFinal() {
+		return sceneFinal;
 	}
-	
 }

@@ -32,7 +32,7 @@ public class Pendu extends Quete{
 	}
 	
 	private boolean EstDansMot(String rep) {
-		int id=this.mots.get(0).indexOf(rep);
+		int id=this.reponse.indexOf(rep);
 		if(id==-1) {
 			return false;
 		}
@@ -54,7 +54,7 @@ public class Pendu extends Quete{
 	}
 	
 	private boolean EstComplet() {
-		return (motJeu.equals(mots.get(0)));
+		return (motJeu.equals(reponse));
 	}
 		
 	public String executerQuete(Joueur joueur, Queteur queteur, String str) {
@@ -79,7 +79,7 @@ public class Pendu extends Quete{
 			}
 		}
 		else  {
-			if(str.equals(mots.get(0))){
+			if(str.equals(reponse)){
 				terminer(joueur);
 				return reponse+"\n"+queteur.dialogueFinQuete();
 			}

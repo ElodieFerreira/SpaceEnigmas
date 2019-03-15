@@ -135,9 +135,10 @@ public class Jeu implements Serializable {
     			} else {
     				if(queteur.quete()==getPartie().queteEnCoursPartie()) {
     					gui.afficher(queteur.quete().executerQuete(getPartie().getJoueur(), queteur));
-    					if(getPartie().getJoueur().niveauActuel== getPartie().getJoueur().niveauMaximum) {
-    						preparerCombatFinal();
-    					}
+    						if(checkPhaseFinale()) {
+    							lancerPhaseFinale();
+    							System.out.println("je suis dans la phase finale");
+    						}
     				} else {
     					gui.afficher(((Queteur) personnage).queteDejaEnCours());
     				}
@@ -148,10 +149,6 @@ public class Jeu implements Serializable {
 			}
     	} 
     }
-private void preparerCombatFinal() {
-		// TODO Auto-generated method stub
-		
-	}
 //	private void terminer() {
 //    	gui.afficher( "Au revoir...");
 //    	gui.enable( false);
@@ -201,8 +198,20 @@ private void preparerCombatFinal() {
 		} else if(queteur.quete() instanceof EnigmeTextuel) {
 			gui.afficher(((EnigmeTextuel)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,str));
 		}
+		if(checkPhaseFinale()) {
+			lancerPhaseFinale();
+			System.out.println("je suis dans la phase finale");
+		}
 		if(!getPartie().getJoueur().alive) {
 			perdu();
 		}
+	}
+	public boolean checkPhaseFinale() {
+		return (partie.getJoueur().niveauActuel==partie.getJoueur().niveauMaximum);
+	}
+	public void lancerPhaseFinale() {
+		partie.getSalleDeRepos().ajouteSortie(Sortie.valueOf("NORD"), partie.getSceneFinal());
+		zoneCourante = partie.getSalleDeRepos();
+		afficherZone();
 	}
 }

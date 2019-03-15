@@ -12,7 +12,7 @@ public class WorldBuilder {
 	public ArrayList<Zone> creerToutesLesZones() {
 		// Création du vaisseau : 
 		ArrayList<Zone> zones = new ArrayList<Zone>();
-    	zones.add(new Zone("Vaisseau","vaisseau.png","test.gif"));
+    	zones.add(new Zone("Vaisseau","vaisseau.png","Voici votre vaisseau... Il vous permettra de vous balader de planète en planète"));
     	// Création de la zone des alliés
     	zones.add(new Zone("Mes amis","zoneVaisseauAmis.jpg","zoneVaisseauAmis.jpg"));
     	//Création des autres zones
@@ -75,14 +75,15 @@ public class WorldBuilder {
 	}
 	public ArrayList<Zone> positionMouton(ArrayList<Zone> zone, int nbMouton)
 	{
-		HashSet hs=new HashSet();
+		HashSet<Integer> hs=new HashSet<Integer>();
 
 		while(hs.size()<nbMouton){
 		 // Min + (Math.random() * (Max - Min))
 			int nbaleat = 2 + (int)(Math.random()*((zone.size()-3)));
 			hs.add(nbaleat);
+			System.out.println(nbaleat+"MOUTON EN PLACE");
 		}
-		Iterator it=hs.iterator();
+		Iterator<Integer> it=hs.iterator();
 
 		while(it.hasNext()){
 			zone.get((int)it.next()).getAnimauxDansLazone().add(new Mouton());
