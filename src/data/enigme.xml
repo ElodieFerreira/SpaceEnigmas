@@ -13,6 +13,16 @@
     un acteur de cinéma en a joué un nommé Otis
   </indice>
   </enigme>
+  <enigme>
+			<question>Blanche ou noire, ce n’est pas pareil, De ses charmes on se méfie, Si l’on croit en ses merveilles,En ses baguettes et gris-gris</question>
+			<reponse>magie</reponse>
+			<indice>Présent dans tous l'univers d'Harry Potter</indice>
+ </enigme>
+  <enigme>
+			<question> Comme le coton il est léger, Et de glaces il est constitué, Cette céréale déshydratée Est idéale au petit déjeuner Qui est-il ?</question>
+			<reponse>flocon</reponse>
+			<indice>Il compose la neige</indice>
+ </enigme>
 </niveau>
 <niveau>
   <enigme>
@@ -23,6 +33,16 @@
     <indice>
     Une de ces règles est : "attendre que tout le monde soit servi avant de commencer à manger"
   </indice>
+  </enigme>
+  <enigme>
+  	<question>D'eau c'est un réservoir. On y rêve en Espagne. De cartes il est très fragile. Qui est-il ?</question>
+  	<reponse>chateau</reponse>
+  	<indice>Versailles en est un </indice>
+  </enigme>
+  <enigme>
+  	<question>Elle vit au fond de l'eau, C'est une station de métro. Elle est très convoitée, Et la nuit, elle peut filée. Qui est-elle ?</question>
+  	<reponse>etoile</reponse>
+  	<indice>Le meilleur ami de Bob en est un </indice>
   </enigme>
 </niveau>
 <niveau>
@@ -42,6 +62,11 @@
     <indice>
     En lien avec ce que vous faites maintenant
   	</indice>
-  </enigme>  
- </niveau>
+  </enigme>
+  <enigme>
+  	<question>Petit le matin, invisible le soir. A midi il est plein, Et naître c'est le voir. Qui est-il ?</question>
+  	<reponse>jour</reponse>
+  	<indice> Il y en a des avec et des sans </indice>
+  </enigme>
+</niveau>
 </enigmes>
