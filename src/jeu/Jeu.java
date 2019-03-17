@@ -251,7 +251,9 @@ public class Jeu implements Serializable {
 		// TODO Auto-generated method stub
 		partie.getJoueur().attaquer(partie.dyspros()); 
 		gui.afficher("LES PV DE DYSPROS SONT DE "+partie.dyspros().getPointDePouvoir());
-		personnage.lancerPouvoir(personnage, partie.getJoueur());
+		personnage.lancerPouvoir(partie.dyspros(), partie.getJoueur());
+		partie.dyspros().attaquerJoueur(personnage, partie.getJoueur());
+		gui.afficher("LES PV QUE TU AS"+partie.getJoueur().getPointDeVie());
 	}
 	public void lancerCombat() {
 		gui.addActionListenerCombat();

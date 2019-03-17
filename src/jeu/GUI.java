@@ -498,18 +498,22 @@ public class GUI implements ActionListener,Serializable
 	       	}
 		};
 		label1.addMouseListener(lbl1);
+		label2.removeMouseListener(lbl2);
 		lbl2= new MouseAdapter() {
 	       	@Override
 	       	public void mouseClicked(MouseEvent arg0) {
 	       		interractionCombat(1);
 	       	}
 		};
+		label2.addMouseListener(lbl2);
+		label3.removeMouseListener(lbl2);
 		lbl3= new MouseAdapter() {
 	       	@Override
 	       	public void mouseClicked(MouseEvent arg0) {
 	       		interractionCombat(2);
 	       	}
 		};
+		label3.addMouseListener(lbl3);
 	}      
 	public void interractionCombat(int index) {
 		

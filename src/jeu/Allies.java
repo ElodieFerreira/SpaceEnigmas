@@ -40,8 +40,14 @@ public class Allies extends Personnage {
 	}
 	public void lancerPouvoir(Allies personnage,Joueur joueur) {
 		if(statut == Role.FIGHTER) {
-			personnage.setPointDePouvoir(personnage.getPointDeVie()-pointDePouvoir);
+			personnage.setPointDeVie(personnage.getPointDeVie()-pointDePouvoir);
 		} else {
+			joueur.setPointDeVie(joueur.getPointDeVie()+pointDePouvoir);
+		}
+	}
+	public void attaquerJoueur(Allies personnage,Joueur joueur) {
+		if(statut == Role.FIGHTER) {
+			personnage.setPointDeVie(personnage.getPointDeVie()-pointDePouvoir);
 			joueur.setPointDeVie(joueur.getPointDeVie()+pointDePouvoir);
 		}
 	}
