@@ -31,8 +31,8 @@ public class Jeu implements Serializable {
 //    		partie.setZoneCourante(savePartie.getZoneCourante());
     		gui.addNameFrame(partie.getJoueur().getNom()); 
     		gui.addAllActionListener();
-    		ThreadLauncher.checkPhaseOfGame();
     		afficherLocalisation();
+    		ThreadLauncher.checkPhaseOfGame();
     	} else {
     		partie = new Partie();
     	    creerCarte();

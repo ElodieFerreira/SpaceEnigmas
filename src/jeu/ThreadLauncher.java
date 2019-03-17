@@ -42,7 +42,7 @@ public class ThreadLauncher {
 		Thread t = new Thread(new Runnable(){
 			public void run() {
 				// TODO Auto-generated method stub
-				boolean setFinalScene=false;
+				boolean setFinalScene=jeu.getPartie().getZoneCourante()==jeu.getPartie().getSalleDeRepos();
 				boolean setMechant = false;
 				int cptNiveau = jeu.getPartie().getJoueur().niveauActuel;
 				while(jeu.getPartie().getJoueur().getPointDeVie()>0) {
@@ -59,17 +59,20 @@ public class ThreadLauncher {
 							System.out.println(cptNiveau);
 						}
 					}
-					if(!setFinalScene) {
+					if(!setFinalScene && jeu.getPartie().getZoneCourante()!=jeu.getPartie().getSceneFinal()) {
 						jeu.lancerPhaseFinale();
 						setFinalScene=true;
 					}
-					while(jeu.getPartie().getZoneCourante()!=jeu.getPartie().getSceneFinal()) {
-						jeu.apparitionMechant();
+					if(!setFinalScene && jeu.getPartie().getZoneCourante()==jeu.getPartie().getSceneFinal()) {
+						if(!setMechant) {
+							jeu.apparitionMechant();
+							System.out.println("j'aichangerlesListener");
+							jeu.lancerCombat();
+							setMechant = true;
+						}
 					}
-					if(!setMechant) {
-						System.out.println("j'aichangerlesListener");
-						jeu.lancerCombat();
-						setMechant = true;
+					while(jeu.getPartie().getZoneCourante()!=jeu.getPartie().getSceneFinal()) {
+						
 					}
 				}
 //				System.out.println("je suis mort");
