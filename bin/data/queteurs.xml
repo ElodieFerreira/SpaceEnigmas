@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="style.css" type="text/css"?>
 <!DOCTYPE personnages SYSTEM "Queteur.dtd">
 <!-- Les index correspondent aux zones d'apparition  -->
 <personnages>
@@ -42,9 +43,7 @@
   			Passe ton chemin gamin, j'ai du travail !
   		</queteDejaEnCours>
   		<avantQuete>
-	  		Si vous continuez à vouloir me pendre, tous mes clients se vengeront ! *les brigands se retourne* 
-	  		"HE! TOI LA ! Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. 
-	  		Si tu trouves le mot, tu sauves la mafieuse, sinon elle meurt.
+	  	EH! TOI LA ! Quiconque traîne dans cette ruelle doit se plier à nos règles. Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. Si tu trouves le mot, tu gagnes le droit le trainer ici, sinon tu meurs.
   		</avantQuete>
   		<pendantQuete>
   			Vas-y, choisis une lettre, et réfléchis bien ! Au bout de 8 erreurs, c'est la corde qui choisira !
