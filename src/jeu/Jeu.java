@@ -236,7 +236,7 @@ public class Jeu implements Serializable {
 			e.printStackTrace();
 		}
 		getPartie().getSceneFinal().setAllPersonnage(getPartie().getSalleDeRepos().getPersonnageDansLaZone());
-		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete());
+		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete().replaceAll("joueur",partie.getJoueur().getNom()));
 		afficherLocalisation();
 	}
 	public void Sauvegarde()
