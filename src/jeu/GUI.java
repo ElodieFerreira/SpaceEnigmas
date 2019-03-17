@@ -26,6 +26,7 @@ import java.awt.Color;
 import java.awt.Panel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -72,6 +73,9 @@ public class GUI implements ActionListener,Serializable
     private JLabel world;
     private JLabel character;
     private JLabel dyspros;
+    private MouseListener lbl1;
+    private MouseListener lbl2;
+    private MouseListener lbl3;
     
 
     public GUI(Jeu j) {
@@ -111,7 +115,6 @@ public class GUI implements ActionListener,Serializable
 		} catch (ArrayIndexOutOfBoundsException | IOException e) {
 			// TODO Auto-generated catch block
 			imageURL = this.getClass().getClassLoader().getResource("images/zone1.gif");
-			System.out.println(imageURL);
 			try {
 				img = ImageIO.read(imageURL);
 			} catch (IOException e1) {
@@ -120,8 +123,7 @@ public class GUI implements ActionListener,Serializable
 			}
 		}
     	Image imageResize = img.getScaledInstance(jlabel.getWidth(), jlabel.getHeight(), Image.SCALE_SMOOTH);
-    	System.out.println(imageURL);
-	   	if( imageURL != null ) {
+   	   	if( imageURL != null ) {
 	   		jlabel.setIcon(new ImageIcon(imageResize));
 	   		panel.add(jlabel);
 	   		panel.repaint();
@@ -186,12 +188,18 @@ public class GUI implements ActionListener,Serializable
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelImage.setLayout(null);
         label1 = new JLabel();
-        label1.addMouseListener(new MouseAdapter() {
+        lbl1= new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
         		interractionObjet(label1, 0);
         	}
-        });
+        };
+        label1.addMouseListener(lbl1);
+        
+        dyspros = new JLabel();
+        dyspros.setBackground(new Color(204, 204, 0));
+        dyspros.setBounds(523, 30, 180, 180);
+        panelImage.add(dyspros);
         
         label1.setBounds(50, 241, 180, 180);
         label1.setBackground(new Color(204, 204, 0));
@@ -202,34 +210,31 @@ public class GUI implements ActionListener,Serializable
         label2 = new JLabel();
         label2.setBackground(new Color(204, 204, 0));
         label2.setBounds(316, 241, 180, 180);
-        label2.addMouseListener(new MouseAdapter() {
+        lbl2 = new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
         		interractionObjet(label2, 1);
         	}
-        });
+        };
+        label2.addMouseListener(lbl2);
         panelImage.add(label2);
         
         label3 = new JLabel();
         label3.setBackground(new Color(204, 204, 0));
         label3.setBounds(568, 241, 180, 180);
-        label3.addMouseListener(new MouseAdapter() {
+        lbl3 = new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
         		interractionObjet(label3, 2);
         	}
-        });
+        };
+        label3.addMouseListener(lbl3);
         panelImage.add(label3);
         
         labelArray = new ArrayList<JLabel>();
         labelArray.add(label1);
         labelArray.add(label2);
         labelArray.add(label3);
-        
-        dyspros = new JLabel();
-        dyspros.setBackground(new Color(204, 204, 0));
-        dyspros.setBounds(523, 30, 180, 180);
-        panelImage.add(dyspros);
         panelCarte.add(boutonEst, BorderLayout.EAST);
         panelCarte.add(boutonSud, BorderLayout.SOUTH);
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
@@ -483,5 +488,31 @@ public class GUI implements ActionListener,Serializable
 	public void afficherMechant(String image2) {
 		// TODO Auto-generated method stub
 		afficheImageMiniatureWorld(image2, dyspros, panelImage);
+	}
+	public void addActionListenerCombat() {
+		label1.removeMouseListener(lbl1);
+		lbl1= new MouseAdapter() {
+	       	@Override
+	       	public void mouseClicked(MouseEvent arg0) {
+	       		interractionCombat(0);
+	       	}
+		};
+		label1.addMouseListener(lbl1);
+		lbl2= new MouseAdapter() {
+	       	@Override
+	       	public void mouseClicked(MouseEvent arg0) {
+	       		interractionCombat(1);
+	       	}
+		};
+		lbl3= new MouseAdapter() {
+	       	@Override
+	       	public void mouseClicked(MouseEvent arg0) {
+	       		interractionCombat(2);
+	       	}
+		};
+	}      
+	public void interractionCombat(int index) {
+		
+		jeu.tourDuComabat((Allies) objetsDansLaZone.get(index));
 	}
 }

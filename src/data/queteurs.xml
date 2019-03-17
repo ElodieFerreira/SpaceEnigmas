@@ -101,8 +101,8 @@
   <avantQuete>Eh toi là! C'est la première fois que je te vois par ici. Comment tu t'appelles ? </avantQuete>
   <pendantQuete>Tu es mon seul espoir joueur! Il faut que tu m'aides à affronter Dyspros, le tyran qui règne sur notre galaxie pour la débarasser de son joug! Pas de temps pour t'expliquer, suis-moi dans mon vaisseau! </pendantQuete>
   <pendantQuete>Je m’appelle Mentris et j’ai passé ma vie à développer une arme assez puissante pour vaincre Dyspros et libérer la galaxie. Il ne me manque plus que trois minerais pour compléter l’arme, mais les troupes de Dyspros m’ont repérer, je ne peux pas sortir du vaisseau. Toi seul peut aller chercher les trois minerais qui me manquent !</pendantQuete>
-  <pendantQuete>Bravo pour ton premier minerai ! Plus que deux !</pendantQuete>
-  <pendantQuete>Il ne nous manque plus qu’un minerai et nous pourrons libérer la galaxie ! </pendantQuete>
+  <pendantQuete>Bravo pour ton premier minerai joueur ! Plus que deux !</pendantQuete>
+  <pendantQuete>Il ne nous manque plus qu’un minerai joueur et nous pourrons libérer la galaxie ! </pendantQuete>
   <aprèsQuete>Merci beaucoup Joueur ! Grâce à toi je vais pouvoir… Je vais pouvoir… Assurer la domination de mon maître, Dyspros, pour l’éternité ! Ne t’en fais pas, pour te remercier, Dyspros t’accordera à toi et tes amis une mort douce et sans souffrance ! Allez, cap sur Xenemos, la capitale du mal !</aprèsQuete>
   <remerciement></remerciement>
   </dialogues>

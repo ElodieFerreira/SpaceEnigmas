@@ -43,18 +43,40 @@ public class ThreadLauncher {
 			public void run() {
 				// TODO Auto-generated method stub
 				boolean setFinalScene=false;
+				boolean setMechant = false;
+				int cptNiveau = jeu.getPartie().getJoueur().niveauActuel;
 				while(jeu.getPartie().getJoueur().getPointDeVie()>0) {
 					while(jeu.getPartie().getJoueur().niveauActuel!=jeu.getPartie().getJoueur().niveauMaximum) {
-						
+						if(cptNiveau!=jeu.getPartie().getJoueur().niveauActuel && cptNiveau<jeu.getPartie().getJoueur().niveauMaximum-1) {
+							try {
+								Thread.sleep(7000);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							jeu.mentrisRemerciement(cptNiveau+2);	
+							cptNiveau++;
+							System.out.println(cptNiveau);
+						}
+					}
+					try {
+						Thread.sleep(7000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 					if(!setFinalScene) {
 						jeu.lancerPhaseFinale();
 						setFinalScene=true;
 					}
-					while(jeu.getPartie().getZoneCourante()!=jeu.getPartie().getSalleDeRepos()) {
-						
+					while(jeu.getPartie().getZoneCourante()!=jeu.getPartie().getSceneFinal()) {
+						jeu.apparitionMechant();
 					}
-					jeu.apparitionMechant();
+					if(!setMechant) {
+						System.out.println("j'aichangerlesListener");
+						jeu.lancerCombat();
+						setMechant = true;
+					}
 				}
 //				System.out.println("je suis mort");
 				jeu.afficherScenePerdante();

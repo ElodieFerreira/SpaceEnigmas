@@ -104,5 +104,8 @@ public class Joueur implements Serializable {
 		}
 		return cpt;
 	}
+	public void attaquer(Allies personnage) {
+		personnage.setPointDePouvoir(personnage.getPointDeVie()-pointdAttaque);
+	}
 	
 }

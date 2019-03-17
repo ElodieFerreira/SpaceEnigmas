@@ -63,8 +63,9 @@ public class Jeu implements Serializable {
 				e.printStackTrace();
 			}
     		partie.setZoneCourante(partie.getVaisseau());
-    		gui.addAllActionListener();
     		afficherLocalisation();
+    		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(1));
+    		gui.addAllActionListener();
     		inProgress = false;
     	}
     	System.out.println("Bienvenue chez les Hyènes");
@@ -94,11 +95,11 @@ public class Jeu implements Serializable {
     
 
     private void afficherLocalisation() {
-    	  	gui.afficherMiniature(partie.getZoneCourante().nomImage(),partie.getGuideDuJeu().getImage());
     		gui.afficheImage(partie.getZoneCourante().nomImage());	
             gui.afficher(partie.getZoneCourante().descriptionLongue());
             gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
             gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
+         	gui.afficherMiniature(partie.getZoneCourante().nomImage(),partie.getGuideDuJeu().getImage());
             gui.afficher();
     }
     
@@ -119,8 +120,7 @@ public class Jeu implements Serializable {
     public void captureDeMouton(Mouton mouton) {
     	WorldBuilder constructorOfMap = new WorldBuilder();
     	partie.getJoueur().prendreObjet(mouton);
-    	constructorOfMap.suppresionDuMouton(partie.getZoneCourante(), mouton);
-    	
+    	constructorOfMap.suppresionDuMouton(partie.getZoneCourante(), mouton);	
     }
     public void allerEn(String direction) {
     	Zone nouvelle = partie.getZoneCourante().obtientSortie(direction);
@@ -143,11 +143,7 @@ public class Jeu implements Serializable {
 	}
 	public void allerEn(Zone nouvelleZone) {
     	partie.setZoneCourante(nouvelleZone);
-    	gui.afficher(partie.getZoneCourante().descriptionLongue());
-    	gui.afficher();
-        gui.afficheImage(partie.getZoneCourante().nomImage());	
-        gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
-        gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
+        afficherLocalisation();
     }
     public void interractionPersonnage(Personnage personnage) {
     	if(personnage instanceof Allies) {
@@ -206,7 +202,7 @@ public class Jeu implements Serializable {
     }
     public void afficherScenePerdante() {
     	partie.setZoneCourante(new Zone("","zoneperdante.gif","Vous êtes mort. Sans votre aide, Dyspros continuera encore longtemps son règne de terreur sur la galaxie..."));
-    	afficherZone();
+    	afficherLocalisation();
     }
     public void SupprimerPartie()
     {
@@ -232,8 +228,10 @@ public class Jeu implements Serializable {
 	public void lancerPhaseFinale() {
 		partie.getSalleDeRepos().ajouteSortie(Sortie.valueOf("NORD"), partie.getSceneFinal());
 		partie.setZoneCourante(partie.getSalleDeRepos());
+		partie.getGuideDuJeu().setImage("mentrisMechante.gif");
 		getPartie().getSceneFinal().setAllPersonnage(getPartie().getSalleDeRepos().getPersonnageDansLaZone());
-		afficherZone();
+		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete());
+		afficherLocalisation();
 	}
 	public void Sauvegarde()
     {
@@ -241,8 +239,22 @@ public class Jeu implements Serializable {
     	save.Serialize(partie);
     }
 	public void apparitionMechant() {
-		Allies Dyspros = new Allies("Dyspros","","gold.png",25,2,Role.valueOf("FIGHTER"),"ola");
-		gui.afficherMechant(Dyspros.getImage());
+		gui.afficherMechant(partie.dyspros().getImage());
+	}
+	public void mentrisRemerciement(int cptNiveau) {
+		// TODO Auto-generated method stub
+		partie.setZoneCourante(partie.getVaisseau());
+		afficherLocalisation();
+		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(cptNiveau).replaceAll("joueur", getPartie().getJoueur().getNom()));
+	}
+	public void tourDuComabat(Allies personnage) {
+		// TODO Auto-generated method stub
+		partie.getJoueur().attaquer(partie.dyspros()); 
+		gui.afficher("LES PV DE DYSPROS SONT DE "+partie.dyspros().getPointDePouvoir());
+		personnage.lancerPouvoir(personnage, partie.getJoueur());
+	}
+	public void lancerCombat() {
+		gui.addActionListenerCombat();
 	}
 
 }
