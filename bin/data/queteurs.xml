@@ -2,7 +2,7 @@
 <!DOCTYPE personnages SYSTEM "Queteur.dtd">
 <!-- Les index correspondent aux zones d'apparition  -->
 <personnages>
-  <queteur index="6">
+  <queteur index="7">
     <nom>Michel</nom>
     <image>michel.png</image>
     <dialogues>
