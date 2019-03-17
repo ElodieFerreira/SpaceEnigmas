@@ -45,8 +45,6 @@ public class Jeu implements Serializable {
     	partie.setJoueur(new Joueur(nomJoueur));
     	gui.addNameFrame(nomJoueur);
     	ThreadLauncher.checkPhaseOfGame();
-//    	Thread t = new Thread(new vieDuJoueur(this.getPartie().getJoueur(),this));
-//    	t.start();
     }
     public void sceneOuverture() {
     	boolean inProgress = true;
