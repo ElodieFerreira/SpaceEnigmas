@@ -33,6 +33,7 @@ public class Jeu implements Serializable {
     		gui.addAllActionListener();
     		afficherLocalisation();
     		ThreadLauncher.checkPhaseOfGame();
+    		ThreadLauncher.checkLifeJoueur();
     	} else {
     		partie = new Partie();
     	    creerCarte();
@@ -45,6 +46,7 @@ public class Jeu implements Serializable {
     	partie.setJoueur(new Joueur(nomJoueur));
     	gui.addNameFrame(nomJoueur);
     	ThreadLauncher.checkPhaseOfGame();
+  		ThreadLauncher.checkLifeJoueur();
     }
     public void sceneOuverture() {
     	boolean inProgress = true;
@@ -243,6 +245,7 @@ public class Jeu implements Serializable {
     	save.Serialize(partie);
     }
 	public void apparitionMechant() {
+		System.out.println("jaffichemechant jeu");
 		gui.afficherMechant(partie.dyspros().getImage());
 	}
 	public void mentrisRemerciement(int cptNiveau) {

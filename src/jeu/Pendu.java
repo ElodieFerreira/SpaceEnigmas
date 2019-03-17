@@ -67,8 +67,9 @@ public class Pendu extends Quete{
 					System.out.println("morte");
 					perdu(joueur);
 					return "";
+				} else {
+					return queteur.dialoguePendantQuete(1).replaceAll(" nb",String.valueOf(nombreDeCoupsMax-nombreDeCoups))+"\n"+motJeu;
 				}
-				return queteur.dialoguePendantQuete(1).replaceAll(" nb",String.valueOf(nombreDeCoupsMax-nombreDeCoups))+"\n"+motJeu;
 			}
 		}
 		else  {

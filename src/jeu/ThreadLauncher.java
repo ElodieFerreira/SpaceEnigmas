@@ -49,9 +49,9 @@ public class ThreadLauncher {
 					while(jeu.getPartie().getJoueur().niveauActuel!=jeu.getPartie().getJoueur().niveauMaximum) {
 						if(cptNiveau!=jeu.getPartie().getJoueur().niveauActuel && cptNiveau<jeu.getPartie().getJoueur().niveauMaximum-1) {
 							try {
-								Thread.sleep(7000);
+							Thread.sleep(7000);
 							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
+							// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 							jeu.mentrisRemerciement(cptNiveau+2);	
@@ -63,7 +63,7 @@ public class ThreadLauncher {
 						jeu.lancerPhaseFinale();
 						setFinalScene=true;
 					}
-					if(!setFinalScene && jeu.getPartie().getZoneCourante()==jeu.getPartie().getSceneFinal()) {
+					while(jeu.getPartie().getZoneCourante()!=jeu.getPartie().getSceneFinal()) {
 						if(!setMechant) {
 							jeu.apparitionMechant();
 							System.out.println("j'aichangerlesListener");
@@ -71,11 +71,7 @@ public class ThreadLauncher {
 							setMechant = true;
 						}
 					}
-					while(jeu.getPartie().getZoneCourante()!=jeu.getPartie().getSceneFinal()) {
-						
-					}
 				}
-//				System.out.println("je suis mort");
 				jeu.afficherScenePerdante();
 			}
 		});
@@ -100,6 +96,17 @@ public class ThreadLauncher {
 					}
 				} while(nbMoutonToPlace>0);
 				System.out.println("srop");
+			}
+		});
+		t.start();
+	}
+	public static void checkLifeJoueur() {
+		Thread t = new Thread(new Runnable() {
+			public void run() {
+				while(jeu.getPartie().getJoueur().getPointDeVie()>0) {
+					
+				}
+				jeu.afficherScenePerdante();
 			}
 		});
 		t.start();

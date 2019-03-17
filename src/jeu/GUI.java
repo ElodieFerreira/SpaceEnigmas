@@ -487,6 +487,7 @@ public class GUI implements ActionListener,Serializable
 	}
 	public void afficherMechant(String image2) {
 		// TODO Auto-generated method stub
+		System.out.println("jaffichemechant");
 		afficheImageMiniatureWorld(image2, dyspros, panelImage);
 		dyspros.repaint();
 	}
