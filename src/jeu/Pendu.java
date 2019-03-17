@@ -50,9 +50,9 @@ public class Pendu extends Quete{
 	}
 		
 	public String executerQuete(Joueur joueur, Queteur queteur, String str) {
-		if(!EstTropGrande(str)) {
-			if(EstDansMot(str)) {
-				dévoileLettre(str,0);
+		if(!EstTropGrande(str.toUpperCase())) {
+			if(EstDansMot(str.toUpperCase())) {
+				dévoileLettre(str.toUpperCase(),0);
 				if(EstComplet()) {
 					terminer(joueur);
 					return reponse+"\n"+queteur.dialogueFinQuete();
