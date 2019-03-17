@@ -59,12 +59,6 @@ public class ThreadLauncher {
 							System.out.println(cptNiveau);
 						}
 					}
-					try {
-						Thread.sleep(7000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 					if(!setFinalScene) {
 						jeu.lancerPhaseFinale();
 						setFinalScene=true;

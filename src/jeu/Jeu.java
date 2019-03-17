@@ -227,6 +227,12 @@ public class Jeu implements Serializable {
 		partie.getSalleDeRepos().ajouteSortie(Sortie.valueOf("NORD"), partie.getSceneFinal());
 		partie.setZoneCourante(partie.getSalleDeRepos());
 		partie.getGuideDuJeu().setImage("mentrisMechante.gif");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		getPartie().getSceneFinal().setAllPersonnage(getPartie().getSalleDeRepos().getPersonnageDansLaZone());
 		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete());
 		afficherLocalisation();
