@@ -49,7 +49,7 @@ public class ThreadLauncher {
 					while(jeu.getPartie().getJoueur().niveauActuel!=jeu.getPartie().getJoueur().niveauMaximum) {
 						if(cptNiveau!=jeu.getPartie().getJoueur().niveauActuel && cptNiveau<jeu.getPartie().getJoueur().niveauMaximum-1) {
 							try {
-							Thread.sleep(7000);
+							Thread.sleep(400);
 							} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -63,11 +63,11 @@ public class ThreadLauncher {
 						jeu.lancerPhaseFinale();
 						setFinalScene=true;
 					}
-					while(jeu.getPartie().getZoneCourante()!=jeu.getPartie().getSceneFinal()) {
+					if(jeu.getPartie().getZoneCourante()==jeu.getPartie().getSceneFinal()) {
 						if(!setMechant) {
-							jeu.apparitionMechant();
 							System.out.println("j'aichangerlesListener");
 							jeu.lancerCombat();
+							jeu.apparitionMechant();
 							setMechant = true;
 						}
 					}

@@ -94,13 +94,16 @@ public class Jeu implements Serializable {
     }
     
 
-    private void afficherLocalisation() {
-    		gui.afficheImage(partie.getZoneCourante().nomImage());	
-            gui.afficher(partie.getZoneCourante().descriptionLongue());
-            gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
-            gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
-         	gui.afficherMiniature(partie.getZoneCourante().nomImage(),partie.getGuideDuJeu().getImage());
-            gui.afficher();
+    void afficherLocalisation() {
+    	gui.afficheImage(partie.getZoneCourante().nomImage());	
+        gui.afficher(partie.getZoneCourante().descriptionLongue());
+        gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
+        gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
+        gui.afficherMiniature(partie.getZoneCourante().nomImage(),partie.getGuideDuJeu().getImage());
+        if(partie.getZoneCourante()==partie.getSceneFinal()) {
+         	apparitionMechant();
+         	System.out.println("je suis dans la salle finale");
+        }
     }
     
     private void afficherMessageDeBienvenue() {
@@ -130,17 +133,10 @@ public class Jeu implements Serializable {
     	}
         else {
         	partie.setZoneCourante(nouvelle);
-        	afficherZone();
+        	afficherLocalisation();
         }
     }
-    private void afficherZone() {
-		// TODO Auto-generated method stub
-    	gui.afficher(partie.getZoneCourante().descriptionLongue());
-    	gui.afficher();
-        gui.afficheImage(partie.getZoneCourante().nomImage());	
-        gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
-        gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
-	}
+    
 	public void allerEn(Zone nouvelleZone) {
     	partie.setZoneCourante(nouvelleZone);
         afficherLocalisation();
@@ -151,6 +147,7 @@ public class Jeu implements Serializable {
     		partie.getJoueur().friends.add(personnage);
     		if(partie.getJoueur().friends.size()!=partie.getSalleDeRepos().getPersonnageDansLaZone().size()) {
     			partie.getSalleDeRepos().getPersonnageDansLaZone().add(personnage);
+    			partie.getSceneFinal().getPersonnageDansLaZone().add(personnage);
     		}
     	} else if (personnage instanceof Queteur) {
     		Queteur queteur = (Queteur) personnage;
@@ -158,10 +155,6 @@ public class Jeu implements Serializable {
     			if(getPartie().queteEnCoursPartie()==null) {
     				partie.setQuete((queteur).quete());
     				gui.afficher(queteur.parler(getPartie().getJoueur()));
-    				if(queteur.quete() instanceof capturerMouton) {
-//    					WorldBuilder mouton = new WorldBuilder();
-//    					ArrayList<Zone> zone = mouton.positionMouton(partie.zones(),3);				
-    				}
     				System.out.println("jsetelaquequete");
     				System.out.println(queteur.quete().getClass());
     			} else {
@@ -181,10 +174,6 @@ public class Jeu implements Serializable {
 			}
     	} 
     }
-//	private void terminer() {
-//    	gui.afficher( "Au revoir...");
-//    	gui.enable( false);
-//    }
     public Zone getZoneCourante() {
     	return this.getZoneCourante();
     }
@@ -235,7 +224,6 @@ public class Jeu implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		getPartie().getSceneFinal().setAllPersonnage(getPartie().getSalleDeRepos().getPersonnageDansLaZone());
 		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete().replaceAll("joueur",partie.getJoueur().getNom()));
 		afficherLocalisation();
 	}
@@ -245,7 +233,6 @@ public class Jeu implements Serializable {
     	save.Serialize(partie);
     }
 	public void apparitionMechant() {
-		System.out.println("jaffichemechant jeu");
 		gui.afficherMechant(partie.dyspros().getImage());
 	}
 	public void mentrisRemerciement(int cptNiveau) {

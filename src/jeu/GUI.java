@@ -125,8 +125,6 @@ public class GUI implements ActionListener,Serializable
     	Image imageResize = img.getScaledInstance(jlabel.getWidth(), jlabel.getHeight(), Image.SCALE_SMOOTH);
    	   	if( imageURL != null ) {
 	   		jlabel.setIcon(new ImageIcon(imageResize));
-	   		panel.add(jlabel);
-	   		panel.repaint();
         }
    }
  
@@ -487,9 +485,7 @@ public class GUI implements ActionListener,Serializable
 	}
 	public void afficherMechant(String image2) {
 		// TODO Auto-generated method stub
-		System.out.println("jaffichemechant");
 		afficheImageMiniatureWorld(image2, dyspros, panelImage);
-		dyspros.repaint();
 	}
 	public void addActionListenerCombat() {
 		label1.removeMouseListener(lbl1);

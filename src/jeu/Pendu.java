@@ -83,7 +83,7 @@ public class Pendu extends Quete{
 					perdu(joueur);
 					return "";
 				}
-				return queteur.dialoguePendantQuete(2)+"\n"+motJeu;
+				return queteur.dialoguePendantQuete(2).replaceAll(" nb",String.valueOf(nombreDeCoupsMax-nombreDeCoups))+"\n"+motJeu;
 			}
 		}
 	}
