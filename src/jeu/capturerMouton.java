@@ -8,12 +8,13 @@ public class capturerMouton extends Quete {
 	private int nombreMoutonRecu;
 	public capturerMouton(Objets recompenseJoueur,int nbmouton) {
 		super(recompenseJoueur);
+		nombreMoutonRecu = 0;
 		nombreMoutonRequis = nbmouton;
 	}
 	
 
 	public int nbMouton() {
-		return nombreMoutonRequis;
+		return nombreMoutonRequis-nombreMoutonRecu;
 	}
 	@Override
 	public String executerQuete(Joueur joueur, Queteur queteur) {
@@ -24,8 +25,9 @@ public class capturerMouton extends Quete {
 			return queteur.dialoguePendantQuete(2);
 		}
 		queteur.prendre(joueur.donnerObjet(joueur.recupererMouton()));
-		if(queteur.inventaire().size()!=nombreMoutonRequis) {
-			int manqueMouton = nombreMoutonRequis-queteur.inventaire().size();
+		nombreMoutonRecu++;
+		if(nombreMoutonRecu<nombreMoutonRequis) {
+			int manqueMouton = nombreMoutonRequis-nombreMoutonRecu;
 			return queteur.dialoguePendantQuete(manqueMouton-1);
 		} else {
 			terminer(joueur);

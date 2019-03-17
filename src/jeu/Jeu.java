@@ -14,7 +14,7 @@ public class Jeu implements Serializable {
     public Jeu() {
         gui = null;
     }
-    public Partie getPartie() {
+    public synchronized Partie getPartie() {
     	return partie;
     }
     public void setPartie(Partie lastPartie) {
@@ -22,24 +22,52 @@ public class Jeu implements Serializable {
     }
     public void setGUI( GUI g) { gui = g; }
     public void lancerDebutJeu() {
-    	//Sauvegarde  sauvegarde = new Sauvegarde(partie);
+    	ThreadLauncher.jeu = this;
+    	ThreadLauncher.LancerMusique();
     	if(Sauvegarde.Deserialize(partie)!=null) {
+    		System.out.println("javais une partie");
     		Partie savePartie = Sauvegarde.Deserialize(partie);
     		this.partie = savePartie;
-    		partie.setZoneCourante(savePartie.getZoneCourante());
-    		gui.addNameFrame(partie.getJoueur().getNom());
-    		afficherMessageDeBienvenue();
+//    		partie.setZoneCourante(savePartie.getZoneCourante());
+    		gui.addNameFrame(partie.getJoueur().getNom()); 
+    		gui.addAllActionListener();
+    		ThreadLauncher.checkPhaseOfGame();
+    		afficherLocalisation();
     	} else {
     		partie = new Partie();
     	    creerCarte();
     	    afficherMessageDeBienvenue();
     		gui.afficher("Bienvenue ! Rentrez votre pr�nom \n");
+    		sceneOuverture();
     	}
     }
     public void creationJoueur(String nomJoueur) {
     	partie.setJoueur(new Joueur(nomJoueur));
-    	gui.afficher("Ton nom est donc"+nomJoueur);
     	gui.addNameFrame(nomJoueur);
+    	ThreadLauncher.checkPhaseOfGame();
+//    	Thread t = new Thread(new vieDuJoueur(this.getPartie().getJoueur(),this));
+//    	t.start();
+    }
+    public void sceneOuverture() {
+    	boolean inProgress = true;
+    	gui.afficher(partie.getGuideDuJeu().dialogueLancementQuete());
+    	while(partie.getJoueur()==null) {
+    		
+    	}
+    	while(inProgress) {
+    		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(0).replaceAll("joueur", partie.getJoueur().getNom()));
+    		try {
+				Thread.sleep(10000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		partie.setZoneCourante(partie.getVaisseau());
+    		gui.addAllActionListener();
+    		afficherLocalisation();
+    		inProgress = false;
+    	}
+    	System.out.println("Bienvenue chez les Hyènes");
     }
     private void creerCarte() {
     	WorldBuilder constructorOfMap = new WorldBuilder();
@@ -53,21 +81,27 @@ public class Jeu implements Serializable {
     	ArrayList<Objets> objets = constructorOfMap.creerLesObjets();
     	ArrayList<Quete> quetes = constructorOfMap.creerLesQuetesDuJeu(objets);
     	zones = constructorOfMap.miseEnPlaceDesQueteurs(zones,quetes);
+    	partie.setGuideDuJeu(constructorOfMap.CreerGuide());
     	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
     	partie.setsceneFinal(zones.get(zones.size()-1));
     	partie.setEspace(espace);
-    	partie.setZoneCourante(espace.get(0).getZones().get(0)); 	
+    	partie.setZoneCourante(espace.get(0).getZones().get(1));
+    	partie.setVaisseau(zones.get(0));
+    	System.out.println(espace.get(0).getZones().get(1).getNom());
+//    	Thread music = new Thread(new Music("dust.wav"));
+//    	music.start();
     }
     
 
     private void afficherLocalisation() {
-    	  	gui.afficheImage(partie.getZoneCourante().nomImage());	
+    	  	gui.afficherMiniature(partie.getZoneCourante().nomImage(),partie.getGuideDuJeu().getImage());
+    		gui.afficheImage(partie.getZoneCourante().nomImage());	
             gui.afficher(partie.getZoneCourante().descriptionLongue());
             gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
             gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
             gui.afficher();
     }
-
+    
     private void afficherMessageDeBienvenue() {
     	gui.afficher("Bienvenue !");
     	gui.afficher();
@@ -126,19 +160,21 @@ public class Jeu implements Serializable {
     		Queteur queteur = (Queteur) personnage;
     		if(!queteur.besoinAide()) {
     			if(getPartie().queteEnCoursPartie()==null) {
+    				partie.setQuete((queteur).quete());
     				gui.afficher(queteur.parler(getPartie().getJoueur()));
     				if(queteur.quete() instanceof capturerMouton) {
-    					WorldBuilder mouton = new WorldBuilder();
-    					ArrayList<Zone> zone = mouton.positionMouton(partie.zones(),3);				
+//    					WorldBuilder mouton = new WorldBuilder();
+//    					ArrayList<Zone> zone = mouton.positionMouton(partie.zones(),3);				
     				}
-    				partie.setQuete((queteur).quete());
+    				System.out.println("jsetelaquequete");
+    				System.out.println(queteur.quete().getClass());
     			} else {
     				if(queteur.quete()==getPartie().queteEnCoursPartie()) {
     					gui.afficher(queteur.quete().executerQuete(getPartie().getJoueur(), queteur));
-    						if(checkPhaseFinale()) {
-    							lancerPhaseFinale();
-    							System.out.println("je suis dans la phase finale");
-    						}
+//    						if(checkPhaseFinale()) {
+//    							lancerPhaseFinale();
+//    							System.out.println("je suis dans la phase finale");
+//    						}
     				} else {
     					gui.afficher(((Queteur) personnage).queteDejaEnCours());
     				}
@@ -156,10 +192,6 @@ public class Jeu implements Serializable {
     public Zone getZoneCourante() {
     	return this.getZoneCourante();
     }
-   /* public Zone GetZoneCourante1()
-    {
-    	return partie.getZoneCourante();
-    }*/
     public void incrementerCommande() {
     	partie.nbCommande++;
     	System.out.println(partie.nbCommande);
@@ -193,13 +225,6 @@ public class Jeu implements Serializable {
 		} else if(queteur.quete() instanceof EnigmeTextuel) {
 			gui.afficher(((EnigmeTextuel)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,str));
 		}
-		if(checkPhaseFinale()) {
-			lancerPhaseFinale();
-			System.out.println("je suis dans la phase finale");
-		}
-		if(!getPartie().getJoueur().alive) {
-			perdu();
-		}
 	}
 	public boolean checkPhaseFinale() {
 		return (partie.getJoueur().niveauActuel==partie.getJoueur().niveauMaximum);
@@ -207,6 +232,7 @@ public class Jeu implements Serializable {
 	public void lancerPhaseFinale() {
 		partie.getSalleDeRepos().ajouteSortie(Sortie.valueOf("NORD"), partie.getSceneFinal());
 		partie.setZoneCourante(partie.getSalleDeRepos());
+		getPartie().getSceneFinal().setAllPersonnage(getPartie().getSalleDeRepos().getPersonnageDansLaZone());
 		afficherZone();
 	}
 	public void Sauvegarde()
@@ -214,4 +240,9 @@ public class Jeu implements Serializable {
     	Sauvegarde save = new Sauvegarde(partie);
     	save.Serialize(partie);
     }
+	public void apparitionMechant() {
+		Allies Dyspros = new Allies("Dyspros","","gold.png",25,2,Role.valueOf("FIGHTER"),"ola");
+		gui.afficherMechant(Dyspros.getImage());
+	}
+
 }

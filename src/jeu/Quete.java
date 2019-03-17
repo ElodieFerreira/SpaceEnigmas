@@ -37,6 +37,6 @@ public class Quete implements Serializable {
 		return status;
 	}
 	public void perdu(Joueur joueur) {
-		joueur.alive = false;
+		joueur.setPointDeVie(0);
 	}
 }

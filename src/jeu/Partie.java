@@ -7,14 +7,10 @@ public class Partie implements Serializable {
 	private static final long serialVersionUID = -5799011054091607425L;
 	private Joueur joueur;
 	private Zone zoneCourante;
-	/**
-	 * Définit par un int la phase de jeu actuel. 0 pour le d�but ( pr�sentation de Mentris... ) 
-	 * 1 lorsque l'utilisateur fait ses qu�tes
-	 * 2 est la derniére phase.
-	 */
+	private Queteur guideDuJeu;
 	public int nbCommandeMax;
 	public int nbCommande;
-
+	private Zone vaisseau;
 	// implémentation par la suite de la zone courante ici;
 	/**
 	 * L'état de la carte actuellement avec les objets et les personnages dessus
@@ -75,6 +71,20 @@ public class Partie implements Serializable {
 	}
 	public Zone getSceneFinal() {
 		return sceneFinal;
+	}
+
+	public Queteur getGuideDuJeu() {
+		return guideDuJeu;
+	}
+
+	public void setGuideDuJeu(Queteur guideDuJeu) {
+		this.guideDuJeu = guideDuJeu;
+	}
+	public Zone getVaisseau() {
+		return vaisseau;
+	}
+	public void setVaisseau(Zone newVaisseau) {
+		vaisseau = newVaisseau;
 	}
 	 
 }

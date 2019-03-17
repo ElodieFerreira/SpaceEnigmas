@@ -24,7 +24,7 @@ public class Planete implements Serializable{
 	public void ajouterZone(Zone zoneAjoutee) {
 		this.cartePlanete.add(zoneAjoutee);
 	}
-	public ArrayList<Zone> getZones() {
+	public synchronized ArrayList<Zone> getZones() {
 		return cartePlanete;
 	}
 

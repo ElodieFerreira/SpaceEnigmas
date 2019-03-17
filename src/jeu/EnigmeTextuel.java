@@ -42,15 +42,7 @@ public class EnigmeTextuel extends Quete {
 	public boolean bonneReponse(String reponse, int niveau)
 	{	System.out.println(reponse);
 		System.out.println(this.reponseEnigme(niveau));
-		int id = reponse.toUpperCase().indexOf(reponseEnigme(niveau).toUpperCase());
-		if(id!=-1)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return reponse.toUpperCase().contains(reponseEnigme(niveau).toUpperCase());
 	}
 	public String executerQuete(Joueur joueur, Queteur queteur, String str) {
 		nombreDeCoups++;
@@ -61,10 +53,10 @@ public class EnigmeTextuel extends Quete {
 		if(nombreDeCoups==2)
 		{ 
 		return "voici un indice pour vous aider\n"+this.indiceEnigme(joueur.niveauActuel);
-		} else if(nombreDeCoups<=5) {
+		} else if(nombreDeCoups<=nombreDeCoupsMax) {
 			return queteur.dialoguePendantQuete(1);
 		}
-		joueur.alive=false;
+		perdu(joueur);
 		return "";
 	}
 }

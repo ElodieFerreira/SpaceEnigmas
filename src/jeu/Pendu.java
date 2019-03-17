@@ -9,7 +9,6 @@ public class Pendu extends Quete{
 	private int nombreDeCoups;
 	private int nombreDeCoupsMax;
 	private String reponse;
-	private char[] lettresJouées;
 	private String motJeu;
 	
 	public Pendu(Objets recompenseJoueur, ArrayList<String> newMots) {
@@ -32,14 +31,7 @@ public class Pendu extends Quete{
 	}
 	
 	private boolean EstDansMot(String rep) {
-		int id=this.reponse.indexOf(rep.toUpperCase());
-		if(id==-1) {
-			return false;
-		}
-		else {
-			//do {
-			return true;				
-		}
+		return this.reponse.contains(rep);
 	}
 	
 	private void dévoileLettre(String lettre, int id) {
@@ -72,6 +64,7 @@ public class Pendu extends Quete{
 				// C'est considéré comme un coup de plus : 
 				nombreDeCoups++;
 				if(nombreDeCoups==nombreDeCoupsMax) {
+					System.out.println("morte");
 					perdu(joueur);
 					return "";
 				}
@@ -96,8 +89,6 @@ public class Pendu extends Quete{
 	public void lancerQuete(Joueur joueur, Queteur queteur) {
 		int niveau = joueur.niveauActuel;
 		reponse = mots.get(niveau);
-		System.out.println(reponse);
-		System.out.println("TailleMot"+reponse.length());
 		for(int i=0;i<reponse.length();i++) {
 			System.out.println(reponse);
 			motJeu += "-";

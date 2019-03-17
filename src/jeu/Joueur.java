@@ -15,7 +15,6 @@ public class Joueur implements Serializable {
 	private Quete queteEnCours;
 	public int niveauMaximum;
 	public int niveauActuel;
-	public boolean alive;
 	/**
 	 * Compte le nombre de quête rêalisé par le joueur jusqu'à présent.
 	 */
@@ -27,8 +26,42 @@ public class Joueur implements Serializable {
 		friends = new HashSet();
 		niveauMaximum = 3;
 		niveauActuel = 0;
-		alive = true;
+		pointDeVie = 10;
+		pointdAttaque = 15;
 	}
+	
+	public Integer getPointdAttaque() {
+		return pointdAttaque;
+	}
+
+	public void setPointdAttaque(Integer pointdAttaque) {
+		this.pointdAttaque = pointdAttaque;
+	}
+
+	public Integer getPointDeVie() {
+		return pointDeVie;
+	}
+
+	public void setPointDeVie(Integer pointDeVie) {
+		this.pointDeVie = pointDeVie;
+	}
+
+	public int getNiveauMaximum() {
+		return niveauMaximum;
+	}
+
+	public void setNiveauMaximum(int niveauMaximum) {
+		this.niveauMaximum = niveauMaximum;
+	}
+
+	public int getNiveauActuel() {
+		return niveauActuel;
+	}
+
+	public void setNiveauActuel(int niveauActuel) {
+		this.niveauActuel = niveauActuel;
+	}
+
 	public void prendreObjet(Objets A)
 	{
 		inventaire.add(A);
@@ -61,6 +94,15 @@ public class Joueur implements Serializable {
 	}
 	public void setQuete(Quete quete) {
 		this.queteEnCours=quete;
+	}
+	public int nbMouton() {
+		int cpt=0;
+		for(Objets obj : inventaire) {
+			if(obj instanceof Mouton) {
+				cpt++;
+			}
+		}
+		return cpt;
 	}
 	
 }

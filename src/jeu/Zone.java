@@ -24,7 +24,9 @@ public class Zone implements Serializable
         animauxDansLazone = new ArrayList<Mouton>();
         personnageDansLaZone = new ArrayList<Personnage>();
     }
-    
+    public void setArrayListMouton(ArrayList<Mouton> mouton) {
+    	animauxDansLazone = mouton;
+    }
     public String getNom() {
 		return nom;
 	}
@@ -46,7 +48,7 @@ public class Zone implements Serializable
     }
 
     public String descriptionLongue()  {
-        return "Vous êtes dans " + nom + "\n" + description;
+        return description;
     }
 
     private String sorties() {
@@ -69,6 +71,9 @@ public class Zone implements Serializable
 
 	public String getNomImage() {
 		return nomImage;
+	}
+	public void setAllPersonnage(ArrayList<Personnage> personnageToAdd) {
+		personnageDansLaZone.addAll(personnageToAdd);
 	}
 }
 

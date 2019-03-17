@@ -52,7 +52,7 @@ public class GUI implements ActionListener,Serializable
     private JPanel panelTexte;
     private JPanel panelCarte;
     private JTextField entree;
-    private JButton boutonNord;
+	private JButton boutonNord;
     private JTextArea texte;
     private JLabel image;
     private JButton boutonSud;
@@ -68,6 +68,10 @@ public class GUI implements ActionListener,Serializable
     private JMenuItem Interface;
     private JMenuItem Planete;
     private JMenuItem suppression;
+    private JPanel characterWorldMiniature;
+    private JLabel world;
+    private JLabel character;
+    private JLabel dyspros;
     
 
     public GUI(Jeu j) {
@@ -78,6 +82,7 @@ public class GUI implements ActionListener,Serializable
     	fenetre.setTitle("SpaceEnigmas "+nom);
     }
     public void afficher(String s) {
+    	texte.append("\n");
     	texte.append(s);
         texte.setCaretPosition(texte.getDocument().getLength());
     }
@@ -97,22 +102,29 @@ public class GUI implements ActionListener,Serializable
         	panelImage.add(image);
         }
    }
-    public void afficheImagePauseTest(String nomImage) {
-    	System.out.println(nomImage);
+    public void afficheImageMiniatureWorld(String nomImage, JLabel jlabel,JPanel panel) {
+
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	BufferedImage img = null;
     	try {
 			img = ImageIO.read(imageURL);
-		} catch (IOException e) {
+		} catch (ArrayIndexOutOfBoundsException | IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			imageURL = this.getClass().getClassLoader().getResource("images/zone1.gif");
+			System.out.println(imageURL);
+			try {
+				img = ImageIO.read(imageURL);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
-    	Image imageResize = img.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
+    	Image imageResize = img.getScaledInstance(jlabel.getWidth(), jlabel.getHeight(), Image.SCALE_SMOOTH);
     	System.out.println(imageURL);
 	   	if( imageURL != null ) {
-        	image.setIcon(new ImageIcon(imageResize));
-        	panelImage.add(image);
-        	panelImage.repaint();
+	   		jlabel.setIcon(new ImageIcon(imageResize));
+	   		panel.add(jlabel);
+	   		panel.repaint();
         }
    }
  
@@ -150,7 +162,6 @@ public class GUI implements ActionListener,Serializable
 
     private void creerGUI() {
         fenetre = new JFrame("SpaceEnigmas");
-//      personnage.setBounds(350, 150, 150, 150);
         panel = new JPanel();
         panelCarte = new JPanel();
         panelCarte.setBounds(0, 25, 880, 499);
@@ -158,34 +169,16 @@ public class GUI implements ActionListener,Serializable
         new JButton("Ouest");
         panel.setLayout(null);
         panel.add(panelCarte);
-        
+        boutonEst = new JButton("EST");
         boutonOuest = new JButton("Ouest");
-        boutonOuest.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent arg0) {
-        		jeu.incrementerCommande();
-        		jeu.allerEn("OUEST");
-        	}
-        });
         boutonNord = new JButton("Nord");
-        boutonNord.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		jeu.incrementerCommande();
-        		jeu.allerEn("NORD");
-        	}
-        });
+        boutonSud = new JButton("Sud");
         panelCarte.setLayout(new BorderLayout(0, 0));
         panelCarte.add(boutonNord, BorderLayout.NORTH);
         panelCarte.add(boutonOuest, BorderLayout.WEST);
         
-        boutonSud = new JButton("Sud");
-        boutonSud.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		jeu.incrementerCommande();
-        		jeu.allerEn("SUD");
-        	}
-        });
+   
+
         panelImage = new JPanel();
         image = new JLabel();
         image.setBounds(0, 0, 760, 449);
@@ -233,14 +226,10 @@ public class GUI implements ActionListener,Serializable
         labelArray.add(label2);
         labelArray.add(label3);
         
-        boutonEst = new JButton("EST");
-        boutonEst.addMouseListener(new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent e) {
-        		jeu.incrementerCommande();
-        		jeu.allerEn("EST");
-        	}
-        });
+        dyspros = new JLabel();
+        dyspros.setBackground(new Color(204, 204, 0));
+        dyspros.setBounds(523, 30, 180, 180);
+        panelImage.add(dyspros);
         panelCarte.add(boutonEst, BorderLayout.EAST);
         panelCarte.add(boutonSud, BorderLayout.SOUTH);
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
@@ -306,6 +295,7 @@ public class GUI implements ActionListener,Serializable
         mnAide.add(Planete);
         
         JSplitPane splitPane = new JSplitPane();
+        splitPane.setResizeWeight(0.15);
         splitPane.setBounds(5, 525, 874, 105);
         panel.add(splitPane);
         panelTexte = new JPanel();
@@ -316,8 +306,20 @@ public class GUI implements ActionListener,Serializable
         texte.setEditable(false);
         JScrollPane listScroller = new JScrollPane(texte);
         panelTexte.add(listScroller, BorderLayout.NORTH);
-        listScroller.setPreferredSize(new Dimension(200, 200));
-        listScroller.setMinimumSize(new Dimension(100,100));
+        listScroller.setPreferredSize(new Dimension(0, 100));
+        listScroller.setMinimumSize(new Dimension(0, 100));
+        
+        characterWorldMiniature = new JPanel();
+        splitPane.setLeftComponent(characterWorldMiniature);
+        characterWorldMiniature.setLayout(null);
+        
+        character = new JLabel("");
+        character.setBounds(0, 0, 115, 103);
+        characterWorldMiniature.add(character);
+        
+        world = new JLabel("");
+        world.setBounds(0, 0, 115, 103);
+        characterWorldMiniature.add(world);
         entree = new JTextField(34);
         entree.setBounds(4, 628, 880, 22);
         panel.add(entree);
@@ -334,6 +336,8 @@ public class GUI implements ActionListener,Serializable
 				}
         	}
         });
+        texte.setWrapStyleWord(true);
+        texte.setLineWrap(true);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setBounds(500,10,900,700);
         fenetre.setVisible(true);
@@ -369,7 +373,37 @@ public class GUI implements ActionListener,Serializable
         }
         
     }
-    public void stopFenetre() {
+    public void addAllActionListener() {
+		// TODO Auto-generated method stub
+        boutonEst.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		jeu.incrementerCommande();
+        		jeu.allerEn("EST");
+        	}
+        });
+        boutonNord.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		jeu.incrementerCommande();
+        		jeu.allerEn("NORD");
+        	}
+        });
+        boutonSud.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		jeu.incrementerCommande();
+        		jeu.allerEn("SUD");
+        	}
+        });
+        boutonOuest.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		jeu.incrementerCommande();
+        		jeu.allerEn("OUEST");
+        	}
+        });
+	}
+	public void stopFenetre() {
     	fenetre.setVisible(false);
     }
 	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone,ArrayList<Personnage> personnageDansLaZone) {
@@ -381,18 +415,40 @@ public class GUI implements ActionListener,Serializable
         naturesObjetsDansLaZone = new ArrayList<String>();
 		int cpt = 0;
 		for(Mouton mouton : animauxDansLazone) {
+			System.out.println("je suis pas un mouton");
 			URL moutonURL = this.getClass().getClassLoader().getResource("images/"+mouton.getImage());
 		   	if( moutonURL != null ) {
 		   		objetsDansLaZone.add((Object)mouton);
 		   		naturesObjetsDansLaZone.add("mouton");
 	        	labelArray.get(cpt).setIcon( new ImageIcon(moutonURL));
-	        	labelArray.get(cpt).setBounds(-50, 241, 180, 180);
 	        	labelArray.get(cpt).setVisible(true);
+//	        	Thread t = new Thread(new Runnable() {
+//	        		public void run() {
+//	        			System.out.println("OKOKOKOKOk");
+//	        			for(int x=-50;x<250;x++) {
+//	        				labelArray.get(0).setLocation(x, 241);
+////	        				labelArray.get(0).revalidate();
+////	        				labelArray.get(0).setVisible(true);
+////	        				labelArray.get(0).repaint();
+//	        				try {
+//		        				Thread.sleep(30);
+//							} catch (InterruptedException e) {
+//								// TODO Auto-generated catch block
+//								e.printStackTrace();
+//							}
+//	        			}
+//	        			labelArray.get(0).setBounds(50,241,180,180);
+//	        		}
+//	        	}); 
+//	        	t.start();
+//	        	t.stop();
+	          	cpt++;
 	        }
-		   	cpt++;
 		}
 		for(Personnage personnage : personnageDansLaZone) {
 		   	URL personnageURL = this.getClass().getClassLoader().getResource("images/"+personnage.getImage());
+		   	System.out.println("moi je suis un perso");
+		   	System.out.println(personnageURL);
 		   	if( personnageURL != null ) {
 		   		objetsDansLaZone.add((Object)personnage);
 		   		naturesObjetsDansLaZone.add("personnage");
@@ -414,5 +470,18 @@ public class GUI implements ActionListener,Serializable
 		} else {
 			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!\n");
 		}
+	}
+    public JTextField getEntree() {
+		return entree;
+	}
+	public void afficherMiniature(String nomImage, String imageQueteur) {
+		// TODO Auto-generated method stub
+		afficheImageMiniatureWorld(nomImage,world,characterWorldMiniature);
+		afficheImageMiniatureWorld(imageQueteur, character,characterWorldMiniature);
+		world.setVisible(false);
+	}
+	public void afficherMechant(String image2) {
+		// TODO Auto-generated method stub
+		afficheImageMiniatureWorld(image2, dyspros, panelImage);
 	}
 }

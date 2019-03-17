@@ -27,6 +27,9 @@ public class Queteur extends Personnage {
 		}
 		if(quete instanceof EnigmeTextuel) {
 			return dialogueLancementQuete+"\n"+((EnigmeTextuel) quete).sujetEnigme(joueur.niveauActuel);
+		} else {
+			ThreadLauncher.makeMoveMouton();
+			System.out.println("jebougetesputainsdemouton");
 		}
 		return dialogueLancementQuete;
 	}

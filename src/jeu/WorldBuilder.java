@@ -3,6 +3,8 @@ package jeu;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.Iterator;
 
 import org.w3c.dom.Element;
@@ -39,7 +41,7 @@ public class WorldBuilder {
         	NodeList zonesPlanete = planeteElement.getElementsByTagName("zone");
         	Planete planete = new Planete(nomPlanete, description);
         	for(int i1=0;i1<zonesPlanete.getLength();i1++) {
-        		Element zone = (Element) zonesPlanete.item(0);
+        		Element zone = (Element) zonesPlanete.item(i1);
         		Integer indexZoneToAdd = Integer.valueOf(zone.getAttribute("index"));
         		planete.ajouterZone(toutesLesZones.get(indexZoneToAdd));
         	}
@@ -73,7 +75,7 @@ public class WorldBuilder {
 		repos.ajouteSortie(Sortie.valueOf(direction), sortie);
 		return repos;
 	}
-	public ArrayList<Zone> positionMouton(ArrayList<Zone> zone, int nbMouton)
+	public static ArrayList<Zone> positionMouton(ArrayList<Zone> zone, int nbMouton)
 	{
 		HashSet<Integer> hs=new HashSet<Integer>();
 
@@ -138,7 +140,7 @@ public class WorldBuilder {
 	public ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones,ArrayList<Quete> toutesLesQuetes) {
 		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
 		NodeList queteursNode = queteurReader.getDocument().getElementsByTagName("queteur");
-		for(int i=0;i<queteursNode.getLength();i++) {
+		for(int i=0;i<queteursNode.getLength()-1;i++) {
 			// Selection du quêteurs 
 			Element queteurElement = (Element) queteursNode.item(i);
 			// Selection de la zone de spawn
@@ -166,6 +168,24 @@ public class WorldBuilder {
 			toutesLesZones.get(indexZone).getPersonnageDansLaZone().add(queteur);
 		}
 		return toutesLesZones;
+	}
+	public static Queteur CreerGuide() {
+		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
+		NodeList queteursNode = queteurReader.getDocument().getElementsByTagName("queteur");
+		Element guide = (Element) queteursNode.item(queteursNode.getLength()-1);
+		String name = guide.getElementsByTagName("nom").item(0).getTextContent();
+		String image = guide.getElementsByTagName("image").item(0).getTextContent();
+		String avantQuete = guide.getElementsByTagName("avantQuete").item(0).getTextContent();
+		String apresQuete = guide.getElementsByTagName("aprèsQuete").item(0).getTextContent();
+		ArrayList<String> pendantQueteArrayList = new ArrayList<String>();
+		NodeList pendantQuete = guide.getElementsByTagName("pendantQuete");
+		for(int i= 0;i<pendantQuete.getLength();i++) {
+			String dialogue = pendantQuete.item(i).getTextContent();
+			pendantQueteArrayList.add(dialogue);
+		}
+		Queteur mentris = new Queteur(name," ",image);
+		mentris.setAllDialogues(null, avantQuete, pendantQueteArrayList, apresQuete, null);
+		return mentris;
 	}
 	public static ArrayList<Objets> creerLesObjets() {
 		ArrayList<Objets> objets = new ArrayList<Objets>();
@@ -222,6 +242,17 @@ public class WorldBuilder {
 		EnigmeTextuel enigme = new EnigmeTextuel(recompenses.get(2), questionArray, reponseArray, indiceArray);
 		quetes.add(enigme);
 		return quetes;
+	}
+	public synchronized void retirerMouton(ArrayList<Zone> zones) {
+		// TODO Auto-generated method stub
+		ArrayList<Zone> zonesArrayList = zones;
+		ArrayList<Mouton> moutons = new ArrayList<Mouton>();
+		 Lock verrou = new ReentrantLock();
+		 verrou.lock();
+			for(Zone zone : zonesArrayList) {
+				zone.setArrayListMouton(new ArrayList<Mouton>());
+			}
+		verrou.unlock();
 	}
 }
 
