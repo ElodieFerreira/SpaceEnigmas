@@ -99,8 +99,7 @@ public class WorldBuilder {
 		Random rand = new Random();
 		HashSet hs = new HashSet();
 		// int nbaleat = (int) (1 + (Math.random()*(zone.size()-2)));
-		int nbaleat = (int) (3 + (Math.random()*(5-3)+1));
-		while(hs.size()<nbaleat){
+		while(hs.size()<3){
 			int num = (int) ((Math.random()*(allies.getLength()-1)));
 			hs.add(num);
 		}
