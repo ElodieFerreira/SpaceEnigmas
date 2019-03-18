@@ -26,7 +26,7 @@ public class Joueur implements Serializable {
 		friends = new HashSet();
 		niveauMaximum = 3;
 		niveauActuel = 0;
-		pointDeVie = 10;
+		pointDeVie = 15;
 		pointdAttaque = 15;
 	}
 	
@@ -105,7 +105,7 @@ public class Joueur implements Serializable {
 		return cpt;
 	}
 	public void attaquer(Allies personnage) {
-		personnage.setPointDePouvoir(personnage.getPointDeVie()-pointdAttaque);
+		personnage.setPointDeVie(personnage.getPointDeVie()-pointdAttaque);
 	}
 	
 }
