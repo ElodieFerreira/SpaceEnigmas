@@ -36,6 +36,7 @@ import java.io.Serializable;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.LineBorder;
 
 public class GUI implements ActionListener,Serializable 
 {
@@ -76,6 +77,16 @@ public class GUI implements ActionListener,Serializable
     private MouseListener lbl1;
     private MouseListener lbl2;
     private MouseListener lbl3;
+    private JPanel inventaire;
+    private JLabel label_1;
+    private JLabel label_2;
+    private JLabel label_3;
+    private JLabel label_4;
+    private JLabel label_5;
+    private JLabel label_6;
+    private JLabel label_7;
+    private JLabel label_8;
+    private ArrayList<JLabel> inventaireSurZone;
     
 
     public GUI(Jeu j) {
@@ -106,7 +117,7 @@ public class GUI implements ActionListener,Serializable
         	panelImage.add(image);
         }
    }
-    public void afficheImageMiniatureWorld(String nomImage, JLabel jlabel,JPanel panel) {
+    public void afficheImageMiniatureWorld(String nomImage, JLabel jlabel) {
 
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	BufferedImage img = null;
@@ -177,7 +188,7 @@ public class GUI implements ActionListener,Serializable
         panelCarte.add(boutonNord, BorderLayout.NORTH);
         panelCarte.add(boutonOuest, BorderLayout.WEST);
         
-   
+        
 
         panelImage = new JPanel();
         image = new JLabel();
@@ -193,6 +204,73 @@ public class GUI implements ActionListener,Serializable
         	}
         };
         label1.addMouseListener(lbl1);
+        
+        inventaire = new JPanel();
+        inventaire.setBounds(0, 293, 481, 156);
+        panelImage.add(inventaire);
+        inventaire.setLayout(null);
+        inventaire.setBorder(new LineBorder(new Color(0, 0, 0)));
+        inventaire.setBackground(Color.PINK);
+        
+        label_1 = new JLabel("");
+        label_1.setBackground(Color.BLACK);
+        label_1.setOpaque(true);
+        label_1.setBounds(12, 0, 70, 70);
+        inventaire.add(label_1);
+        
+        label_2 = new JLabel("");
+        label_2.setBackground(Color.BLACK);
+        label_2.setOpaque(true);
+        label_2.setBounds(114, 0, 70, 70);
+        inventaire.add(label_2);
+        
+        label_3 = new JLabel("");
+        label_3.setOpaque(true);
+        label_3.setBackground(Color.BLACK);
+        label_3.setBounds(224, 0, 70, 70);
+        inventaire.add(label_3);
+        
+        label_4 = new JLabel("");
+        label_4.setBackground(Color.BLACK);
+        label_4.setOpaque(true);
+        label_4.setBounds(320, 0, 70, 70);
+        inventaire.add(label_4);
+        
+        label_5 = new JLabel("");
+        label_5.setBackground(Color.BLACK);
+        label_5.setOpaque(true);
+        label_5.setBounds(12, 73, 70, 70);
+        inventaire.add(label_5);
+        
+        label_6 = new JLabel("");
+        label_6.setBackground(Color.BLACK);
+        label_6.setOpaque(true);
+        label_6.setBounds(114, 73, 70, 70);
+        inventaire.add(label_6);
+        
+        label_7 = new JLabel("");
+        label_7.setBackground(Color.BLACK);
+        label_7.setOpaque(true);
+        label_7.setBounds(224, 73, 70, 70);
+        inventaire.add(label_7);
+        
+        label_8 = new JLabel("");
+        label_8.setBackground(Color.BLACK);
+        label_8.setOpaque(true);
+        label_8.setBounds(320, 73, 70, 70);
+        inventaire.add(label_8);
+        
+        JButton btnX = new JButton("x");
+        btnX.setBounds(449, 0, 32, 25);
+        btnX.addMouseListener( new MouseAdapter() {
+	       	@Override
+	       	public void mouseClicked(MouseEvent arg0) {
+	       		inventaire.setVisible(false);
+	       	}
+		});
+        inventaire.add(btnX);
+        inventaire.setVisible(false);
+        panelImage.add(inventaire);
         
         dyspros = new JLabel();
         dyspros.setBackground(new Color(204, 204, 0));
@@ -253,6 +331,12 @@ public class GUI implements ActionListener,Serializable
         mnJoueur.add(Sauvegarde);
         
         Inventaire = new JMenuItem("Inventaire");
+        Inventaire.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		inventaire.setVisible(true);
+        		afficherInventaire(jeu.getPartie().getJoueur().inventaire);
+        	}
+        });
         mnJoueur.add(Inventaire);
         
         mntmAmis = new JMenuItem("Amis");
@@ -339,6 +423,15 @@ public class GUI implements ActionListener,Serializable
 				}
         	}
         });
+        inventaireSurZone = new ArrayList<JLabel>();
+        inventaireSurZone.add(label_1);
+        inventaireSurZone.add(label_2);
+        inventaireSurZone.add(label_3);
+        inventaireSurZone.add(label_4);
+        inventaireSurZone.add(label_5);
+        inventaireSurZone.add(label_6);
+        inventaireSurZone.add(label_7);
+        inventaireSurZone.add(label_8);
         texte.setWrapStyleWord(true);
         texte.setLineWrap(true);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -479,13 +572,13 @@ public class GUI implements ActionListener,Serializable
 	}
 	public void afficherMiniature(String nomImage, String imageQueteur) {
 		// TODO Auto-generated method stub
-		afficheImageMiniatureWorld(nomImage,world,characterWorldMiniature);
-		afficheImageMiniatureWorld(imageQueteur, character,characterWorldMiniature);
+		afficheImageMiniatureWorld(nomImage,world);
+		afficheImageMiniatureWorld(imageQueteur, character);
 		world.setVisible(false);
 	}
 	public void afficherMechant(String image2) {
 		// TODO Auto-generated method stub
-		afficheImageMiniatureWorld(image2, dyspros, panelImage);
+		afficheImageMiniatureWorld(image2, dyspros);
 	}
 	public void addActionListenerCombat() {
 		label1.removeMouseListener(lbl1);
@@ -514,7 +607,17 @@ public class GUI implements ActionListener,Serializable
 		label3.addMouseListener(lbl3);
 	}      
 	public void interractionCombat(int index) {
-		
 		jeu.tourDuComabat((Allies) objetsDansLaZone.get(index));
+	}
+	public void afficherInventaire(ArrayList<Objets> inventaire ) {
+		for(JLabel label : inventaireSurZone) {
+			label.setIcon(null);
+			System.out.println("coucou je mets à false");
+		}
+		for(Objets obj : inventaire) {
+			int index = inventaire.indexOf(obj);
+			afficheImageMiniatureWorld(obj.getNomImage(), inventaireSurZone.get(index));
+			inventaireSurZone.get(index).setVisible(true);
+		}
 	}
 }

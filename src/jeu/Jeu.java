@@ -102,6 +102,9 @@ public class Jeu implements Serializable {
         gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
         gui.afficherBoutonSortie(partie.getZoneCourante().getSorties());
         gui.afficherMiniature(partie.getZoneCourante().nomImage(),partie.getGuideDuJeu().getImage());
+        if(partie.getJoueur()!=null ) {
+            gui.afficherInventaire(getPartie().getJoueur().inventaire);
+        }
         if(partie.getZoneCourante()==partie.getSceneFinal()) {
          	apparitionMechant();
          	System.out.println("je suis dans la salle finale");
