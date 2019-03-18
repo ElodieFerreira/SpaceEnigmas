@@ -32,21 +32,23 @@ public class Jeu implements Serializable {
     		gui.addNameFrame(partie.getJoueur().getNom()); 
     		gui.addAllActionListener();
     		afficherLocalisation();
-    		ThreadLauncher.checkPhaseOfGame();
-    		ThreadLauncher.checkLifeJoueur();
+    		lancerThreadJoueur();
     	} else {
-    		partie = new Partie();
-    	    creerCarte();
-    	    afficherMessageDeBienvenue();
-    		gui.afficher("Bienvenue ! Rentrez votre pr�nom \n");
-    		sceneOuverture();
+    		System.out.println("coucou je suis là");
+    		lancerNouvellePartie();
     	}
+    }
+    public void lancerNouvellePartie() {
+    	partie = new Partie();
+	    creerCarte();
+	    afficherMessageDeBienvenue();
+		gui.afficher("Bienvenue ! Rentrez votre pr�nom \n");
+		sceneOuverture();
     }
     public void creationJoueur(String nomJoueur) {
     	partie.setJoueur(new Joueur(nomJoueur));
     	gui.addNameFrame(nomJoueur);
-    	ThreadLauncher.checkPhaseOfGame();
-  		ThreadLauncher.checkLifeJoueur();
+    	lancerThreadJoueur();
     }
     public void sceneOuverture() {
     	boolean inProgress = true;
@@ -197,12 +199,11 @@ public class Jeu implements Serializable {
     {
 		File fichier = new File("src/data/sauvegarde.txt");
 		fichier.delete();
-		partie = new Partie();
-		this.setGUI(gui);
-		gui.addNameFrame("");
-		creerCarte();
-		afficherMessageDeBienvenue();
-		gui.afficher("Bienvenue ! Rentrez votre prénom \n");
+		gui.stopFenetre();
+    }
+    public void lancerThreadJoueur() {
+		ThreadLauncher.checkPhaseOfGame();
+		ThreadLauncher.checkLifeJoueur();
     }
 	public void envoyerReponseEnigme(String str,Queteur queteur) {
 		if(queteur.quete() instanceof Pendu) {
@@ -244,14 +245,12 @@ public class Jeu implements Serializable {
 	public void tourDuComabat(Allies personnage) {
 		// TODO Auto-generated method stub
 		partie.getJoueur().attaquer(partie.dyspros()); 
-		gui.afficher("LES PV DE DYSPROS SONT DE "+partie.dyspros().getPointDePouvoir());
+		gui.afficher("LES PV DE DYSPROS SONT DE "+partie.dyspros().getPointDeVie());
 		personnage.lancerPouvoir(partie.dyspros(), partie.getJoueur());
 		partie.dyspros().attaquerJoueur(personnage, partie.getJoueur());
-		gui.afficher("LES PV QUE TU AS"+partie.getJoueur().getPointDeVie());
-	
+		gui.afficher("LES PV QUE TU AS"+partie.getJoueur().getPointDeVie());	
 	}
 	public void lancerCombat() {
 		gui.addActionListenerCombat();
 	}
-
 }
