@@ -248,6 +248,7 @@ public class Jeu implements Serializable {
 		personnage.lancerPouvoir(partie.dyspros(), partie.getJoueur());
 		partie.dyspros().attaquerJoueur(personnage, partie.getJoueur());
 		gui.afficher("LES PV QUE TU AS"+partie.getJoueur().getPointDeVie());
+	
 	}
 	public void lancerCombat() {
 		gui.addActionListenerCombat();

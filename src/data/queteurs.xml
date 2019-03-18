@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="style.css" type="text/css"?>
 <!DOCTYPE personnages SYSTEM "Queteur.dtd">
 <!-- Les index correspondent aux zones d'apparition  -->
 <personnages>
-  <queteur index="6">
+  <queteur index="7">
     <nom>Michel</nom>
     <image>michel.png</image>
     <dialogues>
@@ -42,9 +43,7 @@
   			Passe ton chemin gamin, j'ai du travail !
   		</queteDejaEnCours>
   		<avantQuete>
-	  		Si vous continuez à vouloir me pendre, tous mes clients se vengeront ! *les brigands se retourne* 
-	  		"HE! TOI LA ! Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. 
-	  		Si tu trouves le mot, tu sauves la mafieuse, sinon elle meurt.
+	  	EH! TOI LA ! Quiconque traîne dans cette ruelle doit se plier à nos règles. Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. Si tu trouves le mot, tu gagnes le droit le trainer ici, sinon tu meurs.
   		</avantQuete>
   		<pendantQuete>
   			Vas-y, choisis une lettre, et réfléchis bien ! Au bout de 8 erreurs, c'est la corde qui choisira !
@@ -59,12 +58,12 @@
   			Bravo, cette lettre est dans le mot. Tu peux proposer ta réponse ou demander une autre lettre.
   		</pendantQuete>
   		<aprèsQuete>
-  				C'est le bon mot, elle est libre ! Je dois vous dire que vous m'avez impressionné étranger. 
+  				C'est le bon mot, tu es libre! Je dois vous dire que vous m'avez impressionné étranger. 
   				Sortir un mot en si peu de temps, vous avez vu leurs têtes déconfites hahaha. 
   				Afin de vous remercier pour m'avoir sauvé, permetez-moi de vous donner ce minerai que j'ai illégalement récupérer hahaha
   			</aprèsQuete>
   		<remerciement>
-  			Merci de m'avoir sauver, je te dois une fière chandelle ! Viens me voir si t'as besoin de marchandises interdites !
+  			Merci de m'avoir fait tant rire! Tu aurais du voir ta tête!  Viens me voir si t'as besoin de marchandises interdites !
   		</remerciement>
   	</dialogues>
   </queteur>
