@@ -54,7 +54,8 @@ public class Pendu extends Quete{
 			if(EstDansMot(str.toUpperCase())) {
 				dévoileLettre(str.toUpperCase(),0);
 				if(EstComplet()) {
-					terminer(joueur);
+					int pointPouvoirGagne = 40 - 4*nombreDeCoups;
+					terminer(joueur,pointPouvoirGagne);
 					return reponse+"\n"+queteur.dialogueFinQuete();
 				}
 				return queteur.dialoguePendantQuete(3)+"\n"+motJeu;
