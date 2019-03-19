@@ -203,62 +203,67 @@ public class GUI implements ActionListener,Serializable
         label1.addMouseListener(lbl1);
         
         inventaire = new JPanel();
-        inventaire.setBounds(0, 293, 481, 156);
+        inventaire.setForeground(Color.WHITE);
+        inventaire.setBounds(0, 293, 387, 156);
         panelImage.add(inventaire);
         inventaire.setLayout(null);
         inventaire.setBorder(new LineBorder(new Color(0, 0, 0)));
-        inventaire.setBackground(Color.PINK);
+        inventaire.setBackground(SystemColor.control);
         
         label_1 = new JLabel("");
+        label_1.setForeground(Color.DARK_GRAY);
         label_1.setBackground(Color.BLACK);
         label_1.setOpaque(true);
-        label_1.setBounds(12, 0, 70, 70);
+        label_1.setBounds(10, 5, 65, 65);
         inventaire.add(label_1);
         
         label_2 = new JLabel("");
         label_2.setBackground(Color.BLACK);
         label_2.setOpaque(true);
-        label_2.setBounds(114, 0, 70, 70);
+        label_2.setBounds(85, 5, 65, 65);
         inventaire.add(label_2);
         
         label_3 = new JLabel("");
         label_3.setOpaque(true);
         label_3.setBackground(Color.BLACK);
-        label_3.setBounds(224, 0, 70, 70);
+        label_3.setBounds(160, 5, 65, 65);
         inventaire.add(label_3);
         
         label_4 = new JLabel("");
         label_4.setBackground(Color.BLACK);
         label_4.setOpaque(true);
-        label_4.setBounds(320, 0, 70, 70);
+        label_4.setBounds(245, 5, 65, 65);
         inventaire.add(label_4);
         
         label_5 = new JLabel("");
         label_5.setBackground(Color.BLACK);
         label_5.setOpaque(true);
-        label_5.setBounds(12, 73, 70, 70);
+        label_5.setBounds(10, 81, 65, 65);
         inventaire.add(label_5);
         
         label_6 = new JLabel("");
         label_6.setBackground(Color.BLACK);
         label_6.setOpaque(true);
-        label_6.setBounds(114, 73, 70, 70);
+        label_6.setBounds(85, 81, 65, 65);
         inventaire.add(label_6);
         
         label_7 = new JLabel("");
         label_7.setBackground(Color.BLACK);
         label_7.setOpaque(true);
-        label_7.setBounds(224, 73, 70, 70);
+        label_7.setBounds(160, 81, 65, 65);
         inventaire.add(label_7);
         
         label_8 = new JLabel("");
         label_8.setBackground(Color.BLACK);
         label_8.setOpaque(true);
-        label_8.setBounds(320, 73, 70, 70);
+        label_8.setBounds(245, 81, 65, 65);
         inventaire.add(label_8);
         
-        JButton btnX = new JButton("x");
-        btnX.setBounds(449, 0, 32, 25);
+        JButton btnX = new JButton("");
+        btnX.setToolTipText("");
+        btnX.setIcon(new ImageIcon(GUI.class.getResource("/images/close.png")));
+        btnX.setForeground(Color.BLACK);
+        btnX.setBounds(362, 0, 25, 25);
         btnX.addMouseListener( new MouseAdapter() {
 	       	@Override
 	       	public void mouseClicked(MouseEvent arg0) {
