@@ -47,7 +47,8 @@ public class EnigmeTextuel extends Quete {
 	public String executerQuete(Joueur joueur, Queteur queteur, String str) {
 		nombreDeCoups++;
 		if(bonneReponse(str,joueur.niveauActuel)) {
-			terminer(joueur);
+			int pointDattaqueGagne = 50 - 5*nombreDeCoups;
+			terminer(joueur,pointDattaqueGagne);
 			return queteur.dialogueFinQuete();
 		}
 		if(nombreDeCoups==2)

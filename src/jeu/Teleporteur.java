@@ -1,5 +1,7 @@
 package jeu;
 
+import java.util.ArrayList;
+
 public class Teleporteur extends Objets {
 	private int nombreDeTeleportation;
 	private int nombreDeTeleportationMax;
@@ -9,9 +11,15 @@ public class Teleporteur extends Objets {
 		nombreDeTeleportationMax=3;
 		// TODO Auto-generated constructor stub
 	}
-	public Zone teleportation(Planete planete) {
+	public Zone teleportation(ArrayList<Planete> planetes) {
 		nombreDeTeleportation++;
-		int idZone = (int) ((int) 0+(Math.random()*(3-0)+1);
-		return planete.getZone(idZone);
+		if(nombreDeTeleportation>nombreDeTeleportationMax) {
+			nombreDeTeleportation++;
+			int idPlanete = (int) ((int) 0+(Math.random()*(4-0)+1));
+			int idZone = (int) ((int) 0+(Math.random()*(3-0)+1));
+			return planetes.get(idPlanete).getZone(idZone);
+		} else {
+			return null;
+		}
 	}
 }
