@@ -30,7 +30,7 @@ public class capturerMouton extends Quete {
 			int manqueMouton = nombreMoutonRequis-nombreMoutonRecu;
 			return queteur.dialoguePendantQuete(manqueMouton-1);
 		} else {
-			terminer(joueur);
+			terminer(joueur,10);
 			return queteur.dialogueFinQuete();
 		}
 	}

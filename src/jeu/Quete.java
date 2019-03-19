@@ -21,8 +21,9 @@ public class Quete implements Serializable {
 		recompense = recompenseJoueur;
 		status = false;
 	}
-	protected void terminer(Joueur joueur) {
+	protected void terminer(Joueur joueur,int pointDattaque) {
 		joueur.prendreObjet(recompense);
+		joueur.setPointdAttaque(joueur.getPointdAttaque()+pointDattaque);
 		this.status=true;
 		joueur.setQuete(null);
 		joueur.niveauActuel++;

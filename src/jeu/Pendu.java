@@ -74,12 +74,13 @@ public class Pendu extends Quete{
 		}
 		else  {
 			if(str.toUpperCase().equals(reponse)){
-				terminer(joueur);
+				int pointPouvoirGagne = 40 - 4*nombreDeCoups;
+				terminer(joueur,pointPouvoirGagne);
 				return reponse+"\n"+queteur.dialogueFinQuete();
 			}
 			else {
 				nombreDeCoups++;
-				if(nombreDeCoups==nombreDeCoupsMax) {
+				if(nombreDeCoups==nombreDeCoupsMax) {	
 					perdu(joueur);
 					return "";
 				}
