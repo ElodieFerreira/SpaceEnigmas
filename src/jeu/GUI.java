@@ -205,23 +205,25 @@ public class GUI implements ActionListener,Serializable
         };
         label1.addMouseListener(lbl1);
         lifePoints=new ArrayList<JLabel>();
+        JLabel lifePoint1 = new JLabel("");
+//        lifePoint1.setIcon(new ImageIcon(GUI.class.getResource("/images/lifepoints.png")));
+        lifePoint1.setBounds(49, 228, 97, 23);
+        lifePoints.add(lifePoint1);
+        JLabel lifePoint2 = new JLabel("");
+        lifePoint2.setBounds(350, 228, 163, 23);
+        lifePoints.add(lifePoint2);
+        panelImage.add(lifePoint2);
         JLabel lifePoint3 = new JLabel("");
         lifePoint3.setBackground(Color.GREEN);
         lifePoint3.setBounds(580, 228, 160, 23);
-        lifePoint3.setOpaque(true);
         lifePoints.add(lifePoint3);
         panelImage.add(lifePoint3);
-        JLabel lifePoint2 = new JLabel("");
-        lifePoint2.setBackground(Color.GREEN);
-        lifePoint2.setBounds(350, 228, 163, 23);
-        lifePoint2.setOpaque(true);
-        lifePoints.add(lifePoint2);
-        panelImage.add(lifePoint2);
-        JLabel lifePoint1 = new JLabel("");
-        lifePoint1.setBackground(Color.GREEN);
-        lifePoint1.setBounds(49, 228, 160, 23);
-        lifePoint1.setOpaque(true);
-        lifePoints.add(lifePoint1);
+       
+        for(JLabel label : lifePoints) {
+        	URL lifePointURL = this.getClass().getClassLoader().getResource("images/lifepoints.png");
+        	label.setIcon(new ImageIcon(lifePointURL));
+        	label.setVisible(false);
+        }
         panelImage.add(lifePoint1);
         
         inventaire = new JPanel();
@@ -556,8 +558,8 @@ public class GUI implements ActionListener,Serializable
 		}
 		for(Personnage personnage : personnageDansLaZone) {
 		   	URL personnageURL = this.getClass().getClassLoader().getResource("images/"+personnage.getImage());
-		   	System.out.println("moi je suis un perso");
-		   	System.out.println(personnageURL);
+//		   	System.out.println("moi je suis un perso");
+//		   	System.out.println(personnageURL);
 		   	if( personnageURL != null ) {
 		   		objetsDansLaZone.add((Object)personnage);
 		   		naturesObjetsDansLaZone.add("personnage");
@@ -566,7 +568,7 @@ public class GUI implements ActionListener,Serializable
 	        	if(personnage instanceof Allies) {
 	        		Allies allies = (Allies) personnage;
 	        		System.out.println("j'ai pv:"+allies.getPointDeVie());
-	        		lifePoints.get(cpt).setBounds(49,228,(500*(allies.getPointDeVie()/10)), 23);
+	        		lifePoints.get(cpt).setSize(((Allies) personnage).getPointDeVie()*10, 23);
 	        		lifePoints.get(cpt).setVisible(true);
 	        	}
 	        }

@@ -54,7 +54,7 @@ public class Jeu implements Serializable {
     	boolean inProgress = true;
     	gui.afficher(partie.getGuideDuJeu().dialogueLancementQuete());
     	while(partie.getJoueur()==null) {
-    		System.out.println("");
+    		
     	}
     	while(inProgress) {
     		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(0).replaceAll("joueur", partie.getJoueur().getNom()));
