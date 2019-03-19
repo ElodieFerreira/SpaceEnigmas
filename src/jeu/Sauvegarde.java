@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Sauvegarde
 {
 	/**
-	 * @param partieCourante
+	 * @param partieCourante represents the current part that we will serialize
 	 */
 	public static void Serialize(Partie partieCourante) {
 		try 
@@ -27,6 +27,10 @@ public class Sauvegarde
 	}
 
 	
+	/**
+	 * @param partieCourante represents the file we want to read to deserialize. Here it is the serialized file of the current part
+	 * @return The last part that the player has saved 
+	 */
 	public static Partie Deserialize(Partie partieCourante)
 	{
 		// Maintenant on va procéder à la déséralisation

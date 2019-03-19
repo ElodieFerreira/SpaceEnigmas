@@ -11,6 +11,10 @@ public class Pendu extends Quete{
 	private String reponse;
 	private String motJeu;
 	
+	/** Constructor which initialize the hangman quest
+	 * @param recompenseJoueur is the object that will be given to the player after the quest
+	 * @param newMots represents a array of word which are the answers to the hangman
+	 */
 	public Pendu(Objets recompenseJoueur, ArrayList<String> newMots) {
 		super(recompenseJoueur);
 		// TODO Auto-generated constructor 
@@ -21,6 +25,10 @@ public class Pendu extends Quete{
 		mots.addAll(newMots);
 	}
 	
+	/** This method check if the player wrote more than one letter
+	 * @param st represents the letter that the player wrote on the keyboard
+	 * @return a boolean : return true if the player wrote more than one letter else it returns false
+	 */
 	private boolean EstTropGrande(String st) {
 		if(st.toUpperCase().length()>1) {
 			return true;
@@ -30,10 +38,18 @@ public class Pendu extends Quete{
 		}
 	}
 	
+	/** This method check if the word written on the keyboard is contained in the answer
+	 * @param rep is the word that the player wrote on the keyboard
+	 * @return : a boolean which return true if the word written is contained in the answer else return false
+	 */
 	private boolean EstDansMot(String rep) {
 		return this.reponse.contains(rep);
 	}
 	
+	/** 
+	 * @param lettre 
+	 * @param id
+	 */
 	private void dévoileLettre(String lettre, int id) {
 		int index=reponse.indexOf(lettre.toUpperCase(),id);
 		System.out.println(motJeu.length());
