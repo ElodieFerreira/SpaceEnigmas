@@ -46,8 +46,8 @@ public class Pendu extends Quete{
 		return this.reponse.contains(rep);
 	}
 	
-	/** 
-	 * @param lettre 
+	/** This method show the letter to the players, if the letter was a part of the word
+	 * @param lettre is the letter that the player wrote on the keyboard 
 	 * @param id
 	 */
 	private void dévoileLettre(String lettre, int id) {
