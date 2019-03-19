@@ -207,7 +207,7 @@ public class GUI implements ActionListener,Serializable
         
         inventaire = new JPanel();
         inventaire.setForeground(Color.WHITE);
-        inventaire.setBounds(0, 293, 387, 156);
+        inventaire.setBounds(0, 293, 334, 156);
         panelImage.add(inventaire);
         inventaire.setLayout(null);
         inventaire.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -235,7 +235,7 @@ public class GUI implements ActionListener,Serializable
         label_4 = new JLabel("");
         label_4.setBackground(Color.BLACK);
         label_4.setOpaque(true);
-        label_4.setBounds(245, 5, 65, 65);
+        label_4.setBounds(235, 5, 65, 65);
         inventaire.add(label_4);
         
         label_5 = new JLabel("");
@@ -259,14 +259,14 @@ public class GUI implements ActionListener,Serializable
         label_8 = new JLabel("");
         label_8.setBackground(Color.BLACK);
         label_8.setOpaque(true);
-        label_8.setBounds(245, 81, 65, 65);
+        label_8.setBounds(235, 81, 65, 65);
         inventaire.add(label_8);
         
         JButton btnX = new JButton("");
-        btnX.setToolTipText("");
+        btnX.setToolTipText("exit");
         btnX.setIcon(new ImageIcon(GUI.class.getResource("/images/close.png")));
         btnX.setForeground(Color.BLACK);
-        btnX.setBounds(362, 0, 25, 25);
+        btnX.setBounds(310, 0, 25, 25);
         btnX.addMouseListener( new MouseAdapter() {
 	       	@Override
 	       	public void mouseClicked(MouseEvent arg0) {
@@ -621,6 +621,8 @@ public class GUI implements ActionListener,Serializable
 		for(Objets obj : inventaire) {
 			int index = inventaire.indexOf(obj);
 			afficheImageMiniatureWorld(obj.getNomImage(), inventaireSurZone.get(index));
+			inventaireSurZone.get(index).setToolTipText(obj.getDescription());
+			
 			inventaireSurZone.get(index).setVisible(true);
 		}
 	}
