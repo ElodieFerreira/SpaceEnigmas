@@ -25,5 +25,8 @@ public class Objets implements Serializable{
 		this.Description = description;
 		this.NomImage = nomImage;
 	}
+	public String getDescription() {
+		return this.Description;
+	}
 	
 }
