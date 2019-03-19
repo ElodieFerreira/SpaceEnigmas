@@ -1,9 +1,7 @@
 package jeu;
-import java.awt.BorderLayout;
 import java.awt.*;
 import javax.swing.*;
-import java.awt.Dimension;
-import java.awt.Image;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -18,9 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import java.awt.Component;
-import java.awt.Color;
-import java.awt.Panel;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -53,7 +49,7 @@ public class GUI implements ActionListener,Serializable
     private JTextField entree;
 	private JButton boutonNord;
     private JTextArea texte;
-    private JLabel image;
+    private JLabel image,saveMessage;
     private JButton boutonSud;
     private JButton boutonOuest;
     private JButton boutonEst;
@@ -358,10 +354,29 @@ public class GUI implements ActionListener,Serializable
         Sauvegarde.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		jeu.Sauvegarde();
+        		Thread t = new Thread( new Runnable() {
+        			public void run() {
+        				saveMessage.setVisible(true);
+        				try {
+							Thread.sleep(1500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+        				saveMessage.setVisible(false);
+        			}
+        		});
+        		t.start();
+        		
         	}
         });
         mnJoueur.add(Sauvegarde);
-        
+    	saveMessage = new JLabel("Votre sauvegarde a bien été effectué");
+        saveMessage.setBounds(280, 78, 220, 87);
+        saveMessage.setBackground(Color.gray);
+        saveMessage.setOpaque(true);
+        saveMessage.setVisible(false);
+        panelImage.add(saveMessage);
         Inventaire = new JMenuItem("Inventaire");
         Inventaire.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
@@ -464,6 +479,9 @@ public class GUI implements ActionListener,Serializable
         inventaireSurZone.add(label_6);
         inventaireSurZone.add(label_7);
         inventaireSurZone.add(label_8);
+        
+        
+        
         texte.setWrapStyleWord(true);
         texte.setLineWrap(true);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
