@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 public class Sauvegarde
 {
+	/**
+	 * @param partieCourante
+	 */
 	public static void Serialize(Partie partieCourante) {
 		try 
 		{
