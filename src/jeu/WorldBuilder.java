@@ -11,7 +11,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 public class WorldBuilder {
-	public ArrayList<Zone> creerToutesLesZones() {
+	public static ArrayList<Zone> creerToutesLesZones() {
 		// Création du vaisseau : 
 		ArrayList<Zone> zones = new ArrayList<Zone>();
     	zones.add(new Zone("Vaisseau","vaisseau.png","Voici votre vaisseau... Il vous permettra de vous balader de planète en planète"));
@@ -30,7 +30,7 @@ public class WorldBuilder {
         }
     	return zones;
     }	
-	public ArrayList<Planete> creerLesPlanetes(ArrayList<Zone> toutesLesZones) {
+	public static ArrayList<Planete> creerLesPlanetes(ArrayList<Zone> toutesLesZones) {
 		ArrayList<Planete>  planetesRetour = new ArrayList<Planete>();
 		ReaderXML planeteReader = new ReaderXML("espace1.xml");
         NodeList planetes = planeteReader.getDocument().getElementsByTagName("planete");
@@ -49,7 +49,7 @@ public class WorldBuilder {
         }
 		return planetesRetour;
 	}
-	public ArrayList<Zone> ajouterToutesLesSorties(ArrayList<Zone> toutesLesZones) {
+	public static ArrayList<Zone> ajouterToutesLesSorties(ArrayList<Zone> toutesLesZones) {
     	ReaderXML spaceReader = new ReaderXML("espace1.xml");
         NodeList zones = spaceReader.getDocument().getElementsByTagName("zone");
         for(int i=0;i<zones.getLength();i++) {
@@ -65,13 +65,13 @@ public class WorldBuilder {
         }
     	return toutesLesZones;
     }
-	public Zone ajouterLesSortiesAuVaisseau(Zone vaisseau, ArrayList<Planete> espace) {
+	public static Zone ajouterLesSortiesAuVaisseau(Zone vaisseau, ArrayList<Planete> espace) {
 		for(int i=0;i<espace.size()-1;i++) {
 			vaisseau.ajouteSortie(Sortie.values()[i], espace.get(i).getZones().get(0));
 		}
 		return vaisseau;
 	}
-	public Zone ajouterSortieZoneDeRepos(Zone repos,String direction,Zone sortie) {
+	public static Zone ajouterSortieZoneDeRepos(Zone repos,String direction,Zone sortie) {
 		repos.ajouteSortie(Sortie.valueOf(direction), sortie);
 		return repos;
 	}
@@ -92,7 +92,7 @@ public class WorldBuilder {
 		}
 		return zone ;
 	}
-	public ArrayList<Allies> creerTousLesAllies(String nomFichier) {
+	public static ArrayList<Allies> creerTousLesAllies(String nomFichier) {
 		ReaderXML persoReader = new ReaderXML(nomFichier);
 		ArrayList<Allies> tousLesPersos = new ArrayList<Allies>();
 		NodeList allies = persoReader.getDocument().getElementsByTagName("allie");
@@ -116,7 +116,7 @@ public class WorldBuilder {
 		}
 		return tousLesPersos;
 	}
-	public ArrayList<Zone> positionneAlliees(ArrayList<Zone> zones, ArrayList<Allies> tousLesAllies)
+	public static ArrayList<Zone> positionneAlliees(ArrayList<Zone> zones, ArrayList<Allies> tousLesAllies)
 	{	
 		HashSet hs=new HashSet();
 		while(hs.size()<tousLesAllies.size()){
@@ -132,11 +132,11 @@ public class WorldBuilder {
 		}
 		return zones;
 	}
-	public Zone suppresionDuMouton(Zone zone,Mouton mouton) {
+	public static Zone suppresionDuMouton(Zone zone,Mouton mouton) {
 		zone.getAnimauxDansLazone().remove(mouton);
 		return zone;
 	}
-	public ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones,ArrayList<Quete> toutesLesQuetes) {
+	public static ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones,ArrayList<Quete> toutesLesQuetes) {
 		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
 		NodeList queteursNode = queteurReader.getDocument().getElementsByTagName("queteur");
 		for(int i=0;i<queteursNode.getLength()-1;i++) {
@@ -199,7 +199,7 @@ public class WorldBuilder {
 		}
 		return objets;
 	}
-	public ArrayList<Quete> creerLesQuetesDuJeu(ArrayList<Objets> recompenses) {
+	public static ArrayList<Quete> creerLesQuetesDuJeu(ArrayList<Objets> recompenses) {
 		ArrayList<Quete> quetes = new ArrayList<Quete>();
 		//Creation de la premiere quete : Mouton
 		capturerMouton capture = new capturerMouton(recompenses.get(0), 3);
@@ -242,7 +242,7 @@ public class WorldBuilder {
 		quetes.add(enigme);
 		return quetes;
 	}
-	public synchronized void retirerMouton(ArrayList<Zone> zones) {
+	public static synchronized void retirerMouton(ArrayList<Zone> zones) {
 		// TODO Auto-generated method stub
 		ArrayList<Zone> zonesArrayList = zones;
 		ArrayList<Mouton> moutons = new ArrayList<Mouton>();
