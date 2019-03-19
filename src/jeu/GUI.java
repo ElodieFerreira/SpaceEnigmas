@@ -612,7 +612,6 @@ public class GUI implements ActionListener,Serializable
 	public void afficherInventaire(ArrayList<Objets> inventaire ) {
 		for(JLabel label : inventaireSurZone) {
 			label.setIcon(null);
-			System.out.println("coucou je mets à false");
 		}
 		for(Objets obj : inventaire) {
 			int index = inventaire.indexOf(obj);

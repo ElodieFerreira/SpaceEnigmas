@@ -194,7 +194,7 @@ public class Jeu implements Serializable {
     	afficherScenePerdante();
 //    	gui.stopFenetre();
     }
-    public void afficherScenePerdante() {
+    public synchronized void afficherScenePerdante() {
     	partie.setZoneCourante(new Zone("","zoneperdante.gif","Vous êtes mort. Sans votre aide, Dyspros continuera encore longtemps son règne de terreur sur la galaxie..."));
     	afficherLocalisation();
     }
@@ -251,7 +251,19 @@ public class Jeu implements Serializable {
 		gui.afficher("LES PV DE DYSPROS SONT DE "+partie.dyspros().getPointDeVie());
 		personnage.lancerPouvoir(partie.dyspros(), partie.getJoueur());
 		partie.dyspros().attaquerJoueur(personnage, partie.getJoueur());
+		gui.afficher(String.valueOf(personnage.getPointDeVie()));
+		if(personnage.getPointDeVie()<0) {
+			retirerPersonnageMort(personnage);
+		}
+		if(partie.getZoneCourante().getPersonnageDansLaZone().size()==0) {
+			partie.getJoueur().setPointDeVie(0);
+		}
+		gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(), partie.getZoneCourante().getPersonnageDansLaZone());
 		gui.afficher("LES PV QUE TU AS"+partie.getJoueur().getPointDeVie());	
+	}
+	private void retirerPersonnageMort(Allies personnage) {
+		// TODO Auto-generated method stub
+		partie.getZoneCourante().getPersonnageDansLaZone().remove(personnage);
 	}
 	public void lancerCombat() {
 		gui.addActionListenerCombat();
