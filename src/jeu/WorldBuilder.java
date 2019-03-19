@@ -242,6 +242,9 @@ public class WorldBuilder {
 		quetes.add(enigme);
 		return quetes;
 	}
+	/** 
+	 * @param zones
+	 */
 	public static synchronized void retirerMouton(ArrayList<Zone> zones) {
 		// TODO Auto-generated method stub
 		ArrayList<Zone> zonesArrayList = zones;

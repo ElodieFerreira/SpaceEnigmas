@@ -13,10 +13,12 @@ public class Teleporteur extends Objets {
 	}
 	public Zone teleportation(ArrayList<Planete> planetes) {
 		nombreDeTeleportation++;
-		if(nombreDeTeleportation>nombreDeTeleportationMax) {
-			nombreDeTeleportation++;
-			int idPlanete = (int) ((int) 0+(Math.random()*(4-0)+1));
-			int idZone = (int) ((int) 0+(Math.random()*(3-0)+1));
+		if(nombreDeTeleportation<=nombreDeTeleportationMax) {
+			System.out.println("test");
+			int idPlanete = (int) ((int) 0+(Math.random()*(3-0)+1));
+			System.out.println(idPlanete);
+			int idZone = (int) ((int) 0+(Math.random()*(2-0)+1));
+			System.out.println(idZone);
 			return planetes.get(idPlanete).getZone(idZone);
 		} else {
 			return null;
