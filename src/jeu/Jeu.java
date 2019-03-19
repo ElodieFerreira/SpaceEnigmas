@@ -67,7 +67,7 @@ public class Jeu implements Serializable {
     		partie.setZoneCourante(partie.getVaisseau());
     		afficherLocalisation();
     		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(1));
-    		getPartie().getJoueur().prendreObjet(new Teleporteur("Teleporteur","Vieux téléporteur, peu fiable...", "teleporteur.png",3));
+    		getPartie().getJoueur().prendreObjet(new Teleporteur("Teleporteur", "Vieux téléporteur, peu fiable...", "teleporteur.png",3));
     		gui.addAllActionListener();
     		inProgress = false;
     	}
@@ -223,13 +223,9 @@ public class Jeu implements Serializable {
 		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete().replaceAll("joueur",partie.getJoueur().getNom()));
 		afficherLocalisation();
 	}
-	public void Sauvegarde()
-    {
-    	Sauvegarde.Serialize(partie);
-    }
-	public void apparitionMechant() {
-		gui.afficherMechant(partie.dyspros().getImage());
-	}
+	public void Sauvegarde() { Sauvegarde.Serialize(partie); }
+	public void apparitionMechant() { gui.afficherMechant(partie.dyspros().getImage()); }
+	
 	public void mentrisRemerciement(int cptNiveau) {
 		// TODO Auto-generated method stub
 		partie.setZoneCourante(partie.getVaisseau());
@@ -258,5 +254,16 @@ public class Jeu implements Serializable {
 	}
 	public void lancerCombat() {
 		gui.addActionListenerCombat();
+	}
+	public void teleporterJoueur() {
+		Objets obj = partie.getJoueur().inventaire.get(0);
+		if(obj instanceof Teleporteur) {
+			Zone zone = ((Teleporteur)obj).teleportation(partie.carteActuel());
+			if(zone!=null) {
+				partie.setZoneCourante(zone);
+				afficherLocalisation();
+			}
+		}
+		
 	}
 }

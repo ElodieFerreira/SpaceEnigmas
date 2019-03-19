@@ -74,6 +74,7 @@ public class GUI implements ActionListener,Serializable
     private MouseListener lbl1;
     private MouseListener lbl2;
     private MouseListener lbl3;
+    private MouseListener teleporteur;
     private JPanel inventaire;
     private JLabel label_1;
     private JLabel label_2;
@@ -84,6 +85,7 @@ public class GUI implements ActionListener,Serializable
     private JLabel label_7;
     private JLabel label_8;
     private ArrayList<JLabel> inventaireSurZone;
+    private ArrayList<JLabel> lifePoints;
     
 
     public GUI(Jeu j) {
@@ -136,6 +138,7 @@ public class GUI implements ActionListener,Serializable
         }
    }
  
+   
     public void afficherBoutonSortie(HashMap<String,Zone> sorties) {
     	if(sorties.get("NORD")!=null) {
     		boutonNord.setText(sorties.get("NORD").getNom());
@@ -201,6 +204,25 @@ public class GUI implements ActionListener,Serializable
         	}
         };
         label1.addMouseListener(lbl1);
+        lifePoints=new ArrayList<JLabel>();
+        JLabel lifePoint3 = new JLabel("");
+        lifePoint3.setBackground(Color.GREEN);
+        lifePoint3.setBounds(580, 228, 160, 23);
+        lifePoint3.setOpaque(true);
+        lifePoints.add(lifePoint3);
+        panelImage.add(lifePoint3);
+        JLabel lifePoint2 = new JLabel("");
+        lifePoint2.setBackground(Color.GREEN);
+        lifePoint2.setBounds(350, 228, 163, 23);
+        lifePoint2.setOpaque(true);
+        lifePoints.add(lifePoint2);
+        panelImage.add(lifePoint2);
+        JLabel lifePoint1 = new JLabel("");
+        lifePoint1.setBackground(Color.GREEN);
+        lifePoint1.setBounds(49, 228, 160, 23);
+        lifePoint1.setOpaque(true);
+        lifePoints.add(lifePoint1);
+        panelImage.add(lifePoint1);
         
         inventaire = new JPanel();
         inventaire.setForeground(Color.WHITE);
@@ -308,7 +330,13 @@ public class GUI implements ActionListener,Serializable
         };
         label3.addMouseListener(lbl3);
         panelImage.add(label3);
-        
+        teleporteur = new MouseAdapter() {
+           	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		jeu.teleporterJoueur();
+        	}
+        };
+        label_1.addMouseListener(teleporteur);       
         labelArray = new ArrayList<JLabel>();
         labelArray.add(label1);
         labelArray.add(label2);
@@ -509,6 +537,9 @@ public class GUI implements ActionListener,Serializable
 		for(JLabel label : labelArray) {
 			label.setVisible(false);
 		}
+		for(JLabel label : lifePoints) {
+			label.setVisible(false);
+		}
         objetsDansLaZone = new ArrayList<Object>();
         naturesObjetsDansLaZone = new ArrayList<String>();
 		int cpt = 0;
@@ -520,26 +551,6 @@ public class GUI implements ActionListener,Serializable
 		   		naturesObjetsDansLaZone.add("mouton");
 	        	labelArray.get(cpt).setIcon( new ImageIcon(moutonURL));
 	        	labelArray.get(cpt).setVisible(true);
-//	        	Thread t = new Thread(new Runnable() {
-//	        		public void run() {
-//	        			System.out.println("OKOKOKOKOk");
-//	        			for(int x=-50;x<250;x++) {
-//	        				labelArray.get(0).setLocation(x, 241);
-////	        				labelArray.get(0).revalidate();
-////	        				labelArray.get(0).setVisible(true);
-////	        				labelArray.get(0).repaint();
-//	        				try {
-//		        				Thread.sleep(30);
-//							} catch (InterruptedException e) {
-//								// TODO Auto-generated catch block
-//								e.printStackTrace();
-//							}
-//	        			}
-//	        			labelArray.get(0).setBounds(50,241,180,180);
-//	        		}
-//	        	}); 
-//	        	t.start();
-//	        	t.stop();
 	          	cpt++;
 	        }
 		}
@@ -550,8 +561,14 @@ public class GUI implements ActionListener,Serializable
 		   	if( personnageURL != null ) {
 		   		objetsDansLaZone.add((Object)personnage);
 		   		naturesObjetsDansLaZone.add("personnage");
-	        	labelArray.get(cpt).setIcon( new ImageIcon(personnageURL));
+	        	labelArray.get(cpt).setIcon( new ImageIcon(personnageURL)); 	
 	        	labelArray.get(cpt).setVisible(true);
+	        	if(personnage instanceof Allies) {
+	        		Allies allies = (Allies) personnage;
+	        		System.out.println("j'ai pv:"+allies.getPointDeVie());
+	        		lifePoints.get(cpt).setBounds(49,228,(500*(allies.getPointDeVie()/10)), 23);
+	        		lifePoints.get(cpt).setVisible(true);
+	        	}
 	        }
 		   	cpt++;
 		}

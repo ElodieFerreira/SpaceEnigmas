@@ -34,7 +34,7 @@ public class Partie implements Serializable {
 		carteActuel = new ArrayList<Planete>();
 		nbCommande = 0;
 		nbCommandeMax = 200;
-		dyspros = new Allies("Dyspros","","Legrandmechant.png",25,2,Role.valueOf("FIGHTER"),"ola");
+		dyspros = new Allies("Dyspros","","Legrandmechant.png",150,2,Role.valueOf("FIGHTER"),"ola");
 	}
 	public Joueur getJoueur() {
 		return joueur;
