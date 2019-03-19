@@ -67,26 +67,25 @@ public class Jeu implements Serializable {
     		partie.setZoneCourante(partie.getVaisseau());
     		afficherLocalisation();
     		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(1));
-    		getPartie().getJoueur().prendreObjet(new Teleporteur("Teleporteur","", "teleporteur.png",3));
+    		getPartie().getJoueur().prendreObjet(new Teleporteur("Teleporteur","Vieux téléporteur, peu fiable...", "teleporteur.png",3));
     		gui.addAllActionListener();
     		inProgress = false;
     	}
     	System.out.println("Bienvenue chez les Hyènes");
     }
     private void creerCarte() {
-    	WorldBuilder constructorOfMap = new WorldBuilder();
-    	ArrayList<Zone> zones = constructorOfMap.creerToutesLesZones();
-    	zones = constructorOfMap.ajouterToutesLesSorties(zones);
-    	ArrayList<Planete> espace = constructorOfMap.creerLesPlanetes(zones);
+    	ArrayList<Zone> zones = WorldBuilder.creerToutesLesZones();
+    	zones = WorldBuilder.ajouterToutesLesSorties(zones);
+    	ArrayList<Planete> espace = WorldBuilder.creerLesPlanetes(zones);
     	Zone vaisseau = zones.get(0);
-    	vaisseau = constructorOfMap.ajouterLesSortiesAuVaisseau(vaisseau, espace);
-    	ArrayList<Allies> tousLesAllies = constructorOfMap.creerTousLesAllies("allies.xml");
-    	zones = constructorOfMap.positionneAlliees(zones, tousLesAllies);
-    	ArrayList<Objets> objets = constructorOfMap.creerLesObjets();
-    	ArrayList<Quete> quetes = constructorOfMap.creerLesQuetesDuJeu(objets);
-    	zones = constructorOfMap.miseEnPlaceDesQueteurs(zones,quetes);
-    	partie.setGuideDuJeu(constructorOfMap.CreerGuide());
-    	partie.setSalleDeRepos(constructorOfMap.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
+    	vaisseau = WorldBuilder.ajouterLesSortiesAuVaisseau(vaisseau, espace);
+    	ArrayList<Allies> tousLesAllies = WorldBuilder.creerTousLesAllies("allies.xml");
+    	zones = WorldBuilder.positionneAlliees(zones, tousLesAllies);
+    	ArrayList<Objets> objets = WorldBuilder.creerLesObjets();
+    	ArrayList<Quete> quetes = WorldBuilder.creerLesQuetesDuJeu(objets);
+    	zones = WorldBuilder.miseEnPlaceDesQueteurs(zones,quetes);
+    	partie.setGuideDuJeu(WorldBuilder.CreerGuide());
+    	partie.setSalleDeRepos(WorldBuilder.ajouterSortieZoneDeRepos(zones.get(1), "SUD", vaisseau));
     	partie.setsceneFinal(zones.get(zones.size()-1));
     	partie.setEspace(espace);
     	partie.setZoneCourante(espace.get(0).getZones().get(1));
@@ -166,10 +165,6 @@ public class Jeu implements Serializable {
     			} else {
     				if(queteur.quete()==getPartie().queteEnCoursPartie()) {
     					gui.afficher(queteur.quete().executerQuete(getPartie().getJoueur(), queteur));
-//    						if(checkPhaseFinale()) {
-//    							lancerPhaseFinale();
-//    							System.out.println("je suis dans la phase finale");
-//    						}
     				} else {
     					gui.afficher(((Queteur) personnage).queteDejaEnCours());
     				}
@@ -193,7 +188,6 @@ public class Jeu implements Serializable {
     public void perdu() {
     	System.out.println("T'as perdu wesh! ");
     	afficherScenePerdante();
-//    	gui.stopFenetre();
     }
     public synchronized void afficherScenePerdante() {
     	partie.setZoneCourante(new Zone("","zoneperdante.gif","Vous êtes mort. Sans votre aide, Dyspros continuera encore longtemps son règne de terreur sur la galaxie..."));
@@ -216,9 +210,6 @@ public class Jeu implements Serializable {
 			gui.afficher(((EnigmeTextuel)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,str));
 		}
 	}
-	public boolean checkPhaseFinale() {
-		return (partie.getJoueur().niveauActuel==partie.getJoueur().niveauMaximum);
-	}
 	public void lancerPhaseFinale() {
 		partie.getSalleDeRepos().ajouteSortie(Sortie.valueOf("NORD"), partie.getSceneFinal());
 		partie.setZoneCourante(partie.getSalleDeRepos());
@@ -234,8 +225,7 @@ public class Jeu implements Serializable {
 	}
 	public void Sauvegarde()
     {
-    	Sauvegarde save = new Sauvegarde(partie);
-    	save.Serialize(partie);
+    	Sauvegarde.Serialize(partie);
     }
 	public void apparitionMechant() {
 		gui.afficherMechant(partie.dyspros().getImage());
