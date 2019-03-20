@@ -616,9 +616,10 @@ public class GUI implements ActionListener,Serializable
 		afficheImageMiniatureWorld(imageQueteur, character);
 		world.setVisible(false);
 	}
-	public void afficherMechant(String image2) {
+	public void displayDyspros(String image2, boolean isDisplayed) {
 		// TODO Auto-generated method stub
 		afficheImageMiniatureWorld(image2, dyspros);
+		dyspros.setVisible(isDisplayed);
 	}
 	public void addActionListenerCombat() {
 		label1.removeMouseListener(lbl1);

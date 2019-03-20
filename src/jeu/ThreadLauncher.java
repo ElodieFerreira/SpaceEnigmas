@@ -67,7 +67,7 @@ public class ThreadLauncher {
 							if(!setMechant) {
 								System.out.println("j'aichangerlesListener");
 								jeu.lancerCombat();
-								jeu.apparitionMechant();
+								jeu.apparitionMechant(true);
 								setMechant = true;
 							}
 						}

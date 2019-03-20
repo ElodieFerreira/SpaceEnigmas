@@ -105,10 +105,6 @@ public class Jeu implements Serializable {
         if(partie.getJoueur()!=null ) {
             gui.afficherInventaire(getPartie().getJoueur().inventaire);
         }
-        if(partie.getZoneCourante()==partie.getSceneFinal()) {
-         	apparitionMechant();
-         	System.out.println("je suis dans la salle finale");
-        }
     }
     
     private void afficherMessageDeBienvenue() {
@@ -224,7 +220,7 @@ public class Jeu implements Serializable {
 		afficherLocalisation();
 	}
 	public void Sauvegarde() { Sauvegarde.Serialize(partie); }
-	public void apparitionMechant() { gui.afficherMechant(partie.dyspros().getImage()); }
+	public void apparitionMechant(boolean isDisplayed) { gui.displayDyspros(partie.dyspros().getImage(),isDisplayed); }
 	
 	public void mentrisRemerciement(int cptNiveau) {
 		// TODO Auto-generated method stub
@@ -233,13 +229,18 @@ public class Jeu implements Serializable {
 		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(cptNiveau).replaceAll("joueur", getPartie().getJoueur().getNom()));
 	}
 	public void tourDuComabat(Allies personnage) {
-		// TODO Auto-generated method stub
 		partie.getJoueur().attaquer(partie.dyspros()); 
 		gui.afficher("LES PV DE DYSPROS SONT DE "+partie.dyspros().getPointDeVie());
+		if(partie.dyspros().getPointDeVie()<=0) {
+			partie.setZoneCourante(new Zone("Galaxie","win.gif","Vous avez sauvé toute votre galaxie"));
+			apparitionMechant(false);
+			afficherLocalisation();
+			return;
+		}
 		personnage.lancerPouvoir(partie.dyspros(), partie.getJoueur());
 		partie.dyspros().attaquerJoueur(personnage, partie.getJoueur());
 		gui.afficher(String.valueOf(personnage.getPointDeVie()));
-		if(personnage.getPointDeVie()<0) {
+		if(personnage.getPointDeVie()<=0) {
 			retirerPersonnageMort(personnage);
 		}
 		if(partie.getZoneCourante().getPersonnageDansLaZone().size()==0) {
