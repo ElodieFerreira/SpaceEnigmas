@@ -93,7 +93,7 @@ public class GUI implements ActionListener,Serializable
     }
     public void afficher(String s) {
     	texte.append("\n");
-    	texte.append(s);
+    	texte.append(s+"\n");
         texte.setCaretPosition(texte.getDocument().getLength());
     }
     
@@ -171,7 +171,7 @@ public class GUI implements ActionListener,Serializable
         fenetre = new JFrame("SpaceEnigmas");
         panel = new JPanel();
         panelCarte = new JPanel();
-        panelCarte.setBounds(0, 25, 880, 499);
+        panelCarte.setBounds(0, 25, 985, 499);
         new JButton("Est");
         new JButton("Ouest");
         panel.setLayout(null);
@@ -344,7 +344,7 @@ public class GUI implements ActionListener,Serializable
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
         
         menuBar = new JMenuBar();
-        menuBar.setBounds(0, 0, 880, 26);
+        menuBar.setBounds(0, 0, 984, 26);
         panel.add(menuBar);
         
         mnJoueur = new JMenu("Joueur");
@@ -372,7 +372,7 @@ public class GUI implements ActionListener,Serializable
         });
         mnJoueur.add(Sauvegarde);
     	saveMessage = new JLabel("Votre sauvegarde a bien été effectué");
-        saveMessage.setBounds(280, 78, 220, 87);
+        saveMessage.setBounds(316, 89, 220, 87);
         saveMessage.setBackground(Color.gray);
         saveMessage.setOpaque(true);
         saveMessage.setVisible(false);
@@ -430,7 +430,7 @@ public class GUI implements ActionListener,Serializable
         
         JSplitPane splitPane = new JSplitPane();
         splitPane.setResizeWeight(0.15);
-        splitPane.setBounds(5, 525, 874, 105);
+        splitPane.setBounds(0, 523, 985, 190);
         panel.add(splitPane);
         panelTexte = new JPanel();
         splitPane.setRightComponent(panelTexte);
@@ -440,22 +440,23 @@ public class GUI implements ActionListener,Serializable
         texte.setEditable(false);
         JScrollPane listScroller = new JScrollPane(texte);
         panelTexte.add(listScroller, BorderLayout.NORTH);
-        listScroller.setPreferredSize(new Dimension(0, 100));
-        listScroller.setMinimumSize(new Dimension(0, 100));
+        listScroller.setPreferredSize(new Dimension(0, 200));
+        listScroller.setMinimumSize(new Dimension(0, 200));
         
         characterWorldMiniature = new JPanel();
         splitPane.setLeftComponent(characterWorldMiniature);
         characterWorldMiniature.setLayout(null);
         
         character = new JLabel("");
-        character.setBounds(0, 0, 115, 103);
+        character.setBounds(10, 33, 127, 131);
         characterWorldMiniature.add(character);
         
         world = new JLabel("");
         world.setBounds(0, 0, 115, 103);
         characterWorldMiniature.add(world);
         entree = new JTextField(34);
-        entree.setBounds(4, 628, 880, 22);
+        entree.setToolTipText("Veuillez écrire ici");
+        entree.setBounds(0, 714, 985, 36);
         panel.add(entree);
         entree.addActionListener(this);
         entree.requestFocus();
@@ -485,7 +486,7 @@ public class GUI implements ActionListener,Serializable
         texte.setWrapStyleWord(true);
         texte.setLineWrap(true);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetre.setBounds(500,10,900,700);
+        fenetre.setBounds(500,10,1000,785);
         fenetre.setVisible(true);
     }
 

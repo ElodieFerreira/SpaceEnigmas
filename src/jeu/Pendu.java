@@ -46,9 +46,10 @@ public class Pendu extends Quete{
 		return this.reponse.contains(rep);
 	}
 	
-	/** This method show the letter to the players, if the letter was a part of the word
+	/** <b> checkLetter(String, int) :  </b>
+	 * This method show the letter to the players, if the letter was a part of the word 
 	 * @param lettre is the letter that the player wrote on the keyboard 
-	 * @param id
+	 * @param id is the beggening of the indexOf.
 	 */
 	private void dévoileLettre(String lettre, int id) {
 		int index=reponse.indexOf(lettre.toUpperCase(),id);
@@ -61,10 +62,30 @@ public class Pendu extends Quete{
 		}	
 	}
 	
+	/**
+	 * @return boolean : true if the word we play is complete else false
+	 */
 	private boolean EstComplet() {
 		return (motJeu.equals(reponse));
 	}
 		
+	/** This method allows you to run the quest using other methods. Indeed, 
+	 * this method check : 
+	 * <ul> 
+	 * <li> If the letter isn't too long </li>
+	 * <li> If the letter is in the word (if true : show the letter)</li>
+	 * <li> If maximum number of chance isn't achived </li>
+	 * </ul>
+	 * @param joueur represents the player
+	 * @param queteur represents the person who give to the player the quest
+	 * @param str represents the letter that the player wrote
+	 * @return String which can be : 
+	 * <ul>
+	 * <li>Thank you sentence of the person who launched the quest</li>
+	 * <li>The number of the chance remaining</li>
+	 * <li> A sentence that prevents the execution of two quests (because the players have already a quest remaining)</li>
+	 * </ul>
+	 */
 	public String executerQuete(Joueur joueur, Queteur queteur, String str) {
 		if(!EstTropGrande(str.toUpperCase())) {
 			if(EstDansMot(str.toUpperCase())) {
@@ -105,6 +126,12 @@ public class Pendu extends Quete{
 			}
 		}
 	}
+	/** 
+	 * This method launch the quest. The quest have a level according to the 
+	 *the advanced part
+	 * @param joueur the player
+	 * @param queteur 
+	 */
 	public void lancerQuete(Joueur joueur, Queteur queteur) {
 		int niveau = joueur.niveauActuel;
 		reponse = mots.get(niveau);
