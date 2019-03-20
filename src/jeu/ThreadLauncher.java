@@ -84,10 +84,9 @@ public class ThreadLauncher {
 				int nbMoutonToPlace=0;
 				do {
 					nbMoutonToPlace = quete.nbMouton()-jeu.getPartie().getJoueur().nbMouton();
-					WorldBuilder r = new WorldBuilder();
-					r.retirerMouton(jeu.getPartie().zones());
+					WorldBuilder.reInitSheep(jeu.getPartie().zones());
 					System.out.println("mdrjsuisla");
-					WorldBuilder.positionMouton(jeu.getPartie().zones(),nbMoutonToPlace);	
+					WorldBuilder.positionnerMouton(jeu.getPartie().zones(),nbMoutonToPlace);	
 					try {
 						Thread.sleep(7000);
 					} catch (InterruptedException e) {
