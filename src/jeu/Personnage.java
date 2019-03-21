@@ -19,6 +19,9 @@ public class Personnage implements Serializable{
 	public String getImage() {
 		return image;
 	}
+	public String getNom() {
+		return nom;
+	}
 	public String parler() {
 		return "hmm, je ne sais pas quoi dire...";
 	}

@@ -52,12 +52,12 @@ public class Jeu implements Serializable {
     }
     public void sceneOuverture() {
     	boolean inProgress = true;
-    	gui.afficher(partie.getGuideDuJeu().dialogueLancementQuete());
+    	gui.afficher(partie.getGuideDuJeu().dialogueLancementQuete(),partie.getGuideDuJeu());
     	while(partie.getJoueur()==null) {
     		
     	}
     	while(inProgress) {
-    		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(0).replaceAll("joueur", partie.getJoueur().getNom()));
+    		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(0).replaceAll("joueur", partie.getJoueur().getNom()),partie.getGuideDuJeu());
     		try {
 				Thread.sleep(10000);
 			} catch (InterruptedException e) {
@@ -144,7 +144,7 @@ public class Jeu implements Serializable {
     }
     public void interractionPersonnage(Personnage personnage) {
     	if(personnage instanceof Allies) {
-    		gui.afficher(personnage.parler());
+    		gui.afficher(personnage.parler(),personnage);
     		partie.getJoueur().friends.add(personnage);
     		if(partie.getJoueur().friends.size()!=partie.getSalleDeRepos().getPersonnageDansLaZone().size()) {
     			partie.getSalleDeRepos().getPersonnageDansLaZone().add(personnage);
@@ -155,19 +155,18 @@ public class Jeu implements Serializable {
     		if(!queteur.besoinAide()) {
     			if(getPartie().queteEnCoursPartie()==null) {
     				partie.setQuete((queteur).quete());
-    				gui.afficher(queteur.parler(getPartie().getJoueur()));
-    				System.out.println("jsetelaquequete");
+    				gui.afficher(queteur.parler(getPartie().getJoueur()),queteur);
     				System.out.println(queteur.quete().getClass());
     			} else {
     				if(queteur.quete()==getPartie().queteEnCoursPartie()) {
     					gui.afficher(queteur.quete().executerQuete(getPartie().getJoueur(), queteur));
     				} else {
-    					gui.afficher(((Queteur) personnage).queteDejaEnCours());
+    					gui.afficher(((Queteur) personnage).queteDejaEnCours(),queteur);
     				}
     				
     			}
 			} else {
-				gui.afficher(queteur.remerciement());
+				gui.afficher(queteur.remerciement(),queteur);
 			}
     	} 
     }
@@ -216,7 +215,7 @@ public class Jeu implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete().replaceAll("joueur",partie.getJoueur().getNom()));
+		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete().replaceAll("Joueur",partie.getJoueur().getNom()));
 		afficherLocalisation();
 	}
 	public void Sauvegarde() { Sauvegarde.Serialize(partie); }

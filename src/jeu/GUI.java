@@ -96,11 +96,31 @@ public class GUI implements ActionListener,Serializable
     	texte.append(s+"\n");
         texte.setCaretPosition(texte.getDocument().getLength());
     }
+    public void afficher(String s, Personnage perso) {
+    	texte.append("\n");
+    	texte.append(perso.getNom()+"\n");
+    	Thread t = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				afficherMiniature(jeu.getPartie().getZoneCourante().getNomImage(), perso.getImage());
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				afficherMiniature(jeu.getPartie().getZoneCourante().getNomImage(), jeu.getPartie().getGuideDuJeu().getImage());
+			}
+		});
+    	t.start();
+    	texte.append(s+"\n");
+        texte.setCaretPosition(texte.getDocument().getLength());
+    }
     
     public void afficher() {
         afficher("\n");
     }
-
     public void afficheImage(String nomImage) {
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	ImageIcon img = new ImageIcon(imageURL);
@@ -131,6 +151,7 @@ public class GUI implements ActionListener,Serializable
     	Image imageResize = img.getScaledInstance(jlabel.getWidth(), jlabel.getHeight(), Image.SCALE_SMOOTH);
    	   	if( imageURL != null ) {
 	   		jlabel.setIcon(new ImageIcon(imageResize));
+	   		
         }
    }
  
@@ -478,7 +499,7 @@ public class GUI implements ActionListener,Serializable
         characterWorldMiniature.add(character);
         
         world = new JLabel("");
-        world.setBounds(0, 0, 115, 103);
+        world.setBounds(0, 0, 147, 188);
         characterWorldMiniature.add(world);
         entree = new JTextField(34);
         entree.setToolTipText("Veuillez écrire ici");
@@ -645,7 +666,7 @@ public class GUI implements ActionListener,Serializable
 		// TODO Auto-generated method stub
 		afficheImageMiniatureWorld(nomImage,world);
 		afficheImageMiniatureWorld(imageQueteur, character);
-		world.setVisible(false);
+		world.setVisible(true);
 	}
 	public void displayDyspros(String image2, boolean isDisplayed) {
 		afficheImageMiniatureWorld(image2, dyspros);
