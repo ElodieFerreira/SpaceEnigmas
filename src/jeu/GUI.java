@@ -134,7 +134,16 @@ public class GUI implements ActionListener,Serializable
         }
    }
  
-   
+    public JButton texteVerticaleBouton(JButton bouton, String text) {
+    	String textBoutton = new String("<HTML>");
+    	for(int i=0;i<text.length();i++) {
+    		textBoutton += text.charAt(i);	
+    		textBoutton += "<br>";
+    	}
+    	textBoutton += "</HTML>";
+    	bouton.setText(textBoutton);
+    	return bouton;
+    }
     public void afficherBoutonSortie(HashMap<String,Zone> sorties) {
     	if(sorties.get("NORD")!=null) {
     		boutonNord.setText(sorties.get("NORD").getNom());
@@ -149,13 +158,13 @@ public class GUI implements ActionListener,Serializable
     		boutonSud.setVisible(false);
     	}
     	if(sorties.get("EST")!=null) {
-    		boutonEst.setText(sorties.get("EST").getNom());
+    		boutonEst = texteVerticaleBouton(boutonEst, sorties.get("EST").getNom());
     		boutonEst.setVisible(true);
     	} else {
     		boutonEst.setVisible(false);
     	}
     	if(sorties.get("OUEST")!=null) {
-    		boutonOuest.setText(sorties.get("OUEST").getNom());
+    		boutonOuest = texteVerticaleBouton(boutonOuest, sorties.get("OUEST").getNom());
     		boutonOuest.setVisible(true);
     	} else {
     		boutonOuest.setVisible(false);
@@ -196,16 +205,26 @@ public class GUI implements ActionListener,Serializable
         lifePoint1.setBounds(49, 228, 97, 23);
         lifePoints.add(lifePoint1);
         boutonNord = new JButton("Nord");
+        boutonNord.setVerticalTextPosition(SwingConstants.CENTER);
+        boutonNord.setHorizontalTextPosition(SwingConstants.CENTER);
         boutonNord.setBounds(0, 0, 985, 23);
         panelImage.add(boutonNord);
         boutonSud = new JButton("Sud");
         boutonSud.setBounds(0, 476, 985, 23);
+        boutonSud.setVerticalTextPosition(SwingConstants.CENTER);
+        boutonSud.setHorizontalTextPosition(SwingConstants.CENTER);
         panelImage.add(boutonSud);
         boutonEst = new JButton("EST");
-        boutonEst.setBounds(955, 21, 30, 456);
+        boutonEst.setBounds(955, 21, 35, 456);
+        boutonEst.setVerticalTextPosition(SwingConstants.CENTER);
+        boutonEst.setHorizontalTextPosition(SwingConstants.CENTER);
+        boutonEst.setIcon(new ImageIcon(GUI.class.getResource("/images/button.png")));
         panelImage.add(boutonEst);
         boutonOuest = new JButton("Ouest");
-        boutonOuest.setBounds(0, 0, 30, 499);
+        boutonOuest.setIcon(new ImageIcon(GUI.class.getResource("/images/button.png")));
+        boutonOuest.setVerticalTextPosition(SwingConstants.CENTER);
+        boutonOuest.setHorizontalTextPosition(SwingConstants.CENTER);
+        boutonOuest.setBounds(0, 0, 35, 499);
         panelImage.add(boutonOuest);
         JLabel lifePoint2 = new JLabel("");
         lifePoint2.setBounds(350, 228, 163, 23);
@@ -621,7 +640,6 @@ public class GUI implements ActionListener,Serializable
 		world.setVisible(false);
 	}
 	public void displayDyspros(String image2, boolean isDisplayed) {
-		// TODO Auto-generated method stub
 		afficheImageMiniatureWorld(image2, dyspros);
 		dyspros.setVisible(isDisplayed);
 	}
