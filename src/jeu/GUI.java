@@ -190,6 +190,7 @@ public class GUI implements ActionListener,Serializable
         
 
         panelImage = new JPanel();
+        panelImage.setBackground(Color.DARK_GRAY);
         panelImage.setLayout(null);
         label1 = new JLabel();
         lbl1= new MouseAdapter() {
@@ -205,22 +206,29 @@ public class GUI implements ActionListener,Serializable
         lifePoint1.setBounds(49, 228, 97, 23);
         lifePoints.add(lifePoint1);
         boutonNord = new JButton("Nord");
+        boutonNord.setSelectedIcon(new ImageIcon(GUI.class.getResource("/images/button2.png")));
+        boutonNord.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 10));
         boutonNord.setVerticalTextPosition(SwingConstants.CENTER);
         boutonNord.setHorizontalTextPosition(SwingConstants.CENTER);
         boutonNord.setBounds(0, 0, 985, 23);
         panelImage.add(boutonNord);
         boutonSud = new JButton("Sud");
+        boutonSud.setSelectedIcon(new ImageIcon(GUI.class.getResource("/images/button2.png")));
         boutonSud.setBounds(0, 476, 985, 23);
         boutonSud.setVerticalTextPosition(SwingConstants.CENTER);
         boutonSud.setHorizontalTextPosition(SwingConstants.CENTER);
         panelImage.add(boutonSud);
         boutonEst = new JButton("EST");
-        boutonEst.setBounds(955, 21, 35, 456);
+        boutonEst.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 10));
+        boutonEst.setBounds(955, 0, 35, 499);
         boutonEst.setVerticalTextPosition(SwingConstants.CENTER);
         boutonEst.setHorizontalTextPosition(SwingConstants.CENTER);
         boutonEst.setIcon(new ImageIcon(GUI.class.getResource("/images/button.png")));
         panelImage.add(boutonEst);
         boutonOuest = new JButton("Ouest");
+        boutonOuest.setForeground(new Color(0, 0, 0));
+        boutonOuest.setBackground(SystemColor.activeCaption);
+        boutonOuest.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 10));
         boutonOuest.setIcon(new ImageIcon(GUI.class.getResource("/images/button.png")));
         boutonOuest.setVerticalTextPosition(SwingConstants.CENTER);
         boutonOuest.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -499,7 +507,7 @@ public class GUI implements ActionListener,Serializable
         inventaireSurZone.add(label_7);
         inventaireSurZone.add(label_8);
         image = new JLabel();
-        image.setBounds(29, 21, 907, 456);
+        image.setBounds(0, 0, 985, 499);
         image.setBackground(new Color(153, 0, 204));
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelImage.add(image);
