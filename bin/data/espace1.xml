@@ -93,7 +93,7 @@
 		</zone>
 		<zone index="12">
 				<nom>Kishu - Jardins</nom>
-				<description>Pélerins et moines viennent méditer dans ce magnifique jardin unique dans la galaxie.</description>
+				<description>Pélerins et moines viennent méditer en face de ce magnifique paysage unique dans la galaxie.</description>
 				<image>zone11.gif</image>
 				<sortie index="11">SUD</sortie>
 				<sortie index="13">OUEST</sortie>
@@ -101,7 +101,7 @@
 		<zone index="13">
 				<nom>Kishu - Temple</nom>
 				<description>Construit il y a des millénaires, ce temple isolé regorge de mystères.</description>
-				<image>zone12.JPG</image>
+				<image>zone12.gif</image>
 				<sortie index="12">EST</sortie>
 		</zone>
     </cartePlanete>
