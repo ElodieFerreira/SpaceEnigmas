@@ -176,21 +176,11 @@ public class GUI implements ActionListener,Serializable
         new JButton("Ouest");
         panel.setLayout(null);
         panel.add(panelCarte);
-        boutonEst = new JButton("EST");
-        boutonOuest = new JButton("Ouest");
-        boutonNord = new JButton("Nord");
-        boutonSud = new JButton("Sud");
         panelCarte.setLayout(new BorderLayout(0, 0));
-        panelCarte.add(boutonNord, BorderLayout.NORTH);
-        panelCarte.add(boutonOuest, BorderLayout.WEST);
         
         
 
         panelImage = new JPanel();
-        image = new JLabel();
-        image.setBounds(0, 0, 760, 449);
-        image.setBackground(new Color(153, 0, 204));
-        image.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelImage.setLayout(null);
         label1 = new JLabel();
         lbl1= new MouseAdapter() {
@@ -205,6 +195,18 @@ public class GUI implements ActionListener,Serializable
 //        lifePoint1.setIcon(new ImageIcon(GUI.class.getResource("/images/lifepoints.png")));
         lifePoint1.setBounds(49, 228, 97, 23);
         lifePoints.add(lifePoint1);
+        boutonNord = new JButton("Nord");
+        boutonNord.setBounds(0, 0, 985, 23);
+        panelImage.add(boutonNord);
+        boutonSud = new JButton("Sud");
+        boutonSud.setBounds(0, 476, 985, 23);
+        panelImage.add(boutonSud);
+        boutonEst = new JButton("EST");
+        boutonEst.setBounds(955, 21, 30, 456);
+        panelImage.add(boutonEst);
+        boutonOuest = new JButton("Ouest");
+        boutonOuest.setBounds(0, 0, 30, 499);
+        panelImage.add(boutonOuest);
         JLabel lifePoint2 = new JLabel("");
         lifePoint2.setBounds(350, 228, 163, 23);
         lifePoints.add(lifePoint2);
@@ -224,7 +226,7 @@ public class GUI implements ActionListener,Serializable
         
         inventaire = new JPanel();
         inventaire.setForeground(Color.WHITE);
-        inventaire.setBounds(0, 293, 334, 156);
+        inventaire.setBounds(29, 332, 334, 156);
         panelImage.add(inventaire);
         inventaire.setLayout(null);
         inventaire.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -302,7 +304,6 @@ public class GUI implements ActionListener,Serializable
         label1.setBounds(50, 241, 180, 180);
         label1.setBackground(new Color(204, 204, 0));
         panelImage.add(label1);
-        panelImage.add(image);
         panelCarte.add(panelImage);
         
         label2 = new JLabel();
@@ -339,8 +340,6 @@ public class GUI implements ActionListener,Serializable
         labelArray.add(label1);
         labelArray.add(label2);
         labelArray.add(label3);
-        panelCarte.add(boutonEst, BorderLayout.EAST);
-        panelCarte.add(boutonSud, BorderLayout.SOUTH);
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
         
         menuBar = new JMenuBar();
@@ -372,7 +371,7 @@ public class GUI implements ActionListener,Serializable
         });
         mnJoueur.add(Sauvegarde);
     	saveMessage = new JLabel("Votre sauvegarde a bien été effectué");
-        saveMessage.setBounds(316, 89, 220, 87);
+        saveMessage.setBounds(369, 89, 220, 87);
         saveMessage.setBackground(Color.gray);
         saveMessage.setOpaque(true);
         saveMessage.setVisible(false);
@@ -480,6 +479,11 @@ public class GUI implements ActionListener,Serializable
         inventaireSurZone.add(label_6);
         inventaireSurZone.add(label_7);
         inventaireSurZone.add(label_8);
+        image = new JLabel();
+        image.setBounds(29, 21, 907, 456);
+        image.setBackground(new Color(153, 0, 204));
+        image.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panelImage.add(image);
         
         
         
