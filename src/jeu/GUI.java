@@ -36,52 +36,24 @@ public class GUI implements ActionListener,Serializable
 	private static final long serialVersionUID = -1091520350373841679L;
 	private Jeu jeu;
     private JFrame fenetre;
-    private JPanel panel;
-    private JPanel panelImage;
+    private JPanel panel,panelImage,panelTexte,panelCarte,characterWorldMiniature;
     private ArrayList<JLabel> labelArray;
     private ArrayList<Object> objetsDansLaZone;
     private ArrayList<String> naturesObjetsDansLaZone;
-    private JLabel label1;
-    private JLabel label3;
-    private JLabel label2;
-    private JPanel panelTexte;
-    private JPanel panelCarte;
+    private JLabel label1,label2,label3,image,saveMessage;
+    private JLabel world,character,dyspros;
     private JTextField entree;
-	private JButton boutonNord;
     private JTextArea texte;
-    private JLabel image,saveMessage;
-    private JButton boutonSud;
-    private JButton boutonOuest;
-    private JButton boutonEst;
+	private JButton boutonNord,boutonSud,boutonOuest,boutonEst;
+    private JMenu mnJoueur,mnAide;
     private JMenuBar menuBar;
-    private JMenu mnJoueur;
-    private JMenuItem Sauvegarde;
-    private JMenuItem Inventaire;
-    private JMenuItem mntmAmis;
-    private JMenuItem test;
-    private JMenu mnAide;
-    private JMenuItem Interface;
-    private JMenuItem Planete;
-    private JMenuItem suppression;
-    private JPanel characterWorldMiniature;
-    private JLabel world;
-    private JLabel character;
-    private JLabel dyspros;
-    private MouseListener lbl1;
-    private MouseListener lbl2;
-    private MouseListener lbl3;
-    private MouseListener teleporteur;
+    private JMenuItem Sauvegarde,Inventaire,mntmAmis,test,Interface,Planete,suppression;
+
+    private MouseListener lbl1,lbl2,lbl3,teleporteur;
     private JPanel inventaire;
-    private JLabel label_1;
-    private JLabel label_2;
-    private JLabel label_3;
-    private JLabel label_4;
-    private JLabel label_5;
-    private JLabel label_6;
-    private JLabel label_7;
-    private JLabel label_8;
-    private ArrayList<JLabel> inventaireSurZone;
-    private ArrayList<JLabel> lifePoints;
+    //Jlabel correspondant à l'inventaire
+    private JLabel label_1,label_2,label_3,label_4,label_5,label_6,label_7,label_8;
+    private ArrayList<JLabel> inventaireSurZone,lifePoints;
     
 
     public GUI(Jeu j) {
@@ -236,6 +208,7 @@ public class GUI implements ActionListener,Serializable
         boutonSud = new JButton("Sud");
         boutonSud.setIcon(new ImageIcon(GUI.class.getResource("/images/button2.png")));
         boutonSud.setBounds(0, 476, 985, 23);
+        boutonSud.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 10));
         boutonSud.setVerticalTextPosition(SwingConstants.CENTER);
         boutonSud.setHorizontalTextPosition(SwingConstants.CENTER);
         panelImage.add(boutonSud);

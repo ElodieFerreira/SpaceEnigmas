@@ -7,88 +7,39 @@
     <nom>Michel</nom>
     <image>michel.png</image>
     <dialogues>
-      <queteDejaEnCours>
-      		Le temps passe, mais les moutons restent les mêmes...
-      </queteDejaEnCours>
-      <avantQuete>
-      	Vous saviez que la Oecophylla smaragdina est une espèce d'insectes de la famille des Formicidae, sous-famille des Formicinae, 
-      	de la tribu des Oecophyllini et du genre Oecophylla ? Autrefois elles cohabitaient en paix avec mes moutons 
-      	mais depuis que je les ai perdus, les fourmis sont parties... *pleure*. 
-      	Si vous parvenez à me retrouver 3 je vous en serait éternellement reconnaissant ! 
-      </avantQuete>
-      <pendantQuete>
-     	Evian vous l'avez retrouvé ! Lui je l'aime pas, il est méchant avec moi, mais c'est quand même la famille !
-      </pendantQuete>
-      <pendantQuete>
-       	Vous avez retrouvé Volvic, mon mouton préféré ! Plus que deux s'il vous-plait !
-      </pendantQuete>
-      <pendantQuete>
-     	 Faites attention, mes moutons sont très voyageurs, vous pourriez en trouver sur d'autres planètes !
-      </pendantQuete>
-      <aprèsQuete>
-      	Léandro, Vous l'avez retrouvé ? Vous les avez tous retrouvé ?! C'est tout simplement EXTRAORDINAIRE ! 
-      	Comment avec-vous fait ?... Non, en fait je m'en fiche de comment vous avez fait. 
-      	Laissez moi vous donner ceci qui j'espère vous aidera.
-      	</aprèsQuete>
-      <remerciement>
-     	 Depuis que vous les avez retrouvé, aucun de mes moutons ne s'est échappé !
-      </remerciement>
+      <queteDejaEnCours>Le temps passe, mais les moutons restent les mêmes...</queteDejaEnCours>
+      <avantQuete>Vous saviez que la Oecophylla smaragdina est une espèce d'insectes de la famille des Formicidae, sous-famille des Formicinae, de la tribu des Oecophyllini et du genre Oecophylla ? Autrefois elles cohabitaient en paix avec mes moutons mais depuis que je les ai perdus, les fourmis sont parties... *pleure*. Si vous parvenez à me retrouver 3 je vous en serait éternellement reconnaissant ! </avantQuete>
+      <pendantQuete>Evian vous l'avez retrouvé ! Lui je l'aime pas, il est méchant avec moi, mais c'est quand même la famille !</pendantQuete>
+      <pendantQuete>Vous avez retrouvé Volvic, mon mouton préféré ! Plus que deux s'il vous-plait !</pendantQuete>
+      <pendantQuete>Faites attention, mes moutons sont très voyageurs, vous pourriez en trouver sur d'autres planètes !</pendantQuete>
+      <aprèsQuete>Léandro, Vous l'avez retrouvé ? Vous les avez tous retrouvé ?! C'est tout simplement EXTRAORDINAIRE ! Comment avec-vous fait ?... Non, en fait je m'en fiche de comment vous avez fait. Laissez moi vous donner ceci qui j'espère vous aidera.</aprèsQuete>
+      <remerciement>Depuis que vous les avez retrouvé, aucun de mes moutons ne s'est échappé !</remerciement>
     </dialogues>
   </queteur>
   <queteur index="10">
   	<nom>Cash</nom>
   	<image>cash.png</image>
   	<dialogues>
-  		<queteDejaEnCours>
-  			Passe ton chemin gamin, j'ai du travail !
-  		</queteDejaEnCours>
-  		<avantQuete>
-	  	EH! TOI LA ! Quiconque traîne dans cette ruelle doit se plier à nos règles. Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. Si tu trouves le mot, tu gagnes le droit le trainer ici, sinon tu meurs.
-  		</avantQuete>
-  		<pendantQuete>
-  			Vas-y, choisis une lettre, et réfléchis bien ! Au bout de 8 erreurs, c'est la corde qui choisira !
-  		</pendantQuete>
-  		<pendantQuete>
-  			Raté, cette lettre n'est pas dans le mot ! Plus que nb erreurs.
-  		</pendantQuete>
-  		<pendantQuete>
-  			Et non, c'est pas le bon mot ! Plus que nb erreurs.
-  		</pendantQuete>
-  		<pendantQuete>
-  			Bravo, cette lettre est dans le mot. Tu peux proposer ta réponse ou demander une autre lettre.
-  		</pendantQuete>
-  		<aprèsQuete>
-  				C'est le bon mot, tu es libre! Je dois vous dire que vous m'avez impressionné étranger. 
-  				Sortir un mot en si peu de temps, vous avez vu leurs têtes déconfites hahaha. 
-  				Afin de vous remercier pour m'avoir sauvé, permetez-moi de vous donner ce minerai que j'ai illégalement récupérer hahaha
-  			</aprèsQuete>
-  		<remerciement>
-  			Merci de m'avoir fait tant rire! Tu aurais du voir ta tête!  Viens me voir si t'as besoin de marchandises interdites !
-  		</remerciement>
+  		<queteDejaEnCours>Passe ton chemin gamin, j'ai du travail !</queteDejaEnCours>
+  		<avantQuete>EH! TOI LA ! Quiconque traîne dans cette ruelle doit se plier à nos règles. Tu connais le jeu du pendu ? Eh bien on va jouer mais pour de vrai. Si tu trouves le mot, tu gagnes le droit le trainer ici, sinon tu meurs.</avantQuete>
+  		<pendantQuete>Vas-y, choisis une lettre, et réfléchis bien ! Au bout de 8 erreurs, c'est la corde qui choisira !</pendantQuete>
+  		<pendantQuete>Raté, cette lettre n'est pas dans le mot ! Plus que nb erreurs.</pendantQuete>
+  		<pendantQuete>Et non, c'est pas le bon mot ! Plus que nb erreurs.</pendantQuete>
+  		<pendantQuete>Bravo, cette lettre est dans le mot. Tu peux proposer ta réponse ou demander une autre lettre.</pendantQuete>
+  		<aprèsQuete> C'est le bon mot, tu es libre! Je dois vous dire que vous m'avez impressionné étranger. Sortir un mot en si peu de temps, vous avez vu leurs têtes déconfites hahaha.Afin de vous remercier pour m'avoir sauvé, permetez-moi de vous donner ce minerai que j'ai illégalement récupérer hahaha</aprèsQuete>
+  		<remerciement>Merci de m'avoir fait tant rire! Tu aurais du voir ta tête!  Viens me voir si t'as besoin de marchandises interdites. </remerciement>
   	</dialogues>
   </queteur>
   <queteur index="13">
   	<nom>Père Roufas</nom>
   	<image>pereroufas.gif</image>
   	<dialogues>
-  		<queteDejaEnCours>
-  			As-tu... accepté... la sagesse dans ta vie ?
-  		</queteDejaEnCours>
-  		<avantQuete>
-  			Entrez étranger, entrez, Culsans, un dieu important est apparu dans mes rêves pour me prévenir qu'un étranger viendrai calmer mon mal à tous jamais. 
-  			Depuis des dizaines et des dizaines d'années, je tente en vain de répondre à une énigme de la plus haute importance.
-  			Réussisez à y répondre et je vous aiderai dans votre quête
-  		</avantQuete>
+  		<queteDejaEnCours>As-tu... accepté... la sagesse dans ta vie ?</queteDejaEnCours>
+  		<avantQuete> Entrez étranger, entrez, Culsans, un dieu important est apparu dans mes rêves pour me prévenir qu'un étranger viendrai calmer mon mal à tous jamais.Depuis des dizaines et des dizaines d'années, je tente en vain de répondre à une énigme de la plus haute importance. Réussisez à y répondre et je vous aiderai dans votre quête </avantQuete>
   		<pendantQuete>Tu dois trouver la réponse au fond de toi...</pendantQuete>
   		<pendantQuete>Ce n'est pas tout à fait ça...</pendantQuete>
-  		<aprèsQuete>
-  			Vous avez trouvé la bonne réponse! C'est inexplicable, vous avez un talent iné pour devenir moine. 
-  			Je vous engage à commencer la formation une fois que votre quête sera terminée. 
-  			D'ailleurs, afin de vous aider du mieux possible, je vous confie ce précieux cadeau...
-  		</aprèsQuete>
-  		<remerciement>
-  			Vous avez réfléchis à ma proposition ? Devenir moine, ça vous donne plein d'avantages ! 
-  			Evidemenment, vous devez renoncer à toutes possessions matérielles, mais bon...
+  		<aprèsQuete>Vous avez trouvé la bonne réponse! C'est inexplicable, vous avez un talent iné pour devenir moine. Je vous engage à commencer la formation une fois que votre quête sera terminée. D'ailleurs, afin de vous aider du mieux possible, je vous confie ce précieux cadeau...</aprèsQuete>
+  		<remerciement> Vous avez réfléchis à ma proposition ? Devenir moine, ça vous donne plein d'avantages ! Evidemenment, vous devez renoncer à toutes possessions matérielles, mais bon...
   		</remerciement>
   	</dialogues>
   </queteur>
