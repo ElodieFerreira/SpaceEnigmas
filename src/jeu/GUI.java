@@ -227,14 +227,14 @@ public class GUI implements ActionListener,Serializable
         lifePoint1.setBounds(49, 228, 97, 23);
         lifePoints.add(lifePoint1);
         boutonNord = new JButton("Nord");
-        boutonNord.setSelectedIcon(new ImageIcon(GUI.class.getResource("/images/button2.png")));
+        boutonNord.setIcon(new ImageIcon(GUI.class.getResource("/images/button2.png")));
         boutonNord.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 10));
         boutonNord.setVerticalTextPosition(SwingConstants.CENTER);
         boutonNord.setHorizontalTextPosition(SwingConstants.CENTER);
         boutonNord.setBounds(0, 0, 985, 23);
         panelImage.add(boutonNord);
         boutonSud = new JButton("Sud");
-        boutonSud.setSelectedIcon(new ImageIcon(GUI.class.getResource("/images/button2.png")));
+        boutonSud.setIcon(new ImageIcon(GUI.class.getResource("/images/button2.png")));
         boutonSud.setBounds(0, 476, 985, 23);
         boutonSud.setVerticalTextPosition(SwingConstants.CENTER);
         boutonSud.setHorizontalTextPosition(SwingConstants.CENTER);
