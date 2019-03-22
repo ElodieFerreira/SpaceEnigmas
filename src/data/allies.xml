@@ -5,13 +5,7 @@
 	<allie index="1">
 		<nom>Edolie</nom>
 		<image>edolie.gif</image>
-		<dialogue>
-			J'ai entendu dire que vous voulez affronter Dyspros! Il a
-			légèrement
-			déréglé les préférences de mon IDE! Je hais ce type!
-			Laissez moi venir
-			avec moi!
-		</dialogue>
+		<dialogue> J'ai entendu dire que vous voulez affronter Dyspros! Il a légèrement déréglé les préférences de mon IDE! Je hais ce type! Laissez moi veniravec moi!	</dialogue>
 		<PP>3</PP>
 		<PV>6</PV>
 		<ROLE>FIGHTER</ROLE>
@@ -19,13 +13,7 @@
 	<allie index="2">
 		<nom>Tasbien</nom>
 		<image>tasbien.gif</image>
-		<dialogue>
-			Vous allez vous opposer à Dyspros? Prenez-moi avec vous! Il
-			a dit que mon
-			groupe préféré ressemblait à un artiste que je n'aime
-			pas, je le
-			tuerais!!
-		</dialogue>
+		<dialogue> Vous allez vous opposer à Dyspros? Prenez-moi avec vous! Il a dit que mon groupe préféré ressemblait à un artiste que je n'aimepas, je le tuerais!!</dialogue>
 		<PP>4</PP>
 		<PV>5</PV>
 		<ROLE>FIGHTER</ROLE>
@@ -33,11 +21,7 @@
 	<allie index="3">
 		<nom>Dayfa</nom>
 		<image>dayfa.png</image>
-		<dialogue>
-			Voulez vous combattre Dyspros ? Je déteste ce jeune homme!
-			Il a volé mon plaid, j'ai dû aller au marché pour en acheter un
-			autre. Laissez moi me joindre à vous
-		</dialogue>
+		<dialogue> Voulez vous combattre Dyspros ? Je déteste ce jeune homme!Il a volé mon plaid, j'ai dû aller au marché pour en acheter unautre. Laissez moi me joindre à vous</dialogue>
 		<PP>2</PP>
 		<PV>1</PV>
 		<ROLE >FIGHTER</ROLE>
@@ -45,13 +29,7 @@
 	<allie index="4">
 		<nom>Dr. Noyah</nom>
 		<image>noyah.gif</image>
-		<dialogue>
-			Vous allez défier Dyspros ? C'est à cause de lui qu'aucune
-			de mes
-			inventions ne marchent ! Enfin, je ne peux pas le prouver,
-			mais je
-			suis sûr que c'est lui! Emmenez-moi avec vous!
-		</dialogue>
+		<dialogue>Vous allez défier Dyspros ? C'est à cause de lui qu'aucune de mesinventions ne marchent ! Enfin, je ne peux pas le prouver, mais je suis sûr que c'est lui! Emmenez-moi avec vous! </dialogue>
 		<PP>7</PP>
 		<PV>3</PV>
 		<ROLE >FIGHTER</ROLE>
@@ -59,12 +37,7 @@
 	<allie index="5">
 		<nom>Nifa</nom>
 		<image>nifa.png</image>
-		<dialogue>
-			Je vois... Je vois... Un destin exceptionnel... Vous allez
-			affronter Dyspros et libérer la galaxie! Cette ordure a volé ma boule
-			de cristal, mes cartes de tarot et la page horoscope de tous mes
-			magasines! Laissez-moi venir avec moi, il me le paiera!
-		</dialogue>
+		<dialogue> Je vois... Je vois... Un destin exceptionnel... Vous allez affronter Dyspros et libérer la galaxie! Cette ordure a volé ma boule de cristal, mes cartes de tarot et la page horoscope de tous mes magasines! Laissez-moi venir avec moi, il me le paiera!</dialogue>
 		<PP>4</PP>
 		<PV>8</PV>
 		<ROLE >HEALER</ROLE>
@@ -72,11 +45,7 @@
 	<allie index="6">
 		<nom>Oteh</nom>
 		<image>oteh.gif</image>
-		<dialogue>
-			Je sais que vous allez défier Dyspros. Je suis un esprit
-			immortel qui transcende les réalités. Je ne suis pas impliqué dans
-			les affaires des simples mortels, mais votre jeu vidéo m'est
-			sympathique. Je veux bien vous aider
+		<dialogue> Je sais que vous allez défier Dyspros. Je suis un esprit immortel qui transcende les réalités. Je ne suis pas impliqué dans les affaires des simples mortels, mais votre jeu vidéo m'est sympathique. Je veux bien vous aider
 		</dialogue>
 		<PP>10</PP>
 		<PV>10</PV>
@@ -85,10 +54,7 @@
 	<allie index="7">
 		<nom>Tymmo</nom>
 		<image>tymmo.png</image>
-		<dialogue>
-			J'ai entenu que vous allez combattre Dyspros ? Je veux vous
-			aider ! Un jour j'ai glisser sur une peau de banane et Dyspros s'est
-			moqué de moi devant tous ses généraux
+		<dialogue> J'ai entenu que vous allez combattre Dyspros ? Je veux vous aider ! Un jour j'ai glisser sur une peau de banane et Dyspros s'est moqué de moi devant tous ses généraux
 		</dialogue>
 		<PP>4</PP>
 		<PV>10</PV>
@@ -97,11 +63,7 @@
 	<allie index="8">
 		<nom>Sysou</nom>
 		<image>sysou.png</image>
-		<dialogue>
-			On m'a dit que vous cherchiez à détruire Dyspros ? Je suis
-			votre homme ! Mes romans avaient beaucoup de succès avant que ce
-			tyran ne m'interdise d'écrire. Il trouvait que j'utilisais trop de
-			raccourcis dans mes intrigues
+		<dialogue> On m'a dit que vous cherchiez à détruire Dyspros ? Je suis votre homme ! Mes romans avaient beaucoup de succès avant que ce tyran ne m'interdise d'écrire. Il trouvait que j'utilisais trop de raccourcis dans mes intrigues
 		</dialogue>
 		<PP>6</PP>
 		<PV>6</PV>
@@ -110,10 +72,7 @@
 	<allie index="9">
 		<nom>Annela</nom>
 		<image>annela.gif</image>
-		<dialogue>
-			Vous voulez battre Dyspros ? Un jour, il m'a donné des nombres à haute
-			voix au hasard pour me déconcentrer quand j'étais en
-			train de compter des pièces. Je le hais! Emmenez-moi avec vous
+		<dialogue> Vous voulez battre Dyspros ? Un jour, il m'a donné des nombres à haute voix au hasard pour me déconcentrer quand j'étais en train de compter des pièces. Je le hais! Emmenez-moi avec vous
 		</dialogue>
 		<PP>7</PP>
 		<PV>1</PV>
@@ -122,11 +81,7 @@
 	<allie index="10">
 		<nom>Lhadek</nom>
 		<image>lhadek.png</image>
-		<dialogue>
-			YAAA ! Vous allez attaquer Dyspros ? J'étais champion
-			galactique dans ma catégorie avant que cet imposteur ne vole mon
-			titre. Il était ceinture blanche! Je veux récupérer mon titre une
-			bonne fois pour toutes. YAAH
+		<dialogue> YAAA ! Vous allez attaquer Dyspros ? J'étais champion galactique dans ma catégorie avant que cet imposteur ne vole mon titre. Il était ceinture blanche! Je veux récupérer mon titre un bonne fois pour toutes. YAAH
 		</dialogue>
 		<PP>0</PP>
 		<PV>9</PV>
@@ -135,11 +90,7 @@
 	<allie index="11">
 		<nom>Bay Harbor</nom>
 		<image>bayharbor.gif</image>
-		<dialogue>
-			Vous allez tenter d'affronter Dyspros. Je ne supporte pas
-			cet être sans coeur et sans âme. Je peux me joindre à vous sans
-			soucis. Il mérite de souffrir. Je veux voir son sang couler le long
-			de son corps, ouiiiii, de longues trainées ROUGES VIVES !! ahHhaHAHA
+		<dialogue> Vous allez tenter d'affronter Dyspros. Je ne supporte pas cet être sans coeur et sans âme. Je peux me joindre à vous sans soucis. Il mérite de souffrir. Je veux voir son sang couler le long de son corps, ouiiiii, de longues trainées ROUGES VIVES !! ahHhaHAHA
 		</dialogue>
 		<PP>10</PP>
 		<PV>4</PV>
@@ -148,12 +99,7 @@
 	<allie index="12">
 		<nom>Gronmon</nom>
 		<image>gronmon.png</image>
-		<dialogue>
-			Les nouvelles vont vite, très vite. J'ai compris que vous
-			alliez faire face à ce pauvre Dyspros. J'espère que vous dites vrai
-			et que vous n'allez pas vous dégonfler à la dernière minute..
-			M'enfin, ce n'est pas parceque je n'ai pas confiance en vous mais
-			vous ne m'avez pas très l'air robuste
+		<dialogue>Les nouvelles vont vite, très vite. J'ai compris que vous alliez faire face à ce pauvre Dyspros. J'espère que vous dites vrai et que vous n'allez pas vous dégonfler à la dernière minute.. M'enfin, ce n'est pas parceque je n'ai pas confiance en vous mais vous ne m'avez pas très l'air robuste
 		</dialogue>
 		<PP>2</PP>
 		<PV>4</PV>
@@ -162,14 +108,7 @@
 	<allie index="13">
 		<nom>Marsah</nom>
 		<image>marsah.png</image>
-		<dialogue>
-			Vous... Vous allez vraiment prendre votre courage à deux
-			mains et anéantire cet affreux Dy... Dyspros ??
-			Ce n'est pas pour vous
-			inquiéter mais j'ai entendu dire qu'il était
-			une réelle menace et
-			qu'il était extrêmement effrayant. A votre place
-			je paniquerais! Je veux dire par là, que vous risquez vos vies!
+		<dialogue> Vous... Vous allez vraiment prendre votre courage à deux mains et anéantire cet affreux Dy... Dyspros ?? Ce n'est pas pour vous inquiéter mais j'ai entendu dire qu'il était une réelle menace et qu'il était extrêmement effrayant. A votre place je paniquerais! Je veux dire par là, que vous risquez vos vies!
 		</dialogue>
 		<PP>1</PP>
 		<PV>1</PV>
@@ -178,10 +117,7 @@
 	<allie index="14">
 		<nom>Elyr</nom>
 		<image>elyr.png</image>
-		<dialogue>
-			Eh vous ! Vous pensez vraiment faire le poids contre Dyspros sans moi?
-			Haha laissez moi rire. Je me joins à vous, je n'ai pas envie d'avoir
-			sur la conscience la mort d'un pauvre enfant chétif.</dialogue>
+		<dialogue> Eh vous ! Vous pensez vraiment faire le poids contre Dyspros sans moi? Haha laissez moi rire. Je me joins à vous, je n'ai pas envie d'avoir  sur la conscience la mort d'un pauvre enfant chétif.</dialogue>
 		<PP>4</PP>
 		<PV>4</PV>
 		<ROLE >HEALER</ROLE>
@@ -189,10 +125,7 @@
 	<allie index="15">
 		<nom>Boubou</nom>
 		<image>boubou.png</image>
-		<dialogue>
-			Mouais.. Dyspros? Pourquoi pas le combattre... Je vous avoue que je n'ai rien
-			à faire depuis qu'il a tué mon patron. Ce n'est pas plus mal
-			d'ailleurs, j'ai plus de temps pour paresser et m'ennuyer
+		<dialogue> Mouais.. Dyspros? Pourquoi pas le combattre... Je vous avoue que je n'ai rien à faire depuis qu'il a tué mon patron. Ce n'est pas plus mal d'ailleurs, j'ai plus de temps pour paresser et m'ennuyer
 		</dialogue>
 		<PP>7</PP>
 		<PV>1</PV>
@@ -201,12 +134,7 @@
 	<allie index="16">
 		<nom>Miliora</nom>
 		<image>miliora.gif</image>
-		<dialogue>
-			Je n'ai rien contre Dyspros vous savez! Mais je vais tout de même vous
-			aider. D'ici, l'explosion des diverses planètes qu'il provoque nous
-			font un très beau feu d'articile... La douce berceuse de pleure et de
-			souffrance qui s'en suit ... ah.. un vrai plaisir .. Tout cela va me
-			manquer
+		<dialogue> Je n'ai rien contre Dyspros vous savez! Mais je vais tout de même vous aider. D'ici, l'explosion des diverses planètes qu'il provoque nous font un très beau feu d'articile... La douce berceuse de pleure et de souffrance qui s'en suit ... ah.. un vrai plaisir .. Tout cela va me manquer
 		</dialogue>
 		<PP>9</PP>
 		<PV>6</PV>
@@ -215,10 +143,7 @@
 	<allie index="17">
 		<nom>Illen</nom>
 		<image>illen.gif</image>
-		<dialogue>
-			Moi.. vous.. aidez contre DYSPROS ? Incroyable! Je pourrais enfin rentré
-			dans la légende de cette foutu planète!! J'accepte!! Quel formidable
-			héro je ferais
+		<dialogue>Moi.. vous.. aidez contre DYSPROS ? Incroyable! Je pourrais enfin rentré dans la légende de cette foutu planète!! J'accepte!! Quel formidable héro je ferais
 		</dialogue>
 		<PP>4</PP>
 		<PV>1</PV>
@@ -227,10 +152,7 @@
 	<allie index="18">
 		<nom>Stafigan</nom>
 		<image>stafigan.gif</image>
-		<dialogue>
-			Je n'ai plus rien à perdre dans ma vie.. Mes amis, ma famille, ma
-			fille... tous ont péris en voulant s'enfuir d'ici.. Je cherchais
-			justement un moyen d'en finir avec cette pitoyable existence
+		<dialogue>Je n'ai plus rien à perdre dans ma vie.. Mes amis, ma famille, ma fille... tous ont péris en voulant s'enfuir d'ici.. Je cherchais justement un moyen d'en finir avec cette pitoyable existence
 		</dialogue>
 		<PP>3</PP>
 		<PV>7</PV>
@@ -239,12 +161,7 @@
 	<allie index="19">
 		<nom>PX-0</nom>
 		<image>px-0.png</image>
-		<dialogue>
-			Autrefois... Je fus roi de Solbay, j'ai rejoins l'armée révolutionnaire dans le
-			but de détruire une fois pour toute Dyspros! Aujourd'hui, je suis
-			réduis en esclavage et mon corps est modifé pour faire de moi un
-			cyborg. Il ne me reste plus beaucoup de temps avant de perdre
-			complétement ma conscience. Je veux vous aider
+		<dialogue>Autrefois... Je fus roi de Solbay, j'ai rejoins l'armée révolutionnaire dans le but de détruire une fois pour toute Dyspros! Aujourd'hui, je suis réduis en esclavage et mon corps est modifé pour faire de moi un cyborg. Il ne me reste plus beaucoup de temps avant de perdre complétement ma conscience. Je veux vous aider
 		</dialogue>
 		<PP>10</PP>
 		<PV>1</PV>
@@ -253,10 +170,7 @@
 	<allie index="20">
 		<nom>Nelvania</nom>
 		<image>nelvania.gif</image>
-		<dialogue>
-			Ouais? Dyspros craint un max quoi! Et vous avez-vu son look? Un FASHION
-			FAUX PAS. C'est à cause de lui que j'ai perdu la vue. Je vais vous
-			aider
+		<dialogue>Ouais? Dyspros craint un max quoi! Et vous avez-vu son look? Un FASHION FAUX PAS. C'est à cause de lui que j'ai perdu la vue. Je vais vous aider
 		</dialogue>
 		<PP>9</PP>
 		<PV>5</PV>
@@ -265,9 +179,7 @@
 	<allie index="21">
 		<nom>Death</nom>
 		<image>death.png</image>
-		<dialogue>
-			Dypros... Excitant, je suis la mort. Je vous accompagnerai, j'aurais du
-			travail à faire! Que ce soit vous qui pourrez ou lui
+		<dialogue>Dypros... Excitant, je suis la mort. Je vous accompagnerai, j'aurais du travail à faire! Que ce soit vous qui pourrez ou lui
 		</dialogue>
 		<PP>2</PP>
 		<PV>10</PV>
@@ -276,11 +188,7 @@
 	<allie index="22">
 		<nom>Azagal</nom>
 		<image>azagal.png</image>
-		<dialogue>
-			Lorsque nous étions enfant, ma soeur et moi révions de liberté. Nous avions
-			décider de nous envoler en dépit des du réglement imposer par
-			Dyspros. Elle a été tué sous mes yeux. Je veux vous joindre et me
-			venger
+		<dialogue>Lorsque nous étions enfant, ma soeur et moi révions de liberté. Nous avions décider de nous envoler en dépit des du réglement imposer par Dyspros. Elle a été tué sous mes yeux. Je veux vous joindre et me venger
 		</dialogue>
 		<PP>2</PP>
 		<PV>4</PV>
@@ -289,11 +197,7 @@
 	<allie index="23">
 		<nom>Ogrod</nom>
 		<image>ogrod.png</image>
-		<dialogue>
-			Depuis que l'arrivée de Dyspros, toutes les denrées
-			alimentaires sont accaparées dans la capitale pour servir ses gardes
-			et son royaume. Nous, pauvres habitants souffront depuis des
-			lustres... 
+		<dialogue>Depuis que l'arrivée de Dyspros, toutes les denrées alimentaires sont accaparées dans la capitale pour servir ses gardes et son royaume. Nous, pauvres habitants souffront depuis des lustres... 
 		</dialogue>
 		<PP>7</PP>
 		<PV>5</PV>
@@ -302,10 +206,7 @@
 	<allie index="24">
 		<nom>Jake</nom>
 		<image>jake.gif</image>
-		<dialogue>
-			DYSPROS ??? J'ai toujours revé voir sa tête un jour. Vous
-			savez, on parle beaucoup de lui ici mais très peu de personne ont vu
-			sa tête. Je peux venir avec vous??
+		<dialogue>DYSPROS ??? J'ai toujours revé voir sa tête un jour. Vous savez, on parle beaucoup de lui ici mais très peu de personne ont vu sa tête. Je peux venir avec vous??
 		</dialogue>
 		<PP>2</PP>
 		<PV>5</PV>
@@ -314,11 +215,7 @@
 	<allie index="25">
 		<nom>Arctos</nom>
 		<image>arctos.png</image>
-		<dialogue>
-			Dyspros ? Oui ça me dit quelque chose... J'ai plusieurs
-			colis pour lui, mais cette personne semble avoir de multiple
-			adresses... Vous allez à sa poursuite, je peux vous accompagner? Il
-			pourra peut être nous expliquer à quoi il s'amuse 
+		<dialogue>Dyspros ? Oui ça me dit quelque chose... J'ai plusieurs colis pour lui, mais cette personne semble avoir de multiple adresses... Vous allez à sa poursuite, je peux vous accompagner? Il pourra peut être nous expliquer à quoi il s'amuse 
 		</dialogue>
 		<PP>3</PP>
 		<PV>6</PV>
@@ -327,10 +224,7 @@
 	<allie index="26">
 		<nom>Ahtina</nom>
 		<image>ahtina.gif</image>
-		<dialogue>
-			Dyspros! Bien sur que je le connais, c'était mon entraîneur
-			avant qu'il ne m'abandonne le jour du concours. J'ai deux trois
-			choses à régler avec cette enflure! IL EST OU ?</dialogue>
+		<dialogue>Dyspros! Bien sur que je le connais, c'était mon entraîneur avant qu'il ne m'abandonne le jour du concours. J'ai deux trois choses à régler avec cette enflure! IL EST OU ?</dialogue>
 		<PP>10</PP>
 		<PV>7</PV>
 		<ROLE >FIGHTER</ROLE>
@@ -338,10 +232,7 @@
 	<allie index="27">
 		<nom>Liams</nom>
 		<image>liams.gif</image>
-		<dialogue>
-			Vous allez tous ensemble combattre Dyspros? Je peux vous
-			accompagner ? Vos aventure feront une très belle histoire à raconter.
-			Hum... sauf si l'on meurt tous ensemble sur les routes...
+		<dialogue>Vous allez tous ensemble combattre Dyspros? Je peux vous accompagner ? Vos aventure feront une très belle histoire à raconter. Hum... sauf si l'on meurt tous ensemble sur les routes...
 		</dialogue>
 		<PP>3</PP>
 		<PV>10</PV>
@@ -350,14 +241,8 @@
 	<allie index="28">
 		<nom>Loki</nom>
 		<image>loki.png</image>
-		<dialogue>
-			QUOI ?! Vous chechez Dyspros pour le combattre? Cet imbécile
-			a volé tous les chevalets du pays, alors que la floraison des fleures
-			lunaires avait lieu. A cause de lui, je n'ai jamais pu peindre cet
-			évènement exceptionnel qui a lieu une fois par siècle. Je vais vous
-			accompagner et le forcer à nous rendre toutes les choses qu'il nous a
-			volé !
-			</dialogue>
+		<dialogue>QUOI ?! Vous chechez Dyspros pour le combattre? Cet imbécile a volé tous les chevalets du pays, alors que la floraison des fleures lunaires avait lieu. A cause de lui, je n'ai jamais pu peindre cet évènement exceptionnel qui a lieu une fois par siècle. Je vais vous accompagner et le forcer à nous rendre toutes les choses qu'il nous a volé !
+		</dialogue>
 		<PP>8</PP>
 		<PV>9</PV>
 		<ROLE >FIGHTER</ROLE>
@@ -365,14 +250,7 @@
 	<allie index="29">
 		<nom>Menrald</nom>
 		<image>menrald.gif</image>
-		<dialogue>
-			Vous allez à l'aventure ? A la poursuite de Dyspros le tyran? 
-			Bien sûr que je peux vous accompagner, je suis un excellent
-			combattant ! Quoi?? Vous ne me connaissez pas ?! Je suis Menrald,
-			Menrald le grand! Vous ne connaisssez pas les aventures de MENRALD LE
-			GRAND!? J'ai pourtant écrit un livre... Mis à part vous, j'ai
-			beaucoup d'admirateurs! Ca ne vous vraiment rien? Vous en êtes sûrs ?
-			Eh bien ce n'est pas grave, je vous serez quand même d'un grand secours
+		<dialogue> Vous allez à l'aventure ? A la poursuite de Dyspros le tyran? Bien sûr que je peux vous accompagner, je suis un excellent combattant ! Quoi?? Vous ne me connaissez pas ?! Je suis Menrald, Menrald le grand! Vous ne connaisssez pas les aventures de MENRALD LE GRAND!? J'ai pourtant écrit un livre... Mis à part vous, j'ai beaucoup d'admirateurs! Ca ne vous vraiment rien? Vous en êtes sûrs ?			Eh bien ce n'est pas grave, je vous serez quand même d'un grand secours
 		</dialogue>
 		<PP>1</PP>
 		<PV>7</PV>
@@ -381,11 +259,7 @@
 	<allie index="30">
 		<nom>Rossiliak</nom>
 		<image>rossiliak.gif</image>
-		<dialogue>
-			J'ai ouï dire qu'en mars dernier Dyspros fut construire un
-			véritable arsenal de guerre. Quelque chose va se passer et ça risque
-			d'être terrible. J'ai été une très grande guerrière, je suis là pour
-			vous aider ! 
+		<dialogue> J'ai ouï dire qu'en mars dernier Dyspros fut construire un véritable arsenal de guerre. Quelque chose va se passer et ça risque d'être terrible. J'ai été une très grande guerrière, je suis là pour vous aider ! 
 		</dialogue>
 		<PP>5</PP>
 		<PV>6</PV>
