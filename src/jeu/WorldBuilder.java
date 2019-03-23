@@ -21,7 +21,7 @@ public class WorldBuilder {
 		ArrayList<Zone> zones = new ArrayList<Zone>();
 		zones.add(new Zone("Vaisseau","vaisseau.png","Voici votre vaisseau... Il vous permettra de vous balader de planète en planète"));
 		// Création de la zone des alliés
-		zones.add(new Zone("Mes amis","zoneVaisseauAmis.jpg",""));
+		zones.add(new Zone("Mes amis","zoneVaisseauAmis.jpg","Tous vos amis attendent avec vous pour se battre contre Dyspros!"));
 		//Création des autres zones
 		ReaderXML spaceReader = new ReaderXML("espace1.xml");
 		NodeList nodeZones = spaceReader.getDocument().getElementsByTagName("zone");

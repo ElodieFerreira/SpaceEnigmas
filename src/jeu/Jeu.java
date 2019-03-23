@@ -113,9 +113,7 @@ public class Jeu implements Serializable {
         afficherLocalisation();
     }
     
-    public void traiterCommande(String commandeLue) {
-    	System.out.println("ok");
-    }
+
 
     public void captureDeMouton(Mouton mouton) {
     	partie.getJoueur().prendreObjet(mouton);

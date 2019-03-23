@@ -49,7 +49,7 @@ public class ThreadLauncher {
 						while(jeu.getPartie().getJoueur().niveauActuel!=jeu.getPartie().getJoueur().niveauMaximum) {
 							if(cptNiveau!=jeu.getPartie().getJoueur().niveauActuel && cptNiveau<jeu.getPartie().getJoueur().niveauMaximum-1) {
 								try {
-								Thread.sleep(400);
+								Thread.sleep(4000);
 								} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 									e.printStackTrace();

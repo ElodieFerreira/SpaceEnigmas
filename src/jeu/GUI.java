@@ -64,13 +64,13 @@ public class GUI implements ActionListener,Serializable
     	fenetre.setTitle("SpaceEnigmas "+nom);
     }
     public void afficher(String s) {
-    	texte.append("\n");
+    	texte.setText("\n");
     	texte.append(s+"\n");
         texte.setCaretPosition(texte.getDocument().getLength());
     }
     public void afficher(String s, Personnage perso) {
     	texte.append("\n");
-    	texte.append(perso.getNom()+"\n");
+    	texte.setText(perso.getNom()+"\n");
     	Thread t = new Thread(new Runnable() {
 			
 			@Override
@@ -432,11 +432,9 @@ public class GUI implements ActionListener,Serializable
 				}
         	}
         });
-        mnAide.add(Interface);
-        
+        mnAide.add(Interface);      
         Planete = new JMenuItem("Carte");
-        mnAide.add(Planete);
-        
+        mnAide.add(Planete);     
         JSplitPane splitPane = new JSplitPane();
         splitPane.setResizeWeight(0.15);
         splitPane.setBounds(0, 523, 985, 190);
@@ -482,10 +480,7 @@ public class GUI implements ActionListener,Serializable
         image.setBounds(0, 0, 985, 499);
         image.setBackground(new Color(153, 0, 204));
         image.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panelImage.add(image);
-        
-        
-        
+        panelImage.add(image);  
         texte.setWrapStyleWord(true);
         texte.setLineWrap(true);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -507,6 +502,7 @@ public class GUI implements ActionListener,Serializable
         	// Ici on test si on est dans une enigme qui a besoin des commandes
         	if(jeu.getPartie().queteEnCoursPartie() instanceof Pendu  || jeu.getPartie().queteEnCoursPartie() instanceof EnigmeTextuel) {	
         		Queteur queteur = null;
+        		// On cherche si il y a un quêteur dans la zone
         		for(Object obj : objetsDansLaZone) {
         			if(obj instanceof Queteur) {
             			if(((Queteur) obj).quete()==jeu.getPartie().queteEnCoursPartie()) {
@@ -517,9 +513,7 @@ public class GUI implements ActionListener,Serializable
         		if (queteur!=null) {
         			jeu.envoyerReponseEnigme(commandeLue, queteur);
         		}
-        	} else {
-        		jeu.traiterCommande( commandeLue);
-        	}
+        	} 
         }
         
     }
