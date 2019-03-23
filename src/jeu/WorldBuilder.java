@@ -11,10 +11,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 public class WorldBuilder {
-	/** This function create all zones of the games. Even zones like spatialship and friend room. All these informations are selected on XML file in
-	 * already written on the function. Every zones are written except spatialship.
+	/** Cette fonction va créer toutes les zones écrites sur un xml spécifique au jeu?
 	 * @see espace1.xml
-	 * @return all zones of the game
+	 * @return toutes les zones du jeu
 	 */
 	public static ArrayList<Zone> creerToutesLesZones() {
 		// Création du vaisseau : 
@@ -35,14 +34,15 @@ public class WorldBuilder {
 		}
 		return zones;
 	}	
-	/** This function add all exits of each zone. It the simplest in order to by sure that each zone's exit 
-	 * already exist.
+	/** Cette fonction rajoute toutes les sorties au zones existantes.
 	 * @param toutesLesZones
-	 * @return It will return Zone with exit implemented.
+	 * @return ArrayList<Zone> représentant toutes les zones du jeu avec leur sortie
 	 */
 	public static ArrayList<Zone> ajouterToutesLesSorties(ArrayList<Zone> toutesLesZones) {
 		ReaderXML spaceReader = new ReaderXML("espace1.xml");
 		NodeList zones = spaceReader.getDocument().getElementsByTagName("zone");
+		//Cette structure permet de ne pas se soucier si les zones existent déjà au moment 
+		//de créer les zones puisqu'elles sont déjà toutes créées
 		for(int i=0;i<zones.getLength();i++) {
 			Element zone = (Element) zones.item(i);
 			Integer indexZoneDeDepart = Integer.valueOf(zone.getAttribute("index"));
@@ -56,9 +56,9 @@ public class WorldBuilder {
 		}
 		return toutesLesZones;
 	}
-	/** This function create all planets. When the method read the XML and the different planet, it add zones to it planet.
-	 * @param toutesLesZones -> All zones of the game already written. 
-	 * @return all the planet, it will be our map during the game
+	/** Cette fonction retourne toutes les planètes du jeu avec leur zone
+	 * @param toutesLesZones -> ArrayList<Zone>
+	 * @return toutesLesPlanètes -> Retourne toutes les planètes du jeu
 	 */
 	public static ArrayList<Planete> creerLesPlanetes(ArrayList<Zone> toutesLesZones) {
 		ArrayList<Planete>  planetesRetour = new ArrayList<Planete>();
@@ -80,35 +80,35 @@ public class WorldBuilder {
 		return planetesRetour;
 	}
 
-	/** This method put all the exit possible at the spatialship.
-	 * @param vaisseau
-	 * @param espace
-	 * @return spatialship
+	/** Cette méthode ajoute toutes les sorties au vaisseau
+	 * @param vaisseau ( Zone )
+	 * @param espace (ArrayList<Planete>)
+	 * @return Vaisseau (Zone) avec ses nouvelles sorties
 	 */
 	public static Zone ajouterLesSortiesAuVaisseau(Zone vaisseau, ArrayList<Planete> espace) {
+		//La structure planète permet d'ajouter logiquement et par une simple boucle la première zone 
+		//de chaque planète souhaitée pour qu'on est accès à chaque spatioport
 		for(int i=0;i<espace.size()-1;i++) {
 			vaisseau.ajouteSortie(Sortie.values()[i], espace.get(i).getZones().get(0));
 		}
 		return vaisseau;
 	}
 
-	/** This function called "ajouterSortie" in order to add spatialship as a possible exit to
-	 * friends room. In the future, this method can be used to add more exit if our galaxy grow up
-	 * @param repos
-	 * @param direction
-	 * @param sortie
-	 * @return modified version of friends room with the exit.
+	/** Cette fonction rajoute uniquement la sortie à la zone du vaisseua dédiée aux alliés
+	 * @param Zone Salle de repos
+	 * @param direction de la sorrue
+	 * @param Zone de la sortie
+	 * @return La salle de repos retournée avec sa sortie vers le vaisseau
 	 */
 	public static Zone ajouterSortieZoneDeRepos(Zone repos,String direction,Zone sortie) {
 		repos.ajouteSortie(Sortie.valueOf(direction), sortie);
 		return repos;
 	}
 
-	/**This method make appears sheep on some zones selected randomly
-	 * @param ArrayList<Zone> where you want to make spawn all sheeps
-	 * @param nbMouton represents how much moutons you want to spawn in your 
-	 * space
-	 * @return your new space with sheep added
+	/**Cette méthode positionne les moutons sur la carte
+	 * @param ArrayList<Zone> possible d'apparition des moutons
+	 * @param Int nombre de moutons 
+	 * @return ArrayList<Zone> retourne les zones après le placement des moutons
 	 */
 	public static ArrayList<Zone> positionnerMouton(ArrayList<Zone> zone, int nbMouton)
 	{
@@ -126,15 +126,16 @@ public class WorldBuilder {
 		}
 		return zone ;
 	}
-	/** This method read some futur friends in your game thanks to an XML file and generate them.
-	 * @param name of your file
-	 * @return the ArrayList<Allies> of your new friends.
+	/** Cette méthode crée tous les alliés lu à partir d'un fichier XML
+	 * @param Le nom du fichier
+	 * @return ArrayList<Allies> avec tous les alliés de la partie
 	 */
 	public static ArrayList<Allies> creerTousLesAllies(String nomFichier) {
 		ReaderXML persoReader = new ReaderXML(nomFichier);
 		ArrayList<Allies> tousLesPersos = new ArrayList<Allies>();
 		NodeList allies = persoReader.getDocument().getElementsByTagName("allie");
 		Random rand = new Random();
+		// Génére les chiffres aléatoires des alliées avec une hashset pour ne pas avoir de doublon
 		HashSet hs = new HashSet();
 		while(hs.size()<3){
 			int num = (int) ((Math.random()*(allies.getLength()-1)));
@@ -142,6 +143,7 @@ public class WorldBuilder {
 		}
 		Iterator it=hs.iterator();
 		while(it.hasNext()){
+			// Crée les alliés au numéros tirés au sort 
 			Element allie = (Element) allies.item((int)it.next());
 			String nom = allie.getElementsByTagName("nom").item(0).getTextContent();
 			String image = allie.getElementsByTagName("image").item(0).getTextContent();
@@ -153,10 +155,10 @@ public class WorldBuilder {
 		}
 		return tousLesPersos;
 	}
-	/** This method will place your friends in the map except in zones defined in the function ( Xénémos, spatialship...)
-	 * @param zones represents the map actually of your entire space
-	 * @param tousLesAllies
-	 * @return ArrayList<Zone> wich represents your new space with your friends implemented.
+	/** Cette méthode place les alliés sur la carte
+	 * @param ArrayList<Zone> représentant l'espace actuelle sans alliés
+	 * @param ArrayList<Allies> tous les alliés créé avec la méthode "creerTousLesAllies"
+	 * @return ArrayList<Zone> qui représente le nouvel espace avec les alliés
 	 */
 	public static ArrayList<Zone> positionneAlliees(ArrayList<Zone> zones, ArrayList<Allies> tousLesAllies)
 	{	
@@ -174,20 +176,20 @@ public class WorldBuilder {
 		}
 		return zones;
 	}
-	/** Deleted the sheep from a specific zone
-	 * @param zone where you want to delete the sheep
-	 * @param the sheep you want to delete
-	 * @return the zone without your sheep
+	/**Supprime les moutons
+	 * @param Zone où se trouve le mouton
+	 * @param Le mouton a supprimé - Mouton -
+	 * @return La Zone sans le mouton
 	 */
 	public static Zone suppresionDuMouton(Zone zone,Mouton mouton) {
 		zone.getAnimauxDansLazone().remove(mouton);
 		return zone;
 	}
 	
-	/** Read all the character who gives enigmas and place them
-	 * @param toutesLesZones 
-	 * @param toutesLesQuetes
-	 * @return your space with your characters
+	/** Crée et place les quêteurs du jeu
+	 * @param toutesLesZones ArrayList<Zone>
+	 * @param toutesLesQuetes ArrayList<Quete>
+	 * @return ArrayList<Zone> représente l'espace avec les quêteurs en place
 	 */
 	public static ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones,ArrayList<Quete> toutesLesQuetes) {
 		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
@@ -222,8 +224,8 @@ public class WorldBuilder {
 		return toutesLesZones;
 	}
 	
-	/** Create a specific character from the same xml as @see miseEnPlaceDesQueteurs
-	 * @return the guide of your game
+	/** Crée @see miseEnPlaceDesQueteurs
+	 * @return le guide de la galaxie
 	 */
 	public static Queteur CreerGuide() {
 		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
@@ -244,8 +246,8 @@ public class WorldBuilder {
 		return mentris;
 	}
 	
-	/** Create all objects given after an enigma
-	 * @return an ArrayList<Objets>
+	/** Crée tous les objets récompenses des quêtes
+	 * @return ArrayList<Objets>
 	 */
 	public static ArrayList<Objets> creerLesObjets() {
 		ArrayList<Objets> objets = new ArrayList<Objets>();
@@ -261,9 +263,9 @@ public class WorldBuilder {
 		return objets;
 	}
 	
-	/** Create all instance of enigmas
-	 * @param all recompenses available in the game
-	 * @return all the quete available in the game
+	/** Instancie les classes d'énigmes
+	 * @param ArrayList<Objets> toutes les objets récompense
+	 * @return Toutes les quêtes disponibles dans le jeu ArrayList<Quete>
 	 */
 	public static ArrayList<Quete> creerLesQuetesDuJeu(ArrayList<Objets> recompenses) {
 		ArrayList<Quete> quetes = new ArrayList<Quete>();
@@ -308,12 +310,11 @@ public class WorldBuilder {
 		quetes.add(enigme);
 		return quetes;
 	}
-	/** This method is used to reinit each zone of a game without any sheep. It is used when we want to make
-	 * move the sheep. Synchronized to assure that only one thread can run this method in the same time if we
-	 * want to use it in several thread in the future
-	 * @param zones
+	/** Cette méthode réinitialise les moutons dans les zones
+	 * @param ArrayList<Zone>
 	 */
 	public static synchronized void reInitSheep(ArrayList<Zone> zones) {
+		// Cette méthode étant suceptible d'être utilisé par plusieurs Thread, on a essayé de la sécuriser
 		ArrayList<Zone> zonesArrayList = zones;
 		ArrayList<Mouton> moutons = new ArrayList<Mouton>();
 		Lock verrou = new ReentrantLock();
