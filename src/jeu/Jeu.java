@@ -42,7 +42,6 @@ public class Jeu implements Serializable {
     	partie = new Partie();
 	    creerCarte();
 	    afficherMessageDeBienvenue();
-		gui.afficher("Bienvenue ! Rentrez votre pr�nom \n");
 		sceneOuverture();
     }
     public void creationJoueur(String nomJoueur) {
@@ -108,10 +107,7 @@ public class Jeu implements Serializable {
     }
     
     private void afficherMessageDeBienvenue() {
-    	gui.afficher("Bienvenue !");
-    	gui.afficher();
-        gui.afficher("Tapez '?' pour obtenir de l'aide.");
-        gui.afficher();
+        gui.afficher("Cliquez sur 'Aide' dans le menu 'Joueur' pour obtenir de l'aide.");
         gui.afficheImage(partie.getZoneCourante().nomImage());	
         gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
         afficherLocalisation();
@@ -122,9 +118,8 @@ public class Jeu implements Serializable {
     }
 
     public void captureDeMouton(Mouton mouton) {
-    	WorldBuilder constructorOfMap = new WorldBuilder();
     	partie.getJoueur().prendreObjet(mouton);
-    	constructorOfMap.suppresionDuMouton(partie.getZoneCourante(), mouton);	
+    	WorldBuilder.suppresionDuMouton(partie.getZoneCourante(), mouton);	
     }
     public void allerEn(String direction) {
     	Zone nouvelle = partie.getZoneCourante().obtientSortie(direction);
@@ -145,6 +140,8 @@ public class Jeu implements Serializable {
     public void interractionPersonnage(Personnage personnage) {
     	if(personnage instanceof Allies) {
     		gui.afficher(personnage.parler(),personnage);
+    		//friends est utilisé dans le but d'avoir un HashSet empêchant d'aoir plusieurs fois les mêmes alliés
+    		//sur la zone de combat final ou sur la salle de repos.
     		partie.getJoueur().friends.add(personnage);
     		if(partie.getJoueur().friends.size()!=partie.getSalleDeRepos().getPersonnageDansLaZone().size()) {
     			partie.getSalleDeRepos().getPersonnageDansLaZone().add(personnage);

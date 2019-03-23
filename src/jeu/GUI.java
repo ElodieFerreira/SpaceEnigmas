@@ -371,29 +371,13 @@ public class GUI implements ActionListener,Serializable
         menuBar.add(mnJoueur);
         
         Sauvegarde = new JMenuItem("Sauvegarde");
-        Sauvegarde.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		jeu.Sauvegarde();
-        		Thread t = new Thread( new Runnable() {
-        			public void run() {
-        				saveMessage.setVisible(true);
-        				try {
-							Thread.sleep(1500);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-        				saveMessage.setVisible(false);
-        			}
-        		});
-        		t.start();
-        		
-        	}
-        });
         mnJoueur.add(Sauvegarde);
     	saveMessage = new JLabel("Votre sauvegarde a bien été effectué");
+    	saveMessage.setHorizontalAlignment(SwingConstants.CENTER);
+    	saveMessage.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 11));
+    	saveMessage.setForeground(new Color(255, 255, 255));
         saveMessage.setBounds(369, 89, 220, 87);
-        saveMessage.setBackground(Color.gray);
+        saveMessage.setBackground(SystemColor.inactiveCaption);
         saveMessage.setOpaque(true);
         saveMessage.setVisible(false);
         panelImage.add(saveMessage);
@@ -423,13 +407,18 @@ public class GUI implements ActionListener,Serializable
         		jeu.SupprimerPartie();
         	}
         });
+        
+        test = new JMenuItem("Restart");
+        mnJoueur.add(test);
+        test.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        	 jeu.lancerDebutJeu();
+        	}
+        });
         mnJoueur.add(suppression);
         
         mnAide = new JMenu("Aide");
         mnJoueur.add(mnAide);
-        
-        test = new JMenuItem("Test");
-        mnAide.add(test);
         
         Interface = new JMenuItem("Interface");
         Interface.addActionListener(new ActionListener() {
@@ -468,7 +457,7 @@ public class GUI implements ActionListener,Serializable
         characterWorldMiniature.setLayout(null);
         
         character = new JLabel("");
-        character.setBounds(10, 33, 127, 131);
+        character.setBounds(10, 57, 127, 131);
         characterWorldMiniature.add(character);
         
         world = new JLabel("");
@@ -480,17 +469,6 @@ public class GUI implements ActionListener,Serializable
         panel.add(entree);
         entree.addActionListener(this);
         entree.requestFocus();
-        test.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        		Desktop desk = Desktop.getDesktop();
-        		try {
-					desk.open(new File("src/images/edolie.gif"));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-        	}
-        });
         inventaireSurZone = new ArrayList<JLabel>();
         inventaireSurZone.add(label_1);
         inventaireSurZone.add(label_2);
@@ -572,6 +550,25 @@ public class GUI implements ActionListener,Serializable
         	public void mouseClicked(MouseEvent arg0) {
         		jeu.incrementerCommande();
         		jeu.allerEn("OUEST");
+        	}
+        });
+        Sauvegarde.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		jeu.Sauvegarde();
+        		Thread t = new Thread( new Runnable() {
+        			public void run() {
+        				saveMessage.setVisible(true);
+        				try {
+							Thread.sleep(1500);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+        				saveMessage.setVisible(false);
+        			}
+        		});
+        		t.start();
+        		
         	}
         });
 	}
