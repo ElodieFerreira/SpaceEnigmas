@@ -17,6 +17,10 @@ import org.xml.sax.SAXException;
 public class ReaderXML {
 	private Document documentComplet;
 	
+	/** Constructeur d'un ReaderXML qui aura un Document, en proprieté d'instance, obtenu après que le fichier XML, dont
+	 * le nom est passé en paramètre, soit parsé
+	 * @param String nomFichier
+	 */
 	public ReaderXML(String nomFichier) {
 		 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		 Document xml = null;
@@ -36,6 +40,9 @@ public class ReaderXML {
 			}
 		 this.documentComplet = xml;
 	}
+	/** Getter du document du ReaderXML
+	 * @return Document document
+	 */
 	public Document getDocument() {
 		return this.documentComplet;
 	}
