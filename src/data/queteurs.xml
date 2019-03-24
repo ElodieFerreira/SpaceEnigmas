@@ -48,7 +48,7 @@
   <image>mentris.gif</image>
   <dialogues>
   <queteDejaEnCours></queteDejaEnCours>
-  <avantQuete>Eh toi là! C'est pas la première fois que je te vois par ici... Comment tu t'appelles ? </avantQuete>
+  <avantQuete>Eh toi là! C'est pas la première fois que je te vois par ici... On dit que tu erres sans but, orphelin depuis que tes parents ont été tués par Dyspros... Comment tu t'appelles ? </avantQuete>
   <pendantQuete>Tu es mon seul espoir joueur! Il faut que tu m'aides à affronter Dyspros, le tyran qui règne sur notre galaxie pour la débarasser de son joug! Pas de temps pour t'expliquer, suis-moi dans mon vaisseau! </pendantQuete>
   <pendantQuete>Je m’appelle Mentris et j’ai passé ma vie à développer une arme assez puissante pour vaincre Dyspros et libérer la galaxie. Il ne me manque plus que trois minerais pour compléter l’arme, mais les troupes de Dyspros m’ont repérer, je ne peux plus agir seule... Toi seul peut aller chercher les trois minerais qui me manquent... Je te confie aussi ce téléporteur, fait attention, ses destinations sont aléatoires !</pendantQuete>
   <pendantQuete>Bravo pour ton premier minerai joueur ! Plus que deux !</pendantQuete>
