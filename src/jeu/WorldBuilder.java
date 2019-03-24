@@ -130,9 +130,9 @@ public class WorldBuilder {
 	 * @param Le nom du fichier
 	 * @return ArrayList<Allies> avec tous les alliés de la partie
 	 */
-	public static ArrayList<Allies> creerTousLesAllies(String nomFichier) {
+	public static ArrayList<PersonnageActifs> creerTousLesAllies(String nomFichier) {
 		ReaderXML persoReader = new ReaderXML(nomFichier);
-		ArrayList<Allies> tousLesPersos = new ArrayList<Allies>();
+		ArrayList<PersonnageActifs> tousLesPersos = new ArrayList<PersonnageActifs>();
 		NodeList allies = persoReader.getDocument().getElementsByTagName("allie");
 		Random rand = new Random();
 		// Génére les chiffres aléatoires des alliées avec une hashset pour ne pas avoir de doublon
@@ -151,7 +151,7 @@ public class WorldBuilder {
 			Role role = Role.valueOf(allie.getElementsByTagName("ROLE").item(0).getTextContent());
 			Integer pv = Integer.valueOf(allie.getElementsByTagName("PV").item(0).getTextContent());
 			Integer pp = Integer.valueOf(allie.getElementsByTagName("PP").item(0).getTextContent());
-			tousLesPersos.add(new Allies(nom,null,image,pv,pp,role,dialogue));
+			tousLesPersos.add(new PersonnageActifs(nom,null,image,pv,pp,role,dialogue));
 		}
 		return tousLesPersos;
 	}
@@ -160,7 +160,7 @@ public class WorldBuilder {
 	 * @param ArrayList<Allies> tous les alliés créé avec la méthode "creerTousLesAllies"
 	 * @return ArrayList<Zone> qui représente le nouvel espace avec les alliés
 	 */
-	public static ArrayList<Zone> positionneAlliees(ArrayList<Zone> zones, ArrayList<Allies> tousLesAllies)
+	public static ArrayList<Zone> positionneAlliees(ArrayList<Zone> zones, ArrayList<PersonnageActifs> tousLesAllies)
 	{	
 		HashSet hs=new HashSet();
 		while(hs.size()<tousLesAllies.size()){

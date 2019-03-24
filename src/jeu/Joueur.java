@@ -11,6 +11,7 @@ public class Joueur implements Serializable {
 	public ArrayList<Objets> inventaire;
 	private Integer pointdAttaque;
 	private Integer pointDeVie;
+	// HashSet est utilisé dans le but d'éviter les doublons
 	public HashSet friends;
 	private Quete queteEnCours;
 	public int niveauMaximum;
@@ -148,7 +149,7 @@ public class Joueur implements Serializable {
 	/** Permet au joueur d'attaquer un personnage passé en paramètre
 	 * @param Personnage personnage
 	 */
-	public void attaquer(Allies personnage) {
+	public void attaquer(PersonnageActifs personnage) {
 		personnage.setPointDeVie(personnage.getPointDeVie()-pointdAttaque);
 	}
 }

@@ -93,8 +93,8 @@ public class Jeu implements Serializable {
     	ArrayList<Planete> espace = WorldBuilder.creerLesPlanetes(zones);
     	Zone vaisseau = zones.get(0);
     	vaisseau = WorldBuilder.ajouterLesSortiesAuVaisseau(vaisseau, espace);
-    	ArrayList<Allies> tousLesAllies = WorldBuilder.creerTousLesAllies("allies.xml");
-    	zones = WorldBuilder.positionneAlliees(zones, tousLesAllies);
+    	ArrayList<PersonnageActifs> tousLesPersonnageActifs = WorldBuilder.creerTousLesPersonnageActifs("PersonnageActifs.xml");
+    	zones = WorldBuilder.positionneAlliees(zones, tousLesPersonnageActifs);
     	ArrayList<Objets> objets = WorldBuilder.creerLesObjets();
     	ArrayList<Quete> quetes = WorldBuilder.creerLesQuetesDuJeu(objets);
     	zones = WorldBuilder.miseEnPlaceDesQueteurs(zones,quetes);
@@ -149,7 +149,7 @@ public class Jeu implements Serializable {
      * @param personnage
      */
     public void interractionPersonnage(Personnage personnage) {
-    	if(personnage instanceof Allies) {
+    	if(personnage instanceof PersonnageActifs) {
     		gui.afficher(personnage.parler(),personnage);
     		//friends est utilisé dans le but d'avoir un HashSet empêchant d'aoir plusieurs fois les mêmes alliés
     		//sur la zone de combat final ou sur la salle de repos.
@@ -281,7 +281,7 @@ public class Jeu implements Serializable {
 	/** Exécute le tour du combat 
 	 * @param Personnage personnage attaquant avec le joueur pour ce tour
 	 */
-	public void tourDuComabat(Allies personnage) {
+	public void tourDuComabat(PersonnageActifs personnage) {
 		partie.getJoueur().attaquer(partie.dyspros()); 
 		if(partie.dyspros().getPointDeVie()<=0) {
 			partie.setZoneCourante(new Zone("Galaxie","win.gif","Vous avez sauvé toute votre galaxie"));
@@ -305,7 +305,7 @@ public class Jeu implements Serializable {
 	/** Retire le perosnnage mort de la zone de combat
 	 * @param Personnage personnagemort
 	 */
-	private void retirerPersonnageMort(Allies personnage) {
+	private void retirerPersonnageMort(PersonnageActifs personnage) {
 		// TODO Auto-generated method stub
 		partie.getZoneCourante().getPersonnageDansLaZone().remove(personnage);
 	}

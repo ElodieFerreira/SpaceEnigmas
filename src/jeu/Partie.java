@@ -11,7 +11,7 @@ public class Partie implements Serializable {
 	public int nbCommandeMax;
 	public int nbCommande;
 	private Zone vaisseau;
-	private Allies dyspros;
+	private PersonnageActifs dyspros;
 	// implémentation par la suite de la zone courante ici;
 	/**
 	 * L'état de la carte actuellement avec les objets et les personnages dessus
@@ -23,7 +23,7 @@ public class Partie implements Serializable {
 	public void setsceneFinal(Zone zone) {
 		sceneFinal = zone;
 	}
-	Allies dyspros() {
+	PersonnageActifs dyspros() {
 		return dyspros;
 	}
 	public void setSalleDeRepos(Zone salleDeReposArg) {
@@ -34,7 +34,7 @@ public class Partie implements Serializable {
 		carteActuel = new ArrayList<Planete>();
 		nbCommande = 0;
 		nbCommandeMax = 200;
-		dyspros = new Allies("Dyspros","","Legrandmechant.png",150,2,Role.valueOf("FIGHTER"),"ola");
+		dyspros = new PersonnageActifs("Dyspros","","Legrandmechant.png",150,2,Role.valueOf("FIGHTER"),"ola");
 	}
 	public Joueur getJoueur() {
 		return joueur;

@@ -20,15 +20,11 @@ import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionAdapter;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
 
 public class GUI implements ActionListener,Serializable 
@@ -50,6 +46,10 @@ public class GUI implements ActionListener,Serializable
     private JMenuItem Sauvegarde,Inventaire,mntmAmis,test,Interface,Planete,suppression;
 
     private MouseListener lbl1,lbl2,lbl3,teleporteur;
+    
+    /**
+     * Panel contenant 8 JLabel de l'inventaire
+     */
     private JPanel inventaire;
     //Jlabel correspondant à l'inventaire
     private JLabel label_1,label_2,label_3,label_4,label_5,label_6,label_7,label_8;
@@ -600,10 +600,10 @@ public class GUI implements ActionListener,Serializable
 		   		naturesObjetsDansLaZone.add("personnage");
 	        	labelArray.get(cpt).setIcon( new ImageIcon(personnageURL)); 	
 	        	labelArray.get(cpt).setVisible(true);
-	        	if(personnage instanceof Allies) {
-	        		Allies allies = (Allies) personnage;
-	        		System.out.println("j'ai pv:"+allies.getPointDeVie());
-	        		lifePoints.get(cpt).setSize(((Allies) personnage).getPointDeVie()*10, 23);
+	        	if(personnage instanceof PersonnageActifs) {
+	        		PersonnageActifs personnageActifs = (PersonnageActifs) personnage;
+	        		System.out.println("j'ai pv:"+personnageActifs.getPointDeVie());
+	        		lifePoints.get(cpt).setSize(((PersonnageActifs) personnage).getPointDeVie()*10, 23);
 	        		lifePoints.get(cpt).setVisible(true);
 	        	}
 	        }
@@ -663,7 +663,7 @@ public class GUI implements ActionListener,Serializable
 		label3.addMouseListener(lbl3);
 	}      
 	public void interractionCombat(int index) {
-		jeu.tourDuComabat((Allies) objetsDansLaZone.get(index));
+		jeu.tourDuComabat((PersonnageActifs) objetsDansLaZone.get(index));
 	}
 	public void afficherInventaire(ArrayList<Objets> inventaire ) {
 		for(JLabel label : inventaireSurZone) {
