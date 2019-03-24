@@ -3,6 +3,7 @@ package jeu;
 import java.io.Serializable;
 
 public class Quete implements Serializable {
+	private static final long serialVersionUID = -3147278656841914623L;
 	/**
 	 * True for -> déjà faite
 	 * False for -> Pas encore faite
@@ -12,15 +13,29 @@ public class Quete implements Serializable {
 	private int nbrCoupDebut;
 	private int nbrCoupFin;
 	
+	/* Constructeur servant uniquement au bon déroulement de la sérialisation car 
+	nécessite un constructeur sans argument*/
 	public Quete()
 	{
 		
 	}
 	
+	/**
+	 * <b>Quete(Objects) :</b>
+	 * This constructor initialize quest status and player reward
+	 * @param recompenseJoueur represent the reward of the player
+	 */
 	public Quete(Objets recompenseJoueur) {
 		recompense = recompenseJoueur;
 		status = false;
 	}
+	
+	/**<b>terminer(Joueur,int) : </b>
+	 * Cette méthode à chaque fin de quête change certaines propriétés du joueur 
+	 * @param joueur représente le joueur 
+	 * @param pointDattaque représente les points d'attaque qu'il gagne en accomplissant
+	 * la quête 
+	 */
 	protected void terminer(Joueur joueur,int pointDattaque) {
 		joueur.prendreObjet(recompense);
 		joueur.setPointdAttaque(joueur.getPointdAttaque()+pointDattaque);
@@ -31,12 +46,28 @@ public class Quete implements Serializable {
 	public void lancerQuete(Joueur joueur, Queteur queteur) {
 	
 	}
+	/**<b> executerQuete(Joueur,Queteur) : </b>
+	 * @param joueur le joueur
+	 * @param queteur la personne qui lance la quête
+	 * @return un String, phrase que le queteur dit si le joueur a déjà une quete en cours
+	 */
 	public String executerQuete(Joueur joueur, Queteur queteur) {
 		return queteur.dialoguePendantQuete(0);
 	}
+	
+	/**
+	 * <b>isStatus()</b>
+	 * Cette méthode renvoie le statut de la quête
+	 * @return Boolean : false si n'a pas déjà était faite, sinon true 
+	 */
 	public boolean isStatus() {
 		return status;
 	}
+	/**
+	 * <b>perdu(Joueur)</b>
+	 * Cette méthode permet de faire perdre le joueur en initialisant ces points de vie à 0
+	 * @param joueur représente le joueur 
+	 */
 	public void perdu(Joueur joueur) {
 		joueur.setPointDeVie(0);
 	}
