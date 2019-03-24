@@ -526,6 +526,13 @@ public class GUI implements ActionListener,Serializable
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setBounds(500,10,1000,785);
         fenetre.setVisible(true);
+	Desktop desk = Desktop.getDesktop();
+        try {
+		desk.open(new File("src/data/interface.pdf"));
+	} catch (IOException e1) {
+	// TODO Auto-generated catch block
+	e1.printStackTrace();
+	}
     }
     
     /* (non-Javadoc)
