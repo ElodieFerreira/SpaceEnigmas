@@ -138,6 +138,20 @@ public class Jeu implements Serializable {
         	WorldBuilder.suppresionDuMouton(partie.getZoneCourante(), mouton);
     	}	
     }
+    /**Aller dans une direction donnée
+     * @param direction
+     */
+    public void allerEn(String direction) {
+    	Zone nouvelle = partie.getZoneCourante().obtientSortie(direction);
+    	if ( nouvelle == null ) {
+        	gui.afficher( "Pas de sortie " + direction);
+    		gui.afficher();
+    	}
+        else {
+        	partie.setZoneCourante(nouvelle);
+        	afficherLocalisation();
+        }
+    }
 	/** Méthode qui déplace le joueur
 	 * @param Zone nouvelleZone
 	 */
