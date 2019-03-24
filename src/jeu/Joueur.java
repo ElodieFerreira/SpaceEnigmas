@@ -19,6 +19,9 @@ public class Joueur implements Serializable {
 	 * Compte le nombre de quête rêalisé par le joueur jusqu'à présent.
 	 */
 	private int nbQueterealise;
+	/** Construit le joueur en lui initialisant ses pvs et ses point de pouvoir
+	 * @param String nom du joueur
+	 */
 	public Joueur(String nom) {
 		this.nom = nom;
 		queteEnCours = null;
@@ -28,50 +31,74 @@ public class Joueur implements Serializable {
 		niveauActuel = 0;
 		pointDeVie = 15;
 		pointdAttaque = 15;
-	}
-	
+	}	
+	/** Getteur des points d'attaque
+	 * @return Integer point d'attaque
+	 */
 	public Integer getPointdAttaque() {
 		return pointdAttaque;
 	}
-
+	/** Setter point d'attaque
+	 * @param Integer pointdAttaque
+	 */
 	public void setPointdAttaque(Integer pointdAttaque) {
 		this.pointdAttaque = pointdAttaque;
 	}
-
+	/** Getter des points de vie du joueur
+	 * @return Integer point de vie.
+	 */
 	public Integer getPointDeVie() {
 		return pointDeVie;
 	}
-
+	/** Setter point de vie
+	 * @param Integer pointDeVie
+	 */
 	public void setPointDeVie(Integer pointDeVie) {
 		this.pointDeVie = pointDeVie;
 	}
-
+	/** Getter niveau max du joueur
+	 * @return int niveauMaximum
+	 */
 	public int getNiveauMaximum() {
 		return niveauMaximum;
 	}
-
+	/** Setter niveauMaximum
+	 * @param int niveauMaximum
+	 */
 	public void setNiveauMaximum(int niveauMaximum) {
 		this.niveauMaximum = niveauMaximum;
 	}
-
+	/** Getter niveauActuel
+	 * @return int niveauActuel
+	 */
 	public int getNiveauActuel() {
 		return niveauActuel;
 	}
-
+	/** Setter niveauActuel
+	 * @param int niveauActuel
+	 */
 	public void setNiveauActuel(int niveauActuel) {
 		this.niveauActuel = niveauActuel;
 	}
-
-	public void prendreObjet(Objets A)
-	{
-		inventaire.add(A);
-		System.out.println();
+	/** Le joueur prends un objet et le met dans son inventaire
+	 * @param Objet obj
+	 */
+	public void prendreObjet(Objets obj)
+	{	
+		inventaire.add(obj);
 	}
+	/** Enlève un objet de l'inventaire du joueur pour le donner
+	 * @param Objet obj
+	 * @return Objet obj
+	 */
 	public Objets donnerObjet(Objets obj)
 	{	
 		inventaire.remove(obj);
 		return obj;	
 	}
+	/** Récupère un des moutons présents dans l'inventaire
+	 * @return Mouton mouton
+	 */
 	public Mouton recupererMouton() {
 		for(Objets obj : inventaire) {
 			if(obj instanceof Mouton) {
@@ -80,21 +107,35 @@ public class Joueur implements Serializable {
 		}
 		return null;
 	}
-
+	/** Getter nom
+	 * @return String nom
+	 */
 	public String getNom()
 	{
 		return this.nom;
 	}
+	/** Setter nom
+	 * @param String newName
+	 */
 	public void setNom(String newName)
 	{
 		this.nom=newName;
 	}
+	/** Getter quete en cours
+	 * @return Quete queteEnCours
+	 */
 	public Quete quete() {
 		return queteEnCours;
 	}
+	/** Setter queteEnCours
+	 * @param Quete quete
+	 */
 	public void setQuete(Quete quete) {
 		this.queteEnCours=quete;
 	}
+	/** Compte le nombre de mouton présent dans l'inventaire
+	 * @return int nombreDeMouton
+	 */
 	public int nbMouton() {
 		int cpt=0;
 		for(Objets obj : inventaire) {
@@ -104,8 +145,10 @@ public class Joueur implements Serializable {
 		}
 		return cpt;
 	}
+	/** Permet au joueur d'attaquer un personnage passé en paramètre
+	 * @param Personnage personnage
+	 */
 	public void attaquer(Allies personnage) {
 		personnage.setPointDeVie(personnage.getPointDeVie()-pointdAttaque);
 	}
-	
 }
