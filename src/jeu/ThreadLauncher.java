@@ -65,7 +65,6 @@ public class ThreadLauncher {
 						}
 						if(jeu.getPartie().getZoneCourante()==jeu.getPartie().getSceneFinal()) {
 							if(!setMechant) {
-								System.out.println("j'aichangerlesListener");
 								jeu.lancerCombat();
 								jeu.apparitionMechant(true);
 								setMechant = true;

@@ -677,4 +677,17 @@ public class GUI implements ActionListener,Serializable
 			inventaireSurZone.get(index).setVisible(true);
 		}
 	}
+	public void afficherCredit() {
+		URL imageURL = this.getClass().getClassLoader().getResource("images/crédit.gif");
+    	ImageIcon img = new ImageIcon(imageURL);
+    	Image imageFormatImage = img.getImage();
+    	imageFormatImage.getScaledInstance(image.getWidth(), image.getHeight(), Image.SCALE_SMOOTH);
+    	ImageIcon newIcon = new ImageIcon(imageFormatImage);
+	   	if( imageURL != null ) {
+	   		JLabel credit = new JLabel(newIcon);
+	   		credit.setBounds(100,10,600,100);
+        	panelImage.add(credit);
+        }
+		
+	}
 }

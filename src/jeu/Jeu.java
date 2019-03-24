@@ -112,8 +112,6 @@ public class Jeu implements Serializable {
         gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(),partie.getZoneCourante().getPersonnageDansLaZone());
         afficherLocalisation();
     }
-    
-
 
     public void captureDeMouton(Mouton mouton) {
     	partie.getJoueur().prendreObjet(mouton);
@@ -210,8 +208,8 @@ public class Jeu implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete().replaceAll("Joueur",partie.getJoueur().getNom()));
 		afficherLocalisation();
+		gui.afficher(partie.getGuideDuJeu().dialogueFinQuete().replaceAll("Joueur",partie.getJoueur().getNom()));
 	}
 	public void Sauvegarde() { Sauvegarde.Serialize(partie); }
 	public void apparitionMechant(boolean isDisplayed) { gui.displayDyspros(partie.dyspros().getImage(),isDisplayed); }
@@ -227,6 +225,7 @@ public class Jeu implements Serializable {
 		gui.afficher("LES PV DE DYSPROS SONT DE "+partie.dyspros().getPointDeVie());
 		if(partie.dyspros().getPointDeVie()<=0) {
 			partie.setZoneCourante(new Zone("Galaxie","win.gif","Vous avez sauvé toute votre galaxie"));
+			gui.afficherCredit();
 			apparitionMechant(false);
 			afficherLocalisation();
 			return;
