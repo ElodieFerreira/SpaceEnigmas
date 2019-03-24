@@ -56,10 +56,17 @@ public class GUI implements ActionListener,Serializable
     private ArrayList<JLabel> inventaireSurZone,lifePoints;
     
 
-    public GUI(Jeu j) {
-        jeu = j;
+    /** Constructeur qui initalise le jeu avec le paramètre Jeu 
+     * permettant ainsi d'avoir un lien entre jeu et IHM
+     * @param Jeu jeu
+     */
+    public GUI(Jeu jeu) {
+        jeu = jeu;
         creerGUI();
     }
+    /** Ajoute le nom du joueur à la fenêtre
+     * @param String nom
+     */
     public void addNameFrame(String nom) {
     	fenetre.setTitle("SpaceEnigmas "+nom);
     }
@@ -68,11 +75,16 @@ public class GUI implements ActionListener,Serializable
     	texte.append(s+"\n");
         texte.setCaretPosition(texte.getDocument().getLength());
     }
+    /** Affiche un dialogue et le nom du personnage qui le dit
+     * @param String dialogue
+     * @param Personnage perso
+     */
     public void afficher(String s, Personnage perso) {
     	texte.append("\n");
     	texte.setText(perso.getNom()+"\n");
+    	// Ce thread permet d'afficher temporairement la personne qui vient de parler dans le petit 
+    	// carré à la place du guide du joueur sans impacter le thread principale avec un sleep.
     	Thread t = new Thread(new Runnable() {
-			
 			@Override
 			public void run() {
 				afficherMiniature(jeu.getPartie().getZoneCourante().getNomImage(), perso.getImage());
@@ -89,10 +101,15 @@ public class GUI implements ActionListener,Serializable
     	texte.append(s+"\n");
         texte.setCaretPosition(texte.getDocument().getLength());
     }
-    
+    /**
+     * Affiche un saut de ligne
+     */
     public void afficher() {
         afficher("\n");
     }
+    /** Affiche l'image de la zone en fond
+     * @param String nomImage
+     */
     public void afficheImage(String nomImage) {
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	ImageIcon img = new ImageIcon(imageURL);
@@ -104,8 +121,11 @@ public class GUI implements ActionListener,Serializable
         	panelImage.add(image);
         }
    }
-    public void afficheImageMiniatureWorld(String nomImage, JLabel jlabel) {
-
+    /** Affiche une image resize selon la taille du JLabel où on va l'afficher
+     * @param String nomImage
+     * @param JLabel jlabel
+     */
+    public void afficheImageMiniature(String nomImage, JLabel jlabel) {
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
     	BufferedImage img = null;
     	try {
@@ -126,7 +146,11 @@ public class GUI implements ActionListener,Serializable
 	   		
         }
    }
- 
+    /** Met en place le texte en verticale sur un bouton donné
+     * @param JButton bouton
+     * @param String text
+     * @return JButton modifé
+     */
     public JButton texteVerticaleBouton(JButton bouton, String text) {
     	String textBoutton = new String("<HTML>");
     	for(int i=0;i<text.length();i++) {
@@ -137,6 +161,9 @@ public class GUI implements ActionListener,Serializable
     	bouton.setText(textBoutton);
     	return bouton;
     }
+    /** Affiche les boutons de sorties sur la zone selon les sorties disponibles
+     * @param HashMap<String,Zone> sorties
+     */
     public void afficherBoutonSortie(HashMap<String,Zone> sorties) {
     	if(sorties.get("NORD")!=null) {
     		boutonNord.setText(sorties.get("NORD").getNom());
@@ -163,12 +190,17 @@ public class GUI implements ActionListener,Serializable
     		boutonOuest.setVisible(false);
     	}
     }
+    /** Affiche ou non l'entrée.
+     * @param ok
+     */
     public void enable(boolean ok) {
         entree.setEditable(ok);
         if ( ! ok )
             entree.getCaret().setBlinkRate(0);
     }
-
+    /**
+     * Met en place le GUI de base
+     */
     private void creerGUI() {
         fenetre = new JFrame("SpaceEnigmas");
         panel = new JPanel();
@@ -179,12 +211,13 @@ public class GUI implements ActionListener,Serializable
         panel.setLayout(null);
         panel.add(panelCarte);
         panelCarte.setLayout(new BorderLayout(0, 0));
-        
-        
-
+        // Mise en place du panel Image
         panelImage = new JPanel();
         panelImage.setBackground(Color.DARK_GRAY);
         panelImage.setLayout(null);
+        // Mise en place des emplacements des personnages ( limité à 3 car il n'y a jamais plus
+        // de 3 personnes actuellement sur les zones )
+        
         label1 = new JLabel();
         lbl1= new MouseAdapter() {
         	@Override
@@ -193,11 +226,57 @@ public class GUI implements ActionListener,Serializable
         	}
         };
         label1.addMouseListener(lbl1);
+        label1.setBounds(50, 241, 180, 180);
+        label1.setBackground(new Color(204, 204, 0));
+        panelImage.add(label1);
+        panelCarte.add(panelImage);
+        
+        label2 = new JLabel();
+        label2.setBackground(new Color(204, 204, 0));
+        label2.setBounds(316, 241, 180, 180);
+        lbl2 = new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		interractionObjet(label2, 1);
+        	}
+        };
+        label2.addMouseListener(lbl2);
+        panelImage.add(label2);
+        
+        label3 = new JLabel();
+        label3.setBackground(new Color(204, 204, 0));
+        label3.setBounds(568, 241, 180, 180);
+        lbl3 = new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		interractionObjet(label3, 2);
+        	}
+        };
+        label3.addMouseListener(lbl3);
+        panelImage.add(label3);
+        //Barre de vie
         lifePoints=new ArrayList<JLabel>();
         JLabel lifePoint1 = new JLabel("");
 //        lifePoint1.setIcon(new ImageIcon(GUI.class.getResource("/images/lifepoints.png")));
         lifePoint1.setBounds(49, 228, 97, 23);
         lifePoints.add(lifePoint1);
+        JLabel lifePoint2 = new JLabel("");
+        lifePoint2.setBounds(350, 228, 163, 23);
+        lifePoints.add(lifePoint2);
+        panelImage.add(lifePoint2);
+        JLabel lifePoint3 = new JLabel("");
+        lifePoint3.setBackground(Color.GREEN);
+        lifePoint3.setBounds(580, 228, 160, 23);
+        lifePoints.add(lifePoint3);
+        panelImage.add(lifePoint3);
+       
+        for(JLabel label : lifePoints) {
+        	URL lifePointURL = this.getClass().getClassLoader().getResource("images/lifepoints.png");
+        	label.setIcon(new ImageIcon(lifePointURL));
+        	label.setVisible(false);
+        }
+        panelImage.add(lifePoint1);
+        // Les boutons de direction
         boutonNord = new JButton("Nord");
         boutonNord.setIcon(new ImageIcon(GUI.class.getResource("/images/button2.png")));
         boutonNord.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 10));
@@ -228,23 +307,8 @@ public class GUI implements ActionListener,Serializable
         boutonOuest.setHorizontalTextPosition(SwingConstants.CENTER);
         boutonOuest.setBounds(0, 0, 35, 499);
         panelImage.add(boutonOuest);
-        JLabel lifePoint2 = new JLabel("");
-        lifePoint2.setBounds(350, 228, 163, 23);
-        lifePoints.add(lifePoint2);
-        panelImage.add(lifePoint2);
-        JLabel lifePoint3 = new JLabel("");
-        lifePoint3.setBackground(Color.GREEN);
-        lifePoint3.setBounds(580, 228, 160, 23);
-        lifePoints.add(lifePoint3);
-        panelImage.add(lifePoint3);
        
-        for(JLabel label : lifePoints) {
-        	URL lifePointURL = this.getClass().getClassLoader().getResource("images/lifepoints.png");
-        	label.setIcon(new ImageIcon(lifePointURL));
-        	label.setVisible(false);
-        }
-        panelImage.add(lifePoint1);
-        
+        // Mise en place de l'inventaire
         inventaire = new JPanel();
         inventaire.setForeground(Color.WHITE);
         inventaire.setBounds(29, 332, 334, 156);
@@ -252,7 +316,7 @@ public class GUI implements ActionListener,Serializable
         inventaire.setLayout(null);
         inventaire.setBorder(new LineBorder(new Color(0, 0, 0)));
         inventaire.setBackground(SystemColor.control);
-        
+         // Les labels de l'inventaire
         label_1 = new JLabel("");
         label_1.setForeground(Color.DARK_GRAY);
         label_1.setBackground(Color.BLACK);
@@ -301,7 +365,7 @@ public class GUI implements ActionListener,Serializable
         label_8.setOpaque(true);
         label_8.setBounds(235, 81, 65, 65);
         inventaire.add(label_8);
-        
+        // Bouton croix pour sortir de l'inventaire
         JButton btnX = new JButton("");
         btnX.setToolTipText("exit");
         btnX.setIcon(new ImageIcon(GUI.class.getResource("/images/close.png")));
@@ -316,40 +380,13 @@ public class GUI implements ActionListener,Serializable
         inventaire.add(btnX);
         inventaire.setVisible(false);
         panelImage.add(inventaire);
-        
+        //Ajout du JLabel dédié à Dyspros
         dyspros = new JLabel();
         dyspros.setBackground(new Color(204, 204, 0));
         dyspros.setBounds(523, 30, 180, 180);
         panelImage.add(dyspros);
         
-        label1.setBounds(50, 241, 180, 180);
-        label1.setBackground(new Color(204, 204, 0));
-        panelImage.add(label1);
-        panelCarte.add(panelImage);
-        
-        label2 = new JLabel();
-        label2.setBackground(new Color(204, 204, 0));
-        label2.setBounds(316, 241, 180, 180);
-        lbl2 = new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent arg0) {
-        		interractionObjet(label2, 1);
-        	}
-        };
-        label2.addMouseListener(lbl2);
-        panelImage.add(label2);
-        
-        label3 = new JLabel();
-        label3.setBackground(new Color(204, 204, 0));
-        label3.setBounds(568, 241, 180, 180);
-        lbl3 = new MouseAdapter() {
-        	@Override
-        	public void mouseClicked(MouseEvent arg0) {
-        		interractionObjet(label3, 2);
-        	}
-        };
-        label3.addMouseListener(lbl3);
-        panelImage.add(label3);
+        //Mis en place du Téléporteur qui est toujours notre premier objet dans le jeu
         teleporteur = new MouseAdapter() {
            	@Override
         	public void mouseClicked(MouseEvent arg0) {
@@ -362,7 +399,7 @@ public class GUI implements ActionListener,Serializable
         labelArray.add(label2);
         labelArray.add(label3);
         fenetre.getContentPane().add(panel, BorderLayout.CENTER);
-        
+        //Mise en place du menu Joueur
         menuBar = new JMenuBar();
         menuBar.setBounds(0, 0, 984, 26);
         panel.add(menuBar);
@@ -372,6 +409,7 @@ public class GUI implements ActionListener,Serializable
         
         Sauvegarde = new JMenuItem("Sauvegarde");
         mnJoueur.add(Sauvegarde);
+        // Message de sauvegarde
     	saveMessage = new JLabel("Votre sauvegarde a bien été effectué");
     	saveMessage.setHorizontalAlignment(SwingConstants.CENTER);
     	saveMessage.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 11));
@@ -434,7 +472,8 @@ public class GUI implements ActionListener,Serializable
         });
         mnAide.add(Interface);      
         Planete = new JMenuItem("Carte");
-        mnAide.add(Planete);     
+        mnAide.add(Planete);  
+        // Mise en place du splitPane pour les miniatures et les dialogues
         JSplitPane splitPane = new JSplitPane();
         splitPane.setResizeWeight(0.15);
         splitPane.setBounds(0, 523, 985, 190);
@@ -467,6 +506,7 @@ public class GUI implements ActionListener,Serializable
         panel.add(entree);
         entree.addActionListener(this);
         entree.requestFocus();
+        // L'ArrayList de la zone
         inventaireSurZone = new ArrayList<JLabel>();
         inventaireSurZone.add(label_1);
         inventaireSurZone.add(label_2);
@@ -487,11 +527,17 @@ public class GUI implements ActionListener,Serializable
         fenetre.setBounds(500,10,1000,785);
         fenetre.setVisible(true);
     }
-
+    
+    /* (non-Javadoc)
+     * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
     public void actionPerformed(ActionEvent e) {
         executerCommande();
     }
 
+    /**
+     * On renvoie la commande écrite à la fonction du jeu correspondante. 
+     */
     private void executerCommande() {
     	jeu.incrementerCommande();
         String commandeLue = entree.getText();
@@ -517,8 +563,10 @@ public class GUI implements ActionListener,Serializable
         }
         
     }
+    /**
+     * Rajoute certains actionListener indisponible avant la création du joueur
+     */
     public void addAllActionListener() {
-		// TODO Auto-generated method stub
         boutonEst.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent e) {
@@ -562,15 +610,20 @@ public class GUI implements ActionListener,Serializable
         			}
         		});
         		t.start();
-        		
         	}
         });
 	}
+	/**
+	 * Ferme la fenêtre
+	 */
 	public void stopFenetre() {
     	fenetre.setVisible(false);
     }
+	/** Affiche les éléments dans les zones, mouton et personnage.
+	 * @param ArrayList<Mouton> animauxDansLazone
+	 * @param ArrayList<Personnage> personnageDansLaZone
+	 */
 	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone,ArrayList<Personnage> personnageDansLaZone) {
-		// TODO Auto-generated method stub
 		for(JLabel label : labelArray) {
 			label.setVisible(false);
 		}
@@ -581,7 +634,7 @@ public class GUI implements ActionListener,Serializable
         naturesObjetsDansLaZone = new ArrayList<String>();
 		int cpt = 0;
 		for(Mouton mouton : animauxDansLazone) {
-			System.out.println("je suis pas un mouton");
+			// Place tous les moutons.
 			URL moutonURL = this.getClass().getClassLoader().getResource("images/"+mouton.getImage());
 		   	if( moutonURL != null ) {
 		   		objetsDansLaZone.add((Object)mouton);
@@ -592,14 +645,14 @@ public class GUI implements ActionListener,Serializable
 	        }
 		}
 		for(Personnage personnage : personnageDansLaZone) {
+			//Parcourt les personnages dans la zone pour les afficher
 		   	URL personnageURL = this.getClass().getClassLoader().getResource("images/"+personnage.getImage());
-//		   	System.out.println("moi je suis un perso");
-//		   	System.out.println(personnageURL);
 		   	if( personnageURL != null ) {
 		   		objetsDansLaZone.add((Object)personnage);
 		   		naturesObjetsDansLaZone.add("personnage");
 	        	labelArray.get(cpt).setIcon( new ImageIcon(personnageURL)); 	
 	        	labelArray.get(cpt).setVisible(true);
+	        	// Affiche les points de vie des personnagesActifs
 	        	if(personnage instanceof PersonnageActifs) {
 	        		PersonnageActifs personnageActifs = (PersonnageActifs) personnage;
 	        		System.out.println("j'ai pv:"+personnageActifs.getPointDeVie());
@@ -610,32 +663,39 @@ public class GUI implements ActionListener,Serializable
 		   	cpt++;
 		}
 	}
+	/** Intéragit avec les objets/personnage dans les zones
+	 * @param label
+	 * @param index
+	 */
 	public void interractionObjet(JLabel label, int index) {
-		jeu.incrementerCommande();
-		if(jeu.getPartie().getJoueur()!=null) {
-			if(naturesObjetsDansLaZone.get(index)=="mouton") {
-				jeu.captureDeMouton((Mouton)objetsDansLaZone.get(index));
-				label.setVisible(false);
-			} else {
-				jeu.interractionPersonnage((Personnage)objetsDansLaZone.get(index));
-			}
+		if(naturesObjetsDansLaZone.get(index)=="mouton") {
+			jeu.captureDeMouton((Mouton)objetsDansLaZone.get(index));
+			label.setVisible(false);
 		} else {
-			afficher("Je n'ai pas ton prénom jeune inconnu ! Donne le moi avant de commencer la partie!\n");
+			jeu.interractionPersonnage((Personnage)objetsDansLaZone.get(index));
 		}
 	}
-    public JTextField getEntree() {
-		return entree;
-	}
+	/** Affiche les deux miniatures de la zone.
+	 * @param nomImage
+	 * @param imageQueteur
+	 */
 	public void afficherMiniature(String nomImage, String imageQueteur) {
 		// TODO Auto-generated method stub
-		afficheImageMiniatureWorld(nomImage,world);
-		afficheImageMiniatureWorld(imageQueteur, character);
+		afficheImageMiniature(nomImage,world);
+		afficheImageMiniature(imageQueteur, character);
 		world.setVisible(true);
 	}
+	/** Affiche ou fait disparaitre Dyspros
+	 * @param image2
+	 * @param isDisplayed
+	 */
 	public void displayDyspros(String image2, boolean isDisplayed) {
-		afficheImageMiniatureWorld(image2, dyspros);
+		afficheImageMiniature(image2, dyspros);
 		dyspros.setVisible(isDisplayed);
 	}
+	/**
+	 * Change les listener des JLabels des personnages pour le combat
+	 */
 	public void addActionListenerCombat() {
 		label1.removeMouseListener(lbl1);
 		lbl1= new MouseAdapter() {
@@ -662,21 +722,30 @@ public class GUI implements ActionListener,Serializable
 		};
 		label3.addMouseListener(lbl3);
 	}      
+	/** Lance une interraction de combat avec le personnage à l'index touché par la souris
+	 * @param index
+	 */
 	public void interractionCombat(int index) {
 		jeu.tourDuComabat((PersonnageActifs) objetsDansLaZone.get(index));
 	}
+	/** Dessine l'inventaire pour le mettre à jour - sans l'afficher -
+	 * @param inventaire
+	 */
 	public void afficherInventaire(ArrayList<Objets> inventaire ) {
 		for(JLabel label : inventaireSurZone) {
 			label.setIcon(null);
 		}
 		for(Objets obj : inventaire) {
 			int index = inventaire.indexOf(obj);
-			afficheImageMiniatureWorld(obj.getNomImage(), inventaireSurZone.get(index));
+			afficheImageMiniature(obj.getNomImage(), inventaireSurZone.get(index));
 			inventaireSurZone.get(index).setToolTipText(obj.getDescription());
 			
 			inventaireSurZone.get(index).setVisible(true);
 		}
 	}
+	/**
+	 * Affiche les crédits lors de la scène gagnante
+	 */
 	public void afficherCredit() {
 		URL imageURL = this.getClass().getClassLoader().getResource("images/crédit.gif");
     	ImageIcon img = new ImageIcon(imageURL);
