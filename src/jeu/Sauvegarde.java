@@ -6,16 +6,21 @@ import java.util.HashMap;
 public class Sauvegarde
 {
 	/**
-	 * @param partieCourante represents the current part that we will serialize
+	 * <b> Serialize(Partie) : </b>
+	 * This method is used to serialize the game
+	 * @param partieCourante represents the current game
 	 */
 	public static void Serialize(Partie partieCourante) {
 		try 
 		{
+			// Préparation de l'écriture de l'objet dans le fichier 
 			FileOutputStream file = new FileOutputStream("src/data/sauvegarde.txt");
 			ObjectOutputStream out = new ObjectOutputStream(file);
 			System.out.println("Preparation de la serealisation de la zone");
+			// Ecriture de l'objet dans le fichier
 			out.writeObject(partieCourante);
 			System.out.println("La zone a bien été serealisé");
+			//Fermeture des streams 
 			out.close();
 			file.close();
 		}
@@ -28,7 +33,9 @@ public class Sauvegarde
 
 	
 	/**
-	 * @param partieCourante represents the file we want to read to deserialize. Here it is the serialized file of the current part
+	 * <b>Deserialize(Partie) : </b>
+	 * This method is used to deserialize the current game that we already serialize
+	 * @param partieCourante represents the current part
 	 * @return The last part that the player has saved 
 	 */
 	public static Partie Deserialize(Partie partieCourante)
@@ -39,18 +46,16 @@ public class Sauvegarde
 					// Lecture du fichier 
 					FileInputStream file = new FileInputStream("src/data/sauvegarde.txt");
 					ObjectInputStream in = new ObjectInputStream(file);
-					// Méthode pour déséréalizer un objet 
+					// Méthode pour déséréalizer un objet
 					Partie save = (Partie)in.readObject();
-					//nomJoueur= (String)in.readObject();
 					in.close();
 					file.close();
-					System.out.println("L'objet a été déséréalizer");
-					// printdata(test);
+					System.out.println("L'objet a été déséréalizé");
 					return save;
 				}
 				catch(IOException e)
 				{
-					System.err.println("IOException 1 a été trouvé ");
+					//System.err.println("IOException 1 a été trouvé ");
 //					e.printStackTrace();
 					return null;
 				}
