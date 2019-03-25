@@ -60,8 +60,8 @@ public class GUI implements ActionListener,Serializable
      * permettant ainsi d'avoir un lien entre jeu et IHM
      * @param Jeu jeu
      */
-    public GUI(Jeu jeu) {
-        jeu = jeu;
+    public GUI(Jeu Jeu) {
+        jeu = Jeu;
         creerGUI();
     }
     /** Ajoute le nom du joueur à la fenêtre

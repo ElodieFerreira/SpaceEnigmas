@@ -148,6 +148,5 @@ public class Partie implements Serializable {
 	 */
 	public void setVaisseau(Zone newVaisseau) {
 		vaisseau = newVaisseau;
-	}
-	 
+	}	 
 }
