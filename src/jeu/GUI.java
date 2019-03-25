@@ -687,7 +687,6 @@ public class GUI implements ActionListener,Serializable
 	 * @param imageQueteur
 	 */
 	public void afficherMiniature(String nomImage, String imageQueteur) {
-		// TODO Auto-generated method stub
 		afficheImageMiniature(nomImage,world);
 		afficheImageMiniature(imageQueteur, character);
 		world.setVisible(true);
