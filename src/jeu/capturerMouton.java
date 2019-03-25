@@ -17,6 +17,9 @@ public class capturerMouton extends Quete {
 	public int nbMouton() {
 		return nombreMoutonRequis-nombreMoutonRecu;
 	}
+	/* (non-Javadoc)
+	 * @see jeu.Quete#executerQuete(jeu.Joueur, jeu.Queteur)
+	 */
 	@Override
 	public String executerQuete(Joueur joueur, Queteur queteur) {
 		// TODO Auto-generated method stub
