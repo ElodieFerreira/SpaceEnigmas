@@ -93,7 +93,7 @@ public class Jeu implements Serializable {
     	ArrayList<Planete> espace = WorldBuilder.creerLesPlanetes(zones);
     	Zone vaisseau = zones.get(0);
     	vaisseau = WorldBuilder.ajouterLesSortiesAuVaisseau(vaisseau, espace);
-    	ArrayList<PersonnageActifs> tousLesPersonnageActifs = WorldBuilder.creerTousLesPersonnageActifs("PersonnageActifs.xml");
+    	ArrayList<PersonnageActifs> tousLesPersonnageActifs = WorldBuilder.creerTousLesPersonnageActifs("allies.xml");
     	zones = WorldBuilder.positionneAlliees(zones, tousLesPersonnageActifs);
     	ArrayList<Objets> objets = WorldBuilder.creerLesObjets();
     	ArrayList<Quete> quetes = WorldBuilder.creerLesQuetesDuJeu(objets);
@@ -253,7 +253,7 @@ public class Jeu implements Serializable {
 	public void envoyerReponseEnigme(String reponse,Queteur queteur) {
 		if(queteur.quete() instanceof Pendu) {
 			// Ici, la réponse est envoyé pour exécuter le pendu
-			gui.afficher(((Pendu)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,reponse);
+			gui.afficher(((Pendu)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,reponse));
 		} else if(queteur.quete() instanceof EnigmeTextuel) {
 			// Ici la réponse est envoyé pour exécuter l'Enigme Textuelle
 			gui.afficher(((EnigmeTextuel)queteur.quete()).executerQuete(getPartie().getJoueur(), queteur,reponse));

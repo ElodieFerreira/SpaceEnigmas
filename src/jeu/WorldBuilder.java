@@ -130,7 +130,7 @@ public class WorldBuilder {
 	 * @param Le nom du fichier
 	 * @return ArrayList<Allies> avec tous les alliés de la partie
 	 */
-	public static ArrayList<PersonnageActifs> creerTousLesAllies(String nomFichier) {
+	public static ArrayList<PersonnageActifs> creerTousLesPersonnageActifs(String nomFichier) {
 		ReaderXML persoReader = new ReaderXML(nomFichier);
 		ArrayList<PersonnageActifs> tousLesPersos = new ArrayList<PersonnageActifs>();
 		NodeList allies = persoReader.getDocument().getElementsByTagName("allie");
