@@ -69,7 +69,8 @@ public class Jeu implements Serializable {
     public void sceneOuverture() {
     	gui.afficher(partie.getGuideDuJeu().dialogueLancementQuete(),partie.getGuideDuJeu());
     	while(partie.getJoueur()==null) {
-    	System.out.println("");
+		System.out.println("");
+    		// Permet d'attendre la création du joueur avant la suite de la scène d'ouverture
     	}
     		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(0).replaceAll("joueur", partie.getJoueur().getNom()),partie.getGuideDuJeu());
     		try {
