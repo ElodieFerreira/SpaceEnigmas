@@ -12,7 +12,7 @@ public class Pendu extends Quete{
 	private String motJeu;
 	
 	/**
-	 * <b>Pendue(Objets, ArrayList String ) : </b> 
+	 * 
 	 * Constructor which initialize the hangman quest
 	 * @param recompenseJoueur is the object that will be given to the player after the quest
 	 * @param newMots represents a array of word which are the answers to the hangman
@@ -27,7 +27,7 @@ public class Pendu extends Quete{
 		mots.addAll(newMots);
 	}
 	
-	/**<b>EstTropGrande(String) : </b> 
+	/** 
 	 * This method check if the player wrote more than one letter
 	 * @param st represents the letter that the player wrote on the keyboard
 	 * @return a boolean : return true if the player wrote more than one letter else it returns false
@@ -41,7 +41,7 @@ public class Pendu extends Quete{
 		}
 	}
 	
-	/**<b>EstDansMot(String) : </b> 
+	/**
 	 * This method check if the word written on the keyboard is contained in the answer
 	 * @param rep is the word that the player wrote on the keyboard
 	 * @return : a boolean which return true if the word written is contained in the answer else return false
@@ -50,7 +50,7 @@ public class Pendu extends Quete{
 		return this.reponse.contains(rep);
 	}
 
-	/** <b> lancerQuete : </b>
+	/**
 	 * This method launch the quest.
 	 * @param joueur the player
 	 * @param queteur the person who launch the quest 
@@ -64,12 +64,12 @@ public class Pendu extends Quete{
 		}
 	} 
 	
-	/** <b> dévoileLettre(String, int) :  </b>
+	/**
 	 * This method show the letter to the players
 	 * @param lettre is the letter that the player wrote on the keyboard and we search it place its place
 	 * @param id the index from which to start the search.
 	 */
-	private void dévoileLettre(String lettre, int id) {
+	private void devoileLettre(String lettre, int id) {
 		// On prend l'index de la lettre trouvé dans la réponse
 		int index=reponse.indexOf(lettre.toUpperCase(),id);
 		System.out.println(motJeu.length());
@@ -77,20 +77,20 @@ public class Pendu extends Quete{
 		// Si l'index est égal à moins 1 ça signifie que la lettre est bien dans le mot
 		if(index!=-1) {
 			// On va parcourir motJeu jusqu'à l'index de la lettre trouvé et afficher cette lettre
-			String premièrePartie = motJeu.substring(0, index);
+			String premierePartie = motJeu.substring(0, index);
 			/*On va parcourir  de nouveau motJeu mais au-delà de l'index (en cas de doublon de lettre)
 			et l'afficher */
-			String deuxièmePartie = motJeu.substring(index+1,motJeu.length());
+			String deuxiemePartie = motJeu.substring(index+1,motJeu.length());
 			// motJeu change de valeur prend en compte les lettres dévoilées
-			motJeu=premièrePartie+lettre.toUpperCase()+deuxièmePartie;
+			motJeu=premierePartie+lettre.toUpperCase()+deuxiemePartie;
 			/* Invocation de la même méthode jusqu'à ce que toutes les lettres soient trouvées ou que les coups max
 			on été atteint */
-			dévoileLettre(lettre.toUpperCase(),index+1);
+			devoileLettre(lettre.toUpperCase(),index+1);
 		}	
 	}
 	
 	/**
-	 * <b>EstComplet() : </b>
+	 *
 	 * This method check if the word is complete
 	 * @return boolean : true if the word we play is complete else false
 	 */
@@ -101,7 +101,7 @@ public class Pendu extends Quete{
 	/** This method allows you to run the hangman quest.
 	 * @see EstTropGrande
 	 * @see EstDansMot 
-	 * @see dévoileLettre
+	 * @see devoileLettre
 	 * @see terminer
 	 * @param joueur represents the player
 	 * @param queteur represents the person who give to the player the quest
@@ -117,7 +117,7 @@ public class Pendu extends Quete{
 		// Si tout est bon 
 		if(!EstTropGrande(str.toUpperCase())) {
 			if(EstDansMot(str.toUpperCase())) {
-				dévoileLettre(str.toUpperCase(),0);
+				devoileLettre(str.toUpperCase(),0);
 				if(EstComplet()) {
 					int pointPouvoirGagne = 40 - 4*nombreDeCoups;
 					terminer(joueur,pointPouvoirGagne);
@@ -159,6 +159,9 @@ public class Pendu extends Quete{
 		}
 	}
 
+	/** Getter permettant d'obtenir le mot du jeu 
+	 * @return String
+	 */
 	public String motJeu() {
 		return motJeu;
 	}

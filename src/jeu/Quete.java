@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class Quete implements Serializable {
 	private static final long serialVersionUID = -3147278656841914623L;
 	/**
-	 * True for -> déjà faite
-	 * False for -> Pas encore faite
+	 * True for  déjà faite
+	 * False for  Pas encore faite
 	 */
 	protected boolean status;
 	private Objets recompense;
@@ -21,7 +21,7 @@ public class Quete implements Serializable {
 	}
 	
 	/**
-	 * <b>Quete(Objects) :</b>
+	 * 
 	 * This constructor initialize quest status and player reward
 	 * @param recompenseJoueur represent the reward of the player
 	 */
@@ -30,7 +30,7 @@ public class Quete implements Serializable {
 		status = false;
 	}
 	
-	/**<b>terminer(Joueur,int) : </b>
+	/**
 	 * Cette méthode à chaque fin de quête change certaines propriétés du joueur 
 	 * @param joueur représente le joueur 
 	 * @param pointDattaque représente les points d'attaque qu'il gagne en accomplissant
@@ -46,7 +46,7 @@ public class Quete implements Serializable {
 	public void lancerQuete(Joueur joueur, Queteur queteur) {
 	
 	}
-	/**<b> executerQuete(Joueur,Queteur) : </b>
+	/**
 	 * @param joueur le joueur
 	 * @param queteur la personne qui lance la quête
 	 * @return un String, phrase que le queteur dit si le joueur a déjà une quete en cours
@@ -56,7 +56,7 @@ public class Quete implements Serializable {
 	}
 	
 	/**
-	 * <b>isStatus()</b>
+	 * 
 	 * Cette méthode renvoie le statut de la quête
 	 * @return Boolean : false si n'a pas déjà était faite, sinon true 
 	 */
@@ -64,7 +64,7 @@ public class Quete implements Serializable {
 		return status;
 	}
 	/**
-	 * <b>perdu(Joueur)</b>
+	 *
 	 * Cette méthode permet de faire perdre le joueur en initialisant ces points de vie à 0
 	 * @param joueur représente le joueur 
 	 */

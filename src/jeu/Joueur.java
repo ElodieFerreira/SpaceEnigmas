@@ -21,7 +21,7 @@ public class Joueur implements Serializable {
 	 */
 	private int nbQueterealise;
 	/** Construit le joueur en lui initialisant ses pvs et ses point de pouvoir
-	 * @param String nom du joueur
+	 * @param nom est un string représentant le nom du joueur
 	 */
 	public Joueur(String nom) {
 		this.nom = nom;
@@ -40,7 +40,7 @@ public class Joueur implements Serializable {
 		return pointdAttaque;
 	}
 	/** Setter point d'attaque
-	 * @param Integer pointdAttaque
+	 * @param  pointdAttaque Integer
 	 */
 	public void setPointdAttaque(Integer pointdAttaque) {
 		this.pointdAttaque = pointdAttaque;
@@ -52,7 +52,7 @@ public class Joueur implements Serializable {
 		return pointDeVie;
 	}
 	/** Setter point de vie
-	 * @param Integer pointDeVie
+	 * @param  pointDeVie Integer
 	 */
 	public void setPointDeVie(Integer pointDeVie) {
 		this.pointDeVie = pointDeVie;
@@ -64,7 +64,7 @@ public class Joueur implements Serializable {
 		return niveauMaximum;
 	}
 	/** Setter niveauMaximum
-	 * @param int niveauMaximum
+	 * @param  niveauMaximum int
 	 */
 	public void setNiveauMaximum(int niveauMaximum) {
 		this.niveauMaximum = niveauMaximum;
@@ -76,20 +76,20 @@ public class Joueur implements Serializable {
 		return niveauActuel;
 	}
 	/** Setter niveauActuel
-	 * @param int niveauActuel
+	 * @param  niveauActuel int
 	 */
 	public void setNiveauActuel(int niveauActuel) {
 		this.niveauActuel = niveauActuel;
 	}
 	/** Le joueur prends un objet et le met dans son inventaire
-	 * @param Objet obj
+	 * @param  obj Objet
 	 */
 	public void prendreObjet(Objets obj)
 	{	
 		inventaire.add(obj);
 	}
 	/** Enlève un objet de l'inventaire du joueur pour le donner
-	 * @param Objet obj
+	 * @param  obj Objet
 	 * @return Objet obj
 	 */
 	public Objets donnerObjet(Objets obj)
@@ -116,7 +116,7 @@ public class Joueur implements Serializable {
 		return this.nom;
 	}
 	/** Setter nom
-	 * @param String newName
+	 * @param  newName String
 	 */
 	public void setNom(String newName)
 	{
@@ -129,7 +129,7 @@ public class Joueur implements Serializable {
 		return queteEnCours;
 	}
 	/** Setter queteEnCours
-	 * @param Quete quete
+	 * @param  quete Quete
 	 */
 	public void setQuete(Quete quete) {
 		this.queteEnCours=quete;
@@ -147,7 +147,7 @@ public class Joueur implements Serializable {
 		return cpt;
 	}
 	/** Permet au joueur d'attaquer un personnage passé en paramètre
-	 * @param Personnage personnage
+	 * @param  personnage Personnage
 	 */
 	public void attaquer(PersonnageActifs personnage) {
 		personnage.setPointDeVie(personnage.getPointDeVie()-pointdAttaque);

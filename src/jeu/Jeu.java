@@ -18,10 +18,10 @@ public class Jeu implements Serializable {
     	return partie;
     }
     /** Restaure l'ancienne partie
-     * @param Partie récupérer par la sauvegarde
+     * @param partiePrecedente est la partie récupéré par la sauvegarde
      */
-    public void restaurePartie(Partie partiePrécédente) {
-    	this.partie = partiePrécédente;
+    public void restaurePartie(Partie partiePrecedente) {
+    	this.partie = partiePrecedente;
     }
     public void setGUI( GUI g) { gui = g; }
     /**
@@ -56,7 +56,7 @@ public class Jeu implements Serializable {
 		sceneOuverture();
     }
     /** Fonction utilisé avec la première entrée du texte pour créer un joueur
-     * @param String nomJoueur
+     * @param  nomJoueur String
      */
     public void creationJoueur(String nomJoueur) {
     	partie.setJoueur(new Joueur(nomJoueur));
@@ -154,7 +154,7 @@ public class Jeu implements Serializable {
         }
     }
 	/** Méthode qui déplace le joueur
-	 * @param Zone nouvelleZone
+	 * @param  nouvelleZone Zone
 	 */
 	public void allerEn(Zone nouvelleZone) {
     	partie.setZoneCourante(nouvelleZone);
@@ -248,7 +248,7 @@ public class Jeu implements Serializable {
     }
     
 	/** Envoie réponse à l'énigme en cours
-	 * @param String réponse
+	 * @param  reponse String
 	 * @param queteur
 	 */
 	public void envoyerReponseEnigme(String reponse,Queteur queteur) {
@@ -285,7 +285,7 @@ public class Jeu implements Serializable {
 	 */
 	public void apparitionMechant(boolean isDisplayed) { gui.displayDyspros(partie.dyspros().getImage(),isDisplayed); }
 	/** Affiche le remerciement de Mentris selon le niveau
-	 * @param int cptNiveau
+	 * @param  cptNiveau int
 	 */
 	public void mentrisRemerciement(int cptNiveau) {
 		// TODO Auto-generated method stub
@@ -294,7 +294,7 @@ public class Jeu implements Serializable {
 		gui.afficher(partie.getGuideDuJeu().dialoguePendantQuete(cptNiveau).replaceAll("joueur", getPartie().getJoueur().getNom()));
 	}
 	/** Exécute le tour du combat 
-	 * @param Personnage personnage attaquant avec le joueur pour ce tour
+	 * @param personnage Personnage attaquant avec le joueur pour ce tour
 	 */
 	public void tourDuComabat(PersonnageActifs personnage) {
 		partie.getJoueur().attaquer(partie.dyspros()); 
@@ -317,8 +317,8 @@ public class Jeu implements Serializable {
 		gui.afficherElementZone(partie.getZoneCourante().getAnimauxDansLazone(), partie.getZoneCourante().getPersonnageDansLaZone());
 		gui.afficher("LES PV DE DYSPROS SONT" + partie.dyspros().getPointDeVie()+ "\n LES PV QUE TU AS"+partie.getJoueur().getPointDeVie());	
 	}
-	/** Retire le perosnnage mort de la zone de combat
-	 * @param Personnage personnagemort
+	/** Retire le personnage mort de la zone de combat
+	 * @param personnage représente le personnage mort
 	 */
 	private void retirerPersonnageMort(PersonnageActifs personnage) {
 		// TODO Auto-generated method stub

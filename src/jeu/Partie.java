@@ -37,7 +37,7 @@ public class Partie implements Serializable {
 		return dyspros;
 	}
 	/** Setter de la salle de repos
-	 * @param Zone salleDeReposArg
+	 * @param  salleDeReposArg Zone
 	 */
 	public void setSalleDeRepos(Zone salleDeReposArg) {
 		this.salleDeRepos = salleDeReposArg;
@@ -59,7 +59,7 @@ public class Partie implements Serializable {
 		return joueur;
 	}
 	/** Setter de joueur
-	 * @param Joueur newJoueur
+	 * @param  newJoueur Joueur
 	 */
 	public void setJoueur(Joueur newJoueur) {
 		joueur=newJoueur;
@@ -71,19 +71,19 @@ public class Partie implements Serializable {
 		return salleDeRepos;
 	}
 	/**Setter queteEnCours
-	 * @param Quete quete
+	 * @param  quete Quete
 	 */
 	public void setQuete(Quete quete) {
 		joueur.setQuete(quete);
 	}
 	/** Getter de la carteActuek
-	 * @return ArrayList<Planete> carteActuel
+	 * @return carteActuel ArrayList de planete 
 	 */
 	public ArrayList<Planete> carteActuel() {
 		return carteActuel;
 	}
 	/**Retourne toutes les zones de l'espace
-	 * @return ArrayList<Zone> les zones des planètes
+	 * @return les zones des planètes grâce à un ArrayList de Zone
 	 */
 	public ArrayList<Zone> zones() {
 		ArrayList<Zone> zones = new ArrayList<Zone>();
@@ -100,7 +100,7 @@ public class Partie implements Serializable {
 		return joueur.quete();
 	}
 	/** Setter de l'espace
-	 * @param ArrayList<Planete> planetes
+	 * @param  planetes ArrayList de Planete
 	 */
 	public void setEspace(ArrayList<Planete> planetes) {
 		carteActuel= planetes;
@@ -113,7 +113,7 @@ public class Partie implements Serializable {
 		return zoneCourante;
 	}
 	/** Setter zoneCourante
-	 * @param Zone newzone
+	 * @param  newzone Zone
 	 */
 	public void setZoneCourante(Zone newzone)
 	{
@@ -132,7 +132,7 @@ public class Partie implements Serializable {
 		return guideDuJeu;
 	}
 	/**Setter guideDuJeu
-	 * @param Queteur guideDuJeu
+	 * @param guideDuJeu Queteur 
 	 */
 	public void setGuideDuJeu(Queteur guideDuJeu) {
 		this.guideDuJeu = guideDuJeu;
@@ -144,7 +144,7 @@ public class Partie implements Serializable {
 		return vaisseau;
 	}
 	/**Setter de la zone du vaisseau
-	 * @param Zone newVaisseau
+	 * @param newVaisseau Zone 
 	 */
 	public void setVaisseau(Zone newVaisseau) {
 		vaisseau = newVaisseau;

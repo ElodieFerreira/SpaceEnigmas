@@ -43,7 +43,7 @@ public class capturerMouton extends Quete {
 		}
 	}
 	/** Vérifie si le joueur détient des moutons dans son inventaire
-	 * @param joueur
+	 * @param joueur represente le joueur 
 	 * @return boolean true si le joueur a  1 ou plus de mouton false sinon
 	 */
 	public boolean verifierCaptureMouton(Joueur joueur) {

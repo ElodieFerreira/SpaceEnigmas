@@ -12,7 +12,7 @@ import org.w3c.dom.NodeList;
 
 public class WorldBuilder {
 	/** Cette fonction va créer toutes les zones écrites sur un xml spécifique au jeu?
-	 * @see espace1.xml
+	 * cf. fichier espace1.xlm 
 	 * @return toutes les zones du jeu
 	 */
 	public static ArrayList<Zone> creerToutesLesZones() {
@@ -35,8 +35,8 @@ public class WorldBuilder {
 		return zones;
 	}	
 	/** Cette fonction rajoute toutes les sorties au zones existantes.
-	 * @param toutesLesZones
-	 * @return ArrayList<Zone> représentant toutes les zones du jeu avec leur sortie
+	 * @param toutesLesZones qui est un arraylist des zones 
+	 * @return ArrayList de zones représentant toutes les zones du jeu avec leur sortie
 	 */
 	public static ArrayList<Zone> ajouterToutesLesSorties(ArrayList<Zone> toutesLesZones) {
 		ReaderXML spaceReader = new ReaderXML("espace1.xml");
@@ -57,8 +57,8 @@ public class WorldBuilder {
 		return toutesLesZones;
 	}
 	/** Cette fonction retourne toutes les planètes du jeu avec leur zone
-	 * @param toutesLesZones -> ArrayList<Zone>
-	 * @return toutesLesPlanètes -> Retourne toutes les planètes du jeu
+	 * @param toutesLesZones est un  ArrayList de zone 
+	 * @return toutesLesPlanètes Retourne toutes les planètes du jeu
 	 */
 	public static ArrayList<Planete> creerLesPlanetes(ArrayList<Zone> toutesLesZones) {
 		ArrayList<Planete>  planetesRetour = new ArrayList<Planete>();
@@ -81,9 +81,9 @@ public class WorldBuilder {
 	}
 
 	/** Cette méthode ajoute toutes les sorties au vaisseau
-	 * @param vaisseau ( Zone )
-	 * @param espace (ArrayList<Planete>)
-	 * @return Vaisseau (Zone) avec ses nouvelles sorties
+	 * @param vaisseau Zone
+	 * @param espace est un ArrayList de Planete
+	 * @return Vaisseau Zone avec ses nouvelles sorties
 	 */
 	public static Zone ajouterLesSortiesAuVaisseau(Zone vaisseau, ArrayList<Planete> espace) {
 		//La structure planète permet d'ajouter logiquement et par une simple boucle la première zone 
@@ -95,9 +95,9 @@ public class WorldBuilder {
 	}
 
 	/** Cette fonction rajoute uniquement la sortie à la zone du vaisseua dédiée aux alliés
-	 * @param Zone Salle de repos
-	 * @param direction de la sorrue
-	 * @param Zone de la sortie
+	 * @param repos est une zone  qui représente la salle de repos
+	 * @param direction de la sortie
+	 * @param sortie est la zone de la sortie
 	 * @return La salle de repos retournée avec sa sortie vers le vaisseau
 	 */
 	public static Zone ajouterSortieZoneDeRepos(Zone repos,String direction,Zone sortie) {
@@ -106,9 +106,9 @@ public class WorldBuilder {
 	}
 
 	/**Cette méthode positionne les moutons sur la carte
-	 * @param ArrayList<Zone> possible d'apparition des moutons
-	 * @param Int nombre de moutons 
-	 * @return ArrayList<Zone> retourne les zones après le placement des moutons
+	 * @param zone qui est un ArrayList de zone possible d'apparition des moutons
+	 * @param nbMouton qui est un int représentant le nombre de moutons 
+	 * @return ArrayList de zone qui représente les zones après le placement des moutons
 	 */
 	public static ArrayList<Zone> positionnerMouton(ArrayList<Zone> zone, int nbMouton)
 	{
@@ -127,8 +127,8 @@ public class WorldBuilder {
 		return zone ;
 	}
 	/** Cette méthode crée tous les alliés lu à partir d'un fichier XML
-	 * @param Le nom du fichier
-	 * @return ArrayList<Allies> avec tous les alliés de la partie
+	 * @param nomFichier représente le nom du fichier
+	 * @return ArrayList d'Allies qui sont les alliés de la partie
 	 */
 	public static ArrayList<PersonnageActifs> creerTousLesPersonnageActifs(String nomFichier) {
 		ReaderXML persoReader = new ReaderXML(nomFichier);
@@ -156,9 +156,9 @@ public class WorldBuilder {
 		return tousLesPersos;
 	}
 	/** Cette méthode place les alliés sur la carte
-	 * @param ArrayList<Zone> représentant l'espace actuelle sans alliés
-	 * @param ArrayList<Allies> tous les alliés créé avec la méthode "creerTousLesAllies"
-	 * @return ArrayList<Zone> qui représente le nouvel espace avec les alliés
+	 * @param zones qui est un ArrayList de zone représentant l'espace actuelle sans alliés
+	 * @param tousLesAllies qui est un ArrayList d'Allies représentant tous les alliés créé avec la méthode "creerTousLesAllies"
+	 * @return ArrayList de Zone qui représente le nouvel espace avec les alliés
 	 */
 	public static ArrayList<Zone> positionneAlliees(ArrayList<Zone> zones, ArrayList<PersonnageActifs> tousLesAllies)
 	{	
@@ -177,8 +177,8 @@ public class WorldBuilder {
 		return zones;
 	}
 	/**Supprime les moutons
-	 * @param Zone où se trouve le mouton
-	 * @param Le mouton a supprimé - Mouton -
+	 * @param zone qui correspond à la zone où se trouve le mouton
+	 * @param  mouton qui correspond au mouton a supprimer
 	 * @return La Zone sans le mouton
 	 */
 	public static Zone suppresionDuMouton(Zone zone,Mouton mouton) {
@@ -187,9 +187,9 @@ public class WorldBuilder {
 	}
 	
 	/** Crée et place les quêteurs du jeu
-	 * @param toutesLesZones ArrayList<Zone>
-	 * @param toutesLesQuetes ArrayList<Quete>
-	 * @return ArrayList<Zone> représente l'espace avec les quêteurs en place
+	 * @param toutesLesZones ArrayList de zone
+	 * @param toutesLesQuetes ArrayList de quete
+	 * @return ArrayList de zone  représente l'espace avec les quêteurs en place
 	 */
 	public static ArrayList<Zone> miseEnPlaceDesQueteurs(ArrayList<Zone> toutesLesZones,ArrayList<Quete> toutesLesQuetes) {
 		ReaderXML queteurReader = new ReaderXML("queteurs.xml");
@@ -247,7 +247,7 @@ public class WorldBuilder {
 	}
 	
 	/** Crée tous les objets récompenses des quêtes
-	 * @return ArrayList<Objets>
+	 * @return ArrayList d'Objets
 	 */
 	public static ArrayList<Objets> creerLesObjets() {
 		ArrayList<Objets> objets = new ArrayList<Objets>();
@@ -264,8 +264,8 @@ public class WorldBuilder {
 	}
 	
 	/** Instancie les classes d'énigmes
-	 * @param ArrayList<Objets> toutes les objets récompense
-	 * @return Toutes les quêtes disponibles dans le jeu ArrayList<Quete>
+	 * @param  recompenses représente un ArrayList d'objet il s'agitde toutes les objets récompense
+	 * @return Toutes les quêtes disponibles dans le jeu ArrayList de quete
 	 */
 	public static ArrayList<Quete> creerLesQuetesDuJeu(ArrayList<Objets> recompenses) {
 		ArrayList<Quete> quetes = new ArrayList<Quete>();
@@ -311,7 +311,7 @@ public class WorldBuilder {
 		return quetes;
 	}
 	/** Cette méthode réinitialise les moutons dans les zones
-	 * @param ArrayList<Zone>
+	 * @param zones ArrayList de zones
 	 */
 	public static synchronized void reInitSheep(ArrayList<Zone> zones) {
 		// Cette méthode étant suceptible d'être utilisé par plusieurs Thread, on a essayé de la sécuriser

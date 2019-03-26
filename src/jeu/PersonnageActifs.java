@@ -42,7 +42,7 @@ public class PersonnageActifs extends Personnage {
 		return pointDeVie;
 	}
 	/** Setter pointDeVie
-	 * @param int pointDeVie
+	 * @param  pointDeVie int
 	 */
 	public void setPointDeVie(Integer pointDeVie) {
 		this.pointDeVie = pointDeVie;
@@ -54,7 +54,7 @@ public class PersonnageActifs extends Personnage {
 		return pointDePouvoir;
 	}
 	/** Setter pointDePouvoir
-	 * @param Integer pointDePouvoir
+	 * @param  pointDePouvoir Integer
 	 */
 	public void setPointDePouvoir(Integer pointDePouvoir) {
 		this.pointDePouvoir = pointDePouvoir;
@@ -66,8 +66,8 @@ public class PersonnageActifs extends Personnage {
 		return statut;
 	}
 	/** Lance le pouvoir du joueur lors d'un tour de combat
-	 * @param PersonnageActifs personnage
-	 * @param PersonnageActifs joueur
+	 * @param  personnage PersonnageActifs
+	 * @param  joueur Joueur
 	 */
 	public void lancerPouvoir(PersonnageActifs personnage,Joueur joueur) {
 		//Vérifie quel type de pouvoir va utiliser le personnage, il le lance 
@@ -82,8 +82,8 @@ public class PersonnageActifs extends Personnage {
 	/** Attaque joueur lors d'une réplique ainsi que celui qui l'a attaqué avec lui
 	 * Utilisé par le méchant du jeu mais qui reste accessible à tous les personnages actifs
 	 * pour d'éventuel nouveau scénario si les alliés peuvent devenir méchant
-	 * @param PersonnageActifs personnage
-	 * @param Joueur joueur
+	 * @param  personnage PersonnageActifs
+	 * @param  joueur Joueur
 	 */
 	public void attaquerJoueur(PersonnageActifs personnage,Joueur joueur) {
 		if(statut == Role.FIGHTER) {

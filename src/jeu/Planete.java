@@ -23,13 +23,14 @@ public class Planete implements Serializable{
 		this.cartePlanete = new ArrayList<Zone>();
 	}
 	/** Ajoute une zone à notre planète
-	 * @param Zone zoneAjoutee
+
+	 *@param zoneAjoutee Zone
 	 */
 	public void ajouterZone(Zone zoneAjoutee) {
 		this.cartePlanete.add(zoneAjoutee);
 	}
 	/** Getter des zones sur la planètes
-	 * @return ArrayList<Zone> les zones
+	 * @return les zones ArrayList de zones
 	 */
 	public ArrayList<Zone> getZones() {
 		return cartePlanete;
@@ -47,7 +48,7 @@ public class Planete implements Serializable{
 		return this.description;
 	}
 	/**Retourne une zone à index particulier de la proprieté d'instance zones
-	 * @param int index
+	 * @param  index int
 	 * @return Zone zone
 	 */
 	public Zone getZone(int index) {

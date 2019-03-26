@@ -12,7 +12,7 @@ public class EnigmeTextuel extends Quete {
 	private int nombreDeCoups;
 	private int nombreDeCoupsMax;
 	
-	/**<b>EnigmeTextuel(Objets,ArrayList String, ArrayList String, ArrayList String</b>
+	/**
 	 * Ce constructeur initialise les propriétés d'instance 
 	 * @param recompenseJoueur représente la récompense que le joueur gagnera
 	 * @param enoncee représente l'énoncée de l'enigme 
@@ -29,7 +29,7 @@ public class EnigmeTextuel extends Quete {
 	
 	}
 
-	/**<b> sujetEnigme(int)</b>
+	/**
 	 * Cette méthode sélectionne l'énigme en fonction du niveau du joueur 
 	 * @param niveau représente le niveau du joueur 
 	 * @return l'énoncée de l'énigme 
@@ -40,7 +40,7 @@ public class EnigmeTextuel extends Quete {
 	}
 
 	
-	/**<b> reponseEnigme(int)</b>
+	/**
 	 * Cette méthode sélectionne la réponse associée à l'enigme
 	 * @param niveau représente le niveau du joueur
 	 * @return String correspondant à la réponse
@@ -50,7 +50,7 @@ public class EnigmeTextuel extends Quete {
 		return this.repEnigme.get(niveau);
 	}
 	/**
-	 * <b>indiceEnigme(int) </b>
+	 *
 	 * Cette méthode sélectionne l'indice associé à l'enigme 
 	 * @param niveau représente le niveau du joueur
 	 * @return String correspondant à l'indice
@@ -62,7 +62,7 @@ public class EnigmeTextuel extends Quete {
 	
 
 	
-	/**<b>bonneReponse(String, int) </b>
+	/**
 	 * Cette méthode vérifie si la réponse donnée figure dans la réponse de l'enigme
 	 * @param reponse représente la réponse
 	 * @param niveau représente le niveau du joueur 
@@ -73,7 +73,7 @@ public class EnigmeTextuel extends Quete {
 		System.out.println(this.reponseEnigme(niveau));
 		return reponse.toUpperCase().contains(reponseEnigme(niveau).toUpperCase());
 	}
-	/**<b>executerQuete(Joueur,Queteur,String)</b>
+	/**
 	 * Cette méthode permet d'exécuter la quête de l'enigme
 	 * @param joueur
 	 * @param queteur

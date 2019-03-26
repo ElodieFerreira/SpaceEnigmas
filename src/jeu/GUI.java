@@ -65,7 +65,7 @@ public class GUI implements ActionListener,Serializable
         creerGUI();
     }
     /** Ajoute le nom du joueur à la fenêtre
-     * @param String nom
+     * @param nom 
      */
     public void addNameFrame(String nom) {
     	fenetre.setTitle("SpaceEnigmas "+nom);
@@ -76,8 +76,8 @@ public class GUI implements ActionListener,Serializable
         texte.setCaretPosition(texte.getDocument().getLength());
     }
     /** Affiche un dialogue et le nom du personnage qui le dit
-     * @param String dialogue
-     * @param Personnage perso
+     * @param s String: dialogue
+     * @param perso : Personnage
      */
     public void afficher(String s, Personnage perso) {
     	texte.append("\n");
@@ -108,7 +108,7 @@ public class GUI implements ActionListener,Serializable
         afficher("\n");
     }
     /** Affiche l'image de la zone en fond
-     * @param String nomImage
+     * @param nomImage String
      */
     public void afficheImage(String nomImage) {
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
@@ -122,8 +122,8 @@ public class GUI implements ActionListener,Serializable
         }
    }
     /** Affiche une image resize selon la taille du JLabel où on va l'afficher
-     * @param String nomImage
-     * @param JLabel jlabel
+     * @param nomImage String
+     * @param jlabel JLabel
      */
     public void afficheImageMiniature(String nomImage, JLabel jlabel) {
     	URL imageURL = this.getClass().getClassLoader().getResource("images/" + nomImage);
@@ -147,8 +147,8 @@ public class GUI implements ActionListener,Serializable
         }
    }
     /** Met en place le texte en verticale sur un bouton donné
-     * @param JButton bouton
-     * @param String text
+     * @param bouton JButton
+     * @param  text String
      * @return JButton modifé
      */
     public JButton texteVerticaleBouton(JButton bouton, String text) {
@@ -162,7 +162,7 @@ public class GUI implements ActionListener,Serializable
     	return bouton;
     }
     /** Affiche les boutons de sorties sur la zone selon les sorties disponibles
-     * @param HashMap<String,Zone> sorties
+     * @param  sorties HashMap &lt; String,Zone &gt;
      */
     public void afficherBoutonSortie(HashMap<String,Zone> sorties) {
     	if(sorties.get("NORD")!=null) {
@@ -627,8 +627,8 @@ public class GUI implements ActionListener,Serializable
     	fenetre.setVisible(false);
     }
 	/** Affiche les éléments dans les zones, mouton et personnage.
-	 * @param ArrayList<Mouton> animauxDansLazone
-	 * @param ArrayList<Personnage> personnageDansLaZone
+	 * @param  animauxDansLazone ArrayList de Mouton
+	 * @param personnageDansLaZone ArrayList de Personnage 
 	 */
 	public void afficherElementZone(ArrayList<Mouton> animauxDansLazone,ArrayList<Personnage> personnageDansLaZone) {
 		for(JLabel label : labelArray) {

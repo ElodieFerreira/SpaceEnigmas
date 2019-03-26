@@ -19,7 +19,7 @@ public class ReaderXML {
 	
 	/** Constructeur d'un ReaderXML qui aura un Document, en proprieté d'instance, obtenu après que le fichier XML, dont
 	 * le nom est passé en paramètre, soit parsé
-	 * @param String nomFichier
+	 * @param  nomFichier String
 	 */
 	public ReaderXML(String nomFichier) {
 		 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
