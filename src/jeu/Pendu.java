@@ -59,7 +59,6 @@ public class Pendu extends Quete{
 		int niveau = joueur.niveauActuel;
 		reponse = mots.get(niveau);
 		for(int i=0;i<reponse.length();i++) {
-			System.out.println(reponse);
 			motJeu += "-";
 		}
 	} 
@@ -72,7 +71,6 @@ public class Pendu extends Quete{
 	private void devoileLettre(String lettre, int id) {
 		// On prend l'index de la lettre trouvé dans la réponse
 		int index=reponse.indexOf(lettre.toUpperCase(),id);
-		System.out.println(motJeu.length());
 		// Rappel : motJeu = "-----"
 		// Si l'index est égal à moins 1 ça signifie que la lettre est bien dans le mot
 		if(index!=-1) {
@@ -130,7 +128,6 @@ public class Pendu extends Quete{
 				// C'est considéré comme un coup de plus : 
 				nombreDeCoups++;
 				if(nombreDeCoups==nombreDeCoupsMax) {
-					System.out.println("morte");
 					perdu(joueur);
 					return "";
 					

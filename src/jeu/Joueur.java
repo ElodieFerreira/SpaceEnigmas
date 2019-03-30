@@ -30,8 +30,8 @@ public class Joueur implements Serializable {
 		friends = new HashSet();
 		niveauMaximum = 3;
 		niveauActuel = 0;
-		pointDeVie = 15;
-		pointdAttaque = 15;
+		pointDeVie = 20;
+		pointdAttaque = 5;
 	}	
 	/** Getteur des points d'attaque
 	 * @return Integer point d'attaque

@@ -50,7 +50,7 @@ public class Partie implements Serializable {
 		carteActuel = new ArrayList<Planete>();
 		nbCommande = 0;
 		nbCommandeMax = 200;
-		dyspros = new PersonnageActifs("Dyspros","","Legrandmechant.png",150,2,Role.valueOf("FIGHTER"),"ola");
+		dyspros = new PersonnageActifs("Dyspros","","Legrandmechant.png",350,3,Role.valueOf("FIGHTER"),"ola");
 	}
 	/** Getter de joueur
 	 * @return Joueur

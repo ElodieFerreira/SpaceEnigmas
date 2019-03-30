@@ -6,8 +6,8 @@
 		<nom>Edolie</nom>
 		<image>edolie.gif</image>
 		<dialogue> J'ai entendu dire que vous voulez affronter Dyspros! Il a légèrement déréglé les préférences de mon IDE! Je hais ce type! Laissez moi veniravec moi!	</dialogue>
-		<PP>3</PP>
-		<PV>6</PV>
+		<PP>7</PP>
+		<PV>8</PV>
 		<ROLE>FIGHTER</ROLE>
 	</allie>
 	<allie index="2">

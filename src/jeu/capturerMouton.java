@@ -24,7 +24,6 @@ public class capturerMouton extends Quete {
 	// Redéfinition de la méthode exécuter quete
 	public String executerQuete(Joueur joueur, Queteur queteur) {
 		super.executerQuete(joueur, queteur);
-		System.out.println("Check :"+verifierCaptureMouton(joueur));
 		// Permet de récupérer un mouton
 		if(!verifierCaptureMouton(joueur)) {
 			return queteur.dialoguePendantQuete(2);

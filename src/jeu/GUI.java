@@ -431,8 +431,6 @@ public class GUI implements ActionListener,Serializable
         mntmAmis = new JMenuItem("Amis");
         mntmAmis.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		System.out.println("ola");
-        		System.out.println(jeu.getPartie().getSalleDeRepos()+"voici ma salle de repos");
         		jeu.allerEn(jeu.getPartie().getSalleDeRepos());
         		
         	}
@@ -662,7 +660,6 @@ public class GUI implements ActionListener,Serializable
 	        	// Affiche les points de vie des personnagesActifs
 	        	if(personnage instanceof PersonnageActifs) {
 	        		PersonnageActifs personnageActifs = (PersonnageActifs) personnage;
-	        		System.out.println("j'ai pv:"+personnageActifs.getPointDeVie());
 	        		lifePoints.get(cpt).setSize(((PersonnageActifs) personnage).getPointDeVie()*10, 23);
 	        		lifePoints.get(cpt).setVisible(true);
 	        	}
