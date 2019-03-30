@@ -52,7 +52,6 @@ public class capturerMouton extends Quete {
 				cptMouton++;
 			}
 		}
-		System.out.println("NombreDeMouton"+cptMouton);
 		return cptMouton>=1;
 	}
 }

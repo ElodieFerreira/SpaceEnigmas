@@ -296,7 +296,6 @@ public class WorldBuilder {
 			Element niveau = (Element) enigmesComplete.item(i);
 			NodeList enigmesDuNiveau = niveau.getElementsByTagName("enigme");
 			Random r = new Random();
-			System.out.println(enigmesDuNiveau.getLength());
 			int intRand = r.nextInt(enigmesDuNiveau.getLength());
 			Element enigme = (Element) enigmesDuNiveau.item(intRand);
 			String question = enigme.getElementsByTagName("question").item(0).getTextContent();

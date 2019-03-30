@@ -43,7 +43,6 @@ public class Queteur extends Personnage {
 			return dialogueLancementQuete+"\n"+((EnigmeTextuel) quete).sujetEnigme(joueur.niveauActuel);
 		} else {
 			ThreadLauncher.makeMoveMouton();
-			System.out.println("jebougetesputainsdemouton");
 		}
 		return dialogueLancementQuete;
 	}

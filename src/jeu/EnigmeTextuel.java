@@ -69,8 +69,7 @@ public class EnigmeTextuel extends Quete {
 	 * @return true : si la réponse donnée est dans l'enigme sinon false 
 	 */
 	public boolean bonneReponse(String reponse, int niveau)
-	{	System.out.println(reponse);
-		System.out.println(this.reponseEnigme(niveau));
+	{	
 		return reponse.toUpperCase().contains(reponseEnigme(niveau).toUpperCase());
 	}
 	/**

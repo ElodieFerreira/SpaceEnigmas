@@ -16,10 +16,8 @@ public class Sauvegarde
 			// Préparation de l'écriture de l'objet dans le fichier 
 			FileOutputStream file = new FileOutputStream("src/data/sauvegarde.txt");
 			ObjectOutputStream out = new ObjectOutputStream(file);
-			System.out.println("Preparation de la serealisation de la zone");
 			// Ecriture de l'objet dans le fichier
 			out.writeObject(partieCourante);
-			System.out.println("La zone a bien été serealisé");
 			//Fermeture des streams 
 			out.close();
 			file.close();
@@ -50,7 +48,6 @@ public class Sauvegarde
 					Partie save = (Partie)in.readObject();
 					in.close();
 					file.close();
-					System.out.println("L'objet a été déséréalizé");
 					return save;
 				}
 				catch(IOException e)
