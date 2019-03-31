@@ -45,7 +45,7 @@ public class GUI implements ActionListener,Serializable
 	private JButton boutonNord,boutonSud,boutonOuest,boutonEst;
     private JMenu mnJoueur,mnAide;
     private JMenuBar menuBar;
-    private JMenuItem Sauvegarde,Inventaire,mntmAmis,test,Interface,Planete,suppression;
+    private JMenuItem Sauvegarde,Inventaire,mntmAmis,test,Interface,suppression;
 
     private MouseListener lbl1,lbl2,lbl3,teleporteur;
     
@@ -470,9 +470,7 @@ public class GUI implements ActionListener,Serializable
 				}
         	}
         });
-        mnAide.add(Interface);      
-        Planete = new JMenuItem("Carte");
-        mnAide.add(Planete);  
+        mnAide.add(Interface);
         // Mise en place du splitPane pour les miniatures et les dialogues
         JSplitPane splitPane = new JSplitPane();
         splitPane.setResizeWeight(0.15);
