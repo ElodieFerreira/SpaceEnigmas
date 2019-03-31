@@ -117,7 +117,6 @@ public class WorldBuilder {
 		while(hs.size()<nbMouton){
 			int nbaleat = 2 + (int)(Math.random()*((zone.size()-3)));
 			hs.add(nbaleat);
-			System.out.println(nbaleat+"MOUTON EN PLACE");
 		}
 		Iterator<Integer> it=hs.iterator();
 
